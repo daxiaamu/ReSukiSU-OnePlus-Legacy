@@ -9,3 +9,62 @@
  {
  	struct kgsl_process_private *p;
  	int type = KGSL_MEM_ENTRY_KERNEL;
+--- a/fs/exec.c
++++ b/fs/exec.c
+@@ -1762,9 +1762,9 @@
+ 
+ 	return ret;
+ }
+-#ifdef CONFIG_OPLUS_KERNEL_SECURE_GUARD
++#ifdef CONFIG_OPLUS_EXECVE_BLOCK
+ extern int oplus_exec_block(struct file *file);
+-#endif /* CONFIG_OPLUS_KERNEL_SECURE_GUARD */
++#endif /* CONFIG_OPLUS_EXECVE_BLOCK */
+ /*
+  * sys_execve() executes a new program.
+  */
+@@ -1818,13 +1818,13 @@
+ 	retval = PTR_ERR(file);
+ 	if (IS_ERR(file))
+ 		goto out_unmark;
+-#ifdef CONFIG_OPLUS_KERNEL_SECURE_GUARD
++#ifdef CONFIG_OPLUS_EXECVE_BLOCK
+     retval = oplus_exec_block(file);
+ 	if (retval){
+ 		fput(file);
+ 		goto out_unmark;
+ 	}
+-#endif /* CONFIG_OPLUS_KERNEL_SECURE_GUARD */
++#endif /* CONFIG_OPLUS_EXECVE_BLOCK */
+ 	sched_exec();
+ 
+ 	bprm->file = file;
+--- a/fs/namespace.c
++++ b/fs/namespace.c
+@@ -3098,9 +3098,9 @@
+ {
+ 	return data ? strndup_user(data, PATH_MAX) : NULL;
+ }
+-#ifdef CONFIG_OPLUS_KERNEL_SECURE_GUARD
++#ifdef CONFIG_OPLUS_MOUNT_BLOCK
+ extern int oplus_mount_block(const char __user *dir_name, unsigned long flags);
+-#endif /* CONFIG_OPLUS_KERNEL_SECURE_GUARD */
++#endif /* CONFIG_OPLUS_MOUNT_BLOCK */
+ /*
+  * Flags is a 32-bit value that allows up to 31 non-fs dependent flags to
+  * be given to the mount() call (ie: read-only, no-dev, no-suid etc).
+@@ -3122,12 +3122,12 @@
+ 	unsigned int mnt_flags = 0, sb_flags;
+ 	int retval = 0;
+ 
+-#ifdef CONFIG_OPLUS_KERNEL_SECURE_GUARD
++#ifdef CONFIG_OPLUS_MOUNT_BLOCK
+ 	retval = oplus_mount_block(dir_name, flags);
+ 	if (retval < 0){
+ 		return -EPERM;
+ 	}
+-#endif /* CONFIG_OPLUS_KERNEL_SECURE_GUARD */
++#endif /* CONFIG_OPLUS_MOUNT_BLOCK */
+ 	/* Discard magic */
+ 	if ((flags & MS_MGC_MSK) == MS_MGC_VAL)
+ 		flags &= ~MS_MGC_MSK;
