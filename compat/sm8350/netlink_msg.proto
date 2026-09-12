@@ -1,0 +1,225 @@
+// Recovered from verified OnePlus 9 final ColorOS protobuf-c reflection metadata.
+syntax = "proto2";
+package netlink.proto;
+
+enum NetlinkMsgId {
+  COMM_NETLINK_EVENT_UNSPEC = 0;
+  COMM_NETLINK_EVENT_SET_DPI_UID = 11;
+  COMM_NETLINK_EVENT_GET_DPI_STREAM_SPEED = 12;
+  COMM_NETLINK_EVENT_GET_ALL_UID_DPI_SPEED = 13;
+  COMM_NETLINK_EVENT_SET_DPI_MATCH_ALL_UID = 14;
+  COMM_NETLINK_EVENT_SET_DPI_WECHAT_SCENE = 15;
+  COMM_NETLINK_EVENT_SET_SCENE = 16;
+  COMM_NETLINK_EVENT_SET_STREAM_CHARACTER = 17;
+  COMM_NETLINK_EVENT_SET_DPI_ACTIVITY_SCENE = 18;
+  COMM_NETLINK_EVENT_GET_DPI_RECORD_DATA = 19;
+  COMM_NETLINK_EVENT_SET_DPI_STREAM_IDENTIFY_EABLE = 20;
+  COMM_NETLINK_EVENT_NOTIFY_DPI_RESULT = 21;
+  COMM_NETLINK_EVENT_GET_WZRY_SERVER_IP = 51;
+  COMM_NETLINK_EVENT_NOTIFY_WZRY_SERVER_IP = 52;
+  COMM_NETLINK_EVENT_GET_WZRY_DATA = 53;
+  COMM_NETLINK_EVENT_GET_DELAY = 54;
+  COMM_NETLINK_EVENT_SET_LOG_STREAM_IPADDR = 101;
+  COMM_NETLINK_EVENT_NOTIFY_GAME_MAIN_IP = 201;
+  COMM_NETLINK_EVENT_SET_GAME_UID = 202;
+}
+
+enum dpiLevelType {
+  DPI_LEVEL_UNSPEC = 0;
+  DPI_LEVEL_UID = 1;
+  DPI_LEVEL_APP = 2;
+  DPI_LEVEL_FUNC = 3;
+  DPI_LEVEL_STREAM = 4;
+}
+
+message MessageHeader {
+  required uint32 requestId = 1;
+  required uint32 eventId = 3;
+  required uint32 retCode = 2;
+}
+
+message RequestSetDpiUid {
+  required uint32 tmgpSgameUid = 1;
+  required uint32 logkitUid = 2;
+  required uint32 haytapMarketUid = 3;
+  optional uint32 zoomUid = 4;
+  optional uint32 tencentMeetingUid = 5;
+  optional uint32 wechatUid = 6;
+  optional uint32 douYuUid = 7;
+  optional uint32 huYaUid = 8;
+  optional uint32 youKuUid = 9;
+  optional uint32 iQiYiUid = 10;
+  optional uint32 bilibiliUid = 11;
+  optional uint32 douyinUid = 12;
+  optional uint32 kuaishouUid = 13;
+  optional uint32 qqUid = 14;
+}
+
+message RequestSetScene {
+  required uint32 uid = 1;
+  required uint32 scene = 2;
+  required uint32 enterType = 3;
+}
+
+message RequestSetCharater {
+  required uint64 streamId = 1;
+  optional string transportProtocol = 2;
+  optional string dstPort = 3;
+  optional string url = 4;
+  optional string httptype = 5;
+  optional string httpField = 6;
+  optional string downPkgTh = 7;
+  optional string upPkgTh = 8;
+  optional string upPkgMagic = 9;
+  optional string pkgTh = 10;
+}
+
+message RequestSetGameMainStreamUid {
+  repeated uint32 gameUid = 1 [packed = false];
+}
+
+message RequestSetWechatScene {
+  required uint64 wechatScene = 1 [deprecated = true];
+  required uint32 isEnter = 2 [deprecated = true];
+}
+
+message RequestSetActivityScene {
+  optional uint64 douyinStreamId = 1;
+  optional uint64 kuaishouStreamId = 2;
+}
+
+message RequestGetDpiStreamSpeed {
+  repeated uint32 ifidx = 1 [packed = false];
+  repeated uint32 uid = 2 [packed = false];
+  required uint64 speed_size = 3;
+  repeated uint64 limited_stream_set = 4 [packed = false];
+}
+
+message RequestSetLogSteamIp {
+  required string hostName = 1;
+  repeated uint32 ipAddr = 2 [packed = false];
+}
+
+message RequestSetDouyinIp {
+  required string hostName = 1;
+  repeated uint32 ipAddr = 2 [packed = false];
+  repeated string ipv6Addr = 3;
+}
+
+message RequestGetAllUidSpeed {
+  repeated uint32 ifidx = 1 [packed = false];
+  required uint64 speed_size = 2;
+  repeated uint64 limited_uid_set = 3 [packed = false];
+}
+
+message RequestSetDpiMatchAllUidEable {
+  required uint32 enable = 1;
+}
+
+message RequestSetDpiStreamIdentifyEable {
+  required uint32 enable = 1;
+}
+
+message RequestMessage {
+  required MessageHeader header = 1;
+  oneof request_data {
+    RequestSetDpiUid requsetSetDpiUid = 11;
+    RequestGetDpiStreamSpeed requestGetDpiStreamSpeed = 12;
+    RequestSetLogSteamIp requestSetLogSteamIp = 13;
+    RequestGetAllUidSpeed requestGetAllUidSpeed = 14;
+    RequestSetDpiMatchAllUidEable requestSetDpiMatchAllUidEable = 15;
+    RequestSetGameMainStreamUid requestSetGameMainStreamUid = 16;
+    RequestSetWechatScene requestSetWechatScene = 17;
+    RequestSetScene requestSetScene = 18;
+    RequestSetCharater requestSetCharater = 19;
+    RequestSetActivityScene requestSetActivityScene = 20;
+    RequestSetDouyinIp requestSetDouyinIp = 21;
+    RequestSetDpiStreamIdentifyEable requestSetDpiStreamIdentifyEable = 22;
+  }
+}
+
+message DpiSpeedItem {
+  required dpiLevelType type = 1;
+  required uint32 uid = 2;
+  required uint32 ifidx = 3;
+  required uint64 dpiId = 4;
+  required uint64 rxSpeed = 5;
+  required uint64 txSpeed = 6;
+}
+
+message ResponseGetDpiStreamSpeed {
+  repeated DpiSpeedItem streamUidSpeed = 1;
+}
+
+message ResponseGetWzryServerIp {
+  required uint32 battleIp = 1;
+}
+
+message GameDelayStats {
+  required uint64 timestamp = 1;
+  required uint64 rx_ip_delay = 2;
+  required uint64 rx_udp_delay = 3;
+  required uint64 rx_user_delay = 4;
+  required uint64 tx_udp_delay = 5;
+  required uint64 tx_ip_delay = 6;
+  required uint64 tx_sched_delay = 7;
+  required uint32 down_packets = 8;
+  required uint32 up_packets = 9;
+  repeated uint64 down_delay_max = 10 [packed = false];
+}
+
+message ResponseGetGameDelay {
+  repeated GameDelayStats stats = 1;
+}
+
+message ResponseDpiRecordItem {
+  required uint64 dpi_id = 1;
+  required uint64 duration = 2;
+  required uint64 rx_traffic = 3;
+  required uint64 tx_traffic = 4;
+  required uint64 total_traffic = 5;
+}
+
+message ResponseDpiRecordData {
+  repeated ResponseDpiRecordItem recordData = 1;
+}
+
+message ResponseMessage {
+  required MessageHeader header = 1;
+  oneof response_data {
+    ResponseGetDpiStreamSpeed rspGetDpiStreamSpeed = 11;
+    ResponseGetWzryServerIp rspWzryServerIp = 12;
+    ResponseGetGameDelay rspGameDelay = 13;
+    ResponseDpiRecordData responseDpiRecordData = 14;
+  }
+}
+
+message InformMessage {
+  required MessageHeader header = 1;
+}
+
+message NotifyWzryServerIp {
+  required uint32 battleIp = 1;
+}
+
+message NotifyGameMainServerIp {
+  required uint32 battleIp = 1;
+  required uint32 gameUid = 2;
+}
+
+message NotifyDpiResult {
+  optional uint32 uid = 1;
+  optional uint32 levelType = 2;
+  optional uint64 dpiId = 3;
+  optional uint32 state = 4;
+}
+
+message NotifyMessage {
+  required MessageHeader header = 1;
+  oneof notify_data {
+    NotifyWzryServerIp notifyWzryServerIp = 11;
+    NotifyGameMainServerIp notifyGameMainServerIp = 12;
+    NotifyDpiResult notifyDpiResult = 13;
+  }
+}
+
