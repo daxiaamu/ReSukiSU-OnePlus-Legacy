@@ -2,6 +2,7 @@
 import argparse
 import json
 import shutil
+from resukisu_source import validate_manifest as validate_resukisu
 from module_trust import verify_embedded
 from project import ROOT, PATCHES, device, sha256, save
 
@@ -23,8 +24,9 @@ def reuse(name, source_os, target_os):
         raise ValueError("Reuse requires a successful build using the registered stock config")
     if manifest["device"] != name or manifest["os"] != source_os or manifest["firmware"] != source["build_id"]:
         raise ValueError("Source build identity differs")
-    if any(manifest.get(key) != profile[key] for key in ("kernel", "vendor", "resukisu")):
+    if any(manifest.get(key) != profile[key] for key in ("kernel", "vendor")):
         raise ValueError("Source pins changed")
+    validate_resukisu(manifest, profile["resukisu"])
     if sha256(built / "Image") != manifest["image_sha256"] or sha256(built / "kernel.config") != manifest["config_sha256"]:
         raise ValueError("Compiled artifacts changed")
     if manifest["kernel_release"] != target["kernel_release"]:
