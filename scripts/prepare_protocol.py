@@ -17,6 +17,10 @@ def prepare(modules):
         run("protoc-c", "--proto_path=" + str(schema.parent), "--c_out=" + str(work), schema.name)
         header = work / "netlink_msg.pb-c.h"
         text = header.read_text()
+        # protoc-c 1.3 uses underscored struct tags; stock/public 1.4 uses these tags.
+        # Preserve type names as well as layout for genksyms.
+        for message in expected["messages"]:
+            text = text.replace("struct _" + message["c_name"], "struct " + message["c_name"])
         include = "#include <protobuf-c/protobuf-c.h>"
         if text.count(include) != 1:
             raise ValueError("Unexpected protoc-c header format")
