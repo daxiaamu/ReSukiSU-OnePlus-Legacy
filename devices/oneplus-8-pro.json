@@ -34,14 +34,15 @@
       "ota_type": "AB",
       "security_patch": "2024-04-05",
       "verified_from_stock_image": true,
-      "output_boot_sha256": "90999d74206d28933a8146e7141cb3d0b0b02f691c9c196bdfefa67f9c557221",
+      "output_boot_sha256": "72b7708a025e159a4fd3239d5bb78a08f2cc2f1fc6581fcd7459c625401bfad9",
       "trusted_module_certificates": [
         {
           "path": "compat/module-certificates/oneplus-8-pro/coloros-0.pem",
           "sha256": "4394860b49e3d6ba66f95d58c2f86367a2d2db13479bb6b3e4351953ee3de715",
           "der_sha256": "302cd52988233ae482dc3726210cb78f216bd92bf8dcc5585ace5d29a59daa51"
         }
-      ]
+      ],
+      "artifact_revision": "r2"
     },
     "oxygenos": {
       "priority": 2,
@@ -57,14 +58,15 @@
       "ota_type": "AB",
       "security_patch": "2024-06-05",
       "verified_from_stock_image": true,
-      "output_boot_sha256": "2425187c303de2440c73607439176d1ad44b4d6969517f876267ec0a72925881",
+      "output_boot_sha256": "d0ed0e2c9473c55a2a5c0e1b3de8d89c61588ba79437b99d3d7855a1712cd91a",
       "trusted_module_certificates": [
         {
           "path": "compat/module-certificates/oneplus-8-pro/oxygenos-0.pem",
           "sha256": "9466510ca47bfb1430545ec43f9c3cc89e3bc9ee5440c80bf79e6446ca2d5c7b",
           "der_sha256": "148036051f3e7130887846af079e9dbd9907cc2b54caec92f958f17548aef2fd"
         }
-      ]
+      ],
+      "artifact_revision": "r2"
     }
   },
   "status": {
@@ -73,9 +75,12 @@
     "device_verified": false,
     "boot_packaged": true,
     "abi_check": "original-vendor-odm-modules",
-    "kernel_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34711725290",
-    "distribution_status": "hold",
-    "module_signature_fix": "rebuild required; stock trust anchors were missing"
+    "distribution_status": "experimental",
+    "module_signature_fix": "r2: stock trust preserved and all 41 original modules verified per OS",
+    "kernel_runs": {
+      "coloros": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716936101",
+      "oxygenos": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716937579"
+    }
   },
   "vendor": {
     "repository": "OnePlusOSS/android_kernel_modules_and_devicetree_oneplus_sm8250",
