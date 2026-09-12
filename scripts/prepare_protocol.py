@@ -68,6 +68,20 @@ def prepare(modules, profile):
             stream.write("\n/* Validate the layouts against the original boot image. */\n" + "\n".join(assertions) + "\n")
         # Host and target are LP64; catch generated declaration/layout errors first.
         run("cc", "-std=gnu11", "-Werror=incompatible-pointer-types", "-fsyntax-only", str(generated))
+        if cfi_safe:
+            harness = work / "cfi_check.c"
+            descriptors = [callback[:-len("__init")] + "__descriptor" for callback in callbacks]
+            harness.write_text('#include "netlink_msg.pb-c.h"\n#include <stdlib.h>\n'
+                + 'static const ProtobufCMessageDescriptor *const descriptors[] = {'
+                + ','.join('&' + name for name in descriptors) + '};\n'
+                + 'int main(void) { for (size_t i = 0; i < sizeof(descriptors)/sizeof(descriptors[0]); ++i) {'
+                + 'volatile size_t selected = i; const ProtobufCMessageDescriptor *d = descriptors[selected];'
+                + 'ProtobufCMessage *m = malloc(d->sizeof_message); if (!m) return 1;'
+                + 'd->message_init(m); if (m->descriptor != d) return 2; free(m); } return 0; }\n')
+            executable = work / "cfi_check"
+            run("clang", "-O2", "-flto", "-fuse-ld=lld", "-fsanitize=cfi-icall", "-fvisibility=hidden",
+                str(generated), str(harness), "-lprotobuf-c", "-o", str(executable))
+            run(executable)
         header.write_text(text.replace(include, '#ifndef assert\n#define assert(condition) ((void)0)\n#endif\n#include "../comm_netlink/protobuf-c.h"'))
         for filename in ("netlink_msg.pb-c.h", "netlink_msg.pb-c.c"):
             shutil.copyfile(work / filename, destination / filename)
