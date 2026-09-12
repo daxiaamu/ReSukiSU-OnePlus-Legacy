@@ -19,6 +19,8 @@
 
 **9R 的 ColorOS 是 A-only，OxygenOS 是 A/B。** 两者在 `oneplus-9r` 分支内分别配置、分别封装；ColorOS 从 ZIP 直接提取 boot.img，OxygenOS 从 payload 提取。其余本批次固件均为 A/B。
 
+其他版本系统如需定制，请联系：[120.oplus.icu](https://120.oplus.icu)。
+
 ## 成品与验证范围
 
 每个成品目录包含 `boot.img`、`build.json`、`SHA256SUMS`；另有按机型和完整版本命名的 ZIP。镜像保存在本地 `out/`，不写入 Git 历史。校验值与构建记录见 [成品记录](docs/artifacts.json)。
