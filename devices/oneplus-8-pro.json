@@ -22,10 +22,18 @@
   "firmware": {
     "coloros": {
       "priority": 1,
-      "layout": "unverified",
-      "layout_evidence": "needs-device-confirmation",
-      "build_id": null,
-      "stock_boot_sha256": null
+      "layout": "a/b",
+      "layout_evidence": "official-ota-metadata",
+      "build_id": "IN2020_13.1.0.190(CN01)",
+      "stock_boot_sha256": "efc7b2466427ca90b9a395936b2098e5b98c14202547333b25e87bbfd0dd27a8",
+      "stock_boot_size": 100663296,
+      "source_url": "https://gauss-componentotacostmanual-cn.allawnfs.com/remove-408434051cc577f5cd66b833b9c11972/component-ota/24/06/07/021b80f8051047d7b63dcc373f074969.zip",
+      "config": "configs/stock/oneplus-8-pro/coloros.config",
+      "config_sha256": "ae25610534f3da161c1cd07067c39add4112afb62ad7665824b2aaaaab3ee226",
+      "kernel_release": "4.19.157-perf+",
+      "ota_type": "AB",
+      "security_patch": "2024-04-05",
+      "verified_from_stock_image": true
     },
     "oxygenos": {
       "priority": 2,

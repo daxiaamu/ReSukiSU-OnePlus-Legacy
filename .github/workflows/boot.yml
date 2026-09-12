@@ -54,8 +54,8 @@ jobs:
           info = json.loads(subprocess.check_output(["gh", "api", "repos/" + os.environ["GH_REPO"] + "/actions/runs/" + run_id]))
           if info["head_branch"] != d or info["conclusion"] != "success" or info["path"] != ".github/workflows/build.yml":
               raise SystemExit("Not a successful compile for this branch")
-          dest = "out/" + d
-          subprocess.run(["gh", "run", "download", run_id, "--name", "experimental-" + d + "-" + str(info["run_number"]), "--dir", dest], check=True)
+          dest = "out/" + d + "/" + os.environ["ROM"]
+          subprocess.run(["gh", "run", "download", run_id, "--name", "experimental-" + d + "-" + os.environ["ROM"] + "-" + str(info["run_number"]), "--dir", dest], check=True)
           with open(os.environ["GITHUB_ENV"], "a") as f:
               f.write("DEVICE=" + d + "\n")
           PY

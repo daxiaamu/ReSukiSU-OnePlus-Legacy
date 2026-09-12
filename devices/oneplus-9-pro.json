@@ -24,17 +24,33 @@
   "firmware": {
     "coloros": {
       "priority": 1,
-      "layout": "unverified",
-      "layout_evidence": "needs-device-confirmation",
-      "build_id": null,
-      "stock_boot_sha256": null
+      "layout": "a/b",
+      "layout_evidence": "official-ota-metadata",
+      "build_id": "LE2120_14.0.0.1901(CN01)",
+      "stock_boot_sha256": "880506483c3d12c1dbfb30548fc67122fd026a03abe09aae0489a47f84408a85",
+      "stock_boot_size": 201326592,
+      "source_url": "https://gauss-componentotacostmanual-cn.allawnfs.com/remove-1a2ffcc71769c94ba8f21014dc66884d/component-ota/25/04/23/4090705166084423a8a0970687852a95.zip",
+      "config": "configs/stock/oneplus-9-pro/coloros.config",
+      "config_sha256": "0d9b5d98056ffaf73d1149599f34e677e499185fe3fe9dc87199591143c2d74e",
+      "kernel_release": "5.4.254-qgki-gd2a1055adeb0",
+      "ota_type": "AB",
+      "security_patch": "2025-04-01",
+      "verified_from_stock_image": true
     },
     "oxygenos": {
       "priority": 2,
-      "layout": "unverified",
-      "layout_evidence": "needs-device-confirmation",
-      "build_id": null,
-      "stock_boot_sha256": null
+      "layout": "a/b",
+      "layout_evidence": "official-ota-metadata",
+      "build_id": "LE2121_14.0.0.1902(EX01)",
+      "stock_boot_sha256": "5161456e3bc5b3b7b2b786db49b9a0b3512006cd1d8bfb574d54bb36298615a1",
+      "stock_boot_size": 201326592,
+      "source_url": "https://gauss-componentotamanual.allawnofs.com/remove-d606fd59d078ae75f6b7206b4cc90a15/component-ota/25/11/03/8f89eda86d6f4ad9a1f4c280be556d70.zip",
+      "config": "configs/stock/oneplus-9-pro/oxygenos.config",
+      "config_sha256": "0d9b5d98056ffaf73d1149599f34e677e499185fe3fe9dc87199591143c2d74e",
+      "kernel_release": "5.4.254-qgki-gd2a1055adeb0",
+      "ota_type": "AB",
+      "security_patch": "2025-04-01",
+      "verified_from_stock_image": true
     }
   },
   "status": {
