@@ -1,0 +1,22 @@
+--- a/kernel/msm-4.19/techpack/display/oplus/oplus_display_panel.c
++++ b/kernel/msm-4.19/techpack/display/oplus/oplus_display_panel.c
+@@ -476,7 +476,7 @@
+ 	return rc;
+ }
+ 
+-void __exit oplus_display_panel_exit()
++void __exit oplus_display_panel_exit(void)
+ {
+ 	pr_info("%s\n", __func__);
+ 
+--- a/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_common_driver.c
++++ b/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_common_driver.c
+@@ -1670,7 +1670,7 @@
+ }
+ EXPORT_SYMBOL(tp_gpio_current_leakage_handler);
+ 
+-bool tp_boot_mode_normal()
++bool tp_boot_mode_normal(void)
+ {
+     if (!g_tp) {
+         return false;

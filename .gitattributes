@@ -1,3 +1,2 @@
 * text=auto eol=lf
-# Unified diff context lines intentionally begin with a space.
-*.patch text eol=lf -whitespace
+*.patch -text -whitespace
