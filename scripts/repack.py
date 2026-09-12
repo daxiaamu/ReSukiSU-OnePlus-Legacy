@@ -54,6 +54,18 @@ def repack(args):
         raise ValueError("Compiled kernel checksum mismatch")
     if manifest["kernel_release"] != registered["kernel_release"]:
         raise ValueError("Kernel release differs from stock; module compatibility requires review")
+    if sha256(built / "kernel.config") != manifest["config_sha256"]:
+        raise ValueError("Compiled config checksum mismatch")
+    if data["platform"] == "sm8350":
+        protocol = manifest.get("stock_protocol") or {}
+        for key, path in (("schema_sha256", "compat/sm8350/netlink_msg.proto"),
+                          ("reflection_sha256", "compat/sm8350/protocol-reflection.json")):
+            if protocol.get(key) != sha256(ROOT / path):
+                raise ValueError("Stale build: stock protocol changed")
+        final_config = (built / "kernel.config").read_text().splitlines()
+        for required in ("CONFIG_OPLUS_FINGERPRINT_COMMON=y", "CONFIG_CFI_CLANG=y"):
+            if required not in final_config:
+                raise ValueError("Required stock interface/config missing: " + required)
     tools = json.loads((ROOT / "tools.lock.json").read_text())["magiskboot"]
     dest = ROOT / "out" / args.device / (args.os + "-" + args.firmware)
     if dest.exists():
