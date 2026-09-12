@@ -62,3 +62,42 @@
  			stats->timestamp = copy_delay_arry[i].timestamp;
  			stats->rx_ip_delay = copy_delay_arry[i].rx_ip_delay;
  			stats->rx_udp_delay = copy_delay_arry[i].rx_udp_delay;
+
+diff --git a/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_common_driver.c b/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_common_driver.c
+--- a/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_common_driver.c
++++ b/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_common_driver.c
+@@ -1593,6 +1593,23 @@
+  * check_touchirq_triggered--used for stop system going sleep when touch irq is triggered
+  * 1 if irq triggered, otherwise is 0
+ */
++int tp_control_cs_gpio(bool enable)
++{
++	if (!g_tp) {
++		return 0;
++	}
++
++	if (gpio_is_valid(g_tp->hw_res.cs_gpio)) {
++		if (g_tp->ts_ops->cs_gpio_control) {
++			g_tp->ts_ops->cs_gpio_control(g_tp->chip_data, enable);
++		}
++	}
++
++	return 0;
++}
++
++EXPORT_SYMBOL(tp_control_cs_gpio);
++
+ int check_touchirq_triggered(void)
+ {
+     int value = -1;
+diff --git a/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_common.h b/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_common.h
+--- a/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_common.h
++++ b/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_common.h
+@@ -1029,6 +1029,7 @@
+ 	fw_update_state (*fw_update)(void *chip_data, const struct firmware *fw, bool force);      /*return 0 normal; return -1:update failed;*/
+ 	int (*power_control)(void *chip_data, bool enable);                                       /*return 0:success;other:abnormal, need to jump out*/
+ 	int (*reset_gpio_control)(void *chip_data, bool enable);                                  /*used for reset gpio*/
++	int (*cs_gpio_control)(void *chip_data, bool enable);
+ 	u8 (*trigger_reason)(void *chip_data, int gesture_enable, int is_suspended);               /*clear innterrupt reg && detect irq trigger reason*/
+ 	u32 (*u32_trigger_reason)(void *chip_data, int gesture_enable, int is_suspended);
+ 	u8 (*get_keycode)(void *chip_data);                                                        /*get touch-key code*/
