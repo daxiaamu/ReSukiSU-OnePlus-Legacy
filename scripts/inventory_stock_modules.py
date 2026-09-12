@@ -1,5 +1,5 @@
 import argparse,pathlib,subprocess,json,re,hashlib
-from project import ROOT
+from project import ROOT, device
 root=ROOT
 def sha(p):
  h=hashlib.sha256()
@@ -7,7 +7,9 @@ def sha(p):
   for b in iter(lambda:f.read(4*1024*1024),b''):h.update(b)
  return h.hexdigest()
 def scan(d, dump):
- meta=json.loads((d/'source.json').read_text(encoding='utf-8'));name=meta['device'];rom=meta['os'];result={'device':name,'os':rom,'stock_boot_sha256':sha(d/'boot.img'),'partitions':{},'modules':[]}
+ name=d.parent.name;rom=d.name;expected=device(name)['firmware'][rom]['stock_boot_sha256'];
+ if sha(d/'boot.img') != expected:raise ValueError('Stock boot does not match the registered firmware')
+ result={'device':name,'os':rom,'stock_boot_sha256':sha(d/'boot.img'),'partitions':{},'modules':[]}
  for part in ['vendor','odm']:
   image=d/'partitions'/(part+'.img');pending=[('/',None)];dirs=0;files=0
   while pending:
