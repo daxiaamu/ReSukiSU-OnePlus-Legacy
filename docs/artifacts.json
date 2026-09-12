@@ -261,7 +261,7 @@
         "module_count": null,
         "trusted_certificate_sha256": null
       },
-      "release_asset": "oneplus-9-pro-coloros-LE2120_14.0.0.1901.CN01..zip"
+      "release_asset": "oneplus-9-pro-coloros-LE2120_14.0.0.1901.CN01.zip"
     },
     {
       "device": "oneplus-9-pro",
@@ -283,7 +283,7 @@
         "module_count": null,
         "trusted_certificate_sha256": null
       },
-      "release_asset": "oneplus-9-pro-oxygenos-LE2121_14.0.0.1902.EX01..zip"
+      "release_asset": "oneplus-9-pro-oxygenos-LE2121_14.0.0.1902.EX01.zip"
     },
     {
       "device": "oneplus-9",
@@ -305,7 +305,7 @@
         "module_count": null,
         "trusted_certificate_sha256": null
       },
-      "release_asset": "oneplus-9-coloros-LE2110_14.0.0.1901.CN01..zip"
+      "release_asset": "oneplus-9-coloros-LE2110_14.0.0.1901.CN01.zip"
     },
     {
       "device": "oneplus-9",
@@ -327,7 +327,7 @@
         "module_count": null,
         "trusted_certificate_sha256": null
       },
-      "release_asset": "oneplus-9-oxygenos-LE2111_14.0.0.1902.EX01..zip"
+      "release_asset": "oneplus-9-oxygenos-LE2111_14.0.0.1902.EX01.zip"
     },
     {
       "device": "oneplus-9r",
