@@ -1,0 +1,42 @@
+[
+  {
+    "device": "oneplus-8-pro",
+    "os": "coloros",
+    "modules_verified": 41
+  },
+  {
+    "device": "oneplus-8-pro",
+    "os": "oxygenos",
+    "modules_verified": 41
+  },
+  {
+    "device": "oneplus-8",
+    "os": "coloros",
+    "modules_verified": 41
+  },
+  {
+    "device": "oneplus-8",
+    "os": "oxygenos",
+    "modules_verified": 41
+  },
+  {
+    "device": "oneplus-8t",
+    "os": "coloros",
+    "modules_verified": 41
+  },
+  {
+    "device": "oneplus-8t",
+    "os": "oxygenos",
+    "modules_verified": 41
+  },
+  {
+    "device": "oneplus-9r",
+    "os": "coloros",
+    "modules_verified": 41
+  },
+  {
+    "device": "oneplus-9r",
+    "os": "oxygenos",
+    "modules_verified": 41
+  }
+]

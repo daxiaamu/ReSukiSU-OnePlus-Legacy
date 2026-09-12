@@ -1,141 +1,239 @@
 {
-  "status": "experimental-not-device-tested",
-  "artifact_location": "Local out/; binaries are not committed to Git",
+  "status": "experimental; SM8250 r2 replaces withdrawn r1; OnePlus 9R ColorOS temporary boot verified",
+  "artifact_location": "local out/; binaries are not committed to Git",
   "kernel_builds": {
     "oneplus-8-pro": {
-      "run_id": 34711725290,
-      "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34711725290",
-      "recipe_commit": "be19da2c7e5236ff97434eea37cf5dc43246a308",
-      "branch": "oneplus-8-pro",
-      "status": "completed",
-      "conclusion": "success"
-    },
-    "oneplus-8t": {
-      "run_id": 34712741996,
-      "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34712741996",
-      "recipe_commit": "5bd4ef57d9cb92817e8317f9f165d19f31462520",
-      "branch": "oneplus-8t",
-      "status": "completed",
-      "conclusion": "success"
+      "coloros": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716936101",
+        "recipe_commit": "304143719aa5259a433a0e99de4fbde891b43698",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "oxygenos": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716937579",
+        "recipe_commit": "304143719aa5259a433a0e99de4fbde891b43698",
+        "status": "completed",
+        "conclusion": "success"
+      }
     },
     "oneplus-8": {
-      "run_id": 34711722950,
-      "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34711722950",
-      "recipe_commit": "8d007ef4a285366388798ad144fd6eb1fe12c084",
-      "branch": "oneplus-8",
-      "status": "completed",
-      "conclusion": "success"
+      "coloros": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716932872",
+        "recipe_commit": "bb7d3b4a2ace008293ddadb8dfd466372ccf9285",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "oxygenos": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716934553",
+        "recipe_commit": "bb7d3b4a2ace008293ddadb8dfd466372ccf9285",
+        "status": "completed",
+        "conclusion": "success"
+      }
     },
-    "oneplus-9r": {
-      "run_id": 34711728913,
-      "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34711728913",
-      "recipe_commit": "7dc0936bc6139473fbbbbf3c5d90cbdde3b077cd",
-      "branch": "oneplus-9r",
-      "status": "completed",
-      "conclusion": "success"
-    },
-    "oneplus-9": {
-      "run_id": 34711388262,
-      "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34711388262",
-      "recipe_commit": "13668725d6cdbc06845aac298be3450eeeacd0f1",
-      "branch": "oneplus-9",
-      "status": "completed",
-      "conclusion": "success"
+    "oneplus-8t": {
+      "coloros": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716939406",
+        "recipe_commit": "3f8b12e4cfb92779e9099cf880b75322781cc0e9",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "oxygenos": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716940961",
+        "recipe_commit": "3f8b12e4cfb92779e9099cf880b75322781cc0e9",
+        "status": "completed",
+        "conclusion": "success"
+      }
     },
     "oneplus-9-pro": {
-      "run_id": 34711398328,
-      "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34711398328",
-      "recipe_commit": "509e2280861d59d736ee3ad7ad17a619149a66e4",
-      "branch": "oneplus-9-pro",
-      "status": "completed",
-      "conclusion": "success"
+      "coloros": {
+        "run_id": 34711398328,
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34711398328",
+        "recipe_commit": "509e2280861d59d736ee3ad7ad17a619149a66e4",
+        "branch": "oneplus-9-pro",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "oxygenos": {
+        "run_id": 34711398328,
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34711398328",
+        "recipe_commit": "509e2280861d59d736ee3ad7ad17a619149a66e4",
+        "branch": "oneplus-9-pro",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    },
+    "oneplus-9": {
+      "coloros": {
+        "run_id": 34711388262,
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34711388262",
+        "recipe_commit": "13668725d6cdbc06845aac298be3450eeeacd0f1",
+        "branch": "oneplus-9",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "oxygenos": {
+        "run_id": 34711388262,
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34711388262",
+        "recipe_commit": "13668725d6cdbc06845aac298be3450eeeacd0f1",
+        "branch": "oneplus-9",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    },
+    "oneplus-9r": {
+      "coloros": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716929125",
+        "recipe_commit": "7ee17a099a5eb55e4a77ff75134e3e8ad4ef090e",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "oxygenos": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716931499",
+        "recipe_commit": "7ee17a099a5eb55e4a77ff75134e3e8ad4ef090e",
+        "status": "completed",
+        "conclusion": "success"
+      }
     }
   },
-  "packaging_recipe_sha256": "0cf73aa64f64d5511584d1739dfb9989780aa3cd7452872e0f7853ea54be48bf",
+  "packaging_recipe_sha256": "1edd9a04342a309ee46cfd26e047b22e1ee69a5a022ce492c66eb3af9f63c9d7",
   "artifacts": [
     {
       "device": "oneplus-8-pro",
       "os": "coloros",
       "firmware": "IN2020_13.1.0.190(CN01)",
       "layout": "a/b",
-      "boot_sha256": "90999d74206d28933a8146e7141cb3d0b0b02f691c9c196bdfefa67f9c557221",
+      "boot_sha256": "72b7708a025e159a4fd3239d5bb78a08f2cc2f1fc6581fcd7459c625401bfad9",
       "boot_size": 100663296,
-      "archive": "oneplus-8-pro-coloros-IN2020_13.1.0.190(CN01).zip",
-      "archive_sha256": "bb4cedfd90ef6ad4f429a2972260ba07858c784605d617753c1423f7f7962640",
-      "image_sha256": "820eb9683986d78c3e8f09300efef87fd394b5ce28b8a5ec7e652a0d0a981efa",
+      "archive": "oneplus-8-pro-coloros-IN2020_13.1.0.190(CN01)-r2.zip",
+      "archive_sha256": "61a9244e7f780040804cc8b0a20f9512177cea2eeb73348ff904a6c66a02e6c8",
+      "image_sha256": "095696904bd760d23458d8d303339f6c60e20eabea636b538d684de7b121c13b",
       "all_exports_match": false,
       "module_check": true,
-      "device_verified": false
+      "device_verified": false,
+      "artifact_revision": "r2",
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "module_count": 41,
+        "trusted_certificate_sha256": [
+          "302cd52988233ae482dc3726210cb78f216bd92bf8dcc5585ace5d29a59daa51"
+        ]
+      }
     },
     {
       "device": "oneplus-8-pro",
       "os": "oxygenos",
       "firmware": "IN2023_13.1.0.591(EX01)",
       "layout": "a/b",
-      "boot_sha256": "2425187c303de2440c73607439176d1ad44b4d6969517f876267ec0a72925881",
+      "boot_sha256": "d0ed0e2c9473c55a2a5c0e1b3de8d89c61588ba79437b99d3d7855a1712cd91a",
       "boot_size": 100663296,
-      "archive": "oneplus-8-pro-oxygenos-IN2023_13.1.0.591(EX01).zip",
-      "archive_sha256": "2871b05cf1eabd8af678a05b985e390ac9fd5749947aa619aa57c18828219aea",
-      "image_sha256": "820eb9683986d78c3e8f09300efef87fd394b5ce28b8a5ec7e652a0d0a981efa",
+      "archive": "oneplus-8-pro-oxygenos-IN2023_13.1.0.591(EX01)-r2.zip",
+      "archive_sha256": "ca93e18971f80988bd8a79169261d6c82922d861b4c38b9baa3310b2704a77b0",
+      "image_sha256": "bfffe600f12609f358e2562228551d4dedc2a59371c6944d90225295ac9f5f6f",
       "all_exports_match": false,
       "module_check": true,
-      "device_verified": false
+      "device_verified": false,
+      "artifact_revision": "r2",
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "module_count": 41,
+        "trusted_certificate_sha256": [
+          "148036051f3e7130887846af079e9dbd9907cc2b54caec92f958f17548aef2fd"
+        ]
+      }
     },
     {
       "device": "oneplus-8",
       "os": "coloros",
       "firmware": "IN2010_13.1.0.190(CN01)",
       "layout": "a/b",
-      "boot_sha256": "04a64df3a4c6d258eab3ff153f2695bb6819bc7c9be9e0e5f7da6512c617e873",
+      "boot_sha256": "2bbd2f31ced6b42c4497dd8750dc478b3388a4602a029a5fa34836c36714d98d",
       "boot_size": 100663296,
-      "archive": "oneplus-8-coloros-IN2010_13.1.0.190(CN01).zip",
-      "archive_sha256": "8d47e7d7d97e17a5721798640fec2a2de975014baf67dba5b74e72497de8347d",
-      "image_sha256": "39d68d1c50d3e2515d7d8cc777897b4cfe343052dfddb08476224091ac7505fe",
+      "archive": "oneplus-8-coloros-IN2010_13.1.0.190(CN01)-r2.zip",
+      "archive_sha256": "25b81d3bbd4e90d4c65e7797f59af8bbf1fe8c794e884ba834b924d6414520be",
+      "image_sha256": "7867758d82b7037041a37071a62c4a475bd1c2c25ee85e662f6637f5fdb36842",
       "all_exports_match": false,
       "module_check": true,
-      "device_verified": false
+      "device_verified": false,
+      "artifact_revision": "r2",
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "module_count": 41,
+        "trusted_certificate_sha256": [
+          "302cd52988233ae482dc3726210cb78f216bd92bf8dcc5585ace5d29a59daa51"
+        ]
+      }
     },
     {
       "device": "oneplus-8",
       "os": "oxygenos",
       "firmware": "IN2013_13.1.0.593(EX01)",
       "layout": "a/b",
-      "boot_sha256": "89624422420e6fe1a12655d0c36f2a0b9e82dccc0ef89f5cadfd0950965e2428",
+      "boot_sha256": "4cab530823d57205a7417930e750276ac78d309690f68237a2bc14813196d488",
       "boot_size": 100663296,
-      "archive": "oneplus-8-oxygenos-IN2013_13.1.0.593(EX01).zip",
-      "archive_sha256": "dd05b80a8cbd2d9fa2e38395f47692f16513ed90bb91ff55b94547affc5368ef",
-      "image_sha256": "39d68d1c50d3e2515d7d8cc777897b4cfe343052dfddb08476224091ac7505fe",
+      "archive": "oneplus-8-oxygenos-IN2013_13.1.0.593(EX01)-r2.zip",
+      "archive_sha256": "21efb3600e2fb04c76f7f85d2d5a47780f66a3cf9cbf817fe7e9f3f7d138ada1",
+      "image_sha256": "723feaae3f6e92f17c93dc7ab3c2076f376b1959bda5ea1a559932761d42a671",
       "all_exports_match": false,
       "module_check": true,
-      "device_verified": false
+      "device_verified": false,
+      "artifact_revision": "r2",
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "module_count": 41,
+        "trusted_certificate_sha256": [
+          "445a07772e463be175b4fb899312f285f02dc5b8bca5b40a763d353e965a2fae"
+        ]
+      }
     },
     {
       "device": "oneplus-8t",
       "os": "coloros",
       "firmware": "KB2000_14.0.0.602(CN01)",
       "layout": "a/b",
-      "boot_sha256": "16dddb1bf96cae2c77f9ebadb24fa2c73e4956f540338e21af1c6cd2973819f5",
+      "boot_sha256": "d0296cd460696b7c4190714da2ae4b58abce929b4bb5d3c636e541d7f60d1097",
       "boot_size": 100663296,
-      "archive": "oneplus-8t-coloros-KB2000_14.0.0.602(CN01).zip",
-      "archive_sha256": "c57808b4042c395a06e7c74deaf9f0f5f439741279c855c6be5c8be16fd89165",
-      "image_sha256": "2721f6308bf0affb96a0ebbcb14f30cde81491a8e2b851089b481f416c03fc8f",
+      "archive": "oneplus-8t-coloros-KB2000_14.0.0.602(CN01)-r2.zip",
+      "archive_sha256": "e93816d44a6b1478ed0a4ef62f2a8dfd337ce1aadd22155a57a839833b2e6ba5",
+      "image_sha256": "5d08a752c29344e7d70b835c6de256737032d7e1022c44125e3a3aca4098a95d",
       "all_exports_match": false,
       "module_check": true,
-      "device_verified": false
+      "device_verified": false,
+      "artifact_revision": "r2",
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "module_count": 41,
+        "trusted_certificate_sha256": [
+          "1c1f026dcd7be0b437098a4f38c2f488bd1dad4ba5640fa2499a27a79c069563"
+        ]
+      }
     },
     {
       "device": "oneplus-8t",
       "os": "oxygenos",
       "firmware": "KB2001_14.0.0.1311(EX01)",
       "layout": "a/b",
-      "boot_sha256": "cb4879a87002fea54e16132c7b02ee8b37dc942024119da9fa5c9cc1c6315621",
+      "boot_sha256": "f088dc760c32c4c35613c6d4c68bc64208dc6ccc39cb47acb95ade446e6aac3e",
       "boot_size": 100663296,
-      "archive": "oneplus-8t-oxygenos-KB2001_14.0.0.1311(EX01).zip",
-      "archive_sha256": "46ea9b12d092485f2b92d4739c572beca663d435bbb1e1860939342e76464bc7",
-      "image_sha256": "2721f6308bf0affb96a0ebbcb14f30cde81491a8e2b851089b481f416c03fc8f",
+      "archive": "oneplus-8t-oxygenos-KB2001_14.0.0.1311(EX01)-r2.zip",
+      "archive_sha256": "dd18d50b03d7ac8c688df20c26fb445dbe4c46dd1c1ad5ce8b74ca141f2202f4",
+      "image_sha256": "ca98b3b37fff1a1bfc74ce80b4a79551e2af399cd2ef2b0d8898186644aee16f",
       "all_exports_match": false,
       "module_check": true,
-      "device_verified": false
+      "device_verified": false,
+      "artifact_revision": "r2",
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "module_count": 41,
+        "trusted_certificate_sha256": [
+          "c62083434feab88be989a495b6782af9baade1b83bf35635f9870ea24fdb7981"
+        ]
+      }
     },
     {
       "device": "oneplus-9-pro",
@@ -149,7 +247,14 @@
       "image_sha256": "1dda72ee7ad2299442ab8f4219fef9ea24d6fcc26bb0c538aca6c3ad2036f1f3",
       "all_exports_match": true,
       "module_check": false,
-      "device_verified": false
+      "device_verified": false,
+      "artifact_revision": null,
+      "module_signature_check": {
+        "passed": null,
+        "enforcement": null,
+        "module_count": null,
+        "trusted_certificate_sha256": null
+      }
     },
     {
       "device": "oneplus-9-pro",
@@ -163,7 +268,14 @@
       "image_sha256": "1dda72ee7ad2299442ab8f4219fef9ea24d6fcc26bb0c538aca6c3ad2036f1f3",
       "all_exports_match": true,
       "module_check": false,
-      "device_verified": false
+      "device_verified": false,
+      "artifact_revision": null,
+      "module_signature_check": {
+        "passed": null,
+        "enforcement": null,
+        "module_count": null,
+        "trusted_certificate_sha256": null
+      }
     },
     {
       "device": "oneplus-9",
@@ -177,7 +289,14 @@
       "image_sha256": "5c7482fb5171fe387639037733c5ac663384f4c18bc8133e95d55420ce8b265b",
       "all_exports_match": true,
       "module_check": false,
-      "device_verified": false
+      "device_verified": false,
+      "artifact_revision": null,
+      "module_signature_check": {
+        "passed": null,
+        "enforcement": null,
+        "module_count": null,
+        "trusted_certificate_sha256": null
+      }
     },
     {
       "device": "oneplus-9",
@@ -191,39 +310,60 @@
       "image_sha256": "5c7482fb5171fe387639037733c5ac663384f4c18bc8133e95d55420ce8b265b",
       "all_exports_match": true,
       "module_check": false,
-      "device_verified": false
+      "device_verified": false,
+      "artifact_revision": null,
+      "module_signature_check": {
+        "passed": null,
+        "enforcement": null,
+        "module_count": null,
+        "trusted_certificate_sha256": null
+      }
     },
     {
       "device": "oneplus-9r",
       "os": "coloros",
       "firmware": "LE2100_14.0.0.605(CN01)",
       "layout": "a-only",
-      "boot_sha256": "9fa573d6d124f422e929e20a6afbe205a175196be9806b26d7edb9920745a579",
+      "boot_sha256": "7593803bc7083fa4293bc5fe21f20fdd55abe6135c68faaf7d9ff9138694346c",
       "boot_size": 100663296,
-      "archive": "oneplus-9r-coloros-LE2100_14.0.0.605(CN01).zip",
-      "archive_sha256": "0287f26accb689f57e2f34537d632e3f69addc3ab91a20230fa7bdd45d52dccb",
-      "image_sha256": "80a4bf4fab2a4c44bf9e8ee1842d5cb6468a81ad45dc68be8ada14d7a4929b64",
+      "archive": "oneplus-9r-coloros-LE2100_14.0.0.605(CN01)-r2.zip",
+      "archive_sha256": "6b97d3950dcca547f224c8495ff2f1bbe10e2f6834b81bd3c98b841adc5c1842",
+      "image_sha256": "d7af846ca08dd590b1d4c352b4e2214c68c94ff5c5ffce9d81063235ea1aa850",
       "all_exports_match": false,
       "module_check": true,
-      "device_verified": false,
-      "distribution_status": "hold",
-      "failure_report": "ColorOS boot animation; exact firmware pending"
+      "device_verified": true,
+      "artifact_revision": "r2",
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "module_count": 41,
+        "trusted_certificate_sha256": [
+          "b87123371503a25b13bbc510e611d6780be1e5a9295cf8f886fb3372fb25bcfd"
+        ]
+      }
     },
     {
       "device": "oneplus-9r",
       "os": "oxygenos",
       "firmware": "LE2101_14.0.0.2401(EX01)",
       "layout": "a/b",
-      "boot_sha256": "df9cabb0b21a82b1bc35be2f48cff4c3db40d9c736a190e4e6aa305af6dd8ee6",
+      "boot_sha256": "cd21e9e45d812afa5533817d829d858aca8b712bde48d8090bb8bba19a8f3e94",
       "boot_size": 100663296,
-      "archive": "oneplus-9r-oxygenos-LE2101_14.0.0.2401(EX01).zip",
-      "archive_sha256": "a40a6fc098a0b9a0971290eeca383af3af080e3195f7f9feaae6786cee346945",
-      "image_sha256": "80a4bf4fab2a4c44bf9e8ee1842d5cb6468a81ad45dc68be8ada14d7a4929b64",
+      "archive": "oneplus-9r-oxygenos-LE2101_14.0.0.2401(EX01)-r2.zip",
+      "archive_sha256": "59613f0fb88199bb5e608b5dc93cbf6cc83dfa256605577bf8994dac51f634de",
+      "image_sha256": "0e817c092c67f70b7faad0acc8052b4098cb98c88d63d9b47a1dc043aefeb657",
       "all_exports_match": false,
       "module_check": true,
       "device_verified": false,
-      "distribution_status": "hold",
-      "failure_report": "ColorOS boot animation; exact firmware pending"
+      "artifact_revision": "r2",
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "module_count": 41,
+        "trusted_certificate_sha256": [
+          "5a706075b37fb92e00f75c6ad3ae12295ff8c4c0b7ea124b13687bd012c307ef"
+        ]
+      }
     }
   ]
 }
