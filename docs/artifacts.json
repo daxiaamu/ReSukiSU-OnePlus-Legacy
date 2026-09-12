@@ -118,7 +118,8 @@
         "trusted_certificate_sha256": [
           "302cd52988233ae482dc3726210cb78f216bd92bf8dcc5585ace5d29a59daa51"
         ]
-      }
+      },
+      "release_asset": "oneplus-8-pro-coloros-IN2020_13.1.0.190.CN01.-r2.zip"
     },
     {
       "device": "oneplus-8-pro",
@@ -141,7 +142,8 @@
         "trusted_certificate_sha256": [
           "148036051f3e7130887846af079e9dbd9907cc2b54caec92f958f17548aef2fd"
         ]
-      }
+      },
+      "release_asset": "oneplus-8-pro-oxygenos-IN2023_13.1.0.591.EX01.-r2.zip"
     },
     {
       "device": "oneplus-8",
@@ -164,7 +166,8 @@
         "trusted_certificate_sha256": [
           "302cd52988233ae482dc3726210cb78f216bd92bf8dcc5585ace5d29a59daa51"
         ]
-      }
+      },
+      "release_asset": "oneplus-8-coloros-IN2010_13.1.0.190.CN01.-r2.zip"
     },
     {
       "device": "oneplus-8",
@@ -187,7 +190,8 @@
         "trusted_certificate_sha256": [
           "445a07772e463be175b4fb899312f285f02dc5b8bca5b40a763d353e965a2fae"
         ]
-      }
+      },
+      "release_asset": "oneplus-8-oxygenos-IN2013_13.1.0.593.EX01.-r2.zip"
     },
     {
       "device": "oneplus-8t",
@@ -210,7 +214,8 @@
         "trusted_certificate_sha256": [
           "1c1f026dcd7be0b437098a4f38c2f488bd1dad4ba5640fa2499a27a79c069563"
         ]
-      }
+      },
+      "release_asset": "oneplus-8t-coloros-KB2000_14.0.0.602.CN01.-r2.zip"
     },
     {
       "device": "oneplus-8t",
@@ -233,7 +238,8 @@
         "trusted_certificate_sha256": [
           "c62083434feab88be989a495b6782af9baade1b83bf35635f9870ea24fdb7981"
         ]
-      }
+      },
+      "release_asset": "oneplus-8t-oxygenos-KB2001_14.0.0.1311.EX01.-r2.zip"
     },
     {
       "device": "oneplus-9-pro",
@@ -254,7 +260,8 @@
         "enforcement": null,
         "module_count": null,
         "trusted_certificate_sha256": null
-      }
+      },
+      "release_asset": "oneplus-9-pro-coloros-LE2120_14.0.0.1901.CN01..zip"
     },
     {
       "device": "oneplus-9-pro",
@@ -275,7 +282,8 @@
         "enforcement": null,
         "module_count": null,
         "trusted_certificate_sha256": null
-      }
+      },
+      "release_asset": "oneplus-9-pro-oxygenos-LE2121_14.0.0.1902.EX01..zip"
     },
     {
       "device": "oneplus-9",
@@ -296,7 +304,8 @@
         "enforcement": null,
         "module_count": null,
         "trusted_certificate_sha256": null
-      }
+      },
+      "release_asset": "oneplus-9-coloros-LE2110_14.0.0.1901.CN01..zip"
     },
     {
       "device": "oneplus-9",
@@ -317,7 +326,8 @@
         "enforcement": null,
         "module_count": null,
         "trusted_certificate_sha256": null
-      }
+      },
+      "release_asset": "oneplus-9-oxygenos-LE2111_14.0.0.1902.EX01..zip"
     },
     {
       "device": "oneplus-9r",
@@ -340,7 +350,8 @@
         "trusted_certificate_sha256": [
           "b87123371503a25b13bbc510e611d6780be1e5a9295cf8f886fb3372fb25bcfd"
         ]
-      }
+      },
+      "release_asset": "oneplus-9r-coloros-LE2100_14.0.0.605.CN01.-r2.zip"
     },
     {
       "device": "oneplus-9r",
@@ -363,7 +374,8 @@
         "trusted_certificate_sha256": [
           "5a706075b37fb92e00f75c6ad3ae12295ff8c4c0b7ea124b13687bd012c307ef"
         ]
-      }
+      },
+      "release_asset": "oneplus-9r-oxygenos-LE2101_14.0.0.2401.EX01.-r2.zip"
     }
   ]
 }
