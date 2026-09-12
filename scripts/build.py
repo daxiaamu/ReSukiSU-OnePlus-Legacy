@@ -7,6 +7,7 @@ import re
 import shutil
 import subprocess
 from toolchain import configure
+from prepare_protocol import prepare
 from project import ROOT, PATCHES, device, run, save, sha256
 
 def checkout(repo, commit, dest, shallow=True):
@@ -47,6 +48,7 @@ def build(name, config=None, rom='coloros'):
     if vendor_patch.exists():
         run("git", "apply", "--check", vendor_patch, cwd=modules)
         run("git", "apply", vendor_patch, cwd=modules)
+    protocol = prepare(modules) if data["platform"] == "sm8350" else None
     (work / "vendor").symlink_to(modules / "vendor", target_is_directory=True)
     overlay = modules / "kernel" / source.name
     for item in overlay.rglob("*"):
@@ -103,7 +105,7 @@ def build(name, config=None, rom='coloros'):
 
     options = ["make", "-C", str(source), "O=" + str(output), "ARCH=arm64",
                "CC=clang", "LD=" + linker, "AR=llvm-ar", "NM=llvm-nm",
-               "OBJCOPY=llvm-objcopy", "OBJDUMP=llvm-objdump", "STRIP=llvm-strip",
+               "OBJCOPY=" + ("aarch64-linux-gnu-objcopy" if data["platform"] == "sm8250" else "llvm-objcopy"), "OBJDUMP=llvm-objdump", "STRIP=llvm-strip",
                "CLANG_TRIPLE=aarch64-linux-gnu-", "CROSS_COMPILE=aarch64-linux-gnu-",
                "CROSS_COMPILE_ARM32=arm-linux-gnueabi-"]
     options += ["OPLUS_FEATURE_SECURE_GUARD=" + ("yes" if data["platform"] == "sm8250" else "no"), "OPLUS_FEATURE_SECURE_ROOTGUARD=no",
@@ -125,10 +127,9 @@ def build(name, config=None, rom='coloros'):
         for line in stock_lines:
             if line.startswith("CONFIG_OPPO_FINGERPRINT") and "=" in line:
                 key, value = line.split("=", 1)
-                if key != "CONFIG_OPPO_FINGERPRINT_COMMON":
-                    translations[key] = key.replace("CONFIG_OPPO_", "CONFIG_OPLUS_", 1)
-                    with (output / ".config").open("a") as stream:
-                        stream.write(translations[key] + "=" + value + "\n")
+                translations[key] = key.replace("CONFIG_OPPO_", "CONFIG_OPLUS_", 1)
+                with (output / ".config").open("a") as stream:
+                    stream.write(translations[key] + "=" + value + "\n")
     fragment = (ROOT / "configs/resukisu.config").read_text(encoding="utf-8")
     with (output / ".config").open("a", encoding="utf-8") as stream:
         stream.write("\n" + fragment)
@@ -154,7 +155,7 @@ def build(name, config=None, rom='coloros'):
             shutil.copyfile(output / diagnostic, dest / diagnostic)
     compiler = subprocess.check_output(["clang", "--version"], text=True)
     save(dest / "build.json", {"device": name, "os": rom, "firmware": firmware["build_id"], "kernel_release": (output / "include/config/kernel.release").read_text().strip(), "kernel": data["kernel"], "resukisu": data["resukisu"],
-        "compat_patch_sha256": sha256(compat_patch) if compat_patch.exists() else None, "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler, "compiler_lock": compiler_lock, "linker": subprocess.check_output([linker, "--version"], text=True).splitlines()[0], "native_features": native_features,
+        "compat_patch_sha256": sha256(compat_patch) if compat_patch.exists() else None, "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler, "compiler_lock": compiler_lock, "stock_protocol": protocol, "linker": subprocess.check_output([linker, "--version"], text=True).splitlines()[0], "native_features": native_features,
         "config_sha256": sha256(output / ".config"), "stock_config_supplied": stock_config, "config_translations": translations,
         "compile_verified": True, "device_verified": False})
     print("Compile complete; boot packaging and on-device checks remain.")
