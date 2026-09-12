@@ -3,6 +3,7 @@ import argparse
 import json
 import pathlib
 import struct
+from kernel_release import validate_release
 from check_module_abi import exports
 from project import device, save, sha256
 
@@ -69,6 +70,8 @@ def module_symbols(path):
 def verify(inventory_path, built, stock_kernel, stock_map, stock_boot):
     inventory = json.loads(inventory_path.read_text())
     profile = device(inventory["device"])["firmware"][inventory["os"]]
+    manifest = json.loads((built / "build.json").read_text())
+    validate_release(manifest, profile["kernel_release"], built / "kernel.config")
     boot_hash = sha256(stock_boot)
     if boot_hash != inventory["stock_boot_sha256"] or boot_hash != profile["stock_boot_sha256"]:
         raise ValueError("Module inventory belongs to another stock firmware")
