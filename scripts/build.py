@@ -48,7 +48,7 @@ def build(name, config=None, rom='coloros'):
     if vendor_patch.exists():
         run("git", "apply", "--check", vendor_patch, cwd=modules)
         run("git", "apply", vendor_patch, cwd=modules)
-    protocol = prepare(modules) if data["platform"] == "sm8350" else None
+    protocol = prepare(modules, data)
     (work / "vendor").symlink_to(modules / "vendor", target_is_directory=True)
     overlay = modules / "kernel" / source.name
     for item in overlay.rglob("*"):
@@ -112,7 +112,7 @@ def build(name, config=None, rom='coloros'):
                 "OPLUS_FEATURE_SECURE_MOUNTGUARD=no", "OPLUS_FEATURE_SECURE_EXECGUARD=no",
                 "OPLUS_FEATURE_SECURE_KEYINTERFACESGUARD=no"]
     if data["platform"] == "sm8250":
-        options += ["KCFLAGS=-gdwarf-4"]
+        options += ["KCFLAGS=-gdwarf-4", "BRAND_SHOW_FLAG=oneplus"]
     if config:
         shutil.copyfile(config, output / ".config")
     else:
