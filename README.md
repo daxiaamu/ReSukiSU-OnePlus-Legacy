@@ -1,5 +1,7 @@
 # ReSukiSU-OnePlus-Legacy
 
+> **Module-signing correction in progress:** the original 8 / 8 Pro / 8T / 9R images lack stock signing trust anchors and must not be used. Eight replacement images are being built separately for ColorOS and OxygenOS. The 9R certificate-only diagnostic passed temporary boot and user checks. 9 / 9 Pro do not enable original module signature enforcement and are unaffected by this specific defect.
+
 > **9R 已报告停在 ColorOS 开机动画，尚未定位原因；暂停使用本批次 9R 镜像。OxygenOS 未确认受影响，同内核镜像一并暂停推荐。**
 
 为一加 8、8 Pro、8T、9R、9、9 Pro 集成 ReSukiSU，产物为 **boot.img**。项目面向 non-GKI / 早期 GKI 1.0 平台，使用各机型官方源码和对应末版系统的原厂 boot，不能套用通用 GKI 2.0 镜像。
