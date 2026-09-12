@@ -5,6 +5,7 @@ def main():
     root=ROOT;out=root/'out';rows=[]
     for profile in sorted((root/'devices').glob('*.json')):
      data=json.loads(profile.read_text(encoding='utf-8'))
+     if data.get('status',{}).get('distribution_status') == 'hold':raise ValueError('Distribution on hold after device failure report: '+data['id'])
      for rom in ['coloros','oxygenos']:
       fw=data['firmware'][rom];folder=out/data['id']/(rom+'-'+fw['build_id'])
       if not (folder/'boot.img').exists():raise ValueError('Missing completed artifact: '+str(folder))
