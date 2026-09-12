@@ -22,7 +22,7 @@ def checkout(repo, commit, dest, shallow=True):
     if actual != commit:
         raise ValueError("Source commit mismatch")
 
-def build(name, config=None, rom='coloros'):
+def build(name, config=None, rom='coloros', diagnostics_only=False):
     if os.name != "posix":
         raise RuntimeError("Build on Linux (GitHub Actions or WSL)")
     data = device(name)
@@ -142,7 +142,21 @@ def build(name, config=None, rom='coloros'):
     for required in ("CONFIG_KSU=y", "CONFIG_KSU_MANUAL_HOOK=y", "CONFIG_KALLSYMS_ALL=y"):
         if required not in final_config.splitlines():
             raise RuntimeError("Kconfig dropped required option: " + required)
-    run(*options, "-j" + str(os.cpu_count() or 2), "net/oplus_modules/data_module/", env=env)
+    run(*options, "-j" + str(os.cpu_count() or 2), "KBUILD_SYMTYPES=1", "net/oplus_modules/data_module/", env=env)
+    if diagnostics_only:
+        if data["platform"] == "sm8250":
+            run(*options, "KBUILD_SYMTYPES=1", "drivers/input/touchscreen/touch.o", env=env)
+        dest = ROOT / "out" / name / rom / "abi-types"
+        dest.mkdir(parents=True, exist_ok=True)
+        for item in output.rglob("*.symtypes"):
+            target = dest / item.relative_to(output)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(item, target)
+        for item in (output / "net/oplus_modules/data_module").rglob("*.symversions"):
+            print(item.read_text())
+        shutil.copyfile(modules / "vendor/oplus/kernel/network/data_module/proto-src/netlink_msg.pb-c.h", dest / "netlink_msg.pb-c.h")
+        print("ABI type diagnostics only; no kernel image produced.")
+        return
     run(*options, "-j" + str(os.cpu_count() or 2), "Image", env=env)
     image = output / "arch/arm64/boot/Image"
     if not image.is_file() or image.stat().st_size < 1024:
@@ -166,5 +180,6 @@ if __name__ == "__main__":
     parser.add_argument("--device", required=True, choices=list(PATCHES))
     parser.add_argument("--os", choices=("coloros", "oxygenos"), default="coloros")
     parser.add_argument("--config", type=pathlib.Path, help="Uncompressed config from the matching stock kernel")
+    parser.add_argument("--diagnostics-only", action="store_true")
     args = parser.parse_args()
-    build(args.device, args.config, args.os)
+    build(args.device, args.config, args.os, args.diagnostics_only)
