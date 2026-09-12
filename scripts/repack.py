@@ -49,7 +49,11 @@ def repack(args):
     with tempfile.TemporaryDirectory() as temp:
         work = pathlib.Path(temp)
         apk = work / "magisk.apk"
-        urllib.request.urlretrieve(tools["url"], apk)
+        cached = ROOT / ".work/tools/Magisk-v30.7.apk"
+        if cached.is_file() and sha256(cached) == tools["sha256"]:
+            shutil.copyfile(cached, apk)
+        else:
+            urllib.request.urlretrieve(tools["url"], apk)
         if sha256(apk) != tools["sha256"]:
             raise ValueError("Magisk tool checksum mismatch")
         with zipfile.ZipFile(apk) as archive:
