@@ -2,6 +2,7 @@
 import argparse
 import json
 import shutil
+from module_trust import verify_embedded
 from project import ROOT, PATCHES, device, sha256, save
 
 def reuse(name, source_os, target_os):
@@ -28,6 +29,7 @@ def reuse(name, source_os, target_os):
         raise ValueError("Compiled artifacts changed")
     if manifest["kernel_release"] != target["kernel_release"]:
         raise ValueError("Compiled release differs from stock")
+    verify_embedded(target, built)
     destination = ROOT / "out" / name / target_os
     destination.mkdir(parents=True, exist_ok=False)
     for filename in ("Image", "kernel.config", "Module.symvers", "System.map"):
