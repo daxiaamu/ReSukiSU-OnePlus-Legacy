@@ -29,14 +29,19 @@ def repack(args):
     if sha256(stock) != args.stock_sha256.lower():
         raise ValueError("Stock boot checksum mismatch")
     original_version = boot_header(stock)
-    built = ROOT / "out" / args.device
+    registered = data["firmware"][args.os]
+    if args.firmware != registered["build_id"] or args.stock_sha256.lower() != registered["stock_boot_sha256"]:
+        raise ValueError("Stock firmware is not the registered image for this model and OS")
+    built = ROOT / "out" / args.device / args.os
     manifest = json.loads((built / "build.json").read_text(encoding="utf-8"))
-    if manifest["device"] != args.device or not manifest["compile_verified"]:
+    if manifest["device"] != args.device or manifest["os"] != args.os or not manifest["compile_verified"]:
         raise ValueError("No matching successful build")
     if any(manifest.get(key) != data[key] for key in ("kernel", "resukisu", "vendor")):
         raise ValueError("Stale build: source profile changed")
     if sha256(built / "Image") != manifest["image_sha256"]:
         raise ValueError("Compiled kernel checksum mismatch")
+    if manifest["kernel_release"] != registered["kernel_release"]:
+        raise ValueError("Kernel release differs from stock; module compatibility requires review")
     tools = json.loads((ROOT / "tools.lock.json").read_text())["magiskboot"]
     dest = ROOT / "out" / args.device / (args.os + "-" + args.firmware)
     if dest.exists():
@@ -69,6 +74,8 @@ def repack(args):
         run(binary, "unpack", "-h", candidate, cwd=verify)
         actual = {p.name: sha256(p) for p in verify.iterdir()
                   if p.is_file() and p.name not in ("kernel", "header")}
+        if (original / "header").read_bytes() != (verify / "header").read_bytes():
+            raise ValueError("Boot command line or OS header fields changed")
         if actual != preserved:
             raise ValueError("Repack changed ramdisk, DTB or another non-kernel component")
         if sha256(verify / "kernel") != manifest["image_sha256"]:

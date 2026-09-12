@@ -26,7 +26,21 @@ def audit(name):
         for path in FILES:
             if (directory / path).read_text(encoding="utf-8") != expected[path]:
                 raise ValueError("Patch differs from reviewed hooks: " + path)
-    print(name + ": pinned source and patch verified", flush=True)
+    vendor_patch = ROOT / "patches" / ("vendor-" + {"oneplus-8-pro": "oneplus-8", "oneplus-9-pro": "oneplus-9"}.get(name, name) + ".patch")
+    if vendor_patch.exists():
+        with tempfile.TemporaryDirectory() as temp:
+            directory = pathlib.Path(temp)
+            paths = [line[6:] for line in vendor_patch.read_text().splitlines() if line.startswith("+++ b/")]
+            for path in paths:
+                url = "https://raw.githubusercontent.com/{}/{}/{}".format(
+                    data["vendor"]["repository"], data["vendor"]["commit"], path)
+                target = directory / path
+                target.parent.mkdir(parents=True, exist_ok=True)
+                with urllib.request.urlopen(url, timeout=60) as response:
+                    target.write_bytes(response.read())
+            run("git", "init", "--quiet", directory)
+            run("git", "apply", "--check", vendor_patch, cwd=directory)
+    print(name + ": pinned source and patches verified", flush=True)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
