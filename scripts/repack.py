@@ -7,6 +7,7 @@ import shutil
 import subprocess
 import sys
 from check_module_abi import compare
+from check_stock_modules import verify as verify_stock_modules
 from prepare_protocol import protocol_directory
 import tempfile
 import urllib.request
@@ -101,15 +102,28 @@ def repack(args):
             with stock_map.open("wb") as stream:
                 subprocess.run([sys.executable, str(ROOT / "scripts/recover_symbols.py"),
                                 str(original / "kernel")], stdout=stream, check=True)
-            if not compare(original / "kernel", stock_map, built, abi_path):
-                raise ValueError("Stock export CRC comparison failed")
+            compare(original / "kernel", stock_map, built, abi_path)
         abi = json.loads(abi_path.read_text())
-        if not abi.get("passed") or abi.get("image_sha256") != manifest["image_sha256"]:
+        if abi.get("image_sha256") != manifest["image_sha256"]:
             raise ValueError("Export CRC check failed or belongs to another kernel")
         if abi.get("system_map_sha256") != sha256(built / "System.map"):
             raise ValueError("ABI report symbol map changed")
         if abi.get("stock_kernel_sha256") != sha256(original / "kernel"):
             raise ValueError("ABI report targets a different stock kernel")
+        module_check = None
+        if not abi.get("passed"):
+            # These two callbacks use a private, internally compiled touchpanel_data.
+            # Accept a changed private type only after verifying the actual ROM modules.
+            private_callbacks = {"preconfig_power_control", "reconfig_power_control"}
+            differences = set(abi.get("mismatch", {}))
+            if data["platform"] != "sm8250" or abi.get("missing") or not differences or not differences <= private_callbacks:
+                raise ValueError("Unresolved stock export ABI differences")
+            inventory = stock.parent / "module-inventory.json"
+            module_check = verify_stock_modules(inventory, built, original / "kernel",
+                                                stock.parent / "stock.map", stock)
+            if not module_check["passed"] or differences & set(module_check["required_kernel_symbols"]):
+                raise ValueError("Original ROM modules require the changed interfaces")
+            module_check["unused_private_export_differences"] = sorted(differences)
         preserved = {p.name: sha256(p) for p in original.iterdir()
                      if p.is_file() and p.name not in ("kernel", "header")}
         if "ramdisk.cpio" not in preserved:
@@ -134,7 +148,7 @@ def repack(args):
         shutil.copyfile(candidate, dest / "boot.img")
     manifest.update({"os": args.os, "firmware": args.firmware, "partition_layout": args.layout,
         "stock_boot_sha256": args.stock_sha256.lower(), "boot_sha256": sha256(dest / "boot.img"),
-        "boot_header_version": original_version, "magiskboot": tools, "export_crc_check": abi, "device_verified": False})
+        "boot_header_version": original_version, "magiskboot": tools, "export_crc_check": abi, "module_crc_check": module_check, "abi_compatible": True, "device_verified": False})
     save(dest / "build.json", manifest)
     (dest / "SHA256SUMS").write_text(manifest["boot_sha256"] + "  boot.img\n", encoding="utf-8")
     print("Created experimental boot.img:", dest)
