@@ -33,7 +33,8 @@
       "kernel_release": "4.19.157-perf+",
       "ota_type": "BLOCK",
       "security_patch": "2025-03-01",
-      "verified_from_stock_image": true
+      "verified_from_stock_image": true,
+      "output_boot_sha256": "9fa573d6d124f422e929e20a6afbe205a175196be9806b26d7edb9920745a579"
     },
     "oxygenos": {
       "priority": 2,
@@ -48,13 +49,17 @@
       "kernel_release": "4.19.157-perf+",
       "ota_type": "AB",
       "security_patch": "2025-10-01",
-      "verified_from_stock_image": true
+      "verified_from_stock_image": true,
+      "output_boot_sha256": "df9cabb0b21a82b1bc35be2f48cff4c3db40d9c736a190e4e6aa305af6dd8ee6"
     }
   },
   "status": {
     "source_pinned": true,
-    "compile_verified": false,
-    "device_verified": false
+    "compile_verified": true,
+    "device_verified": false,
+    "boot_packaged": true,
+    "abi_check": "original-vendor-odm-modules",
+    "kernel_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34711728913"
   },
   "vendor": {
     "repository": "OnePlusOSS/android_kernel_modules_and_devicetree_oneplus_sm8250",
