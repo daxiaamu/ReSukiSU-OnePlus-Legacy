@@ -11,3 +11,33 @@
  
  	service = vs_session_get_service(session, service_id);
  	if (!service) {
+--- a/arch/arm64/kernel/vmlinux.lds.S
++++ b/arch/arm64/kernel/vmlinux.lds.S
+@@ -5,6 +5,7 @@
+  * Written by Martin Mares <mj@atrey.karlin.mff.cuni.cz>
+  */
+ 
++#define BSS_FIRST_SECTIONS RTIC_BSS
+ #include <asm-generic/vmlinux.lds.h>
+ #include <asm/cache.h>
+ #include <asm/kernel-pgtable.h>
+@@ -23,6 +24,9 @@
+ ENTRY(_text)
+ 
+ jiffies = jiffies_64;
++
++/* Stock SM8250 exports this symbol with CRC 0 (unversioned). */
++PROVIDE(__crc_gsi_write_channel_scratch = 0);
+ 
+ 
+ #define HYPERVISOR_EXTABLE					\
+@@ -261,9 +265,6 @@
+ 
+ 	HEAD_SYMBOLS
+ 
+-	.bss : {			/* bss segment		*/
+-         RTIC_BSS
+-	}
+ }
+ 
+ /*
