@@ -34,6 +34,25 @@ def prepare(modules, profile):
             raise ValueError("Unexpected protoc-c header format")
         header.write_text(text)
         generated = work / "netlink_msg.pb-c.c"
+        cfi_safe = profile["platform"] == "sm8350"
+        if cfi_safe:
+            source = generated.read_text()
+            callbacks = re.findall(r"\(ProtobufCMessageInit\)\s+(netlink__proto__[a-z0-9_]+__init)", source)
+            declarations = dict(re.findall(r"void\s+(netlink__proto__[a-z0-9_]+__init)\s*\(\s*(Netlink__Proto__[A-Za-z0-9_]+)\s*\*\s*message\s*\)", text))
+            if len(callbacks) != len(expected["messages"]) or len(set(callbacks)) != len(callbacks):
+                raise ValueError("Unexpected protobuf initializer callbacks")
+            wrappers = []
+            for callback in callbacks:
+                typename = declarations[callback]
+                wrapper = callback + "_cfi"
+                wrappers.append("static void " + wrapper + "(ProtobufCMessage *message)\n{\n  " + callback + "((" + typename + " *)message);\n}\n")
+                source, count = re.subn(r"\(ProtobufCMessageInit\)\s+" + re.escape(callback) + r"\b", wrapper, source)
+                if count != 1:
+                    raise ValueError("Initializer callback replacement count differs")
+            marker = '#include "netlink_msg.pb-c.h"'
+            if source.count(marker) != 1:
+                raise ValueError("Unexpected generated source include")
+            generated.write_text(source.replace(marker, marker + "\n" + "\n".join(wrappers)))
         assertions = []
         groups = {"RequestMessage": "request_data", "ResponseMessage": "response_data", "NotifyMessage": "notify_data"}
         for message in expected["messages"]:
@@ -48,10 +67,10 @@ def prepare(modules, profile):
         with generated.open("a") as stream:
             stream.write("\n/* Validate the layouts against the original boot image. */\n" + "\n".join(assertions) + "\n")
         # Host and target are LP64; catch generated declaration/layout errors first.
-        run("cc", "-std=gnu11", "-fsyntax-only", str(generated))
+        run("cc", "-std=gnu11", "-Werror=incompatible-pointer-types", "-fsyntax-only", str(generated))
         header.write_text(text.replace(include, '#ifndef assert\n#define assert(condition) ((void)0)\n#endif\n#include "../comm_netlink/protobuf-c.h"'))
         for filename in ("netlink_msg.pb-c.h", "netlink_msg.pb-c.c"):
             shutil.copyfile(work / filename, destination / filename)
-    return {"schema_sha256": sha256(schema), "reflection_sha256": sha256(reflection),
+    return {"cfi_safe_initializers": cfi_safe, "schema_sha256": sha256(schema), "reflection_sha256": sha256(reflection),
             "stock_boot_sha256": expected["stock_boot_sha256"], "message_count": len(expected["messages"]),
             "origin": "recovered stock protobuf-c reflection metadata"}
