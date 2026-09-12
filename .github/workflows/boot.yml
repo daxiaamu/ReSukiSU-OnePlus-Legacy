@@ -59,6 +59,8 @@ jobs:
           with open(os.environ["GITHUB_ENV"], "a") as f:
               f.write("DEVICE=" + d + "\n")
           PY
+      - name: Install stock symbol recovery dependency
+        run: python3 -m pip install vmlinux-to-elf==1.3.6
       - name: Download stock boot and repack
         run: |
           python3 - <<'PY'
