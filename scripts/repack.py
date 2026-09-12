@@ -7,6 +7,7 @@ import shutil
 import subprocess
 import sys
 from check_module_abi import compare
+from kernel_release import validate_release
 from resukisu_source import validate_manifest as validate_resukisu
 from module_trust import verify_embedded, verify_modules
 from check_stock_modules import verify as verify_stock_modules
@@ -60,8 +61,7 @@ def repack(args):
         raise ValueError("Build targets another firmware")
     if sha256(built / "Image") != manifest["image_sha256"]:
         raise ValueError("Compiled kernel checksum mismatch")
-    if manifest["kernel_release"] != registered["kernel_release"]:
-        raise ValueError("Kernel release differs from stock; module compatibility requires review")
+    validate_release(manifest, registered["kernel_release"], built / "kernel.config")
     if sha256(built / "kernel.config") != manifest["config_sha256"]:
         raise ValueError("Compiled config checksum mismatch")
     protocol = manifest.get("stock_protocol") or {}

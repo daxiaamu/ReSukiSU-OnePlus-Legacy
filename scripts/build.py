@@ -6,6 +6,7 @@ import pathlib
 import re
 import shutil
 import subprocess
+from kernel_release import SUFFIX, branded_release
 from resukisu_source import resolve as resolve_resukisu
 from toolchain import configure
 from prepare_protocol import prepare
@@ -104,8 +105,9 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
             raise ValueError("Official native feature assignments are missing")
         env.update(native_features)
     linker = "aarch64-linux-gnu-ld" if data["platform"] == "sm8250" else "ld.lld"
-    # Preserve module release string; provenance records the real source commits.
-    release = firmware.get("kernel_release")
+    # Versioned stock modules retain their CRC and signature checks.
+    stock_release = firmware.get("kernel_release")
+    release = branded_release(stock_release)
     if release:
         if not release.startswith(data["kernel"]["version"]):
             raise RuntimeError("Stock kernel version differs from source baseline")
@@ -149,7 +151,7 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
 
     run(*options, "olddefconfig", env=env)
     final_config = (output / ".config").read_text()
-    for required in ("CONFIG_KSU=y", "CONFIG_KSU_MANUAL_HOOK=y", "CONFIG_KALLSYMS_ALL=y"):
+    for required in ("CONFIG_KSU=y", "CONFIG_KSU_MANUAL_HOOK=y", "CONFIG_KALLSYMS_ALL=y", "CONFIG_MODVERSIONS=y"):
         if required not in final_config.splitlines():
             raise RuntimeError("Kconfig dropped required option: " + required)
     run(*options, "-j" + str(os.cpu_count() or 2), "KBUILD_SYMTYPES=1", "net/oplus_modules/data_module/", env=env)
@@ -171,6 +173,12 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
         print("ABI type diagnostics only; no kernel image produced.")
         return
     run(*options, "-j" + str(os.cpu_count() or 2), "Image", env=env)
+    actual_release = (output / "include/config/kernel.release").read_text().strip()
+    if actual_release != release:
+        raise ValueError("Compiled kernel release differs from the requested daxiaamu release")
+    if os.environ.get("GITHUB_STEP_SUMMARY"):
+        with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as summary:
+            summary.write("Kernel release: `" + actual_release + "`\n\n")
     image = output / "arch/arm64/boot/Image"
     if not image.is_file() or image.stat().st_size < 1024:
         raise RuntimeError("Kernel image missing")
@@ -182,7 +190,7 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
         if (output / diagnostic).is_file():
             shutil.copyfile(output / diagnostic, dest / diagnostic)
     compiler = subprocess.check_output(["clang", "--version"], text=True)
-    save(dest / "build.json", {"device": name, "os": rom, "firmware": firmware["build_id"], "kernel_release": (output / "include/config/kernel.release").read_text().strip(), "kernel": data["kernel"], "resukisu": data["resukisu"], "resukisu_selection": resukisu_selection,
+    save(dest / "build.json", {"device": name, "os": rom, "firmware": firmware["build_id"], "kernel_release": actual_release, "stock_kernel_release": stock_release, "kernel_release_suffix": SUFFIX, "kernel": data["kernel"], "resukisu": data["resukisu"], "resukisu_selection": resukisu_selection,
         "compat_patch_sha256": sha256(compat_patch) if compat_patch.exists() else None, "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler, "compiler_lock": compiler_lock, "stock_protocol": protocol, "linker": subprocess.check_output([linker, "--version"], text=True).splitlines()[0], "native_features": native_features,
         "module_trust": module_trust, "config_sha256": sha256(output / ".config"), "stock_config_supplied": stock_config, "config_translations": translations,
         "compile_verified": True, "device_verified": False})
