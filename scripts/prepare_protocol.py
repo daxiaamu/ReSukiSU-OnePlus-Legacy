@@ -29,6 +29,8 @@ def prepare(modules, profile):
         # Preserve type names as well as layout for genksyms.
         for message in expected["messages"]:
             text = re.sub(r"\bstruct\s+_" + re.escape(message["c_name"]) + r"\b", "struct " + message["c_name"], text)
+        # Match protoc-c 1.4 oneof sentinel identifiers used by stock genksyms.
+        text = re.sub(r"(PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE\(NETLINK__PROTO__[A-Z_]+_DATA)\)", r"\1__CASE)", text)
         include = "#include <protobuf-c/protobuf-c.h>"
         if text.count(include) != 1:
             raise ValueError("Unexpected protoc-c header format")
