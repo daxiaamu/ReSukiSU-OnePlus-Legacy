@@ -59,7 +59,10 @@
     "device_verified": false,
     "boot_packaged": true,
     "abi_check": "original-vendor-odm-modules",
-    "kernel_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34711728913"
+    "kernel_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34711728913",
+    "boot_failure_reported": true,
+    "distribution_status": "hold",
+    "failure_stage": "ColorOS boot animation; exact firmware and logs pending"
   },
   "vendor": {
     "repository": "OnePlusOSS/android_kernel_modules_and_devicetree_oneplus_sm8250",
