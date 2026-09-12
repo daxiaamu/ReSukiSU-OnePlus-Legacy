@@ -33,7 +33,7 @@ def repack(args):
     manifest = json.loads((built / "build.json").read_text(encoding="utf-8"))
     if manifest["device"] != args.device or not manifest["compile_verified"]:
         raise ValueError("No matching successful build")
-    if manifest["kernel"] != data["kernel"] or manifest["resukisu"] != data["resukisu"]:
+    if any(manifest.get(key) != data[key] for key in ("kernel", "resukisu", "vendor")):
         raise ValueError("Stale build: source profile changed")
     if sha256(built / "Image") != manifest["image_sha256"]:
         raise ValueError("Compiled kernel checksum mismatch")

@@ -40,7 +40,7 @@ jobs:
       LAYOUT: ${{ inputs.layout }}
       BRANCH: ${{ github.ref_name }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
       - name: Validate branch and download matching build
         run: |
           python3 - <<'PY'
@@ -70,7 +70,7 @@ jobs:
           urllib.request.urlretrieve(url, ".work/stock.img")
           PY
           python3 scripts/repack.py --device "$DEVICE" --os "$ROM" --layout "$LAYOUT" --firmware "$FIRMWARE" --stock .work/stock.img --stock-sha256 "$STOCK_SHA256"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: boot-${{ env.DEVICE }}-${{ inputs.os }}-${{ github.run_number }}
           path: |
