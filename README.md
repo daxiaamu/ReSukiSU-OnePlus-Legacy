@@ -35,7 +35,7 @@
 ## 使用
 
 在 Actions 中选择 **Experimental kernel compile**，选择相应机型分支后运行。
-构建默认读取对应系统原厂 boot 中提取的内核配置。当前使用 Ubuntu 22.04 的 Clang 14 验证编译链路；原厂 4.19 使用 Clang 10.0.7，5.4 使用 Clang 11.0.2，工具链与模块 CRC 兼容性仍须验证。
+构建默认读取对应系统原厂 boot 中提取的内核配置。4.19 暂用 Ubuntu 22.04 的 Clang 14 验证编译链路，原厂为 Clang 10.0.7；5.4 固定使用原厂对应的 AOSP Clang 11.0.2（r383902b1）。工具链与模块 CRC 兼容性仍须验证。
 编译失败须修复源码／工具链依赖，不能据此宣称已支持对应固件。
 
 本地 Linux 编译：
@@ -45,6 +45,15 @@ python3 scripts/build.py --device oneplus-9r --os coloros
 # 若已获得匹配固件解出的完整内核配置，优先使用：
 python3 scripts/build.py --device oneplus-9r --config /path/to/stock-kernel.config
 ```
+
+原厂 ZIP 可从本地或只读网络共享提取，输出仅写入本项目的 .work 目录：
+
+```sh
+python scripts/extract_stock.py --device oneplus-9r --os coloros --rom /path/to/official.zip
+# payload.bin 格式另加 --dumper /path/to/payload_dumper
+```
+
+脚本核对登记的原厂 boot SHA-256，拒绝把其他固件当作目标版本。
 
 成功编译后使用对应系统原厂 boot 打包（把占位项替换成实际值）：
 

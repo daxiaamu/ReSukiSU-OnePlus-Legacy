@@ -5,6 +5,7 @@ import os
 import pathlib
 import shutil
 import subprocess
+from toolchain import configure
 from project import ROOT, PATCHES, device, run, save, sha256
 
 def checkout(repo, commit, dest, shallow=True):
@@ -24,10 +25,14 @@ def build(name, config=None, rom='coloros'):
         raise RuntimeError("Build on Linux (GitHub Actions or WSL)")
     data = device(name)
     firmware = data["firmware"][rom]
+    compiler_lock = configure(data["platform"])
+    stock_config = config is None
     if config is None:
         if not firmware.get("config"):
             raise RuntimeError("No verified stock config for " + name + "/" + rom)
         config = ROOT / firmware["config"]
+        if sha256(config) != firmware["config_sha256"]:
+            raise ValueError("Registered stock config checksum mismatch")
     for program in ("git", "make", "clang", "ld.lld", "aarch64-linux-gnu-gcc", "arm-linux-gnueabi-gcc"):
         if not shutil.which(program):
             raise RuntimeError("Missing build dependency: " + program)
@@ -114,10 +119,13 @@ def build(name, config=None, rom='coloros'):
     dest.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(image, dest / "Image")
     shutil.copyfile(output / ".config", dest / "kernel.config")
+    for diagnostic in ("Module.symvers", "System.map"):
+        if (output / diagnostic).is_file():
+            shutil.copyfile(output / diagnostic, dest / diagnostic)
     compiler = subprocess.check_output(["clang", "--version"], text=True)
     save(dest / "build.json", {"device": name, "os": rom, "firmware": firmware["build_id"], "kernel_release": (output / "include/config/kernel.release").read_text().strip(), "kernel": data["kernel"], "resukisu": data["resukisu"],
-        "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler,
-        "config_sha256": sha256(output / ".config"), "stock_config_supplied": bool(config),
+        "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler, "compiler_lock": compiler_lock,
+        "config_sha256": sha256(output / ".config"), "stock_config_supplied": stock_config,
         "compile_verified": True, "device_verified": False})
     print("Compile complete; boot packaging and on-device checks remain.")
 
