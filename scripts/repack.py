@@ -38,6 +38,18 @@ def repack(args):
         raise ValueError("No matching successful build")
     if any(manifest.get(key) != data[key] for key in ("kernel", "resukisu", "vendor")):
         raise ValueError("Stale build: source profile changed")
+    vendor_name = {"oneplus-8-pro": "oneplus-8", "oneplus-9-pro": "oneplus-9"}.get(args.device, args.device)
+    expected_patches = {
+        "patch_sha256": ROOT / "patches" / (PATCHES[args.device] + ".patch"),
+        "vendor_patch_sha256": ROOT / "patches" / ("vendor-" + vendor_name + ".patch"),
+        "compat_patch_sha256": ROOT / "patches" / ("compat-" + data["platform"] + ".patch"),
+    }
+    for key, patch in expected_patches.items():
+        expected = sha256(patch) if patch.exists() else None
+        if manifest.get(key) != expected:
+            raise ValueError("Stale build: patch changed: " + key)
+    if manifest["firmware"] != args.firmware:
+        raise ValueError("Build targets another firmware")
     if sha256(built / "Image") != manifest["image_sha256"]:
         raise ValueError("Compiled kernel checksum mismatch")
     if manifest["kernel_release"] != registered["kernel_release"]:
