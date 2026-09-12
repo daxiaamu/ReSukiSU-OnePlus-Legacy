@@ -106,9 +106,11 @@ def build(name, config=None, rom='coloros'):
                "OBJCOPY=llvm-objcopy", "OBJDUMP=llvm-objdump", "STRIP=llvm-strip",
                "CLANG_TRIPLE=aarch64-linux-gnu-", "CROSS_COMPILE=aarch64-linux-gnu-",
                "CROSS_COMPILE_ARM32=arm-linux-gnueabi-"]
-    options += ["OPLUS_FEATURE_SECURE_GUARD=no", "OPLUS_FEATURE_SECURE_ROOTGUARD=no",
+    options += ["OPLUS_FEATURE_SECURE_GUARD=" + ("yes" if data["platform"] == "sm8250" else "no"), "OPLUS_FEATURE_SECURE_ROOTGUARD=no",
                 "OPLUS_FEATURE_SECURE_MOUNTGUARD=no", "OPLUS_FEATURE_SECURE_EXECGUARD=no",
                 "OPLUS_FEATURE_SECURE_KEYINTERFACESGUARD=no"]
+    if data["platform"] == "sm8250":
+        options += ["KCFLAGS=-gdwarf-4"]
     if config:
         shutil.copyfile(config, output / ".config")
     else:
