@@ -66,6 +66,10 @@ def build(name, config=None, rom='coloros'):
     patch = ROOT / "patches" / (PATCHES[name] + ".patch")
     run("git", "apply", "--check", patch, cwd=source)
     run("git", "apply", patch, cwd=source)
+    compat_patch = ROOT / "patches" / ("compat-" + data["platform"] + ".patch")
+    if compat_patch.exists():
+        run("git", "apply", "--check", compat_patch, cwd=source)
+        run("git", "apply", compat_patch, cwd=source)
     checkout(data["resukisu"]["repository"], data["resukisu"]["commit"], source / "KernelSU", False)
     (source / "drivers/kernelsu").symlink_to("../KernelSU/kernel", target_is_directory=True)
     for path, addition in (
@@ -124,7 +128,7 @@ def build(name, config=None, rom='coloros'):
             shutil.copyfile(output / diagnostic, dest / diagnostic)
     compiler = subprocess.check_output(["clang", "--version"], text=True)
     save(dest / "build.json", {"device": name, "os": rom, "firmware": firmware["build_id"], "kernel_release": (output / "include/config/kernel.release").read_text().strip(), "kernel": data["kernel"], "resukisu": data["resukisu"],
-        "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler, "compiler_lock": compiler_lock,
+        "compat_patch_sha256": sha256(compat_patch) if compat_patch.exists() else None, "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler, "compiler_lock": compiler_lock,
         "config_sha256": sha256(output / ".config"), "stock_config_supplied": stock_config,
         "compile_verified": True, "device_verified": False})
     print("Compile complete; boot packaging and on-device checks remain.")
