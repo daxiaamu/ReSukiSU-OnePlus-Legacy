@@ -1,0 +1,18 @@
+{
+  "method": "fastboot boot; boot partition unchanged",
+  "firmware": "LE2100_14.0.0.605(CN01)",
+  "boot_sha256": "7593803bc7083fa4293bc5fe21f20fdd55abe6135c68faaf7d9ff9138694346c",
+  "image_sha256": "d7af846ca08dd590b1d4c352b4e2214c68c94ff5c5ffce9d81063235ea1aa850",
+  "boot_completed": true,
+  "loaded_module_count": 34,
+  "sound_card_present": true,
+  "soundtrigger_init_failure_observed": false,
+  "kernel": "Linux localhost 4.19.157-perf+ #1 SMP PREEMPT Sat Sep 12 20:24:28 UTC 2026 aarch64 Toybox",
+  "owner_confirmed_on_certificate_only_probe": [
+    "touch",
+    "sound",
+    "Wi-Fi",
+    "ReSukiSU manager detection"
+  ],
+  "scope": "Final rebuilt kernel boot, module loading and SoundTrigger initialization; owner functional confirmation was on the certificate-only diagnostic"
+}
