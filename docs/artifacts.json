@@ -205,7 +205,9 @@
       "image_sha256": "80a4bf4fab2a4c44bf9e8ee1842d5cb6468a81ad45dc68be8ada14d7a4929b64",
       "all_exports_match": false,
       "module_check": true,
-      "device_verified": false
+      "device_verified": false,
+      "distribution_status": "hold",
+      "failure_report": "ColorOS boot animation; exact firmware pending"
     },
     {
       "device": "oneplus-9r",
@@ -219,7 +221,9 @@
       "image_sha256": "80a4bf4fab2a4c44bf9e8ee1842d5cb6468a81ad45dc68be8ada14d7a4929b64",
       "all_exports_match": false,
       "module_check": true,
-      "device_verified": false
+      "device_verified": false,
+      "distribution_status": "hold",
+      "failure_report": "ColorOS boot animation; exact firmware pending"
     }
   ]
 }
