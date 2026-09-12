@@ -1,0 +1,11 @@
+--- a/vendor/oplus/kernel/oplus_performance/sched_assist/sched_assist_slide.c
++++ b/vendor/oplus/kernel/oplus_performance/sched_assist/sched_assist_slide.c
+@@ -136,7 +136,7 @@
+ 		return 0;
+ 	}
+ }
+-void adjust_sched_assist_input_ctrl() {
++void adjust_sched_assist_input_ctrl(void) {
+ 	static int input_boost_old = 0;
+ 	if (sysctl_input_boost_enabled && sysctl_slide_boost_enabled) {
+ 		sysctl_input_boost_enabled = 0;
