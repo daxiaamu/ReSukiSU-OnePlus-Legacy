@@ -6,6 +6,7 @@ import pathlib
 import re
 import shutil
 import subprocess
+from resukisu_source import resolve as resolve_resukisu
 from toolchain import configure
 from prepare_protocol import prepare
 from module_trust import install as install_module_trust, verify_embedded
@@ -27,6 +28,11 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     if os.name != "posix":
         raise RuntimeError("Build on Linux (GitHub Actions or WSL)")
     data = device(name)
+    data["resukisu"], resukisu_selection = resolve_resukisu(data["resukisu"])
+    print("Latest ReSukiSU:", data["resukisu"]["repository"], data["resukisu"]["commit"], flush=True)
+    if os.environ.get("GITHUB_STEP_SUMMARY"):
+        with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as summary:
+            summary.write("Latest ReSukiSU: [" + data["resukisu"]["commit"] + "](https://github.com/" + data["resukisu"]["repository"] + "/commit/" + data["resukisu"]["commit"] + ")\n\n")
     firmware = data["firmware"][rom]
     compiler_lock = configure(data["platform"])
     stock_config = config is None
@@ -176,7 +182,7 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
         if (output / diagnostic).is_file():
             shutil.copyfile(output / diagnostic, dest / diagnostic)
     compiler = subprocess.check_output(["clang", "--version"], text=True)
-    save(dest / "build.json", {"device": name, "os": rom, "firmware": firmware["build_id"], "kernel_release": (output / "include/config/kernel.release").read_text().strip(), "kernel": data["kernel"], "resukisu": data["resukisu"],
+    save(dest / "build.json", {"device": name, "os": rom, "firmware": firmware["build_id"], "kernel_release": (output / "include/config/kernel.release").read_text().strip(), "kernel": data["kernel"], "resukisu": data["resukisu"], "resukisu_selection": resukisu_selection,
         "compat_patch_sha256": sha256(compat_patch) if compat_patch.exists() else None, "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler, "compiler_lock": compiler_lock, "stock_protocol": protocol, "linker": subprocess.check_output([linker, "--version"], text=True).splitlines()[0], "native_features": native_features,
         "module_trust": module_trust, "config_sha256": sha256(output / ".config"), "stock_config_supplied": stock_config, "config_translations": translations,
         "compile_verified": True, "device_verified": False})
