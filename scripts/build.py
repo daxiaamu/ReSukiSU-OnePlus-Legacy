@@ -142,6 +142,7 @@ def build(name, config=None, rom='coloros'):
     for required in ("CONFIG_KSU=y", "CONFIG_KSU_MANUAL_HOOK=y", "CONFIG_KALLSYMS_ALL=y"):
         if required not in final_config.splitlines():
             raise RuntimeError("Kconfig dropped required option: " + required)
+    run(*options, "-j" + str(os.cpu_count() or 2), "net/oplus_modules/data_module/", env=env)
     run(*options, "-j" + str(os.cpu_count() or 2), "Image", env=env)
     image = output / "arch/arm64/boot/Image"
     if not image.is_file() or image.stat().st_size < 1024:
