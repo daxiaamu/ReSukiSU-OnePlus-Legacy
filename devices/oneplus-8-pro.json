@@ -37,10 +37,18 @@
     },
     "oxygenos": {
       "priority": 2,
-      "layout": "unverified",
-      "layout_evidence": "needs-device-confirmation",
-      "build_id": null,
-      "stock_boot_sha256": null
+      "layout": "a/b",
+      "layout_evidence": "official-ota-metadata",
+      "build_id": "IN2023_13.1.0.591(EX01)",
+      "stock_boot_sha256": "e8e1a0363883a4ea1f01bd282770d00fe59ae1adbf7b47e53bcbafa6c1278b47",
+      "stock_boot_size": 100663296,
+      "source_url": "https://gauss-componentotamanual.allawnofs.com/remove-3a5ffd4c0fa7e59b9efad8752d0d7be8/component-ota/25/10/20/a8a1aecfbd604c468523a5941001a45b.zip",
+      "config": "configs/stock/oneplus-8-pro/oxygenos.config",
+      "config_sha256": "ae25610534f3da161c1cd07067c39add4112afb62ad7665824b2aaaaab3ee226",
+      "kernel_release": "4.19.157-perf+",
+      "ota_type": "AB",
+      "security_patch": "2024-06-05",
+      "verified_from_stock_image": true
     }
   },
   "status": {
