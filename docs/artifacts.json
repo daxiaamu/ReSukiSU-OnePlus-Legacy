@@ -1,6 +1,6 @@
 {
   "status": "experimental; SM8250 r2 replaces withdrawn r1; OnePlus 9R ColorOS temporary boot verified",
-  "artifact_location": "local out/; binaries are not committed to Git",
+  "artifact_location": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.1.0-r2",
   "kernel_builds": {
     "oneplus-8-pro": {
       "coloros": {

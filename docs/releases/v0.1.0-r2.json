@@ -1,0 +1,39 @@
+{
+  "tag": "v0.1.0-r2",
+  "manager": {
+    "repository": "ReSukiSU/ReSukiSU",
+    "workflow_run": "https://github.com/ReSukiSU/ReSukiSU/actions/runs/34691751730",
+    "commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+    "artifact_id": 10297860021,
+    "artifact_name": "Manager-release",
+    "artifact_zip_digest": "sha256:3afcc16cdf8f4dc64c320685119ec1e60d02c7a7d8488409c2770870cdce2517",
+    "original_apk_name": "ReSukiSU_v4.2.0-rc1_35137-arm64-v8a-release.apk",
+    "apk": "ReSukiSU_v4.2.0-rc1_35137-arm64-v8a-release.apk",
+    "apk_sha256": "4f757c9cd23522f646e2af502a7e9ec231cd8f77ffb7340b77ed3d6182bd6934",
+    "unmodified_official_action_output": true,
+    "package": "com.resukisu.resukisu",
+    "version_name": "v4.2.0-rc1",
+    "version_code": 35137,
+    "abi": "arm64-v8a",
+    "signature_verified": true,
+    "signer_sha256": "d3469712b6214462764a1d8d3e5cbe1d6819a0b629791b9f4101867821f1df64"
+  },
+  "asset_sha256": {
+    "oneplus-8-pro-coloros-IN2020_13.1.0.190(CN01)-r2.zip": "61a9244e7f780040804cc8b0a20f9512177cea2eeb73348ff904a6c66a02e6c8",
+    "oneplus-8-pro-oxygenos-IN2023_13.1.0.591(EX01)-r2.zip": "ca93e18971f80988bd8a79169261d6c82922d861b4c38b9baa3310b2704a77b0",
+    "oneplus-8-coloros-IN2010_13.1.0.190(CN01)-r2.zip": "25b81d3bbd4e90d4c65e7797f59af8bbf1fe8c794e884ba834b924d6414520be",
+    "oneplus-8-oxygenos-IN2013_13.1.0.593(EX01)-r2.zip": "21efb3600e2fb04c76f7f85d2d5a47780f66a3cf9cbf817fe7e9f3f7d138ada1",
+    "oneplus-8t-coloros-KB2000_14.0.0.602(CN01)-r2.zip": "e93816d44a6b1478ed0a4ef62f2a8dfd337ce1aadd22155a57a839833b2e6ba5",
+    "oneplus-8t-oxygenos-KB2001_14.0.0.1311(EX01)-r2.zip": "dd18d50b03d7ac8c688df20c26fb445dbe4c46dd1c1ad5ce8b74ca141f2202f4",
+    "oneplus-9-pro-coloros-LE2120_14.0.0.1901(CN01).zip": "4c294c5d74b51a24462dcc1a4d2183f29171c1ef2314fb6d0682f9e40051bbff",
+    "oneplus-9-pro-oxygenos-LE2121_14.0.0.1902(EX01).zip": "ed93dd58378f2d151d4064fa89cda537a9616ee00fed2adb411fe20011cd1d1c",
+    "oneplus-9-coloros-LE2110_14.0.0.1901(CN01).zip": "d85e33dd2afdc9ff7d6cf021958d86d23a452c90a4613024fefa1d8faee841d9",
+    "oneplus-9-oxygenos-LE2111_14.0.0.1902(EX01).zip": "948269c05ad26511e8b136264967f0bf57fbfc1c0aabb567a22de10a847bcabf",
+    "oneplus-9r-coloros-LE2100_14.0.0.605(CN01)-r2.zip": "6b97d3950dcca547f224c8495ff2f1bbe10e2f6834b81bd3c98b841adc5c1842",
+    "oneplus-9r-oxygenos-LE2101_14.0.0.2401(EX01)-r2.zip": "59613f0fb88199bb5e608b5dc93cbf6cc83dfa256605577bf8994dac51f634de",
+    "ReSukiSU_v4.2.0-rc1_35137-arm64-v8a-release.apk": "4f757c9cd23522f646e2af502a7e9ec231cd8f77ffb7340b77ed3d6182bd6934",
+    "release-provenance.json": "772d89d3dc0e9883f75206f6450aaa5804d17b7928ce85d29a9b638a2cb19227",
+    "apk-signature.txt": "6803c846518840b7a1355889987fe6b6ae33c00be3d079ad94f7e3fdc8c3c8e8",
+    "SHA256SUMS": "99cb617c70c6d1d8fcfb31ace01bec01168e344b41b16a2e3dab00510dec5df9"
+  }
+}
