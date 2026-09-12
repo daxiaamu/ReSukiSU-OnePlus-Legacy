@@ -67,6 +67,8 @@ def repack(args):
         if protocol.get(key) != sha256(directory / filename):
             raise ValueError("Stale build: stock protocol changed")
     if data["platform"] == "sm8350":
+        if protocol.get("cfi_safe_initializers") is not True:
+            raise ValueError("Build lacks CFI-safe protobuf initializer callbacks")
         final_config = (built / "kernel.config").read_text().splitlines()
         for required in ("CONFIG_OPLUS_FINGERPRINT_COMMON=y", "CONFIG_CFI_CLANG=y"):
             if required not in final_config:
