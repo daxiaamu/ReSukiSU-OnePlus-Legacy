@@ -1,0 +1,1296 @@
+{
+  "stock_boot_sha256": "cb4e546fe00141cb315cdaf22980bcba6a96e82d6365350311697f9579816991",
+  "messages": [
+    {
+      "name": "netlink.proto.MessageHeader",
+      "short_name": "MessageHeader",
+      "c_name": "Netlink__Proto__MessageHeader",
+      "size": 40,
+      "fields": [
+        {
+          "name": "requestId",
+          "id": 1,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0
+        },
+        {
+          "name": "retCode",
+          "id": 2,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 32,
+          "flags": 0
+        },
+        {
+          "name": "eventId",
+          "id": 3,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 28,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.RequestSetDpiUid",
+      "short_name": "RequestSetDpiUid",
+      "c_name": "Netlink__Proto__RequestSetDpiUid",
+      "size": 128,
+      "fields": [
+        {
+          "name": "tmgpSgameUid",
+          "id": 1,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0
+        },
+        {
+          "name": "logkitUid",
+          "id": 2,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 28,
+          "flags": 0
+        },
+        {
+          "name": "haytapMarketUid",
+          "id": 3,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 32,
+          "flags": 0
+        },
+        {
+          "name": "zoomUid",
+          "id": 4,
+          "label": 1,
+          "type": 6,
+          "quantifier": 36,
+          "offset": 40,
+          "flags": 0
+        },
+        {
+          "name": "tencentMeetingUid",
+          "id": 5,
+          "label": 1,
+          "type": 6,
+          "quantifier": 44,
+          "offset": 48,
+          "flags": 0
+        },
+        {
+          "name": "wechatUid",
+          "id": 6,
+          "label": 1,
+          "type": 6,
+          "quantifier": 52,
+          "offset": 56,
+          "flags": 0
+        },
+        {
+          "name": "douYuUid",
+          "id": 7,
+          "label": 1,
+          "type": 6,
+          "quantifier": 60,
+          "offset": 64,
+          "flags": 0
+        },
+        {
+          "name": "huYaUid",
+          "id": 8,
+          "label": 1,
+          "type": 6,
+          "quantifier": 68,
+          "offset": 72,
+          "flags": 0
+        },
+        {
+          "name": "youKuUid",
+          "id": 9,
+          "label": 1,
+          "type": 6,
+          "quantifier": 76,
+          "offset": 80,
+          "flags": 0
+        },
+        {
+          "name": "iQiYiUid",
+          "id": 10,
+          "label": 1,
+          "type": 6,
+          "quantifier": 84,
+          "offset": 88,
+          "flags": 0
+        },
+        {
+          "name": "bilibiliUid",
+          "id": 11,
+          "label": 1,
+          "type": 6,
+          "quantifier": 92,
+          "offset": 96,
+          "flags": 0
+        },
+        {
+          "name": "douyinUid",
+          "id": 12,
+          "label": 1,
+          "type": 6,
+          "quantifier": 100,
+          "offset": 104,
+          "flags": 0
+        },
+        {
+          "name": "kuaishouUid",
+          "id": 13,
+          "label": 1,
+          "type": 6,
+          "quantifier": 108,
+          "offset": 112,
+          "flags": 0
+        },
+        {
+          "name": "qqUid",
+          "id": 14,
+          "label": 1,
+          "type": 6,
+          "quantifier": 116,
+          "offset": 120,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.RequestSetScene",
+      "short_name": "RequestSetScene",
+      "c_name": "Netlink__Proto__RequestSetScene",
+      "size": 40,
+      "fields": [
+        {
+          "name": "uid",
+          "id": 1,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0
+        },
+        {
+          "name": "scene",
+          "id": 2,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 28,
+          "flags": 0
+        },
+        {
+          "name": "enterType",
+          "id": 3,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 32,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.RequestSetCharater",
+      "short_name": "RequestSetCharater",
+      "c_name": "Netlink__Proto__RequestSetCharater",
+      "size": 104,
+      "fields": [
+        {
+          "name": "streamId",
+          "id": 1,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0
+        },
+        {
+          "name": "transportProtocol",
+          "id": 2,
+          "label": 1,
+          "type": 14,
+          "quantifier": 0,
+          "offset": 32,
+          "flags": 0
+        },
+        {
+          "name": "dstPort",
+          "id": 3,
+          "label": 1,
+          "type": 14,
+          "quantifier": 0,
+          "offset": 40,
+          "flags": 0
+        },
+        {
+          "name": "url",
+          "id": 4,
+          "label": 1,
+          "type": 14,
+          "quantifier": 0,
+          "offset": 48,
+          "flags": 0
+        },
+        {
+          "name": "httptype",
+          "id": 5,
+          "label": 1,
+          "type": 14,
+          "quantifier": 0,
+          "offset": 56,
+          "flags": 0
+        },
+        {
+          "name": "httpField",
+          "id": 6,
+          "label": 1,
+          "type": 14,
+          "quantifier": 0,
+          "offset": 64,
+          "flags": 0
+        },
+        {
+          "name": "downPkgTh",
+          "id": 7,
+          "label": 1,
+          "type": 14,
+          "quantifier": 0,
+          "offset": 72,
+          "flags": 0
+        },
+        {
+          "name": "upPkgTh",
+          "id": 8,
+          "label": 1,
+          "type": 14,
+          "quantifier": 0,
+          "offset": 80,
+          "flags": 0
+        },
+        {
+          "name": "upPkgMagic",
+          "id": 9,
+          "label": 1,
+          "type": 14,
+          "quantifier": 0,
+          "offset": 88,
+          "flags": 0
+        },
+        {
+          "name": "pkgTh",
+          "id": 10,
+          "label": 1,
+          "type": 14,
+          "quantifier": 0,
+          "offset": 96,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.RequestSetGameMainStreamUid",
+      "short_name": "RequestSetGameMainStreamUid",
+      "c_name": "Netlink__Proto__RequestSetGameMainStreamUid",
+      "size": 40,
+      "fields": [
+        {
+          "name": "gameUid",
+          "id": 1,
+          "label": 2,
+          "type": 6,
+          "quantifier": 24,
+          "offset": 32,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.RequestSetWechatScene",
+      "short_name": "RequestSetWechatScene",
+      "c_name": "Netlink__Proto__RequestSetWechatScene",
+      "size": 40,
+      "fields": [
+        {
+          "name": "wechatScene",
+          "id": 1,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 2
+        },
+        {
+          "name": "isEnter",
+          "id": 2,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 32,
+          "flags": 2
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.RequestSetActivityScene",
+      "short_name": "RequestSetActivityScene",
+      "c_name": "Netlink__Proto__RequestSetActivityScene",
+      "size": 56,
+      "fields": [
+        {
+          "name": "douyinStreamId",
+          "id": 1,
+          "label": 1,
+          "type": 8,
+          "quantifier": 24,
+          "offset": 32,
+          "flags": 0
+        },
+        {
+          "name": "kuaishouStreamId",
+          "id": 2,
+          "label": 1,
+          "type": 8,
+          "quantifier": 40,
+          "offset": 48,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.RequestGetDpiStreamSpeed",
+      "short_name": "RequestGetDpiStreamSpeed",
+      "c_name": "Netlink__Proto__RequestGetDpiStreamSpeed",
+      "size": 80,
+      "fields": [
+        {
+          "name": "ifidx",
+          "id": 1,
+          "label": 2,
+          "type": 6,
+          "quantifier": 24,
+          "offset": 32,
+          "flags": 0
+        },
+        {
+          "name": "uid",
+          "id": 2,
+          "label": 2,
+          "type": 6,
+          "quantifier": 40,
+          "offset": 48,
+          "flags": 0
+        },
+        {
+          "name": "speed_size",
+          "id": 3,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 56,
+          "flags": 0
+        },
+        {
+          "name": "limited_stream_set",
+          "id": 4,
+          "label": 2,
+          "type": 8,
+          "quantifier": 64,
+          "offset": 72,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.RequestSetLogSteamIp",
+      "short_name": "RequestSetLogSteamIp",
+      "c_name": "Netlink__Proto__RequestSetLogSteamIp",
+      "size": 48,
+      "fields": [
+        {
+          "name": "hostName",
+          "id": 1,
+          "label": 0,
+          "type": 14,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0
+        },
+        {
+          "name": "ipAddr",
+          "id": 2,
+          "label": 2,
+          "type": 6,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.RequestSetDouyinIp",
+      "short_name": "RequestSetDouyinIp",
+      "c_name": "Netlink__Proto__RequestSetDouyinIp",
+      "size": 64,
+      "fields": [
+        {
+          "name": "hostName",
+          "id": 1,
+          "label": 0,
+          "type": 14,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0
+        },
+        {
+          "name": "ipAddr",
+          "id": 2,
+          "label": 2,
+          "type": 6,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 0
+        },
+        {
+          "name": "ipv6Addr",
+          "id": 3,
+          "label": 2,
+          "type": 14,
+          "quantifier": 48,
+          "offset": 56,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.RequestGetAllUidSpeed",
+      "short_name": "RequestGetAllUidSpeed",
+      "c_name": "Netlink__Proto__RequestGetAllUidSpeed",
+      "size": 64,
+      "fields": [
+        {
+          "name": "ifidx",
+          "id": 1,
+          "label": 2,
+          "type": 6,
+          "quantifier": 24,
+          "offset": 32,
+          "flags": 0
+        },
+        {
+          "name": "speed_size",
+          "id": 2,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 40,
+          "flags": 0
+        },
+        {
+          "name": "limited_uid_set",
+          "id": 3,
+          "label": 2,
+          "type": 8,
+          "quantifier": 48,
+          "offset": 56,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.RequestSetDpiMatchAllUidEable",
+      "short_name": "RequestSetDpiMatchAllUidEable",
+      "c_name": "Netlink__Proto__RequestSetDpiMatchAllUidEable",
+      "size": 32,
+      "fields": [
+        {
+          "name": "enable",
+          "id": 1,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.RequestSetDpiStreamIdentifyEable",
+      "short_name": "RequestSetDpiStreamIdentifyEable",
+      "c_name": "Netlink__Proto__RequestSetDpiStreamIdentifyEable",
+      "size": 32,
+      "fields": [
+        {
+          "name": "enable",
+          "id": 1,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.RequestMessage",
+      "short_name": "RequestMessage",
+      "c_name": "Netlink__Proto__RequestMessage",
+      "size": 48,
+      "fields": [
+        {
+          "name": "header",
+          "id": 1,
+          "label": 0,
+          "type": 16,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0,
+          "typename": "MessageHeader"
+        },
+        {
+          "name": "requsetSetDpiUid",
+          "id": 11,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "RequestSetDpiUid"
+        },
+        {
+          "name": "requestGetDpiStreamSpeed",
+          "id": 12,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "RequestGetDpiStreamSpeed"
+        },
+        {
+          "name": "requestSetLogSteamIp",
+          "id": 13,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "RequestSetLogSteamIp"
+        },
+        {
+          "name": "requestGetAllUidSpeed",
+          "id": 14,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "RequestGetAllUidSpeed"
+        },
+        {
+          "name": "requestSetDpiMatchAllUidEable",
+          "id": 15,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "RequestSetDpiMatchAllUidEable"
+        },
+        {
+          "name": "requestSetGameMainStreamUid",
+          "id": 16,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "RequestSetGameMainStreamUid"
+        },
+        {
+          "name": "requestSetWechatScene",
+          "id": 17,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "RequestSetWechatScene"
+        },
+        {
+          "name": "requestSetScene",
+          "id": 18,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "RequestSetScene"
+        },
+        {
+          "name": "requestSetCharater",
+          "id": 19,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "RequestSetCharater"
+        },
+        {
+          "name": "requestSetActivityScene",
+          "id": 20,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "RequestSetActivityScene"
+        },
+        {
+          "name": "requestSetDouyinIp",
+          "id": 21,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "RequestSetDouyinIp"
+        },
+        {
+          "name": "requestSetDpiStreamIdentifyEable",
+          "id": 22,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "RequestSetDpiStreamIdentifyEable"
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.DpiSpeedItem",
+      "short_name": "DpiSpeedItem",
+      "c_name": "Netlink__Proto__DpiSpeedItem",
+      "size": 64,
+      "fields": [
+        {
+          "name": "type",
+          "id": 1,
+          "label": 0,
+          "type": 13,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0,
+          "typename": "dpiLevelType"
+        },
+        {
+          "name": "uid",
+          "id": 2,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 28,
+          "flags": 0
+        },
+        {
+          "name": "ifidx",
+          "id": 3,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 32,
+          "flags": 0
+        },
+        {
+          "name": "dpiId",
+          "id": 4,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 40,
+          "flags": 0
+        },
+        {
+          "name": "rxSpeed",
+          "id": 5,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 48,
+          "flags": 0
+        },
+        {
+          "name": "txSpeed",
+          "id": 6,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 56,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.ResponseGetDpiStreamSpeed",
+      "short_name": "ResponseGetDpiStreamSpeed",
+      "c_name": "Netlink__Proto__ResponseGetDpiStreamSpeed",
+      "size": 40,
+      "fields": [
+        {
+          "name": "streamUidSpeed",
+          "id": 1,
+          "label": 2,
+          "type": 16,
+          "quantifier": 24,
+          "offset": 32,
+          "flags": 0,
+          "typename": "DpiSpeedItem"
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.ResponseGetWzryServerIp",
+      "short_name": "ResponseGetWzryServerIp",
+      "c_name": "Netlink__Proto__ResponseGetWzryServerIp",
+      "size": 32,
+      "fields": [
+        {
+          "name": "battleIp",
+          "id": 1,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.GameDelayStats",
+      "short_name": "GameDelayStats",
+      "c_name": "Netlink__Proto__GameDelayStats",
+      "size": 104,
+      "fields": [
+        {
+          "name": "timestamp",
+          "id": 1,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0
+        },
+        {
+          "name": "rx_ip_delay",
+          "id": 2,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 32,
+          "flags": 0
+        },
+        {
+          "name": "rx_udp_delay",
+          "id": 3,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 40,
+          "flags": 0
+        },
+        {
+          "name": "rx_user_delay",
+          "id": 4,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 48,
+          "flags": 0
+        },
+        {
+          "name": "tx_udp_delay",
+          "id": 5,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 56,
+          "flags": 0
+        },
+        {
+          "name": "tx_ip_delay",
+          "id": 6,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 64,
+          "flags": 0
+        },
+        {
+          "name": "tx_sched_delay",
+          "id": 7,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 72,
+          "flags": 0
+        },
+        {
+          "name": "down_packets",
+          "id": 8,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 80,
+          "flags": 0
+        },
+        {
+          "name": "up_packets",
+          "id": 9,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 84,
+          "flags": 0
+        },
+        {
+          "name": "down_delay_max",
+          "id": 10,
+          "label": 2,
+          "type": 8,
+          "quantifier": 88,
+          "offset": 96,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.ResponseGetGameDelay",
+      "short_name": "ResponseGetGameDelay",
+      "c_name": "Netlink__Proto__ResponseGetGameDelay",
+      "size": 40,
+      "fields": [
+        {
+          "name": "stats",
+          "id": 1,
+          "label": 2,
+          "type": 16,
+          "quantifier": 24,
+          "offset": 32,
+          "flags": 0,
+          "typename": "GameDelayStats"
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.ResponseDpiRecordItem",
+      "short_name": "ResponseDpiRecordItem",
+      "c_name": "Netlink__Proto__ResponseDpiRecordItem",
+      "size": 64,
+      "fields": [
+        {
+          "name": "dpi_id",
+          "id": 1,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0
+        },
+        {
+          "name": "duration",
+          "id": 2,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 32,
+          "flags": 0
+        },
+        {
+          "name": "rx_traffic",
+          "id": 3,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 40,
+          "flags": 0
+        },
+        {
+          "name": "tx_traffic",
+          "id": 4,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 48,
+          "flags": 0
+        },
+        {
+          "name": "total_traffic",
+          "id": 5,
+          "label": 0,
+          "type": 8,
+          "quantifier": 0,
+          "offset": 56,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.ResponseDpiRecordData",
+      "short_name": "ResponseDpiRecordData",
+      "c_name": "Netlink__Proto__ResponseDpiRecordData",
+      "size": 40,
+      "fields": [
+        {
+          "name": "recordData",
+          "id": 1,
+          "label": 2,
+          "type": 16,
+          "quantifier": 24,
+          "offset": 32,
+          "flags": 0,
+          "typename": "ResponseDpiRecordItem"
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.ResponseMessage",
+      "short_name": "ResponseMessage",
+      "c_name": "Netlink__Proto__ResponseMessage",
+      "size": 48,
+      "fields": [
+        {
+          "name": "header",
+          "id": 1,
+          "label": 0,
+          "type": 16,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0,
+          "typename": "MessageHeader"
+        },
+        {
+          "name": "rspGetDpiStreamSpeed",
+          "id": 11,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "ResponseGetDpiStreamSpeed"
+        },
+        {
+          "name": "rspWzryServerIp",
+          "id": 12,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "ResponseGetWzryServerIp"
+        },
+        {
+          "name": "rspGameDelay",
+          "id": 13,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "ResponseGetGameDelay"
+        },
+        {
+          "name": "responseDpiRecordData",
+          "id": 14,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "ResponseDpiRecordData"
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.InformMessage",
+      "short_name": "InformMessage",
+      "c_name": "Netlink__Proto__InformMessage",
+      "size": 32,
+      "fields": [
+        {
+          "name": "header",
+          "id": 1,
+          "label": 0,
+          "type": 16,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0,
+          "typename": "MessageHeader"
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.NotifyWzryServerIp",
+      "short_name": "NotifyWzryServerIp",
+      "c_name": "Netlink__Proto__NotifyWzryServerIp",
+      "size": 32,
+      "fields": [
+        {
+          "name": "battleIp",
+          "id": 1,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.NotifyGameMainServerIp",
+      "short_name": "NotifyGameMainServerIp",
+      "c_name": "Netlink__Proto__NotifyGameMainServerIp",
+      "size": 32,
+      "fields": [
+        {
+          "name": "battleIp",
+          "id": 1,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0
+        },
+        {
+          "name": "gameUid",
+          "id": 2,
+          "label": 0,
+          "type": 6,
+          "quantifier": 0,
+          "offset": 28,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.NotifyDpiResult",
+      "short_name": "NotifyDpiResult",
+      "c_name": "Netlink__Proto__NotifyDpiResult",
+      "size": 64,
+      "fields": [
+        {
+          "name": "uid",
+          "id": 1,
+          "label": 1,
+          "type": 6,
+          "quantifier": 24,
+          "offset": 28,
+          "flags": 0
+        },
+        {
+          "name": "levelType",
+          "id": 2,
+          "label": 1,
+          "type": 6,
+          "quantifier": 32,
+          "offset": 36,
+          "flags": 0
+        },
+        {
+          "name": "dpiId",
+          "id": 3,
+          "label": 1,
+          "type": 8,
+          "quantifier": 40,
+          "offset": 48,
+          "flags": 0
+        },
+        {
+          "name": "state",
+          "id": 4,
+          "label": 1,
+          "type": 6,
+          "quantifier": 56,
+          "offset": 60,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.NotifyMessage",
+      "short_name": "NotifyMessage",
+      "c_name": "Netlink__Proto__NotifyMessage",
+      "size": 48,
+      "fields": [
+        {
+          "name": "header",
+          "id": 1,
+          "label": 0,
+          "type": 16,
+          "quantifier": 0,
+          "offset": 24,
+          "flags": 0,
+          "typename": "MessageHeader"
+        },
+        {
+          "name": "notifyWzryServerIp",
+          "id": 11,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "NotifyWzryServerIp"
+        },
+        {
+          "name": "notifyGameMainServerIp",
+          "id": 12,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "NotifyGameMainServerIp"
+        },
+        {
+          "name": "notifyDpiResult",
+          "id": 13,
+          "label": 1,
+          "type": 16,
+          "quantifier": 32,
+          "offset": 40,
+          "flags": 4,
+          "typename": "NotifyDpiResult"
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "name": "netlink.proto.NetlinkMsgId",
+      "short_name": "NetlinkMsgId",
+      "c_name": "Netlink__Proto__NetlinkMsgId",
+      "values": [
+        {
+          "name": "COMM_NETLINK_EVENT_UNSPEC",
+          "value": 0
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_SET_DPI_UID",
+          "value": 11
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_GET_DPI_STREAM_SPEED",
+          "value": 12
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_GET_ALL_UID_DPI_SPEED",
+          "value": 13
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_SET_DPI_MATCH_ALL_UID",
+          "value": 14
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_SET_DPI_WECHAT_SCENE",
+          "value": 15
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_SET_SCENE",
+          "value": 16
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_SET_STREAM_CHARACTER",
+          "value": 17
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_SET_DPI_ACTIVITY_SCENE",
+          "value": 18
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_GET_DPI_RECORD_DATA",
+          "value": 19
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_SET_DPI_STREAM_IDENTIFY_EABLE",
+          "value": 20
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_NOTIFY_DPI_RESULT",
+          "value": 21
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_GET_WZRY_SERVER_IP",
+          "value": 51
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_NOTIFY_WZRY_SERVER_IP",
+          "value": 52
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_GET_WZRY_DATA",
+          "value": 53
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_GET_DELAY",
+          "value": 54
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_SET_LOG_STREAM_IPADDR",
+          "value": 101
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_NOTIFY_GAME_MAIN_IP",
+          "value": 201
+        },
+        {
+          "name": "COMM_NETLINK_EVENT_SET_GAME_UID",
+          "value": 202
+        }
+      ]
+    },
+    {
+      "name": "netlink.proto.dpiLevelType",
+      "short_name": "dpiLevelType",
+      "c_name": "Netlink__Proto__DpiLevelType",
+      "values": [
+        {
+          "name": "DPI_LEVEL_UNSPEC",
+          "value": 0
+        },
+        {
+          "name": "DPI_LEVEL_UID",
+          "value": 1
+        },
+        {
+          "name": "DPI_LEVEL_APP",
+          "value": 2
+        },
+        {
+          "name": "DPI_LEVEL_FUNC",
+          "value": 3
+        },
+        {
+          "name": "DPI_LEVEL_STREAM",
+          "value": 4
+        }
+      ]
+    }
+  ]
+}

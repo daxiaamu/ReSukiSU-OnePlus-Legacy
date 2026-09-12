@@ -1,0 +1,139 @@
+// Recovered from verified stock ColorOS protobuf-c reflection metadata.
+syntax = "proto2";
+package netlink.proto;
+
+enum NetlinkMsgId {
+  COMM_NETLINK_EVENT_UNSPEC = 0;
+  COMM_NETLINK_EVENT_SET_DPI_UID = 11;
+  COMM_NETLINK_EVENT_GET_DPI_STREAM_SPEED = 12;
+  COMM_NETLINK_EVENT_GET_ALL_UID_DPI_SPEED = 13;
+  COMM_NETLINK_EVENT_SET_DPI_MATCH_ALL_UID = 14;
+  COMM_NETLINK_EVENT_GET_WZRY_SERVER_IP = 51;
+  COMM_NETLINK_EVENT_NOTIFY_WZRY_SERVER_IP = 52;
+  COMM_NETLINK_EVENT_GET_WZRY_DATA = 53;
+  COMM_NETLINK_EVENT_GET_DELAY = 54;
+  COMM_NETLINK_EVENT_SET_LOG_STREAM_IPADDR = 101;
+  COMM_NETLINK_EVENT_NOTIFY_GAME_MAIN_IP = 201;
+  COMM_NETLINK_EVENT_SET_GAME_UID = 202;
+}
+
+enum dpiLevelType {
+  DPI_LEVEL_UNSPEC = 0;
+  DPI_LEVEL_UID = 1;
+  DPI_LEVEL_APP = 2;
+  DPI_LEVEL_FUNC = 3;
+  DPI_LEVEL_STREAM = 4;
+}
+
+message MessageHeader {
+  required uint32 requestId = 1;
+  required uint32 eventId = 3;
+  required uint32 retCode = 2;
+}
+
+message RequestSetDpiUid {
+  required uint32 tmgpSgameUid = 1;
+  required uint32 logkitUid = 2;
+  required uint32 haytapMarketUid = 3;
+}
+
+message RequestSetGameMainStreamUid {
+  repeated uint32 gameUid = 1 [packed = false];
+}
+
+message RequestGetDpiStreamSpeed {
+  repeated uint32 ifidx = 1 [packed = false];
+  repeated uint32 uid = 2 [packed = false];
+  required uint64 speed_size = 3;
+}
+
+message RequestSetLogSteamIp {
+  required string hostName = 1;
+  repeated uint32 ipAddr = 2 [packed = false];
+}
+
+message RequestGetAllUidSpeed {
+  repeated uint32 ifidx = 1 [packed = false];
+  required uint64 speed_size = 2;
+}
+
+message RequestSetDpiMatchAllUidEable {
+  required uint32 enable = 1;
+}
+
+message RequestMessage {
+  required MessageHeader header = 1;
+  oneof request_data {
+    RequestSetDpiUid requsetSetDpiUid = 11;
+    RequestGetDpiStreamSpeed requestGetDpiStreamSpeed = 12;
+    RequestSetLogSteamIp requestSetLogSteamIp = 13;
+    RequestGetAllUidSpeed requestGetAllUidSpeed = 14;
+    RequestSetDpiMatchAllUidEable requestSetDpiMatchAllUidEable = 15;
+    RequestSetGameMainStreamUid requestSetGameMainStreamUid = 16;
+  }
+}
+
+message DpiSpeedItem {
+  required dpiLevelType type = 1;
+  required uint32 uid = 2;
+  required uint32 ifidx = 3;
+  required uint64 dpiId = 4;
+  required uint64 rxSpeed = 5;
+  required uint64 txSpeed = 6;
+}
+
+message ResponseGetDpiStreamSpeed {
+  repeated DpiSpeedItem streamUidSpeed = 1;
+}
+
+message ResponseGetWzryServerIp {
+  required uint32 battleIp = 1;
+}
+
+message GameDelayStats {
+  required uint64 timestamp = 1;
+  required uint64 rx_ip_delay = 2;
+  required uint64 rx_udp_delay = 3;
+  required uint64 rx_user_delay = 4;
+  required uint64 tx_udp_delay = 5;
+  required uint64 tx_ip_delay = 6;
+  required uint64 tx_sched_delay = 7;
+  required uint32 down_packets = 8;
+  required uint32 up_packets = 9;
+  repeated uint64 down_delay_max = 10 [packed = false];
+}
+
+message ResponseGetGameDelay {
+  repeated GameDelayStats stats = 1;
+}
+
+message ResponseMessage {
+  required MessageHeader header = 1;
+  oneof response_data {
+    ResponseGetDpiStreamSpeed rspGetDpiStreamSpeed = 11;
+    ResponseGetWzryServerIp rspWzryServerIp = 12;
+    ResponseGetGameDelay rspGameDelay = 13;
+  }
+}
+
+message InformMessage {
+  required MessageHeader header = 1;
+}
+
+message NotifyWzryServerIp {
+  required uint32 battleIp = 1;
+}
+
+message NotifyGameMainServerIp {
+  required uint32 battleIp = 1;
+  required uint32 gameUid = 2;
+}
+
+message NotifyMessage {
+  required MessageHeader header = 1;
+  oneof notify_data {
+    NotifyWzryServerIp notifyWzryServerIp = 11;
+    NotifyGameMainServerIp notifyGameMainServerIp = 12;
+  }
+}
+

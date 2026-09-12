@@ -5,9 +5,16 @@ import shutil
 import tempfile
 from project import ROOT, run, sha256
 
-def prepare(modules):
-    schema = ROOT / "compat/sm8350/netlink_msg.proto"
-    reflection = ROOT / "compat/sm8350/protocol-reflection.json"
+def protocol_directory(profile):
+    if profile["platform"] == "sm8350":
+        return ROOT / "compat/sm8350"
+    name = "oneplus-8" if profile["id"] == "oneplus-8-pro" else profile["id"]
+    return ROOT / "compat/sm8250" / name
+
+def prepare(modules, profile):
+    directory = protocol_directory(profile)
+    schema = directory / "netlink_msg.proto"
+    reflection = directory / "protocol-reflection.json"
     expected = json.loads(reflection.read_text())
     if not shutil.which("protoc-c"):
         raise RuntimeError("Install protobuf-c-compiler to restore the stock network protocol")

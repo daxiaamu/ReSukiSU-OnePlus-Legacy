@@ -7,6 +7,7 @@ import shutil
 import subprocess
 import sys
 from check_module_abi import compare
+from prepare_protocol import protocol_directory
 import tempfile
 import urllib.request
 import zipfile
@@ -59,12 +60,13 @@ def repack(args):
         raise ValueError("Kernel release differs from stock; module compatibility requires review")
     if sha256(built / "kernel.config") != manifest["config_sha256"]:
         raise ValueError("Compiled config checksum mismatch")
+    protocol = manifest.get("stock_protocol") or {}
+    directory = protocol_directory(data)
+    for key, filename in (("schema_sha256", "netlink_msg.proto"),
+                          ("reflection_sha256", "protocol-reflection.json")):
+        if protocol.get(key) != sha256(directory / filename):
+            raise ValueError("Stale build: stock protocol changed")
     if data["platform"] == "sm8350":
-        protocol = manifest.get("stock_protocol") or {}
-        for key, path in (("schema_sha256", "compat/sm8350/netlink_msg.proto"),
-                          ("reflection_sha256", "compat/sm8350/protocol-reflection.json")):
-            if protocol.get(key) != sha256(ROOT / path):
-                raise ValueError("Stale build: stock protocol changed")
         final_config = (built / "kernel.config").read_text().splitlines()
         for required in ("CONFIG_OPLUS_FINGERPRINT_COMMON=y", "CONFIG_CFI_CLANG=y"):
             if required not in final_config:
