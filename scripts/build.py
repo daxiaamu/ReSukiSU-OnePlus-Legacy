@@ -19,10 +19,15 @@ def checkout(repo, commit, dest, shallow=True):
     if actual != commit:
         raise ValueError("Source commit mismatch")
 
-def build(name, config=None):
+def build(name, config=None, rom='coloros'):
     if os.name != "posix":
         raise RuntimeError("Build on Linux (GitHub Actions or WSL)")
     data = device(name)
+    firmware = data["firmware"][rom]
+    if config is None:
+        if not firmware.get("config"):
+            raise RuntimeError("No verified stock config for " + name + "/" + rom)
+        config = ROOT / firmware["config"]
     for program in ("git", "make", "clang", "ld.lld", "aarch64-linux-gnu-gcc", "arm-linux-gnueabi-gcc"):
         if not shutil.which(program):
             raise RuntimeError("Missing build dependency: " + program)
@@ -32,6 +37,10 @@ def build(name, config=None):
     checkout(data["kernel"]["repository"], data["kernel"]["commit"], source)
     modules = work / "modules"
     checkout(data["vendor"]["repository"], data["vendor"]["commit"], modules)
+    vendor_patch = ROOT / "patches" / ("vendor-" + {"oneplus-8-pro": "oneplus-8", "oneplus-9-pro": "oneplus-9"}.get(name, name) + ".patch")
+    if vendor_patch.exists():
+        run("git", "apply", "--check", vendor_patch, cwd=modules)
+        run("git", "apply", vendor_patch, cwd=modules)
     (work / "vendor").symlink_to(modules / "vendor", target_is_directory=True)
     overlay = modules / "kernel" / source.name
     for item in overlay.rglob("*"):
@@ -62,11 +71,21 @@ def build(name, config=None):
             stream.write(addition)
     output.mkdir()
     env = dict(os.environ, ARCH="arm64", SUBARCH="arm64")
+    # Preserve module release string; provenance records the real source commits.
+    release = firmware.get("kernel_release")
+    if release:
+        if not release.startswith(data["kernel"]["version"]):
+            raise RuntimeError("Stock kernel version differs from source baseline")
+        (source / ".scmversion").write_text("", encoding="utf-8")
+
     options = ["make", "-C", str(source), "O=" + str(output), "ARCH=arm64",
                "CC=clang", "LD=ld.lld", "AR=llvm-ar", "NM=llvm-nm",
                "OBJCOPY=llvm-objcopy", "OBJDUMP=llvm-objdump", "STRIP=llvm-strip",
                "CLANG_TRIPLE=aarch64-linux-gnu-", "CROSS_COMPILE=aarch64-linux-gnu-",
                "CROSS_COMPILE_ARM32=arm-linux-gnueabi-"]
+    options += ["OPLUS_FEATURE_SECURE_GUARD=no", "OPLUS_FEATURE_SECURE_ROOTGUARD=no",
+                "OPLUS_FEATURE_SECURE_MOUNTGUARD=no", "OPLUS_FEATURE_SECURE_EXECGUARD=no",
+                "OPLUS_FEATURE_SECURE_KEYINTERFACESGUARD=no"]
     if config:
         shutil.copyfile(config, output / ".config")
     else:
@@ -78,6 +97,10 @@ def build(name, config=None):
     fragment = (ROOT / "configs/resukisu.config").read_text(encoding="utf-8")
     with (output / ".config").open("a", encoding="utf-8") as stream:
         stream.write("\n" + fragment)
+        if release:
+            stream.write('CONFIG_LOCALVERSION="' + release[len(data["kernel"]["version"]):] + '"\n')
+            stream.write("# CONFIG_LOCALVERSION_AUTO is not set\n")
+
     run(*options, "olddefconfig", env=env)
     final_config = (output / ".config").read_text()
     for required in ("CONFIG_KSU=y", "CONFIG_KSU_MANUAL_HOOK=y", "CONFIG_KALLSYMS_ALL=y"):
@@ -87,13 +110,13 @@ def build(name, config=None):
     image = output / "arch/arm64/boot/Image"
     if not image.is_file() or image.stat().st_size < 1024:
         raise RuntimeError("Kernel image missing")
-    dest = ROOT / "out" / name
+    dest = ROOT / "out" / name / rom
     dest.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(image, dest / "Image")
     shutil.copyfile(output / ".config", dest / "kernel.config")
     compiler = subprocess.check_output(["clang", "--version"], text=True)
-    save(dest / "build.json", {"device": name, "kernel": data["kernel"], "resukisu": data["resukisu"],
-        "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler,
+    save(dest / "build.json", {"device": name, "os": rom, "firmware": firmware["build_id"], "kernel_release": (output / "include/config/kernel.release").read_text().strip(), "kernel": data["kernel"], "resukisu": data["resukisu"],
+        "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler,
         "config_sha256": sha256(output / ".config"), "stock_config_supplied": bool(config),
         "compile_verified": True, "device_verified": False})
     print("Compile complete; boot packaging and on-device checks remain.")
@@ -101,6 +124,7 @@ def build(name, config=None):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--device", required=True, choices=list(PATCHES))
+    parser.add_argument("--os", choices=("coloros", "oxygenos"), default="coloros")
     parser.add_argument("--config", type=pathlib.Path, help="Uncompressed config from the matching stock kernel")
     args = parser.parse_args()
-    build(args.device, args.config)
+    build(args.device, args.config, args.os)

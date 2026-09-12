@@ -22,17 +22,33 @@
   "firmware": {
     "coloros": {
       "priority": 1,
-      "layout": "unverified",
-      "layout_evidence": "needs-device-confirmation",
-      "build_id": null,
-      "stock_boot_sha256": null
+      "layout": "a/b",
+      "layout_evidence": "official-ota-metadata",
+      "build_id": "KB2000_14.0.0.602(CN01)",
+      "stock_boot_sha256": "cb4e546fe00141cb315cdaf22980bcba6a96e82d6365350311697f9579816991",
+      "stock_boot_size": 100663296,
+      "source_url": "https://gauss-componentotacostmanual-cn.allawnfs.com/remove-14ae6491e15d03d20d821de9b2c4fcb4/component-ota/24/08/19/442d4002d2cd40d0809bb2746bc161d6.zip",
+      "config": "configs/stock/oneplus-8t/coloros.config",
+      "config_sha256": "d664644a5448084fd762e720a315595d753fa2fd9dbcdbc0ae499d361e0df3b2",
+      "kernel_release": "4.19.157-perf+",
+      "ota_type": "AB",
+      "security_patch": "2024-08-05",
+      "verified_from_stock_image": true
     },
     "oxygenos": {
       "priority": 2,
-      "layout": "unverified",
-      "layout_evidence": "needs-device-confirmation",
-      "build_id": null,
-      "stock_boot_sha256": null
+      "layout": "a/b",
+      "layout_evidence": "official-ota-metadata",
+      "build_id": "KB2001_14.0.0.1311(EX01)",
+      "stock_boot_sha256": "a6e77d0f3a21e77eb3a110fbe22d0d256724af889fe2d57233ea43ccdc03784a",
+      "stock_boot_size": 100663296,
+      "source_url": "https://gauss-componentotaauto.allawnofs.com/remove-a58c022716d8010c4e1ca4e7ffeebbc4/component-ota/25/10/04/d1249c8f2210476fa687255609256ef2.zip",
+      "config": "configs/stock/oneplus-8t/oxygenos.config",
+      "config_sha256": "d664644a5448084fd762e720a315595d753fa2fd9dbcdbc0ae499d361e0df3b2",
+      "kernel_release": "4.19.157-perf+",
+      "ota_type": "AB",
+      "security_patch": "2024-10-05",
+      "verified_from_stock_image": true
     }
   },
   "status": {
