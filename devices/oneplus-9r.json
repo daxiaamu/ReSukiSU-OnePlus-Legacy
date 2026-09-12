@@ -24,15 +24,31 @@
       "priority": 1,
       "layout": "a-only",
       "layout_evidence": "maintainer-provided",
-      "build_id": null,
-      "stock_boot_sha256": null
+      "build_id": "LE2100_14.0.0.605(CN01)",
+      "stock_boot_sha256": "727b44489610074bf427aed35a8641a3f05241f582da9f26559a14147e46c887",
+      "stock_boot_size": 100663296,
+      "source_url": "https://gauss-componentotacostmanual-cn.allawnfs.com/remove-4a397bb9b303cfe4fe5bf0f86369c0c7/component-ota/25/03/17/c1ace47600074fbe9f670f6448b986a7.zip",
+      "config": "configs/stock/oneplus-9r/coloros.config",
+      "config_sha256": "b1f3d71e3f38ed7b2bcd35ef7ecc474f949fba7593efd2f4109bb6be5d7cc5d9",
+      "kernel_release": "4.19.157-perf+",
+      "ota_type": "BLOCK",
+      "security_patch": "2025-03-01",
+      "verified_from_stock_image": true
     },
     "oxygenos": {
       "priority": 2,
       "layout": "a/b",
-      "layout_evidence": "maintainer-provided",
-      "build_id": null,
-      "stock_boot_sha256": null
+      "layout_evidence": "official-ota-metadata",
+      "build_id": "LE2101_14.0.0.2401(EX01)",
+      "stock_boot_sha256": "2839d7262b7bde037212744a1b9be146ba4deca7956941fbf7685d325c40583c",
+      "stock_boot_size": 100663296,
+      "source_url": "https://gauss-opexcostmanual-in.allawnofs.com/remove-3fb884a6dcdd323ddb31599dceae023a/component-ota/25/11/03/ef4ee72d83f645d094e1f625d6a127fa.zip",
+      "config": "configs/stock/oneplus-9r/oxygenos.config",
+      "config_sha256": "b1f3d71e3f38ed7b2bcd35ef7ecc474f949fba7593efd2f4109bb6be5d7cc5d9",
+      "kernel_release": "4.19.157-perf+",
+      "ota_type": "AB",
+      "security_patch": "2025-10-01",
+      "verified_from_stock_image": true
     }
   },
   "status": {

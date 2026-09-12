@@ -22,17 +22,33 @@
   "firmware": {
     "coloros": {
       "priority": 1,
-      "layout": "unverified",
-      "layout_evidence": "needs-device-confirmation",
-      "build_id": null,
-      "stock_boot_sha256": null
+      "layout": "a/b",
+      "layout_evidence": "official-ota-metadata",
+      "build_id": "IN2010_13.1.0.190(CN01)",
+      "stock_boot_sha256": "efc7b2466427ca90b9a395936b2098e5b98c14202547333b25e87bbfd0dd27a8",
+      "stock_boot_size": 100663296,
+      "source_url": "https://gauss-componentotacostmanual-cn.allawnfs.com/remove-e7e1bd561e12e3cef7d870bef87baedc/component-ota/24/06/07/f984c493a54a4873a5b09a96d3aee37f.zip",
+      "config": "configs/stock/oneplus-8/coloros.config",
+      "config_sha256": "ae25610534f3da161c1cd07067c39add4112afb62ad7665824b2aaaaab3ee226",
+      "kernel_release": "4.19.157-perf+",
+      "ota_type": "AB",
+      "security_patch": "2024-04-05",
+      "verified_from_stock_image": true
     },
     "oxygenos": {
       "priority": 2,
-      "layout": "unverified",
-      "layout_evidence": "needs-device-confirmation",
-      "build_id": null,
-      "stock_boot_sha256": null
+      "layout": "a/b",
+      "layout_evidence": "official-ota-metadata",
+      "build_id": "IN2013_13.1.0.593(EX01)",
+      "stock_boot_sha256": "10cb5b4518a0fd1ae4057facbb92eb1a3b825c623ff3ad9b0e9e80ea909c698a",
+      "stock_boot_size": 100663296,
+      "source_url": "https://gauss-componentotacostmanual-cn.allawnfs.com/remove-837ac42ccb8ac2d4709b559c133dcfb9/component-ota/25/11/07/41214d43b0a341bb91f63a8920259d9a.zip",
+      "config": "configs/stock/oneplus-8/oxygenos.config",
+      "config_sha256": "ae25610534f3da161c1cd07067c39add4112afb62ad7665824b2aaaaab3ee226",
+      "kernel_release": "4.19.157-perf+",
+      "ota_type": "AB",
+      "security_patch": "2024-06-05",
+      "verified_from_stock_image": true
     }
   },
   "status": {
