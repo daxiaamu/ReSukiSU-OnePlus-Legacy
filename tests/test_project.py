@@ -1,3 +1,4 @@
+import json
 import pathlib
 import sys
 import tempfile
@@ -5,7 +6,7 @@ import types
 import unittest
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "scripts"))
-from project import PATCHES, device
+from project import ROOT, PATCHES, device
 from repack import repack, boot_header
 from make_patches import transform
 
@@ -15,7 +16,23 @@ class ProfileTests(unittest.TestCase):
         for name in PATCHES:
             data = device(name)
             self.assertEqual(data["resukisu"]["hook"], "manual")
-            self.assertFalse(data["status"]["device_verified"])
+
+    def test_verified_devices_have_matching_boot_receipts(self):
+        for name in PATCHES:
+            data = device(name)
+            status = data["status"]
+            if not status["device_verified"]:
+                continue
+            self.assertTrue(status.get("validation_records"))
+            confirmed = set()
+            for path in status["validation_records"]:
+                record = json.loads((ROOT / path).read_text())
+                self.assertTrue(record["boot_completed"])
+                firmware = next(f for f in data["firmware"].values()
+                                if f["build_id"] == record["firmware"])
+                self.assertEqual(record["boot_sha256"], firmware["output_boot_sha256"])
+                confirmed.add(record["firmware"])
+            self.assertEqual(confirmed, set(status["verified_firmware"]))
 
     def test_9r_layout_mismatch_rejected_before_download(self):
         for os_name, bad_layout in (("coloros", "a/b"), ("oxygenos", "a-only")):
