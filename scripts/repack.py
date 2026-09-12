@@ -7,6 +7,7 @@ import shutil
 import subprocess
 import sys
 from check_module_abi import compare
+from resukisu_source import validate_manifest as validate_resukisu
 from module_trust import verify_embedded, verify_modules
 from check_stock_modules import verify as verify_stock_modules
 from prepare_protocol import protocol_directory
@@ -42,8 +43,9 @@ def repack(args):
     manifest = json.loads((built / "build.json").read_text(encoding="utf-8"))
     if manifest["device"] != args.device or manifest["os"] != args.os or not manifest["compile_verified"]:
         raise ValueError("No matching successful build")
-    if any(manifest.get(key) != data[key] for key in ("kernel", "resukisu", "vendor")):
+    if any(manifest.get(key) != data[key] for key in ("kernel", "vendor")):
         raise ValueError("Stale build: source profile changed")
+    validate_resukisu(manifest, data["resukisu"])
     vendor_name = {"oneplus-8-pro": "oneplus-8", "oneplus-9-pro": "oneplus-9"}.get(args.device, args.device)
     expected_patches = {
         "patch_sha256": ROOT / "patches" / (PATCHES[args.device] + ".patch"),
