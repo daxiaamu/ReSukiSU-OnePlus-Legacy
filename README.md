@@ -38,6 +38,8 @@
 
 在 GitHub 的 **Actions → Build latest ReSukiSU → Run workflow** 中，选择对应机型分支和 ColorOS / OxygenOS，即可手动构建。每次构建都使用 **ReSukiSU 官方默认分支的最新提交**：先解析 HEAD 的完整 SHA，再按该 SHA 检出编译。若解析失败，构建会报错。
 
+新构建的内核版本在原厂版本字符串后追加 `-daxiaamu`，例如 `4.19.157-perf+-daxiaamu`。Actions 摘要和 `build.json` 会记录完整版本；原厂模块的 CRC 和签名检查仍然保留。
+
 工作流摘要和产物 `build.json` 记录实际提交。最新源码构建需重新验证兼容性，不继承已发布镜像的真机验证结果。编译产物包含 `Image` 与构建记录；生成 `boot.img` 仍需下述原厂 boot 封装步骤。
 
 本地 Linux 构建同样使用最新 ReSukiSU：
