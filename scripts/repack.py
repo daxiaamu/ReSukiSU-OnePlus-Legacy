@@ -4,6 +4,9 @@ import json
 import pathlib
 import re
 import shutil
+import subprocess
+import sys
+from check_module_abi import compare
 import tempfile
 import urllib.request
 import zipfile
@@ -88,6 +91,21 @@ def repack(args):
         original.mkdir()
         verify.mkdir()
         run(binary, "unpack", "-h", stock, cwd=original)
+        abi_path = built / "abi-report.json"
+        if not abi_path.is_file():
+            stock_map = work / "stock.map"
+            with stock_map.open("wb") as stream:
+                subprocess.run([sys.executable, str(ROOT / "scripts/recover_symbols.py"),
+                                str(original / "kernel")], stdout=stream, check=True)
+            if not compare(original / "kernel", stock_map, built, abi_path):
+                raise ValueError("Stock export CRC comparison failed")
+        abi = json.loads(abi_path.read_text())
+        if not abi.get("passed") or abi.get("image_sha256") != manifest["image_sha256"]:
+            raise ValueError("Export CRC check failed or belongs to another kernel")
+        if abi.get("system_map_sha256") != sha256(built / "System.map"):
+            raise ValueError("ABI report symbol map changed")
+        if abi.get("stock_kernel_sha256") != sha256(original / "kernel"):
+            raise ValueError("ABI report targets a different stock kernel")
         preserved = {p.name: sha256(p) for p in original.iterdir()
                      if p.is_file() and p.name not in ("kernel", "header")}
         if "ramdisk.cpio" not in preserved:
@@ -112,7 +130,7 @@ def repack(args):
         shutil.copyfile(candidate, dest / "boot.img")
     manifest.update({"os": args.os, "firmware": args.firmware, "partition_layout": args.layout,
         "stock_boot_sha256": args.stock_sha256.lower(), "boot_sha256": sha256(dest / "boot.img"),
-        "boot_header_version": original_version, "magiskboot": tools, "device_verified": False})
+        "boot_header_version": original_version, "magiskboot": tools, "export_crc_check": abi, "device_verified": False})
     save(dest / "build.json", manifest)
     (dest / "SHA256SUMS").write_text(manifest["boot_sha256"] + "  boot.img\n", encoding="utf-8")
     print("Created experimental boot.img:", dest)
