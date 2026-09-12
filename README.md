@@ -34,7 +34,11 @@
 
 `main` 维护共用脚本与所有机型配置。机型分支的 `device.json` 选择构建目标；GitHub Actions 拒绝分支与机型不一致的请求。8 系列 / 9R 使用 4.19.157，9 / 9 Pro 使用 5.4.254。上游源码、ReSukiSU、补丁与工具链均记录版本或校验和。
 
-在机型分支运行 **Experimental kernel compile** 工作流，选择 ColorOS 或 OxygenOS。本地 Linux 示例：
+在 GitHub 的 **Actions → Build latest ReSukiSU → Run workflow** 中，选择对应机型分支和 ColorOS / OxygenOS，即可手动构建。每次构建都使用 **ReSukiSU 官方默认分支的最新提交**：先解析 HEAD 的完整 SHA，再按该 SHA 检出编译。若解析失败，构建会报错。
+
+工作流摘要和产物 `build.json` 记录实际提交。最新源码构建需重新验证兼容性，不继承已发布镜像的真机验证结果。编译产物包含 `Image` 与构建记录；生成 `boot.img` 仍需下述原厂 boot 封装步骤。
+
+本地 Linux 构建同样使用最新 ReSukiSU：
 
 ```sh
 python3 scripts/build.py --device oneplus-9r --os coloros
