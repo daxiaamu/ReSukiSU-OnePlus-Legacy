@@ -40,3 +40,14 @@
  		}
  		hlist_for_each_entry(pos_all_uid, &s_match_uid_result_head, node) {
  			if (ifidx_count == 0) {
+--- a/vendor/oplus/kernel/network/data_module/tmgp_sgame/wzry_stats.c
++++ b/vendor/oplus/kernel/network/data_module/tmgp_sgame/wzry_stats.c
+@@ -575,7 +575,7 @@
+ 			Netlink__Proto__GameDelayStats *stats = (Netlink__Proto__GameDelayStats *)((char *)getGameDelay.stats
+ 				+ copy_count * sizeof(Netlink__Proto__GameDelayStats *) + i * sizeof(Netlink__Proto__GameDelayStats));
+ 			getGameDelay.stats[i] = stats;
+-			netlink__proto__game_delay_stats__init((ProtobufCMessage *)stats);
++			netlink__proto__game_delay_stats__init(stats);
+ 			stats->timestamp = copy_delay_arry[i].timestamp;
+ 			stats->rx_ip_delay = copy_delay_arry[i].rx_ip_delay;
+ 			stats->rx_udp_delay = copy_delay_arry[i].rx_udp_delay;
