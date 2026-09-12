@@ -1,0 +1,43 @@
+{
+  "id": "oneplus-8-pro",
+  "name": "OnePlus 8 Pro",
+  "codename": "instantnoodlep",
+  "branch": "oneplus-8-pro",
+  "platform": "sm8250",
+  "android": 13,
+  "os_generation": "13.1",
+  "kernel": {
+    "repository": "OnePlusOSS/android_kernel_oneplus_sm8250",
+    "branch": "oneplus/sm8250_t_13.1_op8",
+    "commit": "1d2678a3548f4825447f17b25a5cc1754c4cd1ae",
+    "version": "4.19.157",
+    "defconfig": "vendor/kona-perf_defconfig",
+    "fragments": []
+  },
+  "resukisu": {
+    "repository": "ReSukiSU/ReSukiSU",
+    "commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+    "hook": "manual"
+  },
+  "firmware": {
+    "coloros": {
+      "priority": 1,
+      "layout": "unverified",
+      "layout_evidence": "needs-device-confirmation",
+      "build_id": null,
+      "stock_boot_sha256": null
+    },
+    "oxygenos": {
+      "priority": 2,
+      "layout": "unverified",
+      "layout_evidence": "needs-device-confirmation",
+      "build_id": null,
+      "stock_boot_sha256": null
+    }
+  },
+  "status": {
+    "source_pinned": true,
+    "compile_verified": false,
+    "device_verified": false
+  }
+}

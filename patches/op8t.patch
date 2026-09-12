@@ -1,0 +1,126 @@
+--- a/fs/exec.c
++++ b/fs/exec.c
+@@ -1935,6 +1935,12 @@
+ 			      struct user_arg_ptr envp,
+ 			      int flags)
+ {
++#ifdef CONFIG_KSU_MANUAL_HOOK
++extern int ksu_handle_execveat(int *, struct filename **, void *, void *, int *);
++#endif
++#ifdef CONFIG_KSU_MANUAL_HOOK
++	ksu_handle_execveat(&fd, &filename, &argv, &envp, &flags);
++#endif
+ 	return __do_execve_file(fd, filename, argv, envp, flags, NULL);
+ }
+ 
+--- a/fs/open.c
++++ b/fs/open.c
+@@ -452,6 +452,12 @@
+ 
+ SYSCALL_DEFINE3(faccessat, int, dfd, const char __user *, filename, int, mode)
+ {
++#ifdef CONFIG_KSU_MANUAL_HOOK
++extern int ksu_handle_faccessat(int *, const char __user **, int *, int *);
++#endif
++#ifdef CONFIG_KSU_MANUAL_HOOK
++	ksu_handle_faccessat(&dfd, &filename, &mode, NULL);
++#endif
+ 	return do_faccessat(dfd, filename, mode);
+ }
+ 
+--- a/fs/stat.c
++++ b/fs/stat.c
+@@ -358,9 +358,15 @@
+ SYSCALL_DEFINE4(newfstatat, int, dfd, const char __user *, filename,
+ 		struct stat __user *, statbuf, int, flag)
+ {
+-	struct kstat stat;
+-	int error;
+-
++#ifdef CONFIG_KSU_MANUAL_HOOK
++extern int ksu_handle_stat(int *, const char __user **, int *);
++#endif
++	struct kstat stat;
++	int error;
++
++#ifdef CONFIG_KSU_MANUAL_HOOK
++	ksu_handle_stat(&dfd, &filename, &flag);
++#endif
+ 	error = vfs_fstatat(dfd, filename, &stat, flag);
+ 	if (error)
+ 		return error;
+@@ -370,12 +376,18 @@
+ 
+ SYSCALL_DEFINE2(newfstat, unsigned int, fd, struct stat __user *, statbuf)
+ {
++#ifdef CONFIG_KSU_MANUAL_HOOK
++extern void ksu_handle_newfstat_ret(unsigned int *, struct stat __user **);
++#endif
+ 	struct kstat stat;
+ 	int error = vfs_fstat(fd, &stat);
+ 
+ 	if (!error)
+ 		error = cp_new_stat(&stat, statbuf);
+ 
++#ifdef CONFIG_KSU_MANUAL_HOOK
++	ksu_handle_newfstat_ret(&fd, &statbuf);
++#endif
+ 	return error;
+ }
+ 
+@@ -496,21 +508,33 @@
+ 
+ SYSCALL_DEFINE2(fstat64, unsigned long, fd, struct stat64 __user *, statbuf)
+ {
++#ifdef CONFIG_KSU_MANUAL_HOOK
++extern void ksu_handle_fstat64_ret(unsigned long *, struct stat64 __user **);
++#endif
+ 	struct kstat stat;
+ 	int error = vfs_fstat(fd, &stat);
+ 
+ 	if (!error)
+ 		error = cp_new_stat64(&stat, statbuf);
+ 
++#ifdef CONFIG_KSU_MANUAL_HOOK
++	ksu_handle_fstat64_ret(&fd, &statbuf);
++#endif
+ 	return error;
+ }
+ 
+ SYSCALL_DEFINE4(fstatat64, int, dfd, const char __user *, filename,
+ 		struct stat64 __user *, statbuf, int, flag)
+ {
+-	struct kstat stat;
+-	int error;
+-
++#ifdef CONFIG_KSU_MANUAL_HOOK
++extern int ksu_handle_stat(int *, const char __user **, int *);
++#endif
++	struct kstat stat;
++	int error;
++
++#ifdef CONFIG_KSU_MANUAL_HOOK
++	ksu_handle_stat(&dfd, &filename, &flag);
++#endif
+ 	error = vfs_fstatat(dfd, filename, &stat, flag);
+ 	if (error)
+ 		return error;
+--- a/kernel/reboot.c
++++ b/kernel/reboot.c
+@@ -308,10 +308,16 @@
+ SYSCALL_DEFINE4(reboot, int, magic1, int, magic2, unsigned int, cmd,
+ 		void __user *, arg)
+ {
++#ifdef CONFIG_KSU_MANUAL_HOOK
++extern int ksu_handle_sys_reboot(int, int, unsigned int, void __user **);
++#endif
+ 	struct pid_namespace *pid_ns = task_active_pid_ns(current);
+ 	char buffer[256];
+ 	int ret = 0;
+ 
++#ifdef CONFIG_KSU_MANUAL_HOOK
++	ksu_handle_sys_reboot(magic1, magic2, cmd, &arg);
++#endif
+ 	/* We only trust the superuser with rebooting the system. */
+ 	if (!ns_capable(pid_ns->user_ns, CAP_SYS_BOOT))
+ 		return -EPERM;

@@ -1,0 +1,40 @@
+name: Experimental kernel compile
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compile:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Resolve model from branch
+        env:
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          selector = Path("device.json")
+          if not selector.exists():
+              raise SystemExit("Select a oneplus-* model branch, not main")
+          device = json.loads(selector.read_text())["device"]
+          if device != os.environ["BRANCH"]:
+              raise SystemExit("Device selector does not match branch")
+          with open(os.environ["GITHUB_ENV"], "a") as f:
+              f.write("DEVICE=" + device + "\n")
+          PY
+      - name: Install experimental build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-14 llvm-14 lld-14 gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi build-essential bc bison flex libssl-dev libelf-dev dwarves python3
+          echo "/usr/lib/llvm-14/bin" >> "$GITHUB_PATH"
+      - name: Compile with vendor defconfig and ReSukiSU
+        run: python3 scripts/build.py --device "$DEVICE"
+      - name: Upload experimental kernel and provenance
+        uses: actions/upload-artifact@v4
+        with:
+          name: experimental-${{ env.DEVICE }}-${{ github.run_number }}
+          path: out/${{ env.DEVICE }}/
+          if-no-files-found: error

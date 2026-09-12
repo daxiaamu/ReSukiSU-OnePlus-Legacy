@@ -1,0 +1,43 @@
+{
+  "id": "oneplus-8t",
+  "name": "OnePlus 8T",
+  "codename": "kebab",
+  "branch": "oneplus-8t",
+  "platform": "sm8250",
+  "android": 14,
+  "os_generation": "14.0",
+  "kernel": {
+    "repository": "OnePlusOSS/android_kernel_oneplus_sm8250",
+    "branch": "oneplus/sm8250_u_14.0.0_op8t",
+    "commit": "846e71f228ad605c75b53064c4c165a1361a0bfe",
+    "version": "4.19.157",
+    "defconfig": "vendor/kona-perf_defconfig",
+    "fragments": []
+  },
+  "resukisu": {
+    "repository": "ReSukiSU/ReSukiSU",
+    "commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+    "hook": "manual"
+  },
+  "firmware": {
+    "coloros": {
+      "priority": 1,
+      "layout": "unverified",
+      "layout_evidence": "needs-device-confirmation",
+      "build_id": null,
+      "stock_boot_sha256": null
+    },
+    "oxygenos": {
+      "priority": 2,
+      "layout": "unverified",
+      "layout_evidence": "needs-device-confirmation",
+      "build_id": null,
+      "stock_boot_sha256": null
+    }
+  },
+  "status": {
+    "source_pinned": true,
+    "compile_verified": false,
+    "device_verified": false
+  }
+}

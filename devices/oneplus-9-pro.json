@@ -1,0 +1,45 @@
+{
+  "id": "oneplus-9-pro",
+  "name": "OnePlus 9 Pro",
+  "codename": "lemonadep",
+  "branch": "oneplus-9-pro",
+  "platform": "sm8350",
+  "android": 14,
+  "os_generation": "14.0",
+  "kernel": {
+    "repository": "OnePlusOSS/android_kernel_oneplus_sm8350",
+    "branch": "oneplus/sm8350_u_14.0.0_oneplus9",
+    "commit": "9e38a9fabb4de096bf386b7be988b7f7c5e4c58e",
+    "version": "5.4.254",
+    "defconfig": "gki_defconfig",
+    "fragments": [
+      "vendor/lahaina_QGKI.config"
+    ]
+  },
+  "resukisu": {
+    "repository": "ReSukiSU/ReSukiSU",
+    "commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+    "hook": "manual"
+  },
+  "firmware": {
+    "coloros": {
+      "priority": 1,
+      "layout": "unverified",
+      "layout_evidence": "needs-device-confirmation",
+      "build_id": null,
+      "stock_boot_sha256": null
+    },
+    "oxygenos": {
+      "priority": 2,
+      "layout": "unverified",
+      "layout_evidence": "needs-device-confirmation",
+      "build_id": null,
+      "stock_boot_sha256": null
+    }
+  },
+  "status": {
+    "source_pinned": true,
+    "compile_verified": false,
+    "device_verified": false
+  }
+}

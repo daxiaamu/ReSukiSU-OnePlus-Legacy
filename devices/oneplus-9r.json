@@ -1,0 +1,43 @@
+{
+  "id": "oneplus-9r",
+  "name": "OnePlus 9R",
+  "codename": "lemonades",
+  "branch": "oneplus-9r",
+  "platform": "sm8250",
+  "android": 14,
+  "os_generation": "14.0",
+  "kernel": {
+    "repository": "OnePlusOSS/android_kernel_oneplus_sm8250",
+    "branch": "oneplus/sm8250_u_14.0.0_op9r",
+    "commit": "b339700f85cb393563c802733bc39cca2617190c",
+    "version": "4.19.157",
+    "defconfig": "vendor/kona-perf_defconfig",
+    "fragments": []
+  },
+  "resukisu": {
+    "repository": "ReSukiSU/ReSukiSU",
+    "commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+    "hook": "manual"
+  },
+  "firmware": {
+    "coloros": {
+      "priority": 1,
+      "layout": "a-only",
+      "layout_evidence": "maintainer-provided",
+      "build_id": null,
+      "stock_boot_sha256": null
+    },
+    "oxygenos": {
+      "priority": 2,
+      "layout": "a/b",
+      "layout_evidence": "maintainer-provided",
+      "build_id": null,
+      "stock_boot_sha256": null
+    }
+  },
+  "status": {
+    "source_pinned": true,
+    "compile_verified": false,
+    "device_verified": false
+  }
+}

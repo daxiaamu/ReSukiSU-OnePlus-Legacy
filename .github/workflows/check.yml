@@ -1,0 +1,19 @@
+name: Source and tooling checks
+on:
+  push:
+    branches: [main, oneplus-8, oneplus-8-pro, oneplus-8t, oneplus-9r, oneplus-9, oneplus-9-pro]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Python and device invariants
+        run: |
+          python3 -m compileall -q scripts tests
+          python3 -m unittest discover -s tests -v
+      - name: Check pinned sources and apply all model patches
+        run: python3 scripts/audit.py

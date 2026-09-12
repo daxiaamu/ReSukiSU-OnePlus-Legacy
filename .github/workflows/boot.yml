@@ -1,0 +1,80 @@
+name: Package boot image
+on:
+  workflow_dispatch:
+    inputs:
+      kernel_run:
+        description: Successful kernel compile run ID for this exact model branch
+        required: true
+      stock_url:
+        description: HTTPS URL of the unmodified stock boot.img
+        required: true
+      stock_sha256:
+        description: SHA-256 of stock boot.img
+        required: true
+      firmware:
+        description: Exact firmware build ID
+        required: true
+      os:
+        type: choice
+        options: [coloros, oxygenos]
+        default: coloros
+      layout:
+        type: choice
+        options: [a-only, a/b]
+        required: true
+permissions:
+  contents: read
+  actions: read
+jobs:
+  boot:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      KERNEL_RUN: ${{ inputs.kernel_run }}
+      STOCK_URL: ${{ inputs.stock_url }}
+      STOCK_SHA256: ${{ inputs.stock_sha256 }}
+      FIRMWARE: ${{ inputs.firmware }}
+      ROM: ${{ inputs.os }}
+      LAYOUT: ${{ inputs.layout }}
+      BRANCH: ${{ github.ref_name }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate branch and download matching build
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib, subprocess
+          d = json.loads(pathlib.Path("device.json").read_text())["device"]
+          if d != os.environ["BRANCH"]:
+              raise SystemExit("Wrong model branch")
+          run_id = os.environ["KERNEL_RUN"]
+          if not run_id.isdigit():
+              raise SystemExit("Invalid run ID")
+          info = json.loads(subprocess.check_output(["gh", "api", "repos/" + os.environ["GH_REPO"] + "/actions/runs/" + run_id]))
+          if info["head_branch"] != d or info["conclusion"] != "success" or info["path"] != ".github/workflows/build.yml":
+              raise SystemExit("Not a successful compile for this branch")
+          dest = "out/" + d
+          subprocess.run(["gh", "run", "download", run_id, "--name", "experimental-" + d + "-" + str(info["run_number"]), "--dir", dest], check=True)
+          with open(os.environ["GITHUB_ENV"], "a") as f:
+              f.write("DEVICE=" + d + "\n")
+          PY
+      - name: Download stock boot and repack
+        run: |
+          python3 - <<'PY'
+          import os, pathlib, urllib.request
+          url = os.environ["STOCK_URL"]
+          if not url.startswith("https://"):
+              raise SystemExit("HTTPS stock URL required")
+          pathlib.Path(".work").mkdir(exist_ok=True)
+          urllib.request.urlretrieve(url, ".work/stock.img")
+          PY
+          python3 scripts/repack.py --device "$DEVICE" --os "$ROM" --layout "$LAYOUT" --firmware "$FIRMWARE" --stock .work/stock.img --stock-sha256 "$STOCK_SHA256"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: boot-${{ env.DEVICE }}-${{ inputs.os }}-${{ github.run_number }}
+          path: |
+            out/${{ env.DEVICE }}/${{ inputs.os }}-*/boot.img
+            out/${{ env.DEVICE }}/${{ inputs.os }}-*/build.json
+            out/${{ env.DEVICE }}/${{ inputs.os }}-*/SHA256SUMS
+          if-no-files-found: error

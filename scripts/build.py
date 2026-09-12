@@ -1,0 +1,87 @@
+"""Experimental Linux compile; a successful compile is not device validation."""
+import argparse
+import datetime
+import os
+import pathlib
+import shutil
+import subprocess
+from project import ROOT, PATCHES, device, run, save, sha256
+
+def checkout(repo, commit, dest, shallow=True):
+    run("git", "init", "--quiet", dest)
+    run("git", "remote", "add", "origin", "https://github.com/" + repo + ".git", cwd=dest)
+    command = ["git", "fetch", "--no-tags"]
+    if shallow:
+        command += ["--depth=1"]
+    run(*command, "origin", commit, cwd=dest)
+    run("git", "checkout", "--detach", "FETCH_HEAD", cwd=dest)
+    actual = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=dest, text=True).strip()
+    if actual != commit:
+        raise ValueError("Source commit mismatch")
+
+def build(name, config=None):
+    if os.name != "posix":
+        raise RuntimeError("Build on Linux (GitHub Actions or WSL)")
+    data = device(name)
+    for program in ("git", "make", "clang", "ld.lld", "aarch64-linux-gnu-gcc", "arm-linux-gnueabi-gcc"):
+        if not shutil.which(program):
+            raise RuntimeError("Missing build dependency: " + program)
+    work = ROOT / ".work" / (name + "-" + datetime.datetime.now().strftime("%Y%m%d%H%M%S"))
+    work.mkdir(parents=True, exist_ok=False)
+    source, output = work / "kernel", work / "obj"
+    checkout(data["kernel"]["repository"], data["kernel"]["commit"], source)
+    patch = ROOT / "patches" / (PATCHES[name] + ".patch")
+    run("git", "apply", "--check", patch, cwd=source)
+    run("git", "apply", patch, cwd=source)
+    checkout(data["resukisu"]["repository"], data["resukisu"]["commit"], source / "KernelSU", False)
+    (source / "drivers/kernelsu").symlink_to("../KernelSU/kernel", target_is_directory=True)
+    for path, addition in (
+        ("drivers/Makefile", "\nobj-$(CONFIG_KSU) += kernelsu/\n"),
+        ("drivers/Kconfig", '\nsource "drivers/kernelsu/Kconfig"\n'),
+    ):
+        with (source / path).open("a", encoding="utf-8") as stream:
+            stream.write(addition)
+    output.mkdir()
+    env = dict(os.environ, ARCH="arm64", SUBARCH="arm64")
+    options = ["make", "-C", str(source), "O=" + str(output), "ARCH=arm64",
+               "CC=clang", "LD=ld.lld", "AR=llvm-ar", "NM=llvm-nm",
+               "OBJCOPY=llvm-objcopy", "OBJDUMP=llvm-objdump", "STRIP=llvm-strip",
+               "CLANG_TRIPLE=aarch64-linux-gnu-", "CROSS_COMPILE=aarch64-linux-gnu-",
+               "CROSS_COMPILE_ARM32=arm-linux-gnueabi-"]
+    if config:
+        shutil.copyfile(config, output / ".config")
+    else:
+        target = data["kernel"]["defconfig"]
+        if data["platform"] == "sm8350":
+            target = "vendor/lahaina-qgki_defconfig"
+            run("bash", "scripts/gki/generate_defconfig.sh", target, cwd=source, env=env)
+        run(*options, target, env=env)
+    fragment = (ROOT / "configs/resukisu.config").read_text(encoding="utf-8")
+    with (output / ".config").open("a", encoding="utf-8") as stream:
+        stream.write("\n" + fragment)
+    run(*options, "olddefconfig", env=env)
+    final_config = (output / ".config").read_text()
+    for required in ("CONFIG_KSU=y", "CONFIG_KSU_MANUAL_HOOK=y", "CONFIG_KALLSYMS_ALL=y"):
+        if required not in final_config.splitlines():
+            raise RuntimeError("Kconfig dropped required option: " + required)
+    run(*options, "-j" + str(os.cpu_count() or 2), "Image", env=env)
+    image = output / "arch/arm64/boot/Image"
+    if not image.is_file() or image.stat().st_size < 1024:
+        raise RuntimeError("Kernel image missing")
+    dest = ROOT / "out" / name
+    dest.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(image, dest / "Image")
+    shutil.copyfile(output / ".config", dest / "kernel.config")
+    compiler = subprocess.check_output(["clang", "--version"], text=True)
+    save(dest / "build.json", {"device": name, "kernel": data["kernel"], "resukisu": data["resukisu"],
+        "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler,
+        "config_sha256": sha256(output / ".config"), "stock_config_supplied": bool(config),
+        "compile_verified": True, "device_verified": False})
+    print("Compile complete; boot packaging and on-device checks remain.")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--device", required=True, choices=list(PATCHES))
+    parser.add_argument("--config", type=pathlib.Path, help="Uncompressed config from the matching stock kernel")
+    args = parser.parse_args()
+    build(args.device, args.config)
