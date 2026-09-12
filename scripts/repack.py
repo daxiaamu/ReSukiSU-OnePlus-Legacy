@@ -82,7 +82,8 @@ def repack(args):
     if inventory.exists():
         signature_check = verify_modules(registered, built, inventory)
     tools = json.loads((ROOT / "tools.lock.json").read_text())["magiskboot"]
-    dest = args.output.resolve() if getattr(args, "output", None) else ROOT / "out" / args.device / (args.os + "-" + args.firmware)
+    revision = registered.get("artifact_revision")
+    dest = args.output.resolve() if getattr(args, "output", None) else ROOT / "out" / args.device / (args.os + "-" + args.firmware + ("-" + revision if revision else ""))
     if dest.exists():
         raise ValueError("Refusing to overwrite an existing firmware artifact directory")
     with tempfile.TemporaryDirectory() as temp:
@@ -153,7 +154,7 @@ def repack(args):
             raise ValueError("Repacked kernel does not match the compiled image")
         dest.mkdir(parents=True)
         shutil.copyfile(candidate, dest / "boot.img")
-    manifest.update({"os": args.os, "firmware": args.firmware, "partition_layout": args.layout,
+    manifest.update({"os": args.os, "firmware": args.firmware, "partition_layout": args.layout, "artifact_revision": revision,
         "module_signature_check": signature_check, "stock_boot_sha256": args.stock_sha256.lower(), "boot_sha256": sha256(dest / "boot.img"),
         "boot_header_version": original_version, "magiskboot": tools, "export_crc_check": abi, "module_crc_check": module_check, "abi_compatible": True, "device_verified": False})
     save(dest / "build.json", manifest)
