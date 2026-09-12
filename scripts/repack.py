@@ -7,6 +7,7 @@ import shutil
 import subprocess
 import sys
 from check_module_abi import compare
+from module_trust import verify_embedded, verify_modules
 from check_stock_modules import verify as verify_stock_modules
 from prepare_protocol import protocol_directory
 import tempfile
@@ -37,7 +38,7 @@ def repack(args):
     registered = data["firmware"][args.os]
     if args.firmware != registered["build_id"] or args.stock_sha256.lower() != registered["stock_boot_sha256"]:
         raise ValueError("Stock firmware is not the registered image for this model and OS")
-    built = ROOT / "out" / args.device / args.os
+    built = args.built.resolve() if getattr(args, "built", None) else ROOT / "out" / args.device / args.os
     manifest = json.loads((built / "build.json").read_text(encoding="utf-8"))
     if manifest["device"] != args.device or manifest["os"] != args.os or not manifest["compile_verified"]:
         raise ValueError("No matching successful build")
@@ -74,8 +75,14 @@ def repack(args):
         for required in ("CONFIG_OPLUS_FINGERPRINT_COMMON=y", "CONFIG_CFI_CLANG=y"):
             if required not in final_config:
                 raise ValueError("Required stock interface/config missing: " + required)
+    signature_check = verify_embedded(registered, built)
+    if not signature_check["passed"]:
+        raise ValueError("Original module signing trust was not preserved")
+    inventory = stock.parent / "module-inventory.json"
+    if inventory.exists():
+        signature_check = verify_modules(registered, built, inventory)
     tools = json.loads((ROOT / "tools.lock.json").read_text())["magiskboot"]
-    dest = ROOT / "out" / args.device / (args.os + "-" + args.firmware)
+    dest = args.output.resolve() if getattr(args, "output", None) else ROOT / "out" / args.device / (args.os + "-" + args.firmware)
     if dest.exists():
         raise ValueError("Refusing to overwrite an existing firmware artifact directory")
     with tempfile.TemporaryDirectory() as temp:
@@ -147,7 +154,7 @@ def repack(args):
         dest.mkdir(parents=True)
         shutil.copyfile(candidate, dest / "boot.img")
     manifest.update({"os": args.os, "firmware": args.firmware, "partition_layout": args.layout,
-        "stock_boot_sha256": args.stock_sha256.lower(), "boot_sha256": sha256(dest / "boot.img"),
+        "module_signature_check": signature_check, "stock_boot_sha256": args.stock_sha256.lower(), "boot_sha256": sha256(dest / "boot.img"),
         "boot_header_version": original_version, "magiskboot": tools, "export_crc_check": abi, "module_crc_check": module_check, "abi_compatible": True, "device_verified": False})
     save(dest / "build.json", manifest)
     (dest / "SHA256SUMS").write_text(manifest["boot_sha256"] + "  boot.img\n", encoding="utf-8")
@@ -161,4 +168,6 @@ if __name__ == "__main__":
     parser.add_argument("--firmware", required=True)
     parser.add_argument("--stock", required=True, type=pathlib.Path)
     parser.add_argument("--stock-sha256", required=True)
+    parser.add_argument("--built", type=pathlib.Path, help="Versioned compiled kernel directory")
+    parser.add_argument("--output", type=pathlib.Path, help="New versioned artifact directory")
     repack(parser.parse_args())
