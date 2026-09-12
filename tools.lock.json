@@ -4,5 +4,11 @@
     "url": "https://github.com/topjohnwu/Magisk/releases/download/v30.7/Magisk-v30.7.apk",
     "sha256": "e0d32d2123532860f97123d927b1bb86c4e08e6fd8a48bfc6b5bee0afae9ebd5",
     "member": "lib/x86_64/libmagiskboot.so"
+  },
+  "android_clang": {
+    "repository": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86",
+    "commit": "659f7cadd7ec920e470bffbb799b031d4344c8d9",
+    "directory": "clang-r383902b1",
+    "version_string": "Android (6877366 based on r383902b1) clang version 11.0.2"
   }
 }

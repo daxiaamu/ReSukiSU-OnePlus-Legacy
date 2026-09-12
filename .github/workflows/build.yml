@@ -35,9 +35,9 @@ jobs:
       - name: Install experimental build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y clang-14 llvm-14 lld-14 gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi build-essential bc bison flex libssl-dev libelf-dev dwarves python3
+          sudo apt-get install -y clang-14 llvm-14 lld-14 gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi build-essential bc bison flex libssl-dev libelf-dev libtinfo5 dwarves python3
           echo "/usr/lib/llvm-14/bin" >> "$GITHUB_PATH"
-      - name: Compile with vendor defconfig and ReSukiSU
+      - name: Compile with stock config and ReSukiSU
         run: python3 scripts/build.py --device "$DEVICE" --os "$ROM"
       - name: Upload experimental kernel and provenance
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
