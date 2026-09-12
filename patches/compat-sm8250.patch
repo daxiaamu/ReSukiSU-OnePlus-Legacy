@@ -41,3 +41,15 @@
  }
  
  /*
+--- a/fs/namespace.c
++++ b/fs/namespace.c
+@@ -32,9 +32,7 @@
+ 
+ #ifdef CONFIG_OPLUS_SECURE_GUARD
+-#ifdef CONFIG_OPLUS_MOUNT_BLOCK
+ #ifdef CONFIG_OPLUS_KEVENT_UPLOAD
+ #include <linux/oplus_kevent.h>
+ #endif /* CONFIG_OPLUS_KEVENT_UPLOAD */
+-#endif /* CONFIG_OPLUS_MOUNT_BLOCK */
+ #endif /* CONFIG_OPLUS_SECURE_GUARD*/
+ 
