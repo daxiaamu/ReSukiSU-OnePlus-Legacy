@@ -1,0 +1,17 @@
+name: Stock protocol and CFI checks
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  protocols:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - name: Install protocol validation dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential protobuf-c-compiler libprotobuf-c-dev libtinfo5
+      - name: Check stock layouts and CFI initializer calls
+        run: python3 scripts/check_protocols.py
