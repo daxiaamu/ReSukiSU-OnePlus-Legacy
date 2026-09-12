@@ -1,12 +1,10 @@
 # ReSukiSU-OnePlus-Legacy
 
-> **Module-signing correction in progress:** the original 8 / 8 Pro / 8T / 9R images lack stock signing trust anchors and must not be used. Eight replacement images are being built separately for ColorOS and OxygenOS. The 9R certificate-only diagnostic passed temporary boot and user checks. 9 / 9 Pro do not enable original module signature enforcement and are unaffected by this specific defect.
 
-> **9R 已报告停在 ColorOS 开机动画，尚未定位原因；暂停使用本批次 9R 镜像。OxygenOS 未确认受影响，同内核镜像一并暂停推荐。**
 
 为一加 8、8 Pro、8T、9R、9、9 Pro 集成 ReSukiSU，产物为 **boot.img**。项目面向 non-GKI / 早期 GKI 1.0 平台，使用各机型官方源码和对应末版系统的原厂 boot，不能套用通用 GKI 2.0 镜像。
 
-**已完成 12 份实验版镜像的编译、静态兼容性检查和封装复检，尚未真机测试。** ColorOS 为主，OxygenOS 为辅；下表列出本批次实际核对的完整版本，不表示同名系统的所有地区版本均通用。
+**已完成 12 份实验版镜像。8 / 8 Pro / 8T / 9R 请使用 r2：已修复原厂模块签名证书缺失。9R ColorOS 已通过最终编译版临时启动复测；其他版本尚未真机验证。** ColorOS 为主，OxygenOS 为辅；下表列出本批次实际核对的完整版本，不表示同名系统的所有地区版本均通用。
 
 | 机型 | 独立分支 | ColorOS | OxygenOS |
 | --- | --- | --- | --- |
@@ -24,7 +22,7 @@
 每个成品目录包含 `boot.img`、`build.json`、`SHA256SUMS`；另有按机型和完整版本命名的 ZIP。镜像保存在本地 `out/`，不写入 Git 历史。校验值与构建记录见 [成品记录](docs/artifacts.json)。
 
 - 9 / 9 Pro：13,797 个原厂内核导出接口名称与 CRC 全部匹配，保留原厂 CFI 配置，验证协议初始化回调的 CFI 签名。
-- 8 / 8 Pro / 8T / 9R：核对原厂 vendor、odm 的全部 41 个驱动模块，以及它们对内核和其他模块的依赖；均通过 CRC 与内核 release 检查。
+- 8 / 8 Pro / 8T / 9R：核对各系统原厂 vendor、odm 的全部 41 个驱动模块，通过依赖 CRC、内核 release 和 PKCS#7 签名检查；保留强制签名校验。证书根因与修复见 [模块签名说明](docs/module-signing.md)，旧版校验值见 [撤回记录](docs/withdrawn-artifacts.json)。
 - SM8250 保留两项公开源码内建触屏私有回调的结构差异。原厂驱动模块不引用这两项接口；其他原厂导出接口均匹配，没有缺失导出。原始差异报告保留在成品中，详见 [模块兼容性说明](docs/module-compatibility.md)。
 - 每份镜像仅替换内核，重新解包核对原厂 ramdisk、DTB 等其他组件及 header，检查镜像大小；不安装 Magisk，不执行刷机。
 
@@ -40,7 +38,7 @@
 python3 scripts/build.py --device oneplus-9r --os coloros
 ```
 
-同一机型两套末版系统的原厂内核配置与导出 CRC 表已核对一致，可复用该机型的编译结果，但必须使用各系统自己的原厂 boot 封装。
+同机型两套系统即使配置和导出 CRC 相同，也必须核对模块签名证书。SM8250 的 ColorOS、OxygenOS 证书不同，r2 分别编译，并使用各自的原厂 boot 封装。
 
 原厂 ZIP 可从本地或只读共享读取，输出写入本项目：
 
