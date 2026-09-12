@@ -1,0 +1,11 @@
+--- a/drivers/gpu/msm/kgsl_sharedmem.c
++++ b/drivers/gpu/msm/kgsl_sharedmem.c
+@@ -376,7 +376,7 @@
+ 
+ }
+ #ifdef OPLUS_FEATURE_HEALTHINFO
+-void gpu_usage_show()
++void gpu_usage_show(void)
+ {
+ 	struct kgsl_process_private *p;
+ 	int type = KGSL_MEM_ENTRY_KERNEL;

@@ -9,3 +9,14 @@
  {
  	pr_info("%s\n", __func__);
  
+--- a/vendor/oplus/kernel/system/uboot_log/uboot_log.c
++++ b/vendor/oplus/kernel/system/uboot_log/uboot_log.c
+@@ -167,7 +167,7 @@
+ /*
+  * Dont printk any log int this thread
+  */
+-int ubootback_thread_fn()
++int ubootback_thread_fn(void *unused)
+ {
+ 	size_t line_len = 0;
+ 	u32 idx =0;
