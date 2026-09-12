@@ -117,6 +117,16 @@ def build(name, config=None, rom='coloros'):
             target = "vendor/lahaina-qgki_defconfig"
             run("bash", "scripts/gki/generate_defconfig.sh", target, cwd=source, env=env)
         run(*options, target, env=env)
+    translations = {}
+    if data["platform"] == "sm8350":
+        stock_lines = (output / ".config").read_text().splitlines()
+        for line in stock_lines:
+            if line.startswith("CONFIG_OPPO_FINGERPRINT") and "=" in line:
+                key, value = line.split("=", 1)
+                if key != "CONFIG_OPPO_FINGERPRINT_COMMON":
+                    translations[key] = key.replace("CONFIG_OPPO_", "CONFIG_OPLUS_", 1)
+                    with (output / ".config").open("a") as stream:
+                        stream.write(translations[key] + "=" + value + "\n")
     fragment = (ROOT / "configs/resukisu.config").read_text(encoding="utf-8")
     with (output / ".config").open("a", encoding="utf-8") as stream:
         stream.write("\n" + fragment)
@@ -143,7 +153,7 @@ def build(name, config=None, rom='coloros'):
     compiler = subprocess.check_output(["clang", "--version"], text=True)
     save(dest / "build.json", {"device": name, "os": rom, "firmware": firmware["build_id"], "kernel_release": (output / "include/config/kernel.release").read_text().strip(), "kernel": data["kernel"], "resukisu": data["resukisu"],
         "compat_patch_sha256": sha256(compat_patch) if compat_patch.exists() else None, "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler, "compiler_lock": compiler_lock, "linker": subprocess.check_output([linker, "--version"], text=True).splitlines()[0], "native_features": native_features,
-        "config_sha256": sha256(output / ".config"), "stock_config_supplied": stock_config,
+        "config_sha256": sha256(output / ".config"), "stock_config_supplied": stock_config, "config_translations": translations,
         "compile_verified": True, "device_verified": False})
     print("Compile complete; boot packaging and on-device checks remain.")
 
