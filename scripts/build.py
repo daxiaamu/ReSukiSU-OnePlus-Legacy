@@ -143,6 +143,9 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
         if required not in final_config.splitlines():
             raise RuntimeError("Kconfig dropped required option: " + required)
     run(*options, "-j" + str(os.cpu_count() or 2), "KBUILD_SYMTYPES=1", "net/oplus_modules/data_module/", env=env)
+    if name == "oneplus-8t":
+        run(*options, "-j" + str(os.cpu_count() or 2), "net/ipv4/route.o",
+            "net/ipv6/route.o", "net/xfrm/xfrm_policy.o", env=env)
     if diagnostics_only:
         if data["platform"] == "sm8250":
             run(*options, "KBUILD_SYMTYPES=1", "drivers/input/touchscreen/touch.o", env=env)
