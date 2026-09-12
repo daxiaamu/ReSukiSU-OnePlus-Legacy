@@ -15,7 +15,7 @@ def device(name):
         raise ValueError("Unsupported device: " + name)
     data = json.loads((ROOT / "devices" / (name + ".json")).read_text(encoding="utf-8"))
     assert data["id"] == name and data["branch"] == name
-    for source in ("kernel", "resukisu"):
+    for source in ("kernel", "resukisu", "vendor"):
         assert re.fullmatch(r"[0-9a-f]{40}", data[source]["commit"])
     return data
 

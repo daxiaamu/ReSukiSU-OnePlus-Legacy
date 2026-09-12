@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 90
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
       - name: Resolve model from branch
         env:
           BRANCH: ${{ github.ref_name }}
@@ -33,7 +33,7 @@ jobs:
       - name: Compile with vendor defconfig and ReSukiSU
         run: python3 scripts/build.py --device "$DEVICE"
       - name: Upload experimental kernel and provenance
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: experimental-${{ env.DEVICE }}-${{ github.run_number }}
           path: out/${{ env.DEVICE }}/
