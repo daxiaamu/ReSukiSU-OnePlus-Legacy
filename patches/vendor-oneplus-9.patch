@@ -9,3 +9,23 @@
  	static int input_boost_old = 0;
  	if (sysctl_input_boost_enabled && sysctl_slide_boost_enabled) {
  		sysctl_input_boost_enabled = 0;
+--- a/vendor/oplus/kernel/network/data_module/dpi/dpi_core.c
++++ b/vendor/oplus/kernel/network/data_module/dpi/dpi_core.c
+@@ -1082,7 +1082,7 @@
+ 		for (k = 0; k < stream_count; k++) {
+ 			speedRsp.streamuidspeed[k] = (Netlink__Proto__DpiSpeedItem *)
+ 						((char *)speedRsp.streamuidspeed + sizeof(void *) * stream_count + sizeof(Netlink__Proto__DpiSpeedItem) * k);
+-			netlink__proto__dpi_speed_item__init((ProtobufCMessage *)speedRsp.streamuidspeed[k]);
++			netlink__proto__dpi_speed_item__init(speedRsp.streamuidspeed[k]);
+ 		}
+ 		uid_count = 0;
+ 		hlist_for_each_entry(pos_app, &s_match_app_result_head, node) {
+@@ -1238,7 +1238,7 @@
+ 		for (k = 0; k < stream_count; k++) {
+ 			speedRsp.streamuidspeed[k] = (Netlink__Proto__DpiSpeedItem *)
+ 						((char *)speedRsp.streamuidspeed + sizeof(void *) * stream_count + sizeof(Netlink__Proto__DpiSpeedItem) * k);
+-			netlink__proto__dpi_speed_item__init((ProtobufCMessage *)speedRsp.streamuidspeed[k]);
++			netlink__proto__dpi_speed_item__init(speedRsp.streamuidspeed[k]);
+ 		}
+ 		hlist_for_each_entry(pos_all_uid, &s_match_uid_result_head, node) {
+ 			if (ifidx_count == 0) {
