@@ -11,7 +11,9 @@ def audit(name):
     data = device(name)
     with tempfile.TemporaryDirectory() as temp:
         directory = pathlib.Path(temp)
-        for path in FILES:
+        patch = ROOT / "patches" / (PATCHES[name] + ".patch")
+        paths = [line[6:] for line in patch.read_text().splitlines() if line.startswith("+++ b/")]
+        for path in dict.fromkeys(paths):
             url = "https://raw.githubusercontent.com/{}/{}/{}".format(
                 data["kernel"]["repository"], data["kernel"]["commit"], path)
             target = directory / path
