@@ -41,5 +41,10 @@
     "source_pinned": true,
     "compile_verified": false,
     "device_verified": false
+  },
+  "vendor": {
+    "repository": "OnePlusOSS/android_kernel_modules_and_devicetree_oneplus_sm8350",
+    "branch": "oneplus/sm8350_u_14.0.0_oneplus9",
+    "commit": "d95833d6520887112ffed6537bfbef5e28650ca1"
   }
 }

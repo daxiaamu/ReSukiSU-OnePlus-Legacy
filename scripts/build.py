@@ -28,8 +28,27 @@ def build(name, config=None):
             raise RuntimeError("Missing build dependency: " + program)
     work = ROOT / ".work" / (name + "-" + datetime.datetime.now().strftime("%Y%m%d%H%M%S"))
     work.mkdir(parents=True, exist_ok=False)
-    source, output = work / "kernel", work / "obj"
+    source, output = work / "kernel" / ("msm-" + ".".join(data["kernel"]["version"].split(".")[:2])), work / "obj"
     checkout(data["kernel"]["repository"], data["kernel"]["commit"], source)
+    modules = work / "modules"
+    checkout(data["vendor"]["repository"], data["vendor"]["commit"], modules)
+    (work / "vendor").symlink_to(modules / "vendor", target_is_directory=True)
+    overlay = modules / "kernel" / source.name
+    for item in overlay.rglob("*"):
+        if item.is_dir() and not item.is_symlink():
+            continue
+        target = source / item.relative_to(overlay)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if target.exists() or target.is_symlink():
+            if item.is_symlink() and target.is_symlink() and os.readlink(item) == os.readlink(target):
+                continue
+            if not item.is_symlink() and not target.is_symlink() and sha256(item) == sha256(target):
+                continue
+            raise RuntimeError("Vendor overlay conflicts with kernel source: " + str(target))
+        if item.is_symlink():
+            target.symlink_to(os.readlink(item))
+        else:
+            shutil.copyfile(item, target)
     patch = ROOT / "patches" / (PATCHES[name] + ".patch")
     run("git", "apply", "--check", patch, cwd=source)
     run("git", "apply", patch, cwd=source)
@@ -74,7 +93,7 @@ def build(name, config=None):
     shutil.copyfile(output / ".config", dest / "kernel.config")
     compiler = subprocess.check_output(["clang", "--version"], text=True)
     save(dest / "build.json", {"device": name, "kernel": data["kernel"], "resukisu": data["resukisu"],
-        "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler,
+        "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler,
         "config_sha256": sha256(output / ".config"), "stock_config_supplied": bool(config),
         "compile_verified": True, "device_verified": False})
     print("Compile complete; boot packaging and on-device checks remain.")
