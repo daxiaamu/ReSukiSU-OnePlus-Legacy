@@ -3,6 +3,7 @@ import argparse
 import datetime
 import os
 import pathlib
+import re
 import shutil
 import subprocess
 from toolchain import configure
@@ -80,6 +81,19 @@ def build(name, config=None, rom='coloros'):
             stream.write(addition)
     output.mkdir()
     env = dict(os.environ, ARCH="arm64", SUBARCH="arm64")
+    native_features = {}
+    if data["platform"] == "sm8250":
+        # Android normally exports these variables to every recursive make.
+        # Reading the include in the top-level make alone does not export them.
+        feature_file = source / "oplus_native_features.mk"
+        for line in feature_file.read_text().splitlines():
+            match = re.fullmatch(r"([A-Z][A-Z0-9_]*)=(.*)", line.strip())
+            if match:
+                native_features[match[1]] = match[2]
+        if not native_features:
+            raise ValueError("Official native feature assignments are missing")
+        env.update(native_features)
+    linker = "aarch64-linux-gnu-ld" if data["platform"] == "sm8250" else "ld.lld"
     # Preserve module release string; provenance records the real source commits.
     release = firmware.get("kernel_release")
     if release:
@@ -88,7 +102,7 @@ def build(name, config=None, rom='coloros'):
         (source / ".scmversion").write_text("", encoding="utf-8")
 
     options = ["make", "-C", str(source), "O=" + str(output), "ARCH=arm64",
-               "CC=clang", "LD=ld.lld", "AR=llvm-ar", "NM=llvm-nm",
+               "CC=clang", "LD=" + linker, "AR=llvm-ar", "NM=llvm-nm",
                "OBJCOPY=llvm-objcopy", "OBJDUMP=llvm-objdump", "STRIP=llvm-strip",
                "CLANG_TRIPLE=aarch64-linux-gnu-", "CROSS_COMPILE=aarch64-linux-gnu-",
                "CROSS_COMPILE_ARM32=arm-linux-gnueabi-"]
@@ -128,7 +142,7 @@ def build(name, config=None, rom='coloros'):
             shutil.copyfile(output / diagnostic, dest / diagnostic)
     compiler = subprocess.check_output(["clang", "--version"], text=True)
     save(dest / "build.json", {"device": name, "os": rom, "firmware": firmware["build_id"], "kernel_release": (output / "include/config/kernel.release").read_text().strip(), "kernel": data["kernel"], "resukisu": data["resukisu"],
-        "compat_patch_sha256": sha256(compat_patch) if compat_patch.exists() else None, "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler, "compiler_lock": compiler_lock,
+        "compat_patch_sha256": sha256(compat_patch) if compat_patch.exists() else None, "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler, "compiler_lock": compiler_lock, "linker": subprocess.check_output([linker, "--version"], text=True).splitlines()[0], "native_features": native_features,
         "config_sha256": sha256(output / ".config"), "stock_config_supplied": stock_config,
         "compile_verified": True, "device_verified": False})
     print("Compile complete; boot packaging and on-device checks remain.")
