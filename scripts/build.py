@@ -8,6 +8,7 @@ import shutil
 import subprocess
 from toolchain import configure
 from prepare_protocol import prepare
+from module_trust import install as install_module_trust, verify_embedded
 from project import ROOT, PATCHES, device, run, save, sha256
 
 def checkout(repo, commit, dest, shallow=True):
@@ -48,6 +49,7 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     if vendor_patch.exists():
         run("git", "apply", "--check", vendor_patch, cwd=modules)
         run("git", "apply", vendor_patch, cwd=modules)
+    module_trust = install_module_trust(firmware, source)
     protocol = prepare(modules, data)
     (work / "vendor").symlink_to(modules / "vendor", target_is_directory=True)
     overlay = modules / "kernel" / source.name
@@ -133,6 +135,8 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     fragment = (ROOT / "configs/resukisu.config").read_text(encoding="utf-8")
     with (output / ".config").open("a", encoding="utf-8") as stream:
         stream.write("\n" + fragment)
+        if module_trust:
+            stream.write('CONFIG_SYSTEM_TRUSTED_KEYS="certs/stock-trusted.pem"\n')
         if release:
             stream.write('CONFIG_LOCALVERSION="' + release[len(data["kernel"]["version"]):] + '"\n')
             stream.write("# CONFIG_LOCALVERSION_AUTO is not set\n")
@@ -174,8 +178,9 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     compiler = subprocess.check_output(["clang", "--version"], text=True)
     save(dest / "build.json", {"device": name, "os": rom, "firmware": firmware["build_id"], "kernel_release": (output / "include/config/kernel.release").read_text().strip(), "kernel": data["kernel"], "resukisu": data["resukisu"],
         "compat_patch_sha256": sha256(compat_patch) if compat_patch.exists() else None, "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler, "compiler_lock": compiler_lock, "stock_protocol": protocol, "linker": subprocess.check_output([linker, "--version"], text=True).splitlines()[0], "native_features": native_features,
-        "config_sha256": sha256(output / ".config"), "stock_config_supplied": stock_config, "config_translations": translations,
+        "module_trust": module_trust, "config_sha256": sha256(output / ".config"), "stock_config_supplied": stock_config, "config_translations": translations,
         "compile_verified": True, "device_verified": False})
+    verify_embedded(firmware, dest)
     print("Compile complete; boot packaging and on-device checks remain.")
 
 if __name__ == "__main__":
