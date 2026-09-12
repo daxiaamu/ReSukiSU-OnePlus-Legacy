@@ -2,6 +2,7 @@
 import argparse
 import json
 import shutil
+from kernel_release import validate_release
 from resukisu_source import validate_manifest as validate_resukisu
 from module_trust import verify_embedded
 from project import ROOT, PATCHES, device, sha256, save
@@ -29,8 +30,7 @@ def reuse(name, source_os, target_os):
     validate_resukisu(manifest, profile["resukisu"])
     if sha256(built / "Image") != manifest["image_sha256"] or sha256(built / "kernel.config") != manifest["config_sha256"]:
         raise ValueError("Compiled artifacts changed")
-    if manifest["kernel_release"] != target["kernel_release"]:
-        raise ValueError("Compiled release differs from stock")
+    validate_release(manifest, target["kernel_release"], built / "kernel.config")
     verify_embedded(target, built)
     destination = ROOT / "out" / name / target_os
     destination.mkdir(parents=True, exist_ok=False)
