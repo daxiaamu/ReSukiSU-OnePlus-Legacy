@@ -1,5 +1,7 @@
 # ReSukiSU-OnePlus-Legacy
 
+下载：[v0.1.0-r2 实验版 Release](https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.1.0-r2)，包含 12 个机型／系统包、官方管理器 APK 和校验表。
+
 
 
 为一加 8、8 Pro、8T、9R、9、9 Pro 集成 ReSukiSU，产物为 **boot.img**。项目面向 non-GKI / 早期 GKI 1.0 平台，使用各机型官方源码和对应末版系统的原厂 boot，不能套用通用 GKI 2.0 镜像。
