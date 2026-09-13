@@ -1,0 +1,68 @@
+{
+  "id": "oneplus-9rt",
+  "name": "OnePlus 9RT",
+  "codename": "martini",
+  "branch": "oneplus-9rt",
+  "platform": "sm8350",
+  "android": 14,
+  "os_generation": "14.0",
+  "kernel": {
+    "repository": "OnePlusOSS/android_kernel_oneplus_sm8350",
+    "branch": "oneplus/sm8350_u_14.0.0_oneplus9rt",
+    "commit": "21e927b4f4c13414a8bfc8d9b8ed20a1cdc2efa0",
+    "version": "5.4.254",
+    "defconfig": "gki_defconfig",
+    "fragments": [
+      "vendor/lahaina_QGKI.config"
+    ]
+  },
+  "resukisu": {
+    "repository": "ReSukiSU/ReSukiSU",
+    "commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+    "hook": "manual"
+  },
+  "firmware": {
+    "coloros": {
+      "priority": 1,
+      "layout": "a/b",
+      "layout_evidence": "official-ota-metadata",
+      "build_id": "MT2110_14.0.0.2701(CN01)",
+      "stock_boot_sha256": "de99e78b4152394b0c9f67101ba59d06be6e4e36b1addf553fadd94b372fc388",
+      "stock_boot_size": 201326592,
+      "source_url": "https://gauss-componentotacostmanual-cn.allawnfs.com/remove-d679ffcc4c2d4644f38c2459ff49fb4d/component-ota/25/11/26/6be289280a1648449c16eb13dbd6eeb0.zip",
+      "config": "configs/stock/oneplus-9rt/coloros.config",
+      "config_sha256": "0d9b5d98056ffaf73d1149599f34e677e499185fe3fe9dc87199591143c2d74e",
+      "kernel_release": "5.4.254-qgki-gac311b3399ae",
+      "ota_type": "AB",
+      "security_patch": "2025-12-01",
+      "verified_from_stock_image": true
+    },
+    "oxygenos": {
+      "priority": 2,
+      "layout": "a/b",
+      "layout_evidence": "official-ota-metadata",
+      "build_id": "MT2111_14.0.0.2702(EX01)",
+      "stock_boot_sha256": "26532c900deefa13e236e5302c0bf5dadcc504e2d64d77504fddec1e8a20b13d",
+      "stock_boot_size": 201326592,
+      "source_url": "https://gauss-componentotaauto.allawnofs.com/remove-8c88237b391ef824801fb79d968abd44/component-ota/26/01/16/0975ae8fd52c4e73be4373b3e474284a.zip",
+      "config": "configs/stock/oneplus-9rt/oxygenos.config",
+      "config_sha256": "0d9b5d98056ffaf73d1149599f34e677e499185fe3fe9dc87199591143c2d74e",
+      "kernel_release": "5.4.254-qgki-gac311b3399ae",
+      "ota_type": "AB",
+      "security_patch": "2026-01-01",
+      "verified_from_stock_image": true
+    }
+  },
+  "status": {
+    "source_pinned": true,
+    "compile_verified": false,
+    "device_verified": false,
+    "boot_packaged": false,
+    "abi_check": "pending-all-stock-exports"
+  },
+  "vendor": {
+    "repository": "OnePlusOSS/android_kernel_modules_and_devicetree_oneplus_sm8350",
+    "branch": "oneplus/sm8350_u_14.0.0_oneplus9rt",
+    "commit": "4272b551d556300601d90087be7577dab65d0351"
+  }
+}

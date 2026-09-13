@@ -4,7 +4,7 @@
 
 
 
-为一加 8、8 Pro、8T、9R、9、9 Pro 集成 ReSukiSU，产物为 **boot.img**。项目面向 non-GKI / 早期 GKI 1.0 平台，使用各机型官方源码和对应末版系统的原厂 boot，不能套用通用 GKI 2.0 镜像。
+为一加 8、8 Pro、8T、9R、9、9 Pro、9RT 集成 ReSukiSU，产物为 **boot.img**。项目面向 non-GKI / 早期 GKI 1.0 平台，使用各机型官方源码和对应末版系统的原厂 boot，不能套用通用 GKI 2.0 镜像。
 
 **已完成 12 份实验版镜像。8 / 8 Pro / 8T / 9R 请使用 r2：已修复原厂模块签名证书缺失。9R ColorOS 已通过最终编译版临时启动复测；其他版本尚未真机验证。** ColorOS 为主，OxygenOS 为辅；下表列出本批次实际核对的完整版本，不表示同名系统的所有地区版本均通用。
 
@@ -16,12 +16,15 @@
 | 一加 9R | [oneplus-9r](../../tree/oneplus-9r) | LE2100_14.0.0.605(CN01) | LE2101_14.0.0.2401(EX01) |
 | 一加 9 | [oneplus-9](../../tree/oneplus-9) | LE2110_14.0.0.1901(CN01) | LE2111_14.0.0.1902(EX01) |
 | 一加 9 Pro | [oneplus-9-pro](../../tree/oneplus-9-pro) | LE2120_14.0.0.1901(CN01) | LE2121_14.0.0.1902(EX01) |
+| 一加 9RT | [oneplus-9rt](../../tree/oneplus-9rt) | MT2110_14.0.0.2701(CN01) | MT2111_14.0.0.2702(EX01) |
 
 **9R 的 ColorOS 是 A-only，OxygenOS 是 A/B。** 两者在 `oneplus-9r` 分支内分别配置、分别封装；ColorOS 从 ZIP 直接提取 boot.img，OxygenOS 从 payload 提取。其余本批次固件均为 A/B。
 
 其他版本系统如需定制，请联系：[120.oplus.icu](https://120.oplus.icu)。
 
 S3908 息屏单击手势修复: [六款机型排查与验证边界](docs/touch-gestures.md)。已发布的 v0.1.0-r2 不含本次手势修复，需重新编译。
+
+9RT 适配状态见 [9RT 说明](docs/oneplus-9rt.md)；既有 v0.1.0-r2 不包含 9RT。
 
 ## 成品与验证范围
 
