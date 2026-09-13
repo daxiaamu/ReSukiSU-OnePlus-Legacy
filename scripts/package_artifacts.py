@@ -1,5 +1,5 @@
 import pathlib,json,hashlib,zipfile
-from project import ROOT
+from project import ROOT, PATCHES
 
 def main():
     root=ROOT;out=root/'out';rows=[]
@@ -15,7 +15,8 @@ def main():
       if not (manifest['export_crc_check']['passed'] or (manifest.get('module_crc_check') or {}).get('passed')):raise ValueError('ABI checks did not pass')
       if data['platform']=='sm8250' and not manifest.get('module_signature_check',{}).get('passed'):raise ValueError('Original module signature checks missing: '+str(folder))
       rows.append((data['name'],data['id'],rom,fw['build_id'],fw['layout'],folder,manifest))
-    if len(rows)!=12:raise ValueError('Expected all twelve firmware artifacts')
+    if {row[1] for row in rows} != set(PATCHES) or len(rows) != 2 * len(PATCHES):
+     raise ValueError('Expected both OS artifacts for every supported model')
     archives=out/'archives';archives.mkdir(exist_ok=True)
     lines=['# ReSukiSU OnePlus Legacy 成品','','已生成 '+str(len(rows))+' 份实验版 boot.img，完成编译、静态兼容性检查及重新解包校验。9R ColorOS 的实测范围见对应 build.json；其余版本尚未真机验证。','','9R 的 ColorOS 为 A-only，OxygenOS 为 A/B，请按对应完整系统版本选择。','','| 机型 | 系统 | 完整版本 | 布局 | 镜像 | 压缩包 |','| --- | --- | --- | --- | --- | --- |']
     summary=[];sums=[]
