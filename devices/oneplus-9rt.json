@@ -35,7 +35,8 @@
       "kernel_release": "5.4.254-qgki-gac311b3399ae",
       "ota_type": "AB",
       "security_patch": "2025-12-01",
-      "verified_from_stock_image": true
+      "verified_from_stock_image": true,
+      "output_boot_sha256": "b4d2812136378e86c650897673e4acd56035fa140c89079fe80278a1831b8e8d"
     },
     "oxygenos": {
       "priority": 2,
@@ -50,15 +51,21 @@
       "kernel_release": "5.4.254-qgki-gac311b3399ae",
       "ota_type": "AB",
       "security_patch": "2026-01-01",
-      "verified_from_stock_image": true
+      "verified_from_stock_image": true,
+      "output_boot_sha256": "893ed92b4665370155703fffef68d0d6ef44c48665127460037eeea4bd40e577"
     }
   },
   "status": {
     "source_pinned": true,
-    "compile_verified": false,
+    "compile_verified": true,
     "device_verified": false,
-    "boot_packaged": false,
-    "abi_check": "pending-all-stock-exports"
+    "boot_packaged": true,
+    "abi_check": "all-stock-exports",
+    "distribution_status": "experimental",
+    "kernel_runs": {
+      "coloros": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34743317043",
+      "oxygenos": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34743318521"
+    }
   },
   "vendor": {
     "repository": "OnePlusOSS/android_kernel_modules_and_devicetree_oneplus_sm8350",
