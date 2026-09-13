@@ -34,7 +34,7 @@
       "ota_type": "BLOCK",
       "security_patch": "2025-03-01",
       "verified_from_stock_image": true,
-      "output_boot_sha256": "7593803bc7083fa4293bc5fe21f20fdd55abe6135c68faaf7d9ff9138694346c",
+      "output_boot_sha256": "da017c3fbda1f42cfa2d21c22ec858b0758c3ca98823c4caaa1a8b4e18f76725",
       "trusted_module_certificates": [
         {
           "path": "compat/module-certificates/oneplus-9r/coloros-0.pem",
@@ -42,7 +42,7 @@
           "der_sha256": "b87123371503a25b13bbc510e611d6780be1e5a9295cf8f886fb3372fb25bcfd"
         }
       ],
-      "artifact_revision": "r2"
+      "artifact_revision": "v0.2.0"
     },
     "oxygenos": {
       "priority": 2,
@@ -58,7 +58,7 @@
       "ota_type": "AB",
       "security_patch": "2025-10-01",
       "verified_from_stock_image": true,
-      "output_boot_sha256": "cd21e9e45d812afa5533817d829d858aca8b712bde48d8090bb8bba19a8f3e94",
+      "output_boot_sha256": "02f17fad0bb7b306ef17c838c15dfad9f2cc5bfedee5490ce32f8f573e7f08d5",
       "trusted_module_certificates": [
         {
           "path": "compat/module-certificates/oneplus-9r/oxygenos-0.pem",
@@ -66,13 +66,13 @@
           "der_sha256": "5a706075b37fb92e00f75c6ad3ae12295ff8c4c0b7ea124b13687bd012c307ef"
         }
       ],
-      "artifact_revision": "r2"
+      "artifact_revision": "v0.2.0"
     }
   },
   "status": {
     "source_pinned": true,
     "compile_verified": true,
-    "device_verified": true,
+    "device_verified": false,
     "boot_packaged": true,
     "abi_check": "original-vendor-odm-modules",
     "boot_failure_reported": true,
@@ -80,15 +80,15 @@
     "failure_stage": "Original r1 failure resolved by restoring stock module signing trust; r2 ColorOS temporary boot verified",
     "module_signature_fix": "r2: stock trust preserved and all 41 original modules verified per OS",
     "kernel_runs": {
-      "coloros": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716929125",
-      "oxygenos": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716931499"
+      "coloros": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740019447",
+      "oxygenos": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740020920"
     },
-    "verified_firmware": [
-      "LE2100_14.0.0.605(CN01)"
-    ],
     "boot_failure_resolved": true,
-    "validation_records": [
+    "historical_validation_records": [
       "docs/device-validation/oneplus-9r-coloros-r2.json"
+    ],
+    "historical_verified_firmware": [
+      "LE2100_14.0.0.605(CN01)"
     ]
   },
   "vendor": {

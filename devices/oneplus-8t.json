@@ -34,7 +34,7 @@
       "ota_type": "AB",
       "security_patch": "2024-08-05",
       "verified_from_stock_image": true,
-      "output_boot_sha256": "d0296cd460696b7c4190714da2ae4b58abce929b4bb5d3c636e541d7f60d1097",
+      "output_boot_sha256": "4af87b13f0f1aa23c882c2d11b7369d0dc09656498f3375bc21fbe464e2f230e",
       "trusted_module_certificates": [
         {
           "path": "compat/module-certificates/oneplus-8t/coloros-0.pem",
@@ -42,7 +42,7 @@
           "der_sha256": "1c1f026dcd7be0b437098a4f38c2f488bd1dad4ba5640fa2499a27a79c069563"
         }
       ],
-      "artifact_revision": "r2"
+      "artifact_revision": "v0.2.0"
     },
     "oxygenos": {
       "priority": 2,
@@ -58,7 +58,7 @@
       "ota_type": "AB",
       "security_patch": "2024-10-05",
       "verified_from_stock_image": true,
-      "output_boot_sha256": "f088dc760c32c4c35613c6d4c68bc64208dc6ccc39cb47acb95ade446e6aac3e",
+      "output_boot_sha256": "ec397c7201d8d14421ab79cf60cdc619bcc62dd31a9338e8dc7fa84a7d533e4e",
       "trusted_module_certificates": [
         {
           "path": "compat/module-certificates/oneplus-8t/oxygenos-0.pem",
@@ -66,7 +66,7 @@
           "der_sha256": "c62083434feab88be989a495b6782af9baade1b83bf35635f9870ea24fdb7981"
         }
       ],
-      "artifact_revision": "r2"
+      "artifact_revision": "v0.2.0"
     }
   },
   "status": {
@@ -78,8 +78,8 @@
     "distribution_status": "experimental",
     "module_signature_fix": "r2: stock trust preserved and all 41 original modules verified per OS",
     "kernel_runs": {
-      "coloros": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716939406",
-      "oxygenos": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716940961"
+      "coloros": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740016211",
+      "oxygenos": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740017707"
     }
   },
   "vendor": {
