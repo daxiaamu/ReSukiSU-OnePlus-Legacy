@@ -3,6 +3,7 @@ import argparse
 import concurrent.futures
 import pathlib
 import tempfile
+import sys
 import urllib.request
 from make_patches import FILES, transform
 from project import ROOT, PATCHES, device, run
@@ -36,7 +37,11 @@ def audit(name):
         with tempfile.TemporaryDirectory() as temp:
             directory = pathlib.Path(temp)
             paths = [line[6:] for line in extra_patch.read_text().splitlines() if line.startswith("+++ b/")]
-            for path in paths:
+            if origin == data["vendor"]:
+                touch = "vendor/oplus/kernel/touchpanel/oplus_touchscreen/"
+                chip = touch + "Synaptics/Syna_tcm_oncell/synaptics_tcm_oncell"
+                paths += [chip + ".c", chip + ".h", touch + "touchpanel_common.h"]
+            for path in dict.fromkeys(paths):
                 url = "https://raw.githubusercontent.com/{}/{}/{}".format(
                     origin["repository"], origin["commit"], path)
                 target = directory / path
@@ -45,6 +50,13 @@ def audit(name):
                     target.write_bytes(response.read())
             run("git", "init", "--quiet", directory)
             run("git", "apply", "--check", extra_patch, cwd=directory)
+            if origin == data["vendor"]:
+                baseline = directory / "baseline.c"
+                baseline.write_bytes((directory / (chip + ".c")).read_bytes())
+                run("git", "apply", extra_patch, cwd=directory)
+                run(sys.executable, ROOT / "scripts/check_s3908_gesture.py",
+                    directory, "--baseline", baseline)
+
     print(name + ": pinned source and patches verified", flush=True)
 
 if __name__ == "__main__":
