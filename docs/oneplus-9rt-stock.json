@@ -1,0 +1,25 @@
+{
+  "device": "oneplus-9rt",
+  "stock_images": [
+    {
+      "os": "coloros",
+      "stock_boot_sha256": "de99e78b4152394b0c9f67101ba59d06be6e4e36b1addf553fadd94b372fc388",
+      "stock_kernel_sha256": "00f95d0ed2c9dea7cc44b53a572bc96895f5c57253014ac381215588f2d69b9f",
+      "stock_export_count": 13842,
+      "stock_export_table_sha256": "de54aa6fca6cec4a5e39157d3039942f66ae9a3bffe794e1037478f5a9f85515"
+    },
+    {
+      "os": "oxygenos",
+      "stock_boot_sha256": "26532c900deefa13e236e5302c0bf5dadcc504e2d64d77504fddec1e8a20b13d",
+      "stock_kernel_sha256": "adb8914b7475a6bde5fafe39baf3312e92e0acd0a0f8831fd0cab034253601fb",
+      "stock_export_count": 13842,
+      "stock_export_table_sha256": "de54aa6fca6cec4a5e39157d3039942f66ae9a3bffe794e1037478f5a9f85515"
+    }
+  ],
+  "shared_sm8350_protocol": {
+    "messages": 27,
+    "enums": 2,
+    "layout_matches": true
+  },
+  "device_verified": false
+}
