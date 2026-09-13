@@ -15,5 +15,5 @@ jobs:
         run: |
           python3 -m compileall -q scripts tests
           python3 -m unittest discover -s tests -v
-      - name: Check pinned sources and apply all model patches
+      - name: Check all model patches and run C gesture regressions
         run: python3 scripts/audit.py
