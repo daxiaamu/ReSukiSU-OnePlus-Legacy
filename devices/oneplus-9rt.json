@@ -36,7 +36,8 @@
       "ota_type": "AB",
       "security_patch": "2025-12-01",
       "verified_from_stock_image": true,
-      "output_boot_sha256": "b4d2812136378e86c650897673e4acd56035fa140c89079fe80278a1831b8e8d"
+      "output_boot_sha256": "b4d2812136378e86c650897673e4acd56035fa140c89079fe80278a1831b8e8d",
+      "artifact_revision": "v0.2.0"
     },
     "oxygenos": {
       "priority": 2,
@@ -52,7 +53,8 @@
       "ota_type": "AB",
       "security_patch": "2026-01-01",
       "verified_from_stock_image": true,
-      "output_boot_sha256": "893ed92b4665370155703fffef68d0d6ef44c48665127460037eeea4bd40e577"
+      "output_boot_sha256": "893ed92b4665370155703fffef68d0d6ef44c48665127460037eeea4bd40e577",
+      "artifact_revision": "v0.2.0"
     }
   },
   "status": {
