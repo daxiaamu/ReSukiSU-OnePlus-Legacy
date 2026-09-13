@@ -1,381 +1,1822 @@
 {
-  "status": "experimental; SM8250 r2 replaces withdrawn r1; OnePlus 9R ColorOS temporary boot verified",
-  "artifact_location": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.1.0-r2",
+  "status": "v0.2.0 experimental; all 14 images untested on device",
+  "artifact_location": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.2.0",
   "kernel_builds": {
-    "oneplus-8-pro": {
+    "oneplus-8": {
       "coloros": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716936101",
-        "recipe_commit": "304143719aa5259a433a0e99de4fbde891b43698",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740008767",
+        "recipe_commit": "a43a58d4cb4b98b24cebbdead89b0891467529e5",
         "status": "completed",
         "conclusion": "success"
       },
       "oxygenos": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716937579",
-        "recipe_commit": "304143719aa5259a433a0e99de4fbde891b43698",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740010345",
+        "recipe_commit": "a43a58d4cb4b98b24cebbdead89b0891467529e5",
         "status": "completed",
         "conclusion": "success"
       }
     },
-    "oneplus-8": {
+    "oneplus-8-pro": {
       "coloros": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716932872",
-        "recipe_commit": "bb7d3b4a2ace008293ddadb8dfd466372ccf9285",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740012255",
+        "recipe_commit": "996b1a3375495359ec13f7d7a024a9ffe9f49184",
         "status": "completed",
         "conclusion": "success"
       },
       "oxygenos": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716934553",
-        "recipe_commit": "bb7d3b4a2ace008293ddadb8dfd466372ccf9285",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740014232",
+        "recipe_commit": "996b1a3375495359ec13f7d7a024a9ffe9f49184",
         "status": "completed",
         "conclusion": "success"
       }
     },
     "oneplus-8t": {
       "coloros": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716939406",
-        "recipe_commit": "3f8b12e4cfb92779e9099cf880b75322781cc0e9",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740016211",
+        "recipe_commit": "7464f49bb26e66b7272293886dc99c9db5116264",
         "status": "completed",
         "conclusion": "success"
       },
       "oxygenos": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716940961",
-        "recipe_commit": "3f8b12e4cfb92779e9099cf880b75322781cc0e9",
-        "status": "completed",
-        "conclusion": "success"
-      }
-    },
-    "oneplus-9-pro": {
-      "coloros": {
-        "run_id": 34711398328,
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34711398328",
-        "recipe_commit": "509e2280861d59d736ee3ad7ad17a619149a66e4",
-        "branch": "oneplus-9-pro",
-        "status": "completed",
-        "conclusion": "success"
-      },
-      "oxygenos": {
-        "run_id": 34711398328,
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34711398328",
-        "recipe_commit": "509e2280861d59d736ee3ad7ad17a619149a66e4",
-        "branch": "oneplus-9-pro",
-        "status": "completed",
-        "conclusion": "success"
-      }
-    },
-    "oneplus-9": {
-      "coloros": {
-        "run_id": 34711388262,
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34711388262",
-        "recipe_commit": "13668725d6cdbc06845aac298be3450eeeacd0f1",
-        "branch": "oneplus-9",
-        "status": "completed",
-        "conclusion": "success"
-      },
-      "oxygenos": {
-        "run_id": 34711388262,
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34711388262",
-        "recipe_commit": "13668725d6cdbc06845aac298be3450eeeacd0f1",
-        "branch": "oneplus-9",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740017707",
+        "recipe_commit": "7464f49bb26e66b7272293886dc99c9db5116264",
         "status": "completed",
         "conclusion": "success"
       }
     },
     "oneplus-9r": {
       "coloros": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716929125",
-        "recipe_commit": "7ee17a099a5eb55e4a77ff75134e3e8ad4ef090e",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740019447",
+        "recipe_commit": "fe99de161cc49434f4c729f4545e2110190a6a9b",
         "status": "completed",
         "conclusion": "success"
       },
       "oxygenos": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34716931499",
-        "recipe_commit": "7ee17a099a5eb55e4a77ff75134e3e8ad4ef090e",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740020920",
+        "recipe_commit": "fe99de161cc49434f4c729f4545e2110190a6a9b",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    },
+    "oneplus-9": {
+      "coloros": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740022742",
+        "recipe_commit": "e60ca9cd488f7d7e8d924df80c752e92ede46f1c",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "oxygenos": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740023939",
+        "recipe_commit": "e60ca9cd488f7d7e8d924df80c752e92ede46f1c",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    },
+    "oneplus-9-pro": {
+      "coloros": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740025024",
+        "recipe_commit": "85517d10073e2ffefde1c138ca08d85f8db61d89",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "oxygenos": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740026222",
+        "recipe_commit": "85517d10073e2ffefde1c138ca08d85f8db61d89",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    },
+    "oneplus-9rt": {
+      "coloros": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34743317043",
+        "recipe_commit": "4c0a9811704ce02208404141cca6483da97d0624",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "oxygenos": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34743318521",
+        "recipe_commit": "4c0a9811704ce02208404141cca6483da97d0624",
         "status": "completed",
         "conclusion": "success"
       }
     }
   },
-  "packaging_recipe_sha256": "1edd9a04342a309ee46cfd26e047b22e1ee69a5a022ce492c66eb3af9f63c9d7",
   "artifacts": [
-    {
-      "device": "oneplus-8-pro",
-      "os": "coloros",
-      "firmware": "IN2020_13.1.0.190(CN01)",
-      "layout": "a/b",
-      "boot_sha256": "72b7708a025e159a4fd3239d5bb78a08f2cc2f1fc6581fcd7459c625401bfad9",
-      "boot_size": 100663296,
-      "archive": "oneplus-8-pro-coloros-IN2020_13.1.0.190(CN01)-r2.zip",
-      "archive_sha256": "61a9244e7f780040804cc8b0a20f9512177cea2eeb73348ff904a6c66a02e6c8",
-      "image_sha256": "095696904bd760d23458d8d303339f6c60e20eabea636b538d684de7b121c13b",
-      "all_exports_match": false,
-      "module_check": true,
-      "device_verified": false,
-      "artifact_revision": "r2",
-      "module_signature_check": {
-        "passed": true,
-        "enforcement": true,
-        "module_count": 41,
-        "trusted_certificate_sha256": [
-          "302cd52988233ae482dc3726210cb78f216bd92bf8dcc5585ace5d29a59daa51"
-        ]
-      },
-      "release_asset": "oneplus-8-pro-coloros-IN2020_13.1.0.190.CN01.-r2.zip"
-    },
-    {
-      "device": "oneplus-8-pro",
-      "os": "oxygenos",
-      "firmware": "IN2023_13.1.0.591(EX01)",
-      "layout": "a/b",
-      "boot_sha256": "d0ed0e2c9473c55a2a5c0e1b3de8d89c61588ba79437b99d3d7855a1712cd91a",
-      "boot_size": 100663296,
-      "archive": "oneplus-8-pro-oxygenos-IN2023_13.1.0.591(EX01)-r2.zip",
-      "archive_sha256": "ca93e18971f80988bd8a79169261d6c82922d861b4c38b9baa3310b2704a77b0",
-      "image_sha256": "bfffe600f12609f358e2562228551d4dedc2a59371c6944d90225295ac9f5f6f",
-      "all_exports_match": false,
-      "module_check": true,
-      "device_verified": false,
-      "artifact_revision": "r2",
-      "module_signature_check": {
-        "passed": true,
-        "enforcement": true,
-        "module_count": 41,
-        "trusted_certificate_sha256": [
-          "148036051f3e7130887846af079e9dbd9907cc2b54caec92f958f17548aef2fd"
-        ]
-      },
-      "release_asset": "oneplus-8-pro-oxygenos-IN2023_13.1.0.591.EX01.-r2.zip"
-    },
     {
       "device": "oneplus-8",
       "os": "coloros",
       "firmware": "IN2010_13.1.0.190(CN01)",
       "layout": "a/b",
-      "boot_sha256": "2bbd2f31ced6b42c4497dd8750dc478b3388a4602a029a5fa34836c36714d98d",
+      "boot_sha256": "32fd8c91f18730f5bd3bc0cb0203acaf6a4d0b21e6efe1a10d08b661f65a93c3",
       "boot_size": 100663296,
-      "archive": "oneplus-8-coloros-IN2010_13.1.0.190(CN01)-r2.zip",
-      "archive_sha256": "25b81d3bbd4e90d4c65e7797f59af8bbf1fe8c794e884ba834b924d6414520be",
-      "image_sha256": "7867758d82b7037041a37071a62c4a475bd1c2c25ee85e662f6637f5fdb36842",
+      "image_sha256": "bda8ec1c6dbb4af5df557c1d127702f3628869d034cf67433ff660bfb70df921",
+      "kernel_release": "4.19.157-perf+-daxiaamu",
       "all_exports_match": false,
+      "stock_exports": 12928,
       "module_check": true,
-      "device_verified": false,
-      "artifact_revision": "r2",
       "module_signature_check": {
         "passed": true,
         "enforcement": true,
-        "module_count": 41,
         "trusted_certificate_sha256": [
           "302cd52988233ae482dc3726210cb78f216bd92bf8dcc5585ace5d29a59daa51"
-        ]
+        ],
+        "modules": [
+          {
+            "path": "module-set/vendor/lib/modules/audio_adsp_loader.ko",
+            "sha256": "849ae97ea88bb276e348f5cf96e3dcf41587d19adc914ea553bf75f6cb6787ef"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_ak4376.ko",
+            "sha256": "7ca31524cad45141f8d22a353c9090ae377e1afd9b492c08fdef9656944f1047"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_apr.ko",
+            "sha256": "073c23aa75f500c6baf9014fa5c1a4942f2cbd33ba22f123b360774191186f6a"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_bolero_cdc.ko",
+            "sha256": "3ff678a29d6435cf6a278573868f830d39b717fc22dd4eea1db19ac4fffc055a"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_extend.ko",
+            "sha256": "fe1cdaf43118b79031dbd2ff27f06b8ee5229723e3ec8ff2c94851e4e354b897"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_hdmi.ko",
+            "sha256": "833b3197e42f4c56d6eb4bfb5c8e481e6d220ef8dcfd136abec8cea562108b30"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_machine_kona.ko",
+            "sha256": "4be33d7f6ed963012cfe51777a8e82fd37f6a28aa12df90c2db28ba994ccdb26"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_max98937.ko",
+            "sha256": "d54eaae7a4e56c0ea2b837a23ec15d9cbe7b94d824a4b70515cffa5c3485e650"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_mbhc.ko",
+            "sha256": "e1ed95218191aab9ea073366ae641409c6ad0e9fb77d28bb6aa8a6007b79a735"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_native.ko",
+            "sha256": "aa11905ecf316a79bb923158962dc42aa4b7c20418ce5881d6c473293e747a2a"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_pinctrl_lpi.ko",
+            "sha256": "ed7da431e9c76941e60c091e551f7363d74df578189ace6296124582000c8fff"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_pinctrl_wcd.ko",
+            "sha256": "210b154b72936868cf4e272aa31a95a0cc205d46e246ede2c237412bfb63ccb8"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_platform.ko",
+            "sha256": "12425bda95dd0328e40e127b79969f91a46188f1a1897d50f09f87e0036373c8"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6.ko",
+            "sha256": "6261fb3d515ec298ae102bd73077ae9f6a5c85e84cf4d5346215f76d4504cfcc"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6_notifier.ko",
+            "sha256": "15f02135c808416b4012ddff1907c3016381b01cda1fe78d8b53db511021b2e5"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6_pdr.ko",
+            "sha256": "9ba47da581181d6fb90f320bd04b68277e3c3ce6cf19f63b40c06a3dd361611c"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_rx_macro.ko",
+            "sha256": "7c8cbc1e2597f2bbc76dcdff8bd4d9b070b0fd752273864a4c50d616067eb761"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_snd_event.ko",
+            "sha256": "d625750a738bd89190f4ca783946b224f74f99756384b82178dfd11e6f16cc75"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_stub.ko",
+            "sha256": "98ddba788ffd305d88fb774c842ce8db9175900d1da47b7d4ea312d6554c5d12"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_swr.ko",
+            "sha256": "da545b8335df6f964dc1338a9c18779c436aa1468a185c8e44c272eb1091c444"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_swr_ctrl.ko",
+            "sha256": "caecf87186c2881e3b19cb99c0ad593b5386f68af65ca28c70143e644dc543d3"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_tfa98xx-v6.ko",
+            "sha256": "4302a432bff3019b3c26ef1dcfe448b46d2ab8a117d2fddca42046fd35e312be"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_tx_macro.ko",
+            "sha256": "c558f9a6f85bc340c6e62f029b5df6d338f5d65635309edd0e5bcacb592b2531"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_usf.ko",
+            "sha256": "3ae2768f8ab36cbc6999adf5f909c1cab3741537c9eb29543c8c9a09f3e6bd5f"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_va_macro.ko",
+            "sha256": "70e0b9d35f8376f6985d6224fa87fe8634b3168c2c8648cc4f4cab50c9299f1c"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd938x.ko",
+            "sha256": "db00c6f77d235566edc987581b62e9b8f5c336329d48324976d68fa5fdd52950"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd938x_slave.ko",
+            "sha256": "83d5ecc93eda827d6b112848e59ddac4f3a86bf932623e8f9041a256e1e356cc"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd9xxx.ko",
+            "sha256": "cd6e5c6269e737a84b1ddd32aa075922a1e7f274ca101cc1b85e6d0fe7e63d9f"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd_core.ko",
+            "sha256": "de8832cb3f73783f4fd4cff5340ecb46c00ca7fa48752da739db2a0c9c44fbf1"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wsa881x.ko",
+            "sha256": "df14fe848c6e01e4c88c6256bc79b5552445a2c08cf680ceb28ce6faa8bee2f4"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wsa_macro.ko",
+            "sha256": "679bfc9a3beef4a408d697fe014ee26bb14f1417de3ac3a97903813c4e9fa8aa"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/gspca_main.ko",
+            "sha256": "2db5ef9351586cace01825e36aca43230395a9ee88de5716993f148cc8112770"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/lcd.ko",
+            "sha256": "a3c97ec09e784cb9ef992c30ce1934315f069a4d02280d96b4353430e81fa872"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/llcc_perfmon.ko",
+            "sha256": "4cbc1a8cb8f582bbf3d13970bda1cc32715c502addf7bc1d2d8c53d3f5313598"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/mpq-adapter.ko",
+            "sha256": "46e48a9058e361bcb5e06fd16cc5419d69f0bcbc55bd9654f2a4d340b0ad67a1"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/mpq-dmx-hw-plugin.ko",
+            "sha256": "55a117dc3e9e804a06f2c4b71ad3befa97fc8d8ef22bb6c5ca6c2d810e14d6b5"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/qca_cld3_qca6390.ko",
+            "sha256": "09234badbde45453b5a72acc284edb653bbf57a48be84251a877507f7f892f23"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/qca_cld3_qca6490.ko",
+            "sha256": "91680f0136c552843291dcafbabed12f6ed6a694bf474271b8baa974290b585f"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rdbg.ko",
+            "sha256": "a0a9dfce3c94a9f1a81ec2876bdbe1a128f3ee8e05a19231fa3032d48baa7bea"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rmnet_perf.ko",
+            "sha256": "f2c216cab4f9f59e9ab9af4190c26d1f98907594c9781b815d29e19c32c0e9ad"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rmnet_shs.ko",
+            "sha256": "5898f744d89af0805aff4c20f4a4048f8b3b9b058da52af4bd04630de15aabe0"
+          }
+        ],
+        "module_count": 41
       },
-      "release_asset": "oneplus-8-coloros-IN2010_13.1.0.190.CN01.-r2.zip"
+      "device_verified": false,
+      "artifact_revision": "v0.2.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740008767",
+      "recipe_commit": "a43a58d4cb4b98b24cebbdead89b0891467529e5",
+      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+      "archive": "oneplus-8-coloros-IN2010_13.1.0.190-CN01-v0.2.0.zip",
+      "archive_sha256": "cd506c4845a913ff252bb8b2ad05052c9cf586fc5f6ca9b957d4a5f555f4e520",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-8-coloros-IN2010_13.1.0.190-CN01-v0.2.0.zip"
     },
     {
       "device": "oneplus-8",
       "os": "oxygenos",
       "firmware": "IN2013_13.1.0.593(EX01)",
       "layout": "a/b",
-      "boot_sha256": "4cab530823d57205a7417930e750276ac78d309690f68237a2bc14813196d488",
+      "boot_sha256": "16755a52406ccb68f528f467328fc3719a868f1010e3f0d83ae7b14fbe21f637",
       "boot_size": 100663296,
-      "archive": "oneplus-8-oxygenos-IN2013_13.1.0.593(EX01)-r2.zip",
-      "archive_sha256": "21efb3600e2fb04c76f7f85d2d5a47780f66a3cf9cbf817fe7e9f3f7d138ada1",
-      "image_sha256": "723feaae3f6e92f17c93dc7ab3c2076f376b1959bda5ea1a559932761d42a671",
+      "image_sha256": "861c79790f549f0ed4c017bdde96c229f4b8d3828364da4540e82bfa790b663d",
+      "kernel_release": "4.19.157-perf+-daxiaamu",
       "all_exports_match": false,
+      "stock_exports": 12928,
       "module_check": true,
-      "device_verified": false,
-      "artifact_revision": "r2",
       "module_signature_check": {
         "passed": true,
         "enforcement": true,
-        "module_count": 41,
         "trusted_certificate_sha256": [
           "445a07772e463be175b4fb899312f285f02dc5b8bca5b40a763d353e965a2fae"
-        ]
+        ],
+        "modules": [
+          {
+            "path": "module-set/vendor/lib/modules/audio_adsp_loader.ko",
+            "sha256": "83e87fb0969a83932178d70a6879208530cfa8a8851dd291aa4b07417df0376d"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_ak4376.ko",
+            "sha256": "5c5d9a0498637a4eb9a50d20ee1988cb55ef89c6eb88855ce069885733673cab"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_apr.ko",
+            "sha256": "92e3934157f0ae2f358a6d6a10af3df293283cc4cb928d406f2b5bd7b8edc6b1"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_bolero_cdc.ko",
+            "sha256": "2e519fda92c0cfda58ece9fc97969da5c939507faabad3246927052015f2f3df"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_extend.ko",
+            "sha256": "61951ae71b814a419a9eb61a1a9b2b84a9c8e505040bd50fc69191b4982c9684"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_hdmi.ko",
+            "sha256": "0e6957205a10c5bb1307b6a1e26c096e297f9e010274991bc3dcea176247b02c"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_machine_kona.ko",
+            "sha256": "c515d50a9441e92175e620544be6925080572a6cc92c0b48ffe51e0ffc24f19c"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_max98937.ko",
+            "sha256": "f07be063d504dfb251101cfdb6405e472a11ed940349fac6392fc2c5e5cc1d01"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_mbhc.ko",
+            "sha256": "af7d346b16b6aca0f12284ec698401afcc2a75a06917b77f35d6b6ec0fc0b17c"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_native.ko",
+            "sha256": "60ea913142795efde39c54ca0526e56e2e53de3d298eef005feb13a80b8eda77"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_pinctrl_lpi.ko",
+            "sha256": "de9c29f6cf00e3a1543beba0719cdb28a5dc24a29a5c191813545dbacccc7756"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_pinctrl_wcd.ko",
+            "sha256": "c161cca4407cb93f50af7788bce67b3e1f5a6fb979696a332e5b79752baadca3"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_platform.ko",
+            "sha256": "aa8404a2299cff87b9823e649cedd98b06932849130e1e8ad07bf0d3ec51258c"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6.ko",
+            "sha256": "532b32fcc3411fec675ab854ca4171e98925ddc78abc4d6c9cab5a285fdc0587"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6_notifier.ko",
+            "sha256": "20ccb067a5e93bfcbb9fbce74587fd8f142a57c8270ce133d29d49395b2b87b3"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6_pdr.ko",
+            "sha256": "1af41bd439abf3b01d105eaa329ed8c4d345c5e282a59a2da85f2cf4c6767a42"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_rx_macro.ko",
+            "sha256": "50faad80e43d5418149e768db018e802cb0ff449567254673e29164eafa5fc31"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_snd_event.ko",
+            "sha256": "452f055b890a55735dcf847f052c372d39e148a80f75e0aa949f7a273e94f1dc"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_stub.ko",
+            "sha256": "bb7945c75df4aa75c98335ae1032e0046febc4130d6544140b7773e785ad6823"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_swr.ko",
+            "sha256": "0f947fd552a7d6047f68cf91b7d9866d40450f8796551f144de0c6eb662b58d8"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_swr_ctrl.ko",
+            "sha256": "810f2ab957f8094669019ecb1d69a22cb2a940e8b29fceff4563890777346e78"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_tfa98xx-v6.ko",
+            "sha256": "b00a208e5a095cb5b54bf131730dead46f66e0a18861401e0444aac4e8696d49"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_tx_macro.ko",
+            "sha256": "9e6329239bc4502b76f67c9e2bce74ce08eae2c8af6bdc428abfd85eddd830a1"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_usf.ko",
+            "sha256": "4d3513154b110e2515d124f22465b6af3bb680fb78a05ca70f5e85a22af1eaf0"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_va_macro.ko",
+            "sha256": "3920011b1d75fae5a15a8147bd0c0131d6bb16a3577b5d88c235369cc9331faf"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd938x.ko",
+            "sha256": "080e2a6e41708940e496d833c59d811d5fb96bb9f7e8c93104e23ac6b8cdcf4f"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd938x_slave.ko",
+            "sha256": "df702a9f75a20091804192b7eadc55265ee99f3e66ca33a5d07afb2cac80451b"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd9xxx.ko",
+            "sha256": "088b8b2a75eaa0173e8e5237119689342321fb5b4875f1e9e5c62e392486064d"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd_core.ko",
+            "sha256": "fb9468cef3de72bb1059bc12108dcfb0fefc3e92269b7c48e35f9a02260db24a"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wsa881x.ko",
+            "sha256": "858b9c23d60c1f2962c991597ef40169685eab5c0e580c15de985ed2c294064d"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wsa_macro.ko",
+            "sha256": "3fee503b39d32dfe862f514eedad84371e7823096447ff4b16020f0e12f75fce"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/gspca_main.ko",
+            "sha256": "4e33e24ea1e89aee85be3ef9b8f2b47449fa9cb70dbeb8cd87147fcbcc25961b"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/lcd.ko",
+            "sha256": "3feae23983a129feeb076fb153464d1c3b3f93eb6e429aefdb3c0d04eae6c3f0"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/llcc_perfmon.ko",
+            "sha256": "2a00c7c42d837336f5c16ad6a44236311ec5c67b8b04c26c933abfd780f3d645"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/mpq-adapter.ko",
+            "sha256": "5038a13a90afee80a7ab9f5c2560fc154ec01abe78453c6e0bc8ab4560e1d202"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/mpq-dmx-hw-plugin.ko",
+            "sha256": "924e861b4cea7f85a3b7fb063b3d9383632f691af8afb022bf7723e056f38f3e"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/qca_cld3_qca6390.ko",
+            "sha256": "659bee0f4f9f7a9809c1eb7f4891b353602b9743f9f6dadf3a12bb0eb53da633"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/qca_cld3_qca6490.ko",
+            "sha256": "8223e198f1eb0fcdb8185c981f87d09c5a055dc86c0a4c3bb37a5bf357e52da0"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rdbg.ko",
+            "sha256": "2433454a2c5937cba6a2efc32f1317156dc1251e8056f3571424200d55f48a29"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rmnet_perf.ko",
+            "sha256": "177ec2c55f93fc158b7cbd56dac1e78366ed4ad64dd46c55d00c4da462f9affb"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rmnet_shs.ko",
+            "sha256": "41e51cc4edf9c7910be1f1878e92f8be97ca4fc6e7f4127af4149330e39d01aa"
+          }
+        ],
+        "module_count": 41
       },
-      "release_asset": "oneplus-8-oxygenos-IN2013_13.1.0.593.EX01.-r2.zip"
+      "device_verified": false,
+      "artifact_revision": "v0.2.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740010345",
+      "recipe_commit": "a43a58d4cb4b98b24cebbdead89b0891467529e5",
+      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+      "archive": "oneplus-8-oxygenos-IN2013_13.1.0.593-EX01-v0.2.0.zip",
+      "archive_sha256": "9071be549c85c6367fbcead3cbe5f51cc2e0c7fb78e0059aa35daf3b7ad8a3b2",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-8-oxygenos-IN2013_13.1.0.593-EX01-v0.2.0.zip"
+    },
+    {
+      "device": "oneplus-8-pro",
+      "os": "coloros",
+      "firmware": "IN2020_13.1.0.190(CN01)",
+      "layout": "a/b",
+      "boot_sha256": "544e8c47959dd7db6f3d1b6dc0bf139eb4650130b5cc1213d4c5bac4a8dbb13e",
+      "boot_size": 100663296,
+      "image_sha256": "baf723ac4dac171ef3937a640f85fed5c7605e180b2d3097456a88a6bd9db4f8",
+      "kernel_release": "4.19.157-perf+-daxiaamu",
+      "all_exports_match": false,
+      "stock_exports": 12928,
+      "module_check": true,
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "trusted_certificate_sha256": [
+          "302cd52988233ae482dc3726210cb78f216bd92bf8dcc5585ace5d29a59daa51"
+        ],
+        "modules": [
+          {
+            "path": "module-set/vendor/lib/modules/audio_adsp_loader.ko",
+            "sha256": "849ae97ea88bb276e348f5cf96e3dcf41587d19adc914ea553bf75f6cb6787ef"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_ak4376.ko",
+            "sha256": "7ca31524cad45141f8d22a353c9090ae377e1afd9b492c08fdef9656944f1047"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_apr.ko",
+            "sha256": "073c23aa75f500c6baf9014fa5c1a4942f2cbd33ba22f123b360774191186f6a"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_bolero_cdc.ko",
+            "sha256": "3ff678a29d6435cf6a278573868f830d39b717fc22dd4eea1db19ac4fffc055a"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_extend.ko",
+            "sha256": "fe1cdaf43118b79031dbd2ff27f06b8ee5229723e3ec8ff2c94851e4e354b897"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_hdmi.ko",
+            "sha256": "833b3197e42f4c56d6eb4bfb5c8e481e6d220ef8dcfd136abec8cea562108b30"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_machine_kona.ko",
+            "sha256": "4be33d7f6ed963012cfe51777a8e82fd37f6a28aa12df90c2db28ba994ccdb26"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_max98937.ko",
+            "sha256": "d54eaae7a4e56c0ea2b837a23ec15d9cbe7b94d824a4b70515cffa5c3485e650"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_mbhc.ko",
+            "sha256": "e1ed95218191aab9ea073366ae641409c6ad0e9fb77d28bb6aa8a6007b79a735"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_native.ko",
+            "sha256": "aa11905ecf316a79bb923158962dc42aa4b7c20418ce5881d6c473293e747a2a"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_pinctrl_lpi.ko",
+            "sha256": "ed7da431e9c76941e60c091e551f7363d74df578189ace6296124582000c8fff"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_pinctrl_wcd.ko",
+            "sha256": "210b154b72936868cf4e272aa31a95a0cc205d46e246ede2c237412bfb63ccb8"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_platform.ko",
+            "sha256": "12425bda95dd0328e40e127b79969f91a46188f1a1897d50f09f87e0036373c8"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6.ko",
+            "sha256": "6261fb3d515ec298ae102bd73077ae9f6a5c85e84cf4d5346215f76d4504cfcc"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6_notifier.ko",
+            "sha256": "15f02135c808416b4012ddff1907c3016381b01cda1fe78d8b53db511021b2e5"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6_pdr.ko",
+            "sha256": "9ba47da581181d6fb90f320bd04b68277e3c3ce6cf19f63b40c06a3dd361611c"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_rx_macro.ko",
+            "sha256": "7c8cbc1e2597f2bbc76dcdff8bd4d9b070b0fd752273864a4c50d616067eb761"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_snd_event.ko",
+            "sha256": "d625750a738bd89190f4ca783946b224f74f99756384b82178dfd11e6f16cc75"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_stub.ko",
+            "sha256": "98ddba788ffd305d88fb774c842ce8db9175900d1da47b7d4ea312d6554c5d12"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_swr.ko",
+            "sha256": "da545b8335df6f964dc1338a9c18779c436aa1468a185c8e44c272eb1091c444"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_swr_ctrl.ko",
+            "sha256": "caecf87186c2881e3b19cb99c0ad593b5386f68af65ca28c70143e644dc543d3"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_tfa98xx-v6.ko",
+            "sha256": "4302a432bff3019b3c26ef1dcfe448b46d2ab8a117d2fddca42046fd35e312be"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_tx_macro.ko",
+            "sha256": "c558f9a6f85bc340c6e62f029b5df6d338f5d65635309edd0e5bcacb592b2531"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_usf.ko",
+            "sha256": "3ae2768f8ab36cbc6999adf5f909c1cab3741537c9eb29543c8c9a09f3e6bd5f"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_va_macro.ko",
+            "sha256": "70e0b9d35f8376f6985d6224fa87fe8634b3168c2c8648cc4f4cab50c9299f1c"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd938x.ko",
+            "sha256": "db00c6f77d235566edc987581b62e9b8f5c336329d48324976d68fa5fdd52950"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd938x_slave.ko",
+            "sha256": "83d5ecc93eda827d6b112848e59ddac4f3a86bf932623e8f9041a256e1e356cc"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd9xxx.ko",
+            "sha256": "cd6e5c6269e737a84b1ddd32aa075922a1e7f274ca101cc1b85e6d0fe7e63d9f"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd_core.ko",
+            "sha256": "de8832cb3f73783f4fd4cff5340ecb46c00ca7fa48752da739db2a0c9c44fbf1"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wsa881x.ko",
+            "sha256": "df14fe848c6e01e4c88c6256bc79b5552445a2c08cf680ceb28ce6faa8bee2f4"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wsa_macro.ko",
+            "sha256": "679bfc9a3beef4a408d697fe014ee26bb14f1417de3ac3a97903813c4e9fa8aa"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/gspca_main.ko",
+            "sha256": "2db5ef9351586cace01825e36aca43230395a9ee88de5716993f148cc8112770"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/lcd.ko",
+            "sha256": "a3c97ec09e784cb9ef992c30ce1934315f069a4d02280d96b4353430e81fa872"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/llcc_perfmon.ko",
+            "sha256": "4cbc1a8cb8f582bbf3d13970bda1cc32715c502addf7bc1d2d8c53d3f5313598"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/mpq-adapter.ko",
+            "sha256": "46e48a9058e361bcb5e06fd16cc5419d69f0bcbc55bd9654f2a4d340b0ad67a1"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/mpq-dmx-hw-plugin.ko",
+            "sha256": "55a117dc3e9e804a06f2c4b71ad3befa97fc8d8ef22bb6c5ca6c2d810e14d6b5"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/qca_cld3_qca6390.ko",
+            "sha256": "09234badbde45453b5a72acc284edb653bbf57a48be84251a877507f7f892f23"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/qca_cld3_qca6490.ko",
+            "sha256": "91680f0136c552843291dcafbabed12f6ed6a694bf474271b8baa974290b585f"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rdbg.ko",
+            "sha256": "a0a9dfce3c94a9f1a81ec2876bdbe1a128f3ee8e05a19231fa3032d48baa7bea"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rmnet_perf.ko",
+            "sha256": "f2c216cab4f9f59e9ab9af4190c26d1f98907594c9781b815d29e19c32c0e9ad"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rmnet_shs.ko",
+            "sha256": "5898f744d89af0805aff4c20f4a4048f8b3b9b058da52af4bd04630de15aabe0"
+          }
+        ],
+        "module_count": 41
+      },
+      "device_verified": false,
+      "artifact_revision": "v0.2.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740012255",
+      "recipe_commit": "996b1a3375495359ec13f7d7a024a9ffe9f49184",
+      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+      "archive": "oneplus-8-pro-coloros-IN2020_13.1.0.190-CN01-v0.2.0.zip",
+      "archive_sha256": "201067abad567911314b7ba4f81f2ffd685be35469ef42282df54a18f7525804",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-8-pro-coloros-IN2020_13.1.0.190-CN01-v0.2.0.zip"
+    },
+    {
+      "device": "oneplus-8-pro",
+      "os": "oxygenos",
+      "firmware": "IN2023_13.1.0.591(EX01)",
+      "layout": "a/b",
+      "boot_sha256": "82a912a5347c076759a623dacf4ff51868242c4309e87195b9948b49ee656586",
+      "boot_size": 100663296,
+      "image_sha256": "42dfcdea4d49b242c1f215e07f673f64a4d6fcb2a760d92606d167cd250ea304",
+      "kernel_release": "4.19.157-perf+-daxiaamu",
+      "all_exports_match": false,
+      "stock_exports": 12928,
+      "module_check": true,
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "trusted_certificate_sha256": [
+          "148036051f3e7130887846af079e9dbd9907cc2b54caec92f958f17548aef2fd"
+        ],
+        "modules": [
+          {
+            "path": "module-set/vendor/lib/modules/audio_adsp_loader.ko",
+            "sha256": "66de5237dafdb064c147155372bb6787b9d29238d0cb405aaf198d55063c0b32"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_ak4376.ko",
+            "sha256": "c80952fc69382fc18c3cbed32e50bd8fd4e5708c95d3dd231cc4cafeed64b83c"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_apr.ko",
+            "sha256": "9e896625a58ad42d7237f1774c43bf4eb250787af97d34d1e933deeceb9718fb"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_bolero_cdc.ko",
+            "sha256": "e640808c99fd2f294275dc289524ead07ee8836e00206513c229d8937a56a530"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_extend.ko",
+            "sha256": "4f532423b4d20a1bcd86832ab5acd935e5054933fd37c6c834b7711bf003e865"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_hdmi.ko",
+            "sha256": "9f05c85668f5d908e034561e619b9347248f1fa0d32e1b6fab085b860f5cf3c9"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_machine_kona.ko",
+            "sha256": "1e9c4a480cafdf3521663742bcab398fd0f475d1153122aab7a17803c2753639"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_max98937.ko",
+            "sha256": "3047537f5c19f6dc99d0e06f6da11eb31b9d47568a4e423aea7642b0ac436b03"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_mbhc.ko",
+            "sha256": "5400c3f2980fa5cad92823bd64ed6454839f8853576cd92759c758b7fd472db8"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_native.ko",
+            "sha256": "1dbd3e16a02ae0612c5cb7c5ec2e4301ab2d3751e4e2cd2bd4e8fd112b08cdff"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_pinctrl_lpi.ko",
+            "sha256": "81ef73b0d110d0b1f3e2745e3854efe6d4c2052a1c3edaed2532df52e90ad73e"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_pinctrl_wcd.ko",
+            "sha256": "5e2d8ceebee2ea0be7196592ca4ca23c53010efe2ab57862948542e3119c5294"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_platform.ko",
+            "sha256": "4441fb9265dacd22959d49e33929f27c999113236f54eeff117ee4449020b16d"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6.ko",
+            "sha256": "f656ba86b51bff895ca3dec759bc6d7986fea0a956203ab3f26fbc0dc927b05a"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6_notifier.ko",
+            "sha256": "962a93edb677457d7ad58ae433637385bd9abaa34e3c93199c0eb9ac01b3730b"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6_pdr.ko",
+            "sha256": "f849b41ac7142825334419625a1c9f3d8ca730fb485778df50dcfa1fd27d22c7"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_rx_macro.ko",
+            "sha256": "46507dce0aaa0916fe0b48a52d2fd7690774ff6c621cef2b026d537fdc3cac82"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_snd_event.ko",
+            "sha256": "39d47330a0abd7c81e42a2ffdf8cc808a33fcbc7b0ec852a0335b3a8e1101c3f"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_stub.ko",
+            "sha256": "141e9ca481d72677be6e7e7dd4a65ff73f74e9da79187a9a54f5a387f0a6774d"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_swr.ko",
+            "sha256": "708b85a40c1e3a94815c762ba1d7a818520ea9b2ad4de3e00e48a4ba26694669"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_swr_ctrl.ko",
+            "sha256": "e1bd58ee7123af133a83465e33072a37750b862265a900adf6e9d7fb0871598b"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_tfa98xx-v6.ko",
+            "sha256": "038ba1a82c2da69589750ddbfb1979fdc84d12c43f09e08217efe8f9ce100583"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_tx_macro.ko",
+            "sha256": "277037d8c6a571c472f3b54e25a79020765d25f43819f0295ecadb19dde1dbb6"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_usf.ko",
+            "sha256": "0ec52ab70dc17c4b3763c4d60ece7d91f40d9d1b737980f2d105339f6e38f025"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_va_macro.ko",
+            "sha256": "407addde6462c108ea5663dbbe951c1064d59dbe861e3cf2542c7b56540c47c5"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd938x.ko",
+            "sha256": "898badb6372c954b477ca3c9340164e2a6882ed51d5a8cdc650a121d188b222a"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd938x_slave.ko",
+            "sha256": "33ae39d4d1192743a1f86feb48a5cf548ae241c8041b56751c5be6941ac48fb7"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd9xxx.ko",
+            "sha256": "92a15870ae7b332319f0b7fe30bee3596ddc9678316b5b8b1489907525662cf8"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd_core.ko",
+            "sha256": "17a3c16b501cc70724ee415674fe83d5b04c9b381650ee697f3d8f7e573774bd"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wsa881x.ko",
+            "sha256": "a70a012c84603527c50574b6e6b21105d3679906fd23ad2e85d71c190c783042"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wsa_macro.ko",
+            "sha256": "ef86631bf2dc70db966d4647ba53602a4bd1a40cbd7b7db5fc7f6ad5d24ded89"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/gspca_main.ko",
+            "sha256": "4c5f97c8cbd1d99586c3ae7c8adcdb2312a7805a8f00accdd279cbfdecf8ac21"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/lcd.ko",
+            "sha256": "cacc55277529fc04ac2d4edd6fcfd9a33b0c9bd17cd686680f43785392fd1ce2"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/llcc_perfmon.ko",
+            "sha256": "c6f63dcb3ef3ff6cd44d971b20daf0e933af314d7ac4bbbf14d3406b589ceef1"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/mpq-adapter.ko",
+            "sha256": "1efddfdd7e0f776be1bf6940f7fe20325075cd0a8a13fc1a2d81f8cb31a775a9"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/mpq-dmx-hw-plugin.ko",
+            "sha256": "37d24bc5b4d803a0c4337d806836f3ee9c40f55fd57c5d6dc0a3d7efc06a0604"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/qca_cld3_qca6390.ko",
+            "sha256": "4ab19313a6034d74d0510c793f9801f3e3f3639da519e5bb4f65dfbb441925f3"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/qca_cld3_qca6490.ko",
+            "sha256": "81a88b37f8095964ec2a094ad99f5e3f0bafd2cb699fe90a7340d5e9665d91fd"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rdbg.ko",
+            "sha256": "34832afc64935b0a6baf9ece3bbb830146605c6304470313494edc64d04a34b1"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rmnet_perf.ko",
+            "sha256": "c0aabb77bd31540517a198656210c1c38c19bb60c164cd8044055dcd6b0aa55a"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rmnet_shs.ko",
+            "sha256": "5e7dc50369e0cbe54308c18d7b22372d772bae0d8fc233b6018457ff838e8a15"
+          }
+        ],
+        "module_count": 41
+      },
+      "device_verified": false,
+      "artifact_revision": "v0.2.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740014232",
+      "recipe_commit": "996b1a3375495359ec13f7d7a024a9ffe9f49184",
+      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+      "archive": "oneplus-8-pro-oxygenos-IN2023_13.1.0.591-EX01-v0.2.0.zip",
+      "archive_sha256": "40a274307abb214827ee0945bddb2b8ff038d926d4ea92672cf466645b450df1",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-8-pro-oxygenos-IN2023_13.1.0.591-EX01-v0.2.0.zip"
     },
     {
       "device": "oneplus-8t",
       "os": "coloros",
       "firmware": "KB2000_14.0.0.602(CN01)",
       "layout": "a/b",
-      "boot_sha256": "d0296cd460696b7c4190714da2ae4b58abce929b4bb5d3c636e541d7f60d1097",
+      "boot_sha256": "4af87b13f0f1aa23c882c2d11b7369d0dc09656498f3375bc21fbe464e2f230e",
       "boot_size": 100663296,
-      "archive": "oneplus-8t-coloros-KB2000_14.0.0.602(CN01)-r2.zip",
-      "archive_sha256": "e93816d44a6b1478ed0a4ef62f2a8dfd337ce1aadd22155a57a839833b2e6ba5",
-      "image_sha256": "5d08a752c29344e7d70b835c6de256737032d7e1022c44125e3a3aca4098a95d",
+      "image_sha256": "e778d5149de04c0787082f210f3cc2f59a509257937f66464c4b5166dc067c8c",
+      "kernel_release": "4.19.157-perf+-daxiaamu",
       "all_exports_match": false,
+      "stock_exports": 12996,
       "module_check": true,
-      "device_verified": false,
-      "artifact_revision": "r2",
       "module_signature_check": {
         "passed": true,
         "enforcement": true,
-        "module_count": 41,
         "trusted_certificate_sha256": [
           "1c1f026dcd7be0b437098a4f38c2f488bd1dad4ba5640fa2499a27a79c069563"
-        ]
+        ],
+        "modules": [
+          {
+            "path": "module-set/vendor/lib/modules/audio_adsp_loader.ko",
+            "sha256": "d452d1870bc45d049185bda78b30ad0b256bd655015926ff411c7d8e51a26271"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_ak4376.ko",
+            "sha256": "4793f5ed73b44b27f373775bc9dd23799893d77b5ce2751218ff00a70bec5761"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_apr.ko",
+            "sha256": "ef9a3b6ea719484416c74efd01bf43d0653ede1b9047a3c37f8c880c5734aa86"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_bolero_cdc.ko",
+            "sha256": "d6b6b05ab44d36298a285b74be89e4a738a3d9c47737cbf08cfca9e06542fb5e"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_extend.ko",
+            "sha256": "aa31135533a4d362150ddbc28a24dffb480ba6cac4228e9d1f7c748db9089a2d"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_hdmi.ko",
+            "sha256": "a87f470d91c5b6357c0cd423165df16f25d0f6b78c639f24d02b81ae63945bc2"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_machine_kona.ko",
+            "sha256": "18b580178be4f933a37e0424326c8d122114f662173ec6974d8d9a4bb943460d"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_max98937.ko",
+            "sha256": "4f4b0582387f56d112419b1724ddc52f971050eb13a3bb5d465ce25aa94c86b0"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_mbhc.ko",
+            "sha256": "6a0ecdb46cbe6063943c2b65efca215469e9fb8a40c4134ef9e255875a9fbe0a"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_native.ko",
+            "sha256": "700dffdc586c3191edf36b05dafee4895ac010d3d31f0c93498615e9a0d5d863"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_pinctrl_lpi.ko",
+            "sha256": "e3bff6b3364461ba7682ea4799b3d0a647831408ce5c48ba4ace939502c3a1c5"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_pinctrl_wcd.ko",
+            "sha256": "3c47985680304da542cbf4d1774c68a8e3973628cd5a34e9ff38f1260b0ce3a1"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_platform.ko",
+            "sha256": "8ac76e6df14118e2a482f79252c4a56ce684b528951ce9e9af3a92fde05840ad"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6.ko",
+            "sha256": "ea6286edec7d2e2b499914148182b70e1b5791f847c3fb9e95437d79a0c51602"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6_notifier.ko",
+            "sha256": "44df933c86f16a6fd55dd26fad65435d4f7353c010026272a730a726082ae0a4"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6_pdr.ko",
+            "sha256": "f989fe0298a782ce53679c3d92050e1595f1896de6ff0c6e94632cfa54e3e294"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_rx_macro.ko",
+            "sha256": "9132d9973cd442547c89377e3e1bb037e732d72bef541a08dce8094aa9a318de"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_snd_event.ko",
+            "sha256": "361def1ebc742b85af937b522eb4ae85310efe94c013f0118452f0593126b304"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_stub.ko",
+            "sha256": "0e9908a7373d2ee6cada2598811f02cf31e9971342756084e95da4a8201525c9"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_swr.ko",
+            "sha256": "fb1b8a30a2ccc61c385f0526eabde2428339364ac83ce66ae6feb6b9ba2c147d"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_swr_ctrl.ko",
+            "sha256": "e96f1849a8798ff57df769808b659172780d9d276ca27f63e34e9185aca167bc"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_tfa98xx-v6.ko",
+            "sha256": "e4e10bfa9f64cad61ec1f53f16389b7dd5607ca82ee16c62894eebe19f33a585"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_tx_macro.ko",
+            "sha256": "f5602c567697466628b58ea50c2eccfa27a08e03960bae1d27c07d0ec07276b0"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_usf.ko",
+            "sha256": "426013285c10f5c9585e2af66747fc95a722e1b632394a6ca12f9c86eb6a3d5e"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_va_macro.ko",
+            "sha256": "bafbea4ccdb113cced42f190581ca2e90c23a46baf0f53ed5a1d13869b2c70d8"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd938x.ko",
+            "sha256": "75a9b90604b67e8a2c644e749447e63dbd9ed9516256b76048f478f5eba679c4"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd938x_slave.ko",
+            "sha256": "66b2765b0d777d8982bc8190819d94667e00825eb986d4577ba8620c61355f97"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd9xxx.ko",
+            "sha256": "f55d7d1f9cd70448e5bce92f8b3062a578eda35a09a4f923a8e9d94bc0de75d0"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd_core.ko",
+            "sha256": "49e69fd06daa72b1ae3c1c62a365aaffbb8c75c435812841042470c64148e7c0"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wsa881x.ko",
+            "sha256": "af476a0abfa02a1b9cbcb06f126c64e0bcf34053f04bbd79e93b668d330a2d12"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wsa_macro.ko",
+            "sha256": "7d0c5eb120e4c463f42d99a13b08667651844258e28d542125e3463e1661f0ea"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/gspca_main.ko",
+            "sha256": "3f4b6839fc79fe982bc3798c37ed40524d723a12c4bf2ec74153b729f787ba33"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/lcd.ko",
+            "sha256": "41fd10072d407ca102e623ddad70f5582ed15b649b230a60ca918ce62a7c0705"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/llcc_perfmon.ko",
+            "sha256": "68ec2a60d297ddd75a1f7f3a24f84f4310cd18029895f9a75f6601452b93bff1"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/mpq-adapter.ko",
+            "sha256": "32411b9510dad10aec83a5a1028687b5e47aa3b2bae76f5bc89ea6226edec255"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/mpq-dmx-hw-plugin.ko",
+            "sha256": "c0dd07616e3eacc825eb369305e04fb73413848e6123a9d28af3da0f328942a0"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/qca_cld3_qca6390.ko",
+            "sha256": "aab3bd142024e1c641b785c3b781b7e340eb7c2dd146410deb49d2bc470c97c4"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/qca_cld3_qca6490.ko",
+            "sha256": "fc3c19fc5b0db23ff46f431935ce29d61d3df4b3c5e26598db8d466896a17df9"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rdbg.ko",
+            "sha256": "336ff514adc66879d4aaab8fa579f4deef6a7b97e7cc84bb01e8ce2f793c9f3c"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rmnet_perf.ko",
+            "sha256": "5f9b9737e076aafee9fcfb4bcd6d2be1275b28934e0d1f442fd3665d07867a0f"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rmnet_shs.ko",
+            "sha256": "07c96b6a3ea497dd430e31c48595379274bd94baa0bbfef86e582808126dc674"
+          }
+        ],
+        "module_count": 41
       },
-      "release_asset": "oneplus-8t-coloros-KB2000_14.0.0.602.CN01.-r2.zip"
+      "device_verified": false,
+      "artifact_revision": "v0.2.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740016211",
+      "recipe_commit": "7464f49bb26e66b7272293886dc99c9db5116264",
+      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+      "archive": "oneplus-8t-coloros-KB2000_14.0.0.602-CN01-v0.2.0.zip",
+      "archive_sha256": "9e4f11ea4ef6eb9a7352cae7d6a040a2b861c12603525889460aa10a90e96ff1",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-8t-coloros-KB2000_14.0.0.602-CN01-v0.2.0.zip"
     },
     {
       "device": "oneplus-8t",
       "os": "oxygenos",
       "firmware": "KB2001_14.0.0.1311(EX01)",
       "layout": "a/b",
-      "boot_sha256": "f088dc760c32c4c35613c6d4c68bc64208dc6ccc39cb47acb95ade446e6aac3e",
+      "boot_sha256": "ec397c7201d8d14421ab79cf60cdc619bcc62dd31a9338e8dc7fa84a7d533e4e",
       "boot_size": 100663296,
-      "archive": "oneplus-8t-oxygenos-KB2001_14.0.0.1311(EX01)-r2.zip",
-      "archive_sha256": "dd18d50b03d7ac8c688df20c26fb445dbe4c46dd1c1ad5ce8b74ca141f2202f4",
-      "image_sha256": "ca98b3b37fff1a1bfc74ce80b4a79551e2af399cd2ef2b0d8898186644aee16f",
+      "image_sha256": "74c70220adbb687291b21aa1b121487ac075aada943f1332f4db7ce26b591407",
+      "kernel_release": "4.19.157-perf+-daxiaamu",
       "all_exports_match": false,
+      "stock_exports": 12996,
       "module_check": true,
-      "device_verified": false,
-      "artifact_revision": "r2",
       "module_signature_check": {
         "passed": true,
         "enforcement": true,
-        "module_count": 41,
         "trusted_certificate_sha256": [
           "c62083434feab88be989a495b6782af9baade1b83bf35635f9870ea24fdb7981"
-        ]
+        ],
+        "modules": [
+          {
+            "path": "module-set/vendor/lib/modules/audio_adsp_loader.ko",
+            "sha256": "107f1deb4e085d24ce0abaf4209e09f09324e953d326f0b0725793be6333a047"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_ak4376.ko",
+            "sha256": "7551da838a7c611f6dcee23cb351b253cf0a724dd7c2b4c80894cde3bf5feac5"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_apr.ko",
+            "sha256": "a2b42ad5bee3e0c0de9b65cb9bae85604e1f7bc97d552bb5341425eb3fc58085"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_bolero_cdc.ko",
+            "sha256": "bb82fddc975e3db5dc9362445460ca018136281dd74909bf5d2cceddace18294"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_extend.ko",
+            "sha256": "21e251fd86501efacef3cdbc143c78e0352dd893e136d4ddfae93312cd1a84e1"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_hdmi.ko",
+            "sha256": "65fb9b2f7a7dfe91e9a2e60a76dd78129706cbec3623b403ac8fc354a12010b3"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_machine_kona.ko",
+            "sha256": "95c93ab93c399b1b2c30102af85c0b40f34083c9fc653e660db274052ddf1134"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_max98937.ko",
+            "sha256": "281c88a66377eca097aad75bbc2d73ce22a06aae4810a8d9b9b256e94574f845"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_mbhc.ko",
+            "sha256": "c06b714e2a05a21beb34f5e935d27dfcc8fca76f5af5e9afea54a4985d24723a"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_native.ko",
+            "sha256": "6b9b0ace8236ccc18b2326e5d749c458b0f0dadf90b82e3d8cf0e1f02bd49d46"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_pinctrl_lpi.ko",
+            "sha256": "51cf96dc086fa67938b809d53be863eb241fc7d01f8efd0c025f94ae1a966f5b"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_pinctrl_wcd.ko",
+            "sha256": "7f60f0244383cefc21a86d31ac09c070cfc808058ddd7a35b008c500a18907b0"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_platform.ko",
+            "sha256": "d721430a2b81dcc84f950bf7b78e8368fd6fc41d1589213fb44249ad5d7f031a"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6.ko",
+            "sha256": "8fca33b85ce5016f73571e42b74de2c1c9495feca82d3b18bfd3b00b88cfa492"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6_notifier.ko",
+            "sha256": "874c4b1f55aad258a2e9ae8366fc4bba3c82f0a1dba1c0dba73483030c10210e"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6_pdr.ko",
+            "sha256": "bb8f90a57e03b6387d9c307dc6e06ab94a42d72b36e85a294848ffbf63ba1c61"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_rx_macro.ko",
+            "sha256": "c22d3e099c1923e8d725770968f24e30fbef54f982ad195bc18ed61661adb5e2"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_snd_event.ko",
+            "sha256": "3567be45a9d3e3a60dd3206ab2cfada4131656cd4eed33a57ee632b8fbed1988"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_stub.ko",
+            "sha256": "f829c71f16910422d3839b6fcf23dfd318614f888fcf1a7af7a65d8730ab734c"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_swr.ko",
+            "sha256": "74d869126086732015d9148b0eb5ed985842f2107b6c42657398bbee26e58845"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_swr_ctrl.ko",
+            "sha256": "5a9fde9e4a6b84dbd6643bb6a9e6c7ba9394296ea8e5c281429d2d9791d017e7"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_tfa98xx-v6.ko",
+            "sha256": "4eca476600fc31eb983788bacba41eaaf92704765c63c67acbd055ef1e8a10e5"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_tx_macro.ko",
+            "sha256": "2a4493d901893417c2aec5c359d008cd41726a343861dbb569a5d21778b3efc7"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_usf.ko",
+            "sha256": "e918d4c91611afa4f673df27064b46926019f1518dd0d78bf5f7575e506479ee"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_va_macro.ko",
+            "sha256": "56fc3f2b2469a4f9b1e290df2cd9bc2366674326ac57138d23a5587c8eb0b03e"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd938x.ko",
+            "sha256": "42768aa05b2574db31d0cde5aba53d7727bed99ed7c41b2cae2117d54b5c4cc8"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd938x_slave.ko",
+            "sha256": "aea5e8caab4ce5e438b9f21da621cb6fdf0ad954bbd854abda79a3245f602334"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd9xxx.ko",
+            "sha256": "867ffbbf79c95a21d8f0cf079bfd1accfad8447f8009207fb24c1a48c94ad8f3"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd_core.ko",
+            "sha256": "525a10f800d9280880e4e91fd5dec1a06add03194b2163348b101bb6f88c0282"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wsa881x.ko",
+            "sha256": "1310af2086b952cce9d46aa419930a474563834602aa494b297b3715ca9cbf63"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wsa_macro.ko",
+            "sha256": "b2404478bc56cd839f42519bb0e5b359a07e35d64b045d5f2f5a4906460f842b"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/gspca_main.ko",
+            "sha256": "54601f83893b6c3be6ed079b998d3f64c9b2b0a0aec612d771d6fb9db327cd3c"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/lcd.ko",
+            "sha256": "27b92d91e6679a03a9a3a13ed3e19ee1992d999f24792c5f7a31fcbd1daa333d"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/llcc_perfmon.ko",
+            "sha256": "e71eb07e77fee7787ff1b79fba72d1f263257d916766ff4b756c346e14f74cb0"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/mpq-adapter.ko",
+            "sha256": "a77fb75673fde6b98fdc31087aaf308befe6e03a2175eea4ef022ece8ab7f3dc"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/mpq-dmx-hw-plugin.ko",
+            "sha256": "603accefb942bb45a882f06e43619d74f8f103d6bb2590943cf4acdeba0fd5df"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/qca_cld3_qca6390.ko",
+            "sha256": "eb9eb18fd5389c2b36bce14088414d4036c2be5e1f14564f59314c78f7550620"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/qca_cld3_qca6490.ko",
+            "sha256": "01d94d601d8025458fa860ac4f2c73ffe93fa3ff69e3efe5d4d9c16bd6b06b05"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rdbg.ko",
+            "sha256": "207353e8dc316827992581a4c2959b67d4c7233d08a523538695875ea373ebea"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rmnet_perf.ko",
+            "sha256": "fa5d295497cd826af7b62b4eedbf7055bbea83525ffd828c4d4fcca554fb33e6"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rmnet_shs.ko",
+            "sha256": "9fe1a276f3c228856e452f1d7c93fde188fcb807eb1c69b88bf1b18d5bb38b9a"
+          }
+        ],
+        "module_count": 41
       },
-      "release_asset": "oneplus-8t-oxygenos-KB2001_14.0.0.1311.EX01.-r2.zip"
-    },
-    {
-      "device": "oneplus-9-pro",
-      "os": "coloros",
-      "firmware": "LE2120_14.0.0.1901(CN01)",
-      "layout": "a/b",
-      "boot_sha256": "02a6920ebabaf5f727ea8cd5cc9eb872f7e94a3f351a3733ec00a475eeab0261",
-      "boot_size": 201326592,
-      "archive": "oneplus-9-pro-coloros-LE2120_14.0.0.1901(CN01).zip",
-      "archive_sha256": "4c294c5d74b51a24462dcc1a4d2183f29171c1ef2314fb6d0682f9e40051bbff",
-      "image_sha256": "1dda72ee7ad2299442ab8f4219fef9ea24d6fcc26bb0c538aca6c3ad2036f1f3",
-      "all_exports_match": true,
-      "module_check": false,
       "device_verified": false,
-      "artifact_revision": null,
-      "module_signature_check": {
-        "passed": null,
-        "enforcement": null,
-        "module_count": null,
-        "trusted_certificate_sha256": null
-      },
-      "release_asset": "oneplus-9-pro-coloros-LE2120_14.0.0.1901.CN01.zip"
-    },
-    {
-      "device": "oneplus-9-pro",
-      "os": "oxygenos",
-      "firmware": "LE2121_14.0.0.1902(EX01)",
-      "layout": "a/b",
-      "boot_sha256": "656b41ac8f93a06116310feda23457ad03c1af30677a4fdc55c90e66f74fd1e2",
-      "boot_size": 201326592,
-      "archive": "oneplus-9-pro-oxygenos-LE2121_14.0.0.1902(EX01).zip",
-      "archive_sha256": "ed93dd58378f2d151d4064fa89cda537a9616ee00fed2adb411fe20011cd1d1c",
-      "image_sha256": "1dda72ee7ad2299442ab8f4219fef9ea24d6fcc26bb0c538aca6c3ad2036f1f3",
-      "all_exports_match": true,
-      "module_check": false,
-      "device_verified": false,
-      "artifact_revision": null,
-      "module_signature_check": {
-        "passed": null,
-        "enforcement": null,
-        "module_count": null,
-        "trusted_certificate_sha256": null
-      },
-      "release_asset": "oneplus-9-pro-oxygenos-LE2121_14.0.0.1902.EX01.zip"
-    },
-    {
-      "device": "oneplus-9",
-      "os": "coloros",
-      "firmware": "LE2110_14.0.0.1901(CN01)",
-      "layout": "a/b",
-      "boot_sha256": "7665e45f4e4bed7e1e009eb2ae34086a94edcf91ad24899eb4a03996c9ba9c44",
-      "boot_size": 201326592,
-      "archive": "oneplus-9-coloros-LE2110_14.0.0.1901(CN01).zip",
-      "archive_sha256": "d85e33dd2afdc9ff7d6cf021958d86d23a452c90a4613024fefa1d8faee841d9",
-      "image_sha256": "5c7482fb5171fe387639037733c5ac663384f4c18bc8133e95d55420ce8b265b",
-      "all_exports_match": true,
-      "module_check": false,
-      "device_verified": false,
-      "artifact_revision": null,
-      "module_signature_check": {
-        "passed": null,
-        "enforcement": null,
-        "module_count": null,
-        "trusted_certificate_sha256": null
-      },
-      "release_asset": "oneplus-9-coloros-LE2110_14.0.0.1901.CN01.zip"
-    },
-    {
-      "device": "oneplus-9",
-      "os": "oxygenos",
-      "firmware": "LE2111_14.0.0.1902(EX01)",
-      "layout": "a/b",
-      "boot_sha256": "94e45c637b98445f6807daa8df380b60db95a3ffcf0d6dfea600767dcaa84416",
-      "boot_size": 201326592,
-      "archive": "oneplus-9-oxygenos-LE2111_14.0.0.1902(EX01).zip",
-      "archive_sha256": "948269c05ad26511e8b136264967f0bf57fbfc1c0aabb567a22de10a847bcabf",
-      "image_sha256": "5c7482fb5171fe387639037733c5ac663384f4c18bc8133e95d55420ce8b265b",
-      "all_exports_match": true,
-      "module_check": false,
-      "device_verified": false,
-      "artifact_revision": null,
-      "module_signature_check": {
-        "passed": null,
-        "enforcement": null,
-        "module_count": null,
-        "trusted_certificate_sha256": null
-      },
-      "release_asset": "oneplus-9-oxygenos-LE2111_14.0.0.1902.EX01.zip"
+      "artifact_revision": "v0.2.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740017707",
+      "recipe_commit": "7464f49bb26e66b7272293886dc99c9db5116264",
+      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+      "archive": "oneplus-8t-oxygenos-KB2001_14.0.0.1311-EX01-v0.2.0.zip",
+      "archive_sha256": "95b19bd055a7d59bf8d138058dc36d22bf5de38b91dcdd2b53c5201f3de87665",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-8t-oxygenos-KB2001_14.0.0.1311-EX01-v0.2.0.zip"
     },
     {
       "device": "oneplus-9r",
       "os": "coloros",
       "firmware": "LE2100_14.0.0.605(CN01)",
       "layout": "a-only",
-      "boot_sha256": "7593803bc7083fa4293bc5fe21f20fdd55abe6135c68faaf7d9ff9138694346c",
+      "boot_sha256": "da017c3fbda1f42cfa2d21c22ec858b0758c3ca98823c4caaa1a8b4e18f76725",
       "boot_size": 100663296,
-      "archive": "oneplus-9r-coloros-LE2100_14.0.0.605(CN01)-r2.zip",
-      "archive_sha256": "6b97d3950dcca547f224c8495ff2f1bbe10e2f6834b81bd3c98b841adc5c1842",
-      "image_sha256": "d7af846ca08dd590b1d4c352b4e2214c68c94ff5c5ffce9d81063235ea1aa850",
+      "image_sha256": "9a027af34c36aa21374703fcea56064dfe4335055c5be076d29a1746a09fabea",
+      "kernel_release": "4.19.157-perf+-daxiaamu",
       "all_exports_match": false,
+      "stock_exports": 12995,
       "module_check": true,
-      "device_verified": true,
-      "artifact_revision": "r2",
       "module_signature_check": {
         "passed": true,
         "enforcement": true,
-        "module_count": 41,
         "trusted_certificate_sha256": [
           "b87123371503a25b13bbc510e611d6780be1e5a9295cf8f886fb3372fb25bcfd"
-        ]
+        ],
+        "modules": [
+          {
+            "path": "module-set/vendor/lib/modules/audio_adsp_loader.ko",
+            "sha256": "1eadaa059bf6a3da17af73bcf69d21669ecff96298da0bce1cc7a25c9e8fb791"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_ak4376.ko",
+            "sha256": "24f07d0ae7edb74a7fc2cf7b7de6eceb2dbf5557a29ab2772f893767ed896e0a"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_apr.ko",
+            "sha256": "cbaffa3b9b78eae7a0451b429c406d9cc439f5b8266e46f55899bfb68c54cf37"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_bolero_cdc.ko",
+            "sha256": "792d7abc95f4c73157c9e92e3e2a5b56a449b2bb19d11ab91fb6f873f944ae9d"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_extend.ko",
+            "sha256": "73523342ddf74756ce45949289908f7b7c3e91c0ac837fe990dc2c77b400a66e"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_hdmi.ko",
+            "sha256": "464d5dd18795f14387b7d49f774dcfbe95990fc57ee19b4a9cbe9bc57bd5ef13"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_machine_kona.ko",
+            "sha256": "16c8886398ba7641181057bc91da85c807940f07bfc20c8f6ba9d008563acbb2"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_max98937.ko",
+            "sha256": "9a29437d97208f5bdbc9963b7e167da875f3fa764f8677d906642d7c14e575c6"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_mbhc.ko",
+            "sha256": "5333c3aa2c4ac9dd3e33d4aa5fb94c9f885273dfc2959eb8fb803ac3c58cc196"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_native.ko",
+            "sha256": "22089fd777e94a22983ee0f3477625590ccc44b760f554dedb964f670d201cf4"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_pinctrl_lpi.ko",
+            "sha256": "ca057c39b7aa395fdb9ca2c69adbe06f1d489da47fe723de4803cc9508b5874e"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_pinctrl_wcd.ko",
+            "sha256": "1ed750b1ac195fb11a967ffc6547bc43918040b0dc62c4d6ef104909319ebea8"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_platform.ko",
+            "sha256": "504d7d29fef7d15b33c2cc7c948cb6ec74fa0e08164794a54cb414369f20124d"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6.ko",
+            "sha256": "00379853f0b2cb9e1d202b7c43942a0b278f24153cfd293e149dd073f46e5218"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6_notifier.ko",
+            "sha256": "24c7c4b3559d6a4e8ea4e935b51ac3741bccddc5d81d61220af70409c2a120d8"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6_pdr.ko",
+            "sha256": "8dfff990cfbcee7b0025409d316b87b7c79b7bef3a76adeba496c687fbf17c49"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_rx_macro.ko",
+            "sha256": "90e6e4bfbcc2ab36115910cae69de0719ba85b569d823a139c3a01a7704ddef4"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_snd_event.ko",
+            "sha256": "cbb51d965e5cccb6d017dec9bca995c875dc0ffcd86b2cd6be7e5bce63d31a87"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_stub.ko",
+            "sha256": "6e20b804405d723868cd72f04c6942332f66fda263265948e877e2bcf3a98e54"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_swr.ko",
+            "sha256": "24fb82479a9817773763daeb34b5f8f14ca4965905ebfc4a3ad77a1f3a3cb04b"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_swr_ctrl.ko",
+            "sha256": "921341bdaa6589706e631617153f07534a1d7f921d1e300194d57ff4c0be7ecf"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_tfa98xx-v6.ko",
+            "sha256": "90b3871247a9992f6bac679592fec5f1f9dd0cc0c3dc7e364cd6024b4c952b7f"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_tx_macro.ko",
+            "sha256": "567637637a49536c3fa4c2547f7fb2db0af16899f08f86f5602cdcf7338addb1"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_usf.ko",
+            "sha256": "ffb61fddd9dcd5cd797aa3598c32ca9b23b52f607e7225635ef536ef98dd47d8"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_va_macro.ko",
+            "sha256": "904615b1794f18036b94e7c60e201cb567c77f483d6fe614f69c5b84343a4162"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd938x.ko",
+            "sha256": "73dd8d5c3ba34e822f409500f75492844c65159fc9cffd1ac639340f4a7de224"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd938x_slave.ko",
+            "sha256": "2c48120e39a45df10a79bffc268041935deef70737c45d5c828013e23e9326ba"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd9xxx.ko",
+            "sha256": "66b48a07afe1738d45e15b0773d163442e135906c60083b9cc9da6ee085af61b"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd_core.ko",
+            "sha256": "22439c4462968af7d099a3156ff3ca95570c821a6308f979b7111b80d9c4c9c3"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wsa881x.ko",
+            "sha256": "3d732d2037fe75c015f57ebd6680bea6ad8714bc6f4734aaea4d1aca0ed2fe6a"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wsa_macro.ko",
+            "sha256": "288d5391aa6a6269712d1e70dd5c19d00d1923c681468c0d7bd6f5eef939a48e"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/gspca_main.ko",
+            "sha256": "eaf6d67ae7452c1528d6c752ff127f91c8a881641007232586e1fb37a80f714d"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/lcd.ko",
+            "sha256": "e6ebde9653e47be1e39827cd56ea0dda71a5b514aef9ca751075da0a6da68039"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/llcc_perfmon.ko",
+            "sha256": "89bbec7dfd0f47cecc8a141e78f92b385ad70f2d7bd1a5e165e7230fcbba965c"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/mpq-adapter.ko",
+            "sha256": "f51b7e39f11488586b33fe4f355df6d8dc8b42f81f32298361e338e6ffeef7bc"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/mpq-dmx-hw-plugin.ko",
+            "sha256": "24291bba16ba40091f3c8dd05c9f7114e831e09b67a96df1fe8089237c7a65de"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/qca_cld3_qca6390.ko",
+            "sha256": "c5f6e5fa9fd73894b66af430570b8d2481a7b74a90c76f2ab5ceda8bc137746a"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/qca_cld3_qca6490.ko",
+            "sha256": "6e57ca7f63cd169c47515b7344987fb1c152054fba257be8c5df2a55c5b58d13"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rdbg.ko",
+            "sha256": "71c6c91362e1ffb802eaab2c0737c0b2c7ed3b266ed5a037e1d6dedb5449ad07"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rmnet_perf.ko",
+            "sha256": "f792e647d91691c4c370ef4a39340a5b00e85d1103892d5b121e8bc6a8c3346d"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rmnet_shs.ko",
+            "sha256": "f2efe93625044f051eab46ac8a366dccab0c778bf312e137b92ea87b3387f34f"
+          }
+        ],
+        "module_count": 41
       },
-      "release_asset": "oneplus-9r-coloros-LE2100_14.0.0.605.CN01.-r2.zip"
+      "device_verified": false,
+      "artifact_revision": "v0.2.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740019447",
+      "recipe_commit": "fe99de161cc49434f4c729f4545e2110190a6a9b",
+      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+      "archive": "oneplus-9r-coloros-LE2100_14.0.0.605-CN01-v0.2.0.zip",
+      "archive_sha256": "5778197c329b5ac90de48c82a6c3080861a602736f812644721f849bb4eb0f75",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9r-coloros-LE2100_14.0.0.605-CN01-v0.2.0.zip"
     },
     {
       "device": "oneplus-9r",
       "os": "oxygenos",
       "firmware": "LE2101_14.0.0.2401(EX01)",
       "layout": "a/b",
-      "boot_sha256": "cd21e9e45d812afa5533817d829d858aca8b712bde48d8090bb8bba19a8f3e94",
+      "boot_sha256": "02f17fad0bb7b306ef17c838c15dfad9f2cc5bfedee5490ce32f8f573e7f08d5",
       "boot_size": 100663296,
-      "archive": "oneplus-9r-oxygenos-LE2101_14.0.0.2401(EX01)-r2.zip",
-      "archive_sha256": "59613f0fb88199bb5e608b5dc93cbf6cc83dfa256605577bf8994dac51f634de",
-      "image_sha256": "0e817c092c67f70b7faad0acc8052b4098cb98c88d63d9b47a1dc043aefeb657",
+      "image_sha256": "4adfe5994af307d8ce1f0ca91837b45acce9b2051784b79cee2346c522581c3c",
+      "kernel_release": "4.19.157-perf+-daxiaamu",
       "all_exports_match": false,
+      "stock_exports": 12995,
       "module_check": true,
-      "device_verified": false,
-      "artifact_revision": "r2",
       "module_signature_check": {
         "passed": true,
         "enforcement": true,
-        "module_count": 41,
         "trusted_certificate_sha256": [
           "5a706075b37fb92e00f75c6ad3ae12295ff8c4c0b7ea124b13687bd012c307ef"
-        ]
+        ],
+        "modules": [
+          {
+            "path": "module-set/vendor/lib/modules/audio_adsp_loader.ko",
+            "sha256": "9bd7191ee4803ea8293f2f5552fe6fabbe584be0a2a638f1b3c4b8eb576fcc5d"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_ak4376.ko",
+            "sha256": "527b804c64e370decc19f178f47263bad02a3bf38baa5ecf326115fc34f4220e"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_apr.ko",
+            "sha256": "499060e7b417f508804576389185af7bd558f4f10d3c96fcce090c67c9dba458"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_bolero_cdc.ko",
+            "sha256": "0b0d39a82d78207b9c49396f12ba005694b3f263e72e6313c80786d683bc0402"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_extend.ko",
+            "sha256": "6e93f04adaf4315f35ca7723d2f6180990b119208da4c3b6217a7f3ee2338fa2"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_hdmi.ko",
+            "sha256": "46bdec06a98bc03a1ea7acd5b29da88409c067ac474d001f6c07459343544bc6"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_machine_kona.ko",
+            "sha256": "b474734d33ef9c8150510f58ae7d5d95323315ee8b8f747f1e1b800389a5bbe0"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_max98937.ko",
+            "sha256": "79c1f3d218f419d3247a4d03161e74489a3fa8378e3f72b680f076c920b7e04d"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_mbhc.ko",
+            "sha256": "74f96d4a12c0712f316b0a5f1794b16f665d6f10f0c486f3e4f0f35fbb7d987f"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_native.ko",
+            "sha256": "85dd48775ca0eb847cb144e205b4bb087acc76969faacce6ec7e4e53945ee8be"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_pinctrl_lpi.ko",
+            "sha256": "7d39bb57be53e731eebf3e2c958bf5f5f1339c1467f277f292168e92f464e2c7"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_pinctrl_wcd.ko",
+            "sha256": "53a4fc7bd25ddea3654e2a82f8d93e89aa7937263d872e38667f7291920a5699"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_platform.ko",
+            "sha256": "8d62baad69811719977ccf0604783827dfa5ed23c52264e7b8b0d603c641db68"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6.ko",
+            "sha256": "45f8abaeafb9f3433d5240cf2068bbb6dec308715b8c465bcae649510eb98901"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6_notifier.ko",
+            "sha256": "0e5602ddc90c73a222bc7fa7265756eebe86f1120132c8b848a0fcafa0c83da1"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_q6_pdr.ko",
+            "sha256": "a7a2d7549186d4ed42ead137c3e80bf2cddeaf0186ebeee7ece44c02d7b25dc5"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_rx_macro.ko",
+            "sha256": "b4e5fdab1ae02c72cc09737e10f1d0afb8162438f8d0eaf02791d781360226f2"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_snd_event.ko",
+            "sha256": "922afefdceb114d3e6adbd8214a2f4f5d29fada7bb3c7fc2a2d471d8b48a0eb5"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_stub.ko",
+            "sha256": "1755fb2cbbbcd7152d8c0a70cfe3e4fccbd80e5a0a9b784a736c3b2279dcc8d6"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_swr.ko",
+            "sha256": "a8c244535e8b61c854a1a4e01885092017c872fd791b6b372da105ae9bc12390"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_swr_ctrl.ko",
+            "sha256": "bc0bb55f0d3b27a9b271df78d11fd23ce2321532c5fe484fb4c32e760bfd9947"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_tfa98xx-v6.ko",
+            "sha256": "d8cfda3ca09c966a1a35cf4ed4b1cbc6c479b427df82492792cc8a7ce4869b00"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_tx_macro.ko",
+            "sha256": "4f5abfbe5a7a0318ec9b502c186103fbdf4d51250617a9b628e52dd1c1196c8b"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_usf.ko",
+            "sha256": "6e37f0a407554b40ff95d96fbf412778f15d58f1e754ad7d4037adc1a9e2d4a3"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_va_macro.ko",
+            "sha256": "c6798d29199e9e288672ca773d6d714f7fc7382aeafddb00c2eff98c0fb8e182"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd938x.ko",
+            "sha256": "d5babe4124dea98d97fb8b59429c42319e160210041739d1e0ac4eb3a85147e2"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd938x_slave.ko",
+            "sha256": "a3105f03d44d4e10b45b70d56b45d5ad4ee6fcc8a6898a01a947459198dcc29d"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd9xxx.ko",
+            "sha256": "63bb7a681863590c7bc1feb2edfd017cac69dcde1467bc40482ba6c4256ef94f"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wcd_core.ko",
+            "sha256": "ae5ddf83065d4aaf3b506ea421204b4591309290380ed2aeb1fcd80e1a6ab7e1"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wsa881x.ko",
+            "sha256": "6c96552cc24f7054b27d91029119c15896995cb762a3460ae6b963130a98d309"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/audio_wsa_macro.ko",
+            "sha256": "c1cca1afbea450763a753fbb1c6b07b11b09023f233be729014615f33ae1cc59"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/gspca_main.ko",
+            "sha256": "3cc93ea1477a142be76b768cc904b24691fcd2fb08a7f95461d807ada0b7aa3c"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/lcd.ko",
+            "sha256": "cffbb05decd2c09de71ba6944fb3a12d5281c4798e2911c3a62e3c916b5f807a"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/llcc_perfmon.ko",
+            "sha256": "5156347a7169c20eb7241cb4ba461c0a4ef143a8d61cc0d821038dd736984650"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/mpq-adapter.ko",
+            "sha256": "9a9a6de6d8e1c3573a64a91e02fa151ce64e5511cbe5109616cc39aaa4231c87"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/mpq-dmx-hw-plugin.ko",
+            "sha256": "6907a386c69ac74d71d0128dd214bd9542b1fe5dd1407e5fa2daeaf9b182ecae"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/qca_cld3_qca6390.ko",
+            "sha256": "7ca81c1d296af7639db161fd1530c98f169fe14a44502d983dfc48d8298b9aae"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/qca_cld3_qca6490.ko",
+            "sha256": "80dc9080c7b545c26d6705f127ae58eec7e8c6d9886c650f55bf2b1ae5698b93"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rdbg.ko",
+            "sha256": "bb24de72cad6e9f873ccae918502e24cf2db6aca1161e2c150db845828cd4d5c"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rmnet_perf.ko",
+            "sha256": "f25f62fb06ce1957914a9e9933d8693ef4898213cd08d87975fade5cad57486c"
+          },
+          {
+            "path": "module-set/vendor/lib/modules/rmnet_shs.ko",
+            "sha256": "73252caae8b98bff29f9e07e7bb9e3321b71b22dee906d18467795793c5da7d7"
+          }
+        ],
+        "module_count": 41
       },
-      "release_asset": "oneplus-9r-oxygenos-LE2101_14.0.0.2401.EX01.-r2.zip"
+      "device_verified": false,
+      "artifact_revision": "v0.2.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740020920",
+      "recipe_commit": "fe99de161cc49434f4c729f4545e2110190a6a9b",
+      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+      "archive": "oneplus-9r-oxygenos-LE2101_14.0.0.2401-EX01-v0.2.0.zip",
+      "archive_sha256": "43201bdb308ed20bb90b279740b36b2c3973aaa9330f4674ee9cf0644bdc93c1",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9r-oxygenos-LE2101_14.0.0.2401-EX01-v0.2.0.zip"
+    },
+    {
+      "device": "oneplus-9",
+      "os": "coloros",
+      "firmware": "LE2110_14.0.0.1901(CN01)",
+      "layout": "a/b",
+      "boot_sha256": "0c42adb426b4c84d61251b5177974ed9218edec56baf3db251afa4e521d46f8d",
+      "boot_size": 201326592,
+      "image_sha256": "7dc3d381dccb0446ed3821f9d5c1a0c50db9f67b09b9f94f1f26c4782fea720c",
+      "kernel_release": "5.4.254-qgki-gd2a1055adeb0-daxiaamu",
+      "all_exports_match": true,
+      "stock_exports": 13797,
+      "module_check": false,
+      "module_signature_check": {
+        "enforcement": false,
+        "passed": true,
+        "reason": "original firmware does not force module signatures"
+      },
+      "device_verified": false,
+      "artifact_revision": "v0.2.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740022742",
+      "recipe_commit": "e60ca9cd488f7d7e8d924df80c752e92ede46f1c",
+      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+      "archive": "oneplus-9-coloros-LE2110_14.0.0.1901-CN01-v0.2.0.zip",
+      "archive_sha256": "51aeddba84ec58454342a04713c0804ec715edd8d982471121238b5095ce00c8",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9-coloros-LE2110_14.0.0.1901-CN01-v0.2.0.zip"
+    },
+    {
+      "device": "oneplus-9",
+      "os": "oxygenos",
+      "firmware": "LE2111_14.0.0.1902(EX01)",
+      "layout": "a/b",
+      "boot_sha256": "99ae667eaf1e2bc56ee4efa15fa005c0f12c50f4222aa98eb5d6e39c649ecc4e",
+      "boot_size": 201326592,
+      "image_sha256": "f1f4d9e43c7c39de3c544bcacc3e1ce45c8b73579fa38f172d71b700613d667b",
+      "kernel_release": "5.4.254-qgki-gd2a1055adeb0-daxiaamu",
+      "all_exports_match": true,
+      "stock_exports": 13797,
+      "module_check": false,
+      "module_signature_check": {
+        "enforcement": false,
+        "passed": true,
+        "reason": "original firmware does not force module signatures"
+      },
+      "device_verified": false,
+      "artifact_revision": "v0.2.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740023939",
+      "recipe_commit": "e60ca9cd488f7d7e8d924df80c752e92ede46f1c",
+      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+      "archive": "oneplus-9-oxygenos-LE2111_14.0.0.1902-EX01-v0.2.0.zip",
+      "archive_sha256": "f1a8efb3fbc81f074aa91ab59526be52edb00106fd8ac1adc0505cabef840dac",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9-oxygenos-LE2111_14.0.0.1902-EX01-v0.2.0.zip"
+    },
+    {
+      "device": "oneplus-9-pro",
+      "os": "coloros",
+      "firmware": "LE2120_14.0.0.1901(CN01)",
+      "layout": "a/b",
+      "boot_sha256": "734d17f202ab78173be7db38b3a271a98af7a1a46835b9e4f071d56234cbfce9",
+      "boot_size": 201326592,
+      "image_sha256": "b966a2d3a229bcfcee87b21e7171017e1a94e9e79197d432ba06448a3de49c9e",
+      "kernel_release": "5.4.254-qgki-gd2a1055adeb0-daxiaamu",
+      "all_exports_match": true,
+      "stock_exports": 13797,
+      "module_check": false,
+      "module_signature_check": {
+        "enforcement": false,
+        "passed": true,
+        "reason": "original firmware does not force module signatures"
+      },
+      "device_verified": false,
+      "artifact_revision": "v0.2.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740025024",
+      "recipe_commit": "85517d10073e2ffefde1c138ca08d85f8db61d89",
+      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+      "archive": "oneplus-9-pro-coloros-LE2120_14.0.0.1901-CN01-v0.2.0.zip",
+      "archive_sha256": "5878d4b8ee73df847ffe5c848963e99ba1d13adb5442e66fc41ee70035b760a7",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9-pro-coloros-LE2120_14.0.0.1901-CN01-v0.2.0.zip"
+    },
+    {
+      "device": "oneplus-9-pro",
+      "os": "oxygenos",
+      "firmware": "LE2121_14.0.0.1902(EX01)",
+      "layout": "a/b",
+      "boot_sha256": "191f5ad9c66d156dd538a2417858a27c2920010588bb3010e9db89a3224b28c3",
+      "boot_size": 201326592,
+      "image_sha256": "bd2b2b7193f7ae73f332c5b0c781ceef6c9a6f26f1ae5753e07c51e4a816e003",
+      "kernel_release": "5.4.254-qgki-gd2a1055adeb0-daxiaamu",
+      "all_exports_match": true,
+      "stock_exports": 13797,
+      "module_check": false,
+      "module_signature_check": {
+        "enforcement": false,
+        "passed": true,
+        "reason": "original firmware does not force module signatures"
+      },
+      "device_verified": false,
+      "artifact_revision": "v0.2.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740026222",
+      "recipe_commit": "85517d10073e2ffefde1c138ca08d85f8db61d89",
+      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+      "archive": "oneplus-9-pro-oxygenos-LE2121_14.0.0.1902-EX01-v0.2.0.zip",
+      "archive_sha256": "62527736e8dd51728b64dbcbfe5f2e96ad31c1a865a7e7f181d6dd964c4f85cf",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9-pro-oxygenos-LE2121_14.0.0.1902-EX01-v0.2.0.zip"
+    },
+    {
+      "device": "oneplus-9rt",
+      "os": "coloros",
+      "firmware": "MT2110_14.0.0.2701(CN01)",
+      "layout": "a/b",
+      "boot_sha256": "b4d2812136378e86c650897673e4acd56035fa140c89079fe80278a1831b8e8d",
+      "boot_size": 201326592,
+      "image_sha256": "fa2b0f2f39609f3f99613fa4bc24a833b7bda6d092ef86e69adb9c50d70c8009",
+      "kernel_release": "5.4.254-qgki-gac311b3399ae-daxiaamu",
+      "all_exports_match": true,
+      "stock_exports": 13842,
+      "module_check": false,
+      "module_signature_check": {
+        "enforcement": false,
+        "passed": true,
+        "reason": "original firmware does not force module signatures"
+      },
+      "device_verified": false,
+      "artifact_revision": "v0.2.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34743317043",
+      "recipe_commit": "4c0a9811704ce02208404141cca6483da97d0624",
+      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+      "archive": "oneplus-9rt-coloros-MT2110_14.0.0.2701-CN01-v0.2.0.zip",
+      "archive_sha256": "129033a7e3b245ad94c0cf0d38efd68a9fc82ea54848565f4122f2a0f6da0376",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9rt-coloros-MT2110_14.0.0.2701-CN01-v0.2.0.zip"
+    },
+    {
+      "device": "oneplus-9rt",
+      "os": "oxygenos",
+      "firmware": "MT2111_14.0.0.2702(EX01)",
+      "layout": "a/b",
+      "boot_sha256": "893ed92b4665370155703fffef68d0d6ef44c48665127460037eeea4bd40e577",
+      "boot_size": 201326592,
+      "image_sha256": "a04428cc1c1da5d10c9d03dfdd123022b7d7f3c7e5bac156e7065794b30bbe1b",
+      "kernel_release": "5.4.254-qgki-gac311b3399ae-daxiaamu",
+      "all_exports_match": true,
+      "stock_exports": 13842,
+      "module_check": false,
+      "module_signature_check": {
+        "enforcement": false,
+        "passed": true,
+        "reason": "original firmware does not force module signatures"
+      },
+      "device_verified": false,
+      "artifact_revision": "v0.2.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34743318521",
+      "recipe_commit": "4c0a9811704ce02208404141cca6483da97d0624",
+      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
+      "archive": "oneplus-9rt-oxygenos-MT2111_14.0.0.2702-EX01-v0.2.0.zip",
+      "archive_sha256": "f786ec9495ad02981e1436d8e586694127293c0fbbf4d0af6873c052345b5c10",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9rt-oxygenos-MT2111_14.0.0.2702-EX01-v0.2.0.zip"
     }
   ]
 }
