@@ -21,6 +21,8 @@
 
 其他版本系统如需定制，请联系：[120.oplus.icu](https://120.oplus.icu)。
 
+S3908 息屏单击手势修复: [六款机型排查与验证边界](docs/touch-gestures.md)。已发布的 v0.1.0-r2 不含本次手势修复，需重新编译。
+
 ## 成品与验证范围
 
 每个成品目录包含 `boot.img`、`build.json`、`SHA256SUMS`；另有按机型和完整版本命名的 ZIP。镜像保存在本地 `out/`，不写入 Git 历史。校验值与构建记录见 [成品记录](docs/artifacts.json)。
