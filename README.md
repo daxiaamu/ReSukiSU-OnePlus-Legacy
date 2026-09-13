@@ -1,12 +1,12 @@
 # ReSukiSU-OnePlus-Legacy
 
-下载：[v0.1.0-r2 实验版 Release](https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.1.0-r2)，包含 12 个机型／系统包、官方管理器 APK 和校验表。
-
-
+下载：[v0.2.0 实验版 Release](https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.2.0)，包含七款机型的 14 个系统包、官方管理器 APK 和 SHA-256 校验表。
 
 为一加 8、8 Pro、8T、9R、9、9 Pro、9RT 集成 ReSukiSU，产物为 **boot.img**。项目面向 non-GKI / 早期 GKI 1.0 平台，使用各机型官方源码和对应末版系统的原厂 boot，不能套用通用 GKI 2.0 镜像。
 
-**已完成 14 份实验版镜像。8 / 8 Pro / 8T / 9R 请使用 r2：已修复原厂模块签名证书缺失。9R ColorOS 已通过最终编译版临时启动复测；其他版本尚未真机验证。** ColorOS 为主，OxygenOS 为辅；下表列出本批次实际核对的完整版本，不表示同名系统的所有地区版本均通用。
+**v0.2.0 的 14 份镜像均已完成编译、静态兼容检查和封装复查，尚未真机验证。** 本版新增 9RT、`daxiaamu` 内核后缀和 S3908 单击手势修复，保留原厂模块签名信任。ColorOS 为主，OxygenOS 为辅；请严格匹配下表的完整系统版本。
+
+9R ColorOS 的临时启动实测属于旧版 [v0.1.0-r2](https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.1.0-r2)，不能作为本版已验证的依据。
 
 | 机型 | 独立分支 | ColorOS | OxygenOS |
 | --- | --- | --- | --- |
@@ -22,15 +22,16 @@
 
 其他版本系统如需定制，请联系：[120.oplus.icu](https://120.oplus.icu)。
 
-S3908 息屏单击手势修复: [六款机型排查与验证边界](docs/touch-gestures.md)。已发布的 v0.1.0-r2 不含本次手势修复，需重新编译。
+S3908 息屏单击手势修复已收录于 v0.2.0，范围与验证说明见 [触控手势排查](docs/touch-gestures.md)。
 
-9RT 适配状态见 [9RT 说明](docs/oneplus-9rt.md)；既有 v0.1.0-r2 不包含 9RT。
+9RT 已包含在 v0.2.0，适配细节见 [9RT 说明](docs/oneplus-9rt.md)。
 
 ## 成品与验证范围
 
 每个成品目录包含 `boot.img`、`build.json`、`SHA256SUMS`；另有按机型和完整版本命名的 ZIP。镜像保存在本地 `out/`，不写入 Git 历史。校验值与构建记录见 [成品记录](docs/artifacts.json)。
 
 - 9 / 9 Pro：13,797 个原厂内核导出接口名称与 CRC 全部匹配，保留原厂 CFI 配置，验证协议初始化回调的 CFI 签名。
+- 9RT：13,842 个原厂内核导出接口名称与 CRC 全部匹配，保留原厂 CFI 配置。
 - 8 / 8 Pro / 8T / 9R：核对各系统原厂 vendor、odm 的全部 41 个驱动模块，通过依赖 CRC、内核 release 和 PKCS#7 签名检查；保留强制签名校验。证书根因与修复见 [模块签名说明](docs/module-signing.md)，旧版校验值见 [撤回记录](docs/withdrawn-artifacts.json)。
 - SM8250 保留两项公开源码内建触屏私有回调的结构差异。原厂驱动模块不引用这两项接口；其他原厂导出接口均匹配，没有缺失导出。原始差异报告保留在成品中，详见 [模块兼容性说明](docs/module-compatibility.md)。
 - 每份镜像仅替换内核，重新解包核对原厂 ramdisk、DTB 等其他组件及 header，检查镜像大小；不安装 Magisk，不执行刷机。
@@ -39,7 +40,7 @@ S3908 息屏单击手势修复: [六款机型排查与验证边界](docs/touch-g
 
 ## 分支和构建
 
-`main` 维护共用脚本与所有机型配置。机型分支的 `device.json` 选择构建目标；GitHub Actions 拒绝分支与机型不一致的请求。8 系列 / 9R 使用 4.19.157，9 / 9 Pro 使用 5.4.254。上游源码、ReSukiSU、补丁与工具链均记录版本或校验和。
+`main` 维护共用脚本与所有机型配置。机型分支的 `device.json` 选择构建目标；GitHub Actions 拒绝分支与机型不一致的请求。8 系列 / 9R 使用 4.19.157，9 / 9 Pro / 9RT 使用 5.4.254。上游源码、ReSukiSU、补丁与工具链均记录版本或校验和。
 
 在 GitHub 的 **Actions → Build latest ReSukiSU → Run workflow** 中，选择对应机型分支和 ColorOS / OxygenOS，即可手动构建。每次构建都使用 **ReSukiSU 官方默认分支的最新提交**：先解析 HEAD 的完整 SHA，再按该 SHA 检出编译。若解析失败，构建会报错。
 
@@ -53,7 +54,7 @@ S3908 息屏单击手势修复: [六款机型排查与验证边界](docs/touch-g
 python3 scripts/build.py --device oneplus-9r --os coloros
 ```
 
-同机型两套系统即使配置和导出 CRC 相同，也必须核对模块签名证书。SM8250 的 ColorOS、OxygenOS 证书不同，r2 分别编译，并使用各自的原厂 boot 封装。
+同机型两套系统即使配置和导出 CRC 相同，也必须核对模块签名证书。SM8250 的 ColorOS、OxygenOS 证书不同，本版继续分别编译，并使用各自的原厂 boot 封装。
 
 原厂 ZIP 可从本地或只读共享读取，输出写入本项目：
 

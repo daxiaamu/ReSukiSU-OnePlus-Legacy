@@ -11,4 +11,4 @@
 
 9RT 官方源码中的 S3908 已包含单击事件 `0x10` 解码及单击／双击坐标读取，主机 C 解码测试通过 1,024 例；无需重复移植手势补丁。
 
-当前状态：两套系统已完成 Actions 编译和 boot.img 封装，各自 13,842 个原厂导出接口的名称与 CRC 全部匹配，重新解包确认非内核组件和头字段保持原样。成品与构建来源见 [校验记录](oneplus-9rt-artifacts.json)。尚未真机验证，既有 v0.1.0-r2 Release 不包含 9RT。
+当前状态：两套系统已完成 Actions 编译和 boot.img 封装，各自 13,842 个原厂导出接口的名称与 CRC 全部匹配，重新解包确认非内核组件和头字段保持原样。成品与构建来源见 [校验记录](oneplus-9rt-artifacts.json)。尚未真机验证。成品已纳入 [v0.2.0 Release](https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.2.0)。
