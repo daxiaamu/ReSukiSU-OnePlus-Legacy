@@ -1,7 +1,7 @@
 name: Source and tooling checks
 on:
   push:
-    branches: [main, oneplus-8, oneplus-8-pro, oneplus-8t, oneplus-9r, oneplus-9, oneplus-9-pro]
+    branches: [main, oneplus-8, oneplus-8-pro, oneplus-8t, oneplus-9r, oneplus-9, oneplus-9-pro, oneplus-9rt]
   pull_request:
   workflow_dispatch:
 permissions:

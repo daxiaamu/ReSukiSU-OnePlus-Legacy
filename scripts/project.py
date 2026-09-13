@@ -7,7 +7,7 @@ import subprocess
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 PATCHES = {"oneplus-8": "op8", "oneplus-8-pro": "op8", "oneplus-8t": "op8t",
-           "oneplus-9r": "op9r", "oneplus-9": "op9", "oneplus-9-pro": "op9"}
+           "oneplus-9r": "op9r", "oneplus-9": "op9", "oneplus-9-pro": "op9", "oneplus-9rt": "op9"}
 
 
 def device(name):
