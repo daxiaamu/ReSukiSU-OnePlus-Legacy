@@ -7,7 +7,7 @@ from toolchain import configure
 
 if __name__ == "__main__":
     configure("sm8350")
-    for name in ("oneplus-8", "oneplus-8t", "oneplus-9r", "oneplus-9"):
+    for name in ("oneplus-8", "oneplus-8t", "oneplus-9r", "oneplus-9", "oneplus-9rt"):
         with tempfile.TemporaryDirectory() as temporary:
             modules = pathlib.Path(temporary)
             (modules / "vendor/oplus/kernel/network/data_module/proto-src").mkdir(parents=True)
