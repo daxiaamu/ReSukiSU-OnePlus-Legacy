@@ -1,10 +1,12 @@
 # ReSukiSU-OnePlus-Legacy
 
-下载：[v0.2.0 实验版 Release](https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.2.0)，包含七款机型的 14 个系统包、官方管理器 APK 和 SHA-256 校验表。
+下载：[v0.3.0 实验版 Release](https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.3.0)，包含七款机型的 14 个系统包、官方管理器 APK 和 SHA-256 校验表。
 
 为一加 8、8 Pro、8T、9R、9、9 Pro、9RT 集成 ReSukiSU，产物为 **boot.img**。项目面向 non-GKI / 早期 GKI 1.0 平台，使用各机型官方源码和对应末版系统的原厂 boot，不能套用通用 GKI 2.0 镜像。
 
-**v0.2.0 的 14 份镜像均已完成编译、静态兼容检查和封装复查，尚未真机验证。** 本版新增 9RT、`daxiaamu` 内核后缀和 S3908 单击手势修复，保留原厂模块签名信任。ColorOS 为主，OxygenOS 为辅；请严格匹配下表的完整系统版本。
+**v0.3.0 的 14 份镜像均由本次 GitHub Actions 构建，已完成静态兼容检查和封装复查，尚未真机验证。** 本版更新至上游提交 `39faf94a2d4a40d48093398bafcde649916edbc1`，保留 `daxiaamu` 后缀、S3908 单击手势修复和原厂模块签名信任。ColorOS 为主，OxygenOS 为辅，请严格匹配下表的完整系统版本。
+
+ReSukiSU 上游已迁移至 [Baka-SU/BakaSU](https://github.com/Baka-SU/BakaSU)，本版版本标识为 BakaSU v4.2.0-rc3（35237）。随包管理器来自同一提交的官方 Actions，包名仍为 `com.resukisu.resukisu`。继续使用 Manual Hook，未集成 SUSFS。
 
 9R ColorOS 的临时启动实测属于旧版 [v0.1.0-r2](https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.1.0-r2)，不能作为本版已验证的依据。
 

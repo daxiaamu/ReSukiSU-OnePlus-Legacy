@@ -4,9 +4,9 @@
     "os": "coloros",
     "firmware": "MT2110_14.0.0.2701(CN01)",
     "layout": "a/b",
-    "boot_sha256": "b4d2812136378e86c650897673e4acd56035fa140c89079fe80278a1831b8e8d",
+    "boot_sha256": "ce7fc39d54cfe05be4ebbdaf6f3b00c052d4a7a7ae2de07aa271802843c9f6a4",
     "boot_size": 201326592,
-    "image_sha256": "fa2b0f2f39609f3f99613fa4bc24a833b7bda6d092ef86e69adb9c50d70c8009",
+    "image_sha256": "67d9bd166272b4eea9c7fdc60094c6e5d77f5a381f4062c8353d7490450b57fe",
     "kernel_release": "5.4.254-qgki-gac311b3399ae-daxiaamu",
     "all_exports_match": true,
     "stock_exports": 13842,
@@ -17,22 +17,22 @@
       "reason": "original firmware does not force module signatures"
     },
     "device_verified": false,
-    "artifact_revision": "v0.2.0",
-    "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34743317043",
-    "recipe_commit": "4c0a9811704ce02208404141cca6483da97d0624",
-    "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
-    "archive": "oneplus-9rt-coloros-MT2110_14.0.0.2701-CN01-v0.2.0.zip",
-    "archive_sha256": "129033a7e3b245ad94c0cf0d38efd68a9fc82ea54848565f4122f2a0f6da0376",
-    "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9rt-coloros-MT2110_14.0.0.2701-CN01-v0.2.0.zip"
+    "artifact_revision": "v0.3.0",
+    "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073448900",
+    "recipe_commit": "96dca51aa382f53908c335c7b62d557eb374ab1c",
+    "resukisu_commit": "39faf94a2d4a40d48093398bafcde649916edbc1",
+    "archive": "oneplus-9rt-coloros-MT2110_14.0.0.2701-CN01-v0.3.0.zip",
+    "archive_sha256": "8e675ff414392a95e57482a006874c4a171e56899d03d30422a495efb4f6661f",
+    "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.3.0/oneplus-9rt-coloros-MT2110_14.0.0.2701-CN01-v0.3.0.zip"
   },
   {
     "device": "oneplus-9rt",
     "os": "oxygenos",
     "firmware": "MT2111_14.0.0.2702(EX01)",
     "layout": "a/b",
-    "boot_sha256": "893ed92b4665370155703fffef68d0d6ef44c48665127460037eeea4bd40e577",
+    "boot_sha256": "c6c27786011c8f1a81c0be6fd7cb9db0924dcbed2c08c1591b6dd5828d6c05a8",
     "boot_size": 201326592,
-    "image_sha256": "a04428cc1c1da5d10c9d03dfdd123022b7d7f3c7e5bac156e7065794b30bbe1b",
+    "image_sha256": "05f196f779eb6b62673c72c1d6cf41c4f87ad69d670badd03d65713eef80ff43",
     "kernel_release": "5.4.254-qgki-gac311b3399ae-daxiaamu",
     "all_exports_match": true,
     "stock_exports": 13842,
@@ -43,12 +43,12 @@
       "reason": "original firmware does not force module signatures"
     },
     "device_verified": false,
-    "artifact_revision": "v0.2.0",
-    "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34743318521",
-    "recipe_commit": "4c0a9811704ce02208404141cca6483da97d0624",
-    "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
-    "archive": "oneplus-9rt-oxygenos-MT2111_14.0.0.2702-EX01-v0.2.0.zip",
-    "archive_sha256": "f786ec9495ad02981e1436d8e586694127293c0fbbf4d0af6873c052345b5c10",
-    "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9rt-oxygenos-MT2111_14.0.0.2702-EX01-v0.2.0.zip"
+    "artifact_revision": "v0.3.0",
+    "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073451721",
+    "recipe_commit": "96dca51aa382f53908c335c7b62d557eb374ab1c",
+    "resukisu_commit": "39faf94a2d4a40d48093398bafcde649916edbc1",
+    "archive": "oneplus-9rt-oxygenos-MT2111_14.0.0.2702-EX01-v0.3.0.zip",
+    "archive_sha256": "dc02ea8c25fdb06c213a0c69ddce601c4029d18a8faf011f0600a377b7fdcb7e",
+    "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.3.0/oneplus-9rt-oxygenos-MT2111_14.0.0.2702-EX01-v0.3.0.zip"
   }
 ]
