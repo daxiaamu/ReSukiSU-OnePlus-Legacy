@@ -1,101 +1,101 @@
 {
-  "status": "v0.2.0 experimental; all 14 images untested on device",
-  "artifact_location": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.2.0",
+  "status": "v0.3.0 experimental; all 14 images untested on device",
+  "artifact_location": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.3.0",
   "kernel_builds": {
     "oneplus-8": {
       "coloros": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740008767",
-        "recipe_commit": "a43a58d4cb4b98b24cebbdead89b0891467529e5",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073412654",
+        "recipe_commit": "0ea666939296c69746f874859f3d23a1e9478c15",
         "status": "completed",
         "conclusion": "success"
       },
       "oxygenos": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740010345",
-        "recipe_commit": "a43a58d4cb4b98b24cebbdead89b0891467529e5",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073415734",
+        "recipe_commit": "0ea666939296c69746f874859f3d23a1e9478c15",
         "status": "completed",
         "conclusion": "success"
       }
     },
     "oneplus-8-pro": {
       "coloros": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740012255",
-        "recipe_commit": "996b1a3375495359ec13f7d7a024a9ffe9f49184",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073418891",
+        "recipe_commit": "6dfb8eb6acbce008c0cab296b6e89a04ff06ddbe",
         "status": "completed",
         "conclusion": "success"
       },
       "oxygenos": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740014232",
-        "recipe_commit": "996b1a3375495359ec13f7d7a024a9ffe9f49184",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073421718",
+        "recipe_commit": "6dfb8eb6acbce008c0cab296b6e89a04ff06ddbe",
         "status": "completed",
         "conclusion": "success"
       }
     },
     "oneplus-8t": {
       "coloros": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740016211",
-        "recipe_commit": "7464f49bb26e66b7272293886dc99c9db5116264",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073424864",
+        "recipe_commit": "deb4f7808eb507dbc44fb040b9e1dcad4031fcee",
         "status": "completed",
         "conclusion": "success"
       },
       "oxygenos": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740017707",
-        "recipe_commit": "7464f49bb26e66b7272293886dc99c9db5116264",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073427598",
+        "recipe_commit": "deb4f7808eb507dbc44fb040b9e1dcad4031fcee",
         "status": "completed",
         "conclusion": "success"
       }
     },
     "oneplus-9r": {
       "coloros": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740019447",
-        "recipe_commit": "fe99de161cc49434f4c729f4545e2110190a6a9b",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073431542",
+        "recipe_commit": "c3762e01add53b01b761c304d8f8fe50ecb921e1",
         "status": "completed",
         "conclusion": "success"
       },
       "oxygenos": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740020920",
-        "recipe_commit": "fe99de161cc49434f4c729f4545e2110190a6a9b",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073434377",
+        "recipe_commit": "c3762e01add53b01b761c304d8f8fe50ecb921e1",
         "status": "completed",
         "conclusion": "success"
       }
     },
     "oneplus-9": {
       "coloros": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740022742",
-        "recipe_commit": "e60ca9cd488f7d7e8d924df80c752e92ede46f1c",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073437213",
+        "recipe_commit": "40438ca7a3bb3993adfae604bc98253fc1693c1a",
         "status": "completed",
         "conclusion": "success"
       },
       "oxygenos": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740023939",
-        "recipe_commit": "e60ca9cd488f7d7e8d924df80c752e92ede46f1c",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073439805",
+        "recipe_commit": "40438ca7a3bb3993adfae604bc98253fc1693c1a",
         "status": "completed",
         "conclusion": "success"
       }
     },
     "oneplus-9-pro": {
       "coloros": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740025024",
-        "recipe_commit": "85517d10073e2ffefde1c138ca08d85f8db61d89",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073443275",
+        "recipe_commit": "126232c2fc4114d240c9cd8a43edad9f4de58de9",
         "status": "completed",
         "conclusion": "success"
       },
       "oxygenos": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740026222",
-        "recipe_commit": "85517d10073e2ffefde1c138ca08d85f8db61d89",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073445890",
+        "recipe_commit": "126232c2fc4114d240c9cd8a43edad9f4de58de9",
         "status": "completed",
         "conclusion": "success"
       }
     },
     "oneplus-9rt": {
       "coloros": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34743317043",
-        "recipe_commit": "4c0a9811704ce02208404141cca6483da97d0624",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073448900",
+        "recipe_commit": "96dca51aa382f53908c335c7b62d557eb374ab1c",
         "status": "completed",
         "conclusion": "success"
       },
       "oxygenos": {
-        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34743318521",
-        "recipe_commit": "4c0a9811704ce02208404141cca6483da97d0624",
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073451721",
+        "recipe_commit": "96dca51aa382f53908c335c7b62d557eb374ab1c",
         "status": "completed",
         "conclusion": "success"
       }
@@ -107,9 +107,9 @@
       "os": "coloros",
       "firmware": "IN2010_13.1.0.190(CN01)",
       "layout": "a/b",
-      "boot_sha256": "32fd8c91f18730f5bd3bc0cb0203acaf6a4d0b21e6efe1a10d08b661f65a93c3",
+      "boot_sha256": "ce16155f0f1dfaa90da4c2508c8d219a8fdeeec35101669ea50d3979001a04d4",
       "boot_size": 100663296,
-      "image_sha256": "bda8ec1c6dbb4af5df557c1d127702f3628869d034cf67433ff660bfb70df921",
+      "image_sha256": "5b29184728885746bd9451459995f78d3afdb33c762cb1db57762996f0005f69",
       "kernel_release": "4.19.157-perf+-daxiaamu",
       "all_exports_match": false,
       "stock_exports": 12928,
@@ -289,22 +289,22 @@
         "module_count": 41
       },
       "device_verified": false,
-      "artifact_revision": "v0.2.0",
-      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740008767",
-      "recipe_commit": "a43a58d4cb4b98b24cebbdead89b0891467529e5",
-      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
-      "archive": "oneplus-8-coloros-IN2010_13.1.0.190-CN01-v0.2.0.zip",
-      "archive_sha256": "cd506c4845a913ff252bb8b2ad05052c9cf586fc5f6ca9b957d4a5f555f4e520",
-      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-8-coloros-IN2010_13.1.0.190-CN01-v0.2.0.zip"
+      "artifact_revision": "v0.3.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073412654",
+      "recipe_commit": "0ea666939296c69746f874859f3d23a1e9478c15",
+      "resukisu_commit": "39faf94a2d4a40d48093398bafcde649916edbc1",
+      "archive": "oneplus-8-coloros-IN2010_13.1.0.190-CN01-v0.3.0.zip",
+      "archive_sha256": "76ff74b28a1eb5954d2c275a772642bd7e37891b765a6ade1d595e34f04be947",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.3.0/oneplus-8-coloros-IN2010_13.1.0.190-CN01-v0.3.0.zip"
     },
     {
       "device": "oneplus-8",
       "os": "oxygenos",
       "firmware": "IN2013_13.1.0.593(EX01)",
       "layout": "a/b",
-      "boot_sha256": "16755a52406ccb68f528f467328fc3719a868f1010e3f0d83ae7b14fbe21f637",
+      "boot_sha256": "c681a94ba02e621a676bbaa063ea888b00c3b491f2257c05d5ad4123a499e3a6",
       "boot_size": 100663296,
-      "image_sha256": "861c79790f549f0ed4c017bdde96c229f4b8d3828364da4540e82bfa790b663d",
+      "image_sha256": "01046d21149956d2555f36f7a57adc7b46cee3cbbc83da5cb751fd48a7ee0335",
       "kernel_release": "4.19.157-perf+-daxiaamu",
       "all_exports_match": false,
       "stock_exports": 12928,
@@ -484,22 +484,22 @@
         "module_count": 41
       },
       "device_verified": false,
-      "artifact_revision": "v0.2.0",
-      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740010345",
-      "recipe_commit": "a43a58d4cb4b98b24cebbdead89b0891467529e5",
-      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
-      "archive": "oneplus-8-oxygenos-IN2013_13.1.0.593-EX01-v0.2.0.zip",
-      "archive_sha256": "9071be549c85c6367fbcead3cbe5f51cc2e0c7fb78e0059aa35daf3b7ad8a3b2",
-      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-8-oxygenos-IN2013_13.1.0.593-EX01-v0.2.0.zip"
+      "artifact_revision": "v0.3.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073415734",
+      "recipe_commit": "0ea666939296c69746f874859f3d23a1e9478c15",
+      "resukisu_commit": "39faf94a2d4a40d48093398bafcde649916edbc1",
+      "archive": "oneplus-8-oxygenos-IN2013_13.1.0.593-EX01-v0.3.0.zip",
+      "archive_sha256": "9b5c38655c329448119eb68fe879dc5d9fc1b8a8b30a852418eb4162eefce553",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.3.0/oneplus-8-oxygenos-IN2013_13.1.0.593-EX01-v0.3.0.zip"
     },
     {
       "device": "oneplus-8-pro",
       "os": "coloros",
       "firmware": "IN2020_13.1.0.190(CN01)",
       "layout": "a/b",
-      "boot_sha256": "544e8c47959dd7db6f3d1b6dc0bf139eb4650130b5cc1213d4c5bac4a8dbb13e",
+      "boot_sha256": "0c2fd32e689cc43846d8267be1541cc9488bf80e2524c7e76a846e5eb7790525",
       "boot_size": 100663296,
-      "image_sha256": "baf723ac4dac171ef3937a640f85fed5c7605e180b2d3097456a88a6bd9db4f8",
+      "image_sha256": "9d6ee6a2c121e65e4f324afc1a0206a9b2b676d8799f841bf1750ae396a93874",
       "kernel_release": "4.19.157-perf+-daxiaamu",
       "all_exports_match": false,
       "stock_exports": 12928,
@@ -679,22 +679,22 @@
         "module_count": 41
       },
       "device_verified": false,
-      "artifact_revision": "v0.2.0",
-      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740012255",
-      "recipe_commit": "996b1a3375495359ec13f7d7a024a9ffe9f49184",
-      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
-      "archive": "oneplus-8-pro-coloros-IN2020_13.1.0.190-CN01-v0.2.0.zip",
-      "archive_sha256": "201067abad567911314b7ba4f81f2ffd685be35469ef42282df54a18f7525804",
-      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-8-pro-coloros-IN2020_13.1.0.190-CN01-v0.2.0.zip"
+      "artifact_revision": "v0.3.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073418891",
+      "recipe_commit": "6dfb8eb6acbce008c0cab296b6e89a04ff06ddbe",
+      "resukisu_commit": "39faf94a2d4a40d48093398bafcde649916edbc1",
+      "archive": "oneplus-8-pro-coloros-IN2020_13.1.0.190-CN01-v0.3.0.zip",
+      "archive_sha256": "a307131704db50c49b3893ff1af8fa1a969a5680db2258bc2ba8392e54067181",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.3.0/oneplus-8-pro-coloros-IN2020_13.1.0.190-CN01-v0.3.0.zip"
     },
     {
       "device": "oneplus-8-pro",
       "os": "oxygenos",
       "firmware": "IN2023_13.1.0.591(EX01)",
       "layout": "a/b",
-      "boot_sha256": "82a912a5347c076759a623dacf4ff51868242c4309e87195b9948b49ee656586",
+      "boot_sha256": "4f76ddb408f7391d0d4778c49502db6f63ce0ca400865d8ba1ad94db4b37a0bd",
       "boot_size": 100663296,
-      "image_sha256": "42dfcdea4d49b242c1f215e07f673f64a4d6fcb2a760d92606d167cd250ea304",
+      "image_sha256": "b3791e90a957cf99c5741baf1c0e730d519042dca2246556660e43a5fe049a13",
       "kernel_release": "4.19.157-perf+-daxiaamu",
       "all_exports_match": false,
       "stock_exports": 12928,
@@ -874,22 +874,22 @@
         "module_count": 41
       },
       "device_verified": false,
-      "artifact_revision": "v0.2.0",
-      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740014232",
-      "recipe_commit": "996b1a3375495359ec13f7d7a024a9ffe9f49184",
-      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
-      "archive": "oneplus-8-pro-oxygenos-IN2023_13.1.0.591-EX01-v0.2.0.zip",
-      "archive_sha256": "40a274307abb214827ee0945bddb2b8ff038d926d4ea92672cf466645b450df1",
-      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-8-pro-oxygenos-IN2023_13.1.0.591-EX01-v0.2.0.zip"
+      "artifact_revision": "v0.3.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073421718",
+      "recipe_commit": "6dfb8eb6acbce008c0cab296b6e89a04ff06ddbe",
+      "resukisu_commit": "39faf94a2d4a40d48093398bafcde649916edbc1",
+      "archive": "oneplus-8-pro-oxygenos-IN2023_13.1.0.591-EX01-v0.3.0.zip",
+      "archive_sha256": "00e2cf8942be02235fbee648a79a7a78f83efc59b5f44b235e27f81e00f0f5c6",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.3.0/oneplus-8-pro-oxygenos-IN2023_13.1.0.591-EX01-v0.3.0.zip"
     },
     {
       "device": "oneplus-8t",
       "os": "coloros",
       "firmware": "KB2000_14.0.0.602(CN01)",
       "layout": "a/b",
-      "boot_sha256": "4af87b13f0f1aa23c882c2d11b7369d0dc09656498f3375bc21fbe464e2f230e",
+      "boot_sha256": "ee078f61b77f63fb64da99cc41e1d442aa26d64c47ea9ffe9401f9071fe1e527",
       "boot_size": 100663296,
-      "image_sha256": "e778d5149de04c0787082f210f3cc2f59a509257937f66464c4b5166dc067c8c",
+      "image_sha256": "cad0d01648a7ea451932c72b82c43675c5be3eaad8f7c913a272e7bd21059e36",
       "kernel_release": "4.19.157-perf+-daxiaamu",
       "all_exports_match": false,
       "stock_exports": 12996,
@@ -1069,22 +1069,22 @@
         "module_count": 41
       },
       "device_verified": false,
-      "artifact_revision": "v0.2.0",
-      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740016211",
-      "recipe_commit": "7464f49bb26e66b7272293886dc99c9db5116264",
-      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
-      "archive": "oneplus-8t-coloros-KB2000_14.0.0.602-CN01-v0.2.0.zip",
-      "archive_sha256": "9e4f11ea4ef6eb9a7352cae7d6a040a2b861c12603525889460aa10a90e96ff1",
-      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-8t-coloros-KB2000_14.0.0.602-CN01-v0.2.0.zip"
+      "artifact_revision": "v0.3.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073424864",
+      "recipe_commit": "deb4f7808eb507dbc44fb040b9e1dcad4031fcee",
+      "resukisu_commit": "39faf94a2d4a40d48093398bafcde649916edbc1",
+      "archive": "oneplus-8t-coloros-KB2000_14.0.0.602-CN01-v0.3.0.zip",
+      "archive_sha256": "83c8fcb169dc60fbfcf34ece4035155c9e0720b18c08fc265898e9c0533cf96b",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.3.0/oneplus-8t-coloros-KB2000_14.0.0.602-CN01-v0.3.0.zip"
     },
     {
       "device": "oneplus-8t",
       "os": "oxygenos",
       "firmware": "KB2001_14.0.0.1311(EX01)",
       "layout": "a/b",
-      "boot_sha256": "ec397c7201d8d14421ab79cf60cdc619bcc62dd31a9338e8dc7fa84a7d533e4e",
+      "boot_sha256": "b8244a7167366210a35c62aa937a5f3d04cbc8d34257805c14a89383b2b067fa",
       "boot_size": 100663296,
-      "image_sha256": "74c70220adbb687291b21aa1b121487ac075aada943f1332f4db7ce26b591407",
+      "image_sha256": "3f6a8a36910299e9e587950126c2a28ccbfd0b380effad82ae8375df16e8acc4",
       "kernel_release": "4.19.157-perf+-daxiaamu",
       "all_exports_match": false,
       "stock_exports": 12996,
@@ -1264,22 +1264,22 @@
         "module_count": 41
       },
       "device_verified": false,
-      "artifact_revision": "v0.2.0",
-      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740017707",
-      "recipe_commit": "7464f49bb26e66b7272293886dc99c9db5116264",
-      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
-      "archive": "oneplus-8t-oxygenos-KB2001_14.0.0.1311-EX01-v0.2.0.zip",
-      "archive_sha256": "95b19bd055a7d59bf8d138058dc36d22bf5de38b91dcdd2b53c5201f3de87665",
-      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-8t-oxygenos-KB2001_14.0.0.1311-EX01-v0.2.0.zip"
+      "artifact_revision": "v0.3.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073427598",
+      "recipe_commit": "deb4f7808eb507dbc44fb040b9e1dcad4031fcee",
+      "resukisu_commit": "39faf94a2d4a40d48093398bafcde649916edbc1",
+      "archive": "oneplus-8t-oxygenos-KB2001_14.0.0.1311-EX01-v0.3.0.zip",
+      "archive_sha256": "c2a3d10abd7642bfd72d0aa16e110a6356b9d59163a819e0dbbacf3be0b57954",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.3.0/oneplus-8t-oxygenos-KB2001_14.0.0.1311-EX01-v0.3.0.zip"
     },
     {
       "device": "oneplus-9r",
       "os": "coloros",
       "firmware": "LE2100_14.0.0.605(CN01)",
       "layout": "a-only",
-      "boot_sha256": "da017c3fbda1f42cfa2d21c22ec858b0758c3ca98823c4caaa1a8b4e18f76725",
+      "boot_sha256": "6d2d4a9a82ddcb378a666dcadea7db58bda718b81923b3dac44d2a7a9f2fe36a",
       "boot_size": 100663296,
-      "image_sha256": "9a027af34c36aa21374703fcea56064dfe4335055c5be076d29a1746a09fabea",
+      "image_sha256": "2745efdab5570b26960606310dfbaf3e8cfda337021d3bcf4fc6c8b546f0f721",
       "kernel_release": "4.19.157-perf+-daxiaamu",
       "all_exports_match": false,
       "stock_exports": 12995,
@@ -1459,22 +1459,22 @@
         "module_count": 41
       },
       "device_verified": false,
-      "artifact_revision": "v0.2.0",
-      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740019447",
-      "recipe_commit": "fe99de161cc49434f4c729f4545e2110190a6a9b",
-      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
-      "archive": "oneplus-9r-coloros-LE2100_14.0.0.605-CN01-v0.2.0.zip",
-      "archive_sha256": "5778197c329b5ac90de48c82a6c3080861a602736f812644721f849bb4eb0f75",
-      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9r-coloros-LE2100_14.0.0.605-CN01-v0.2.0.zip"
+      "artifact_revision": "v0.3.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073431542",
+      "recipe_commit": "c3762e01add53b01b761c304d8f8fe50ecb921e1",
+      "resukisu_commit": "39faf94a2d4a40d48093398bafcde649916edbc1",
+      "archive": "oneplus-9r-coloros-LE2100_14.0.0.605-CN01-v0.3.0.zip",
+      "archive_sha256": "2fbc560e29cb249f82a7a4413d6402b17dbd9cc3054f6267d6e458e69fe9acb5",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.3.0/oneplus-9r-coloros-LE2100_14.0.0.605-CN01-v0.3.0.zip"
     },
     {
       "device": "oneplus-9r",
       "os": "oxygenos",
       "firmware": "LE2101_14.0.0.2401(EX01)",
       "layout": "a/b",
-      "boot_sha256": "02f17fad0bb7b306ef17c838c15dfad9f2cc5bfedee5490ce32f8f573e7f08d5",
+      "boot_sha256": "b097b69ef9b700f4264861b0be12d6877eacb8321cdb21b9bbd45f71764632ce",
       "boot_size": 100663296,
-      "image_sha256": "4adfe5994af307d8ce1f0ca91837b45acce9b2051784b79cee2346c522581c3c",
+      "image_sha256": "657a608e3a63876673116f09f46db2f4a4984a5ffb2c96f6079d47a8b87eb653",
       "kernel_release": "4.19.157-perf+-daxiaamu",
       "all_exports_match": false,
       "stock_exports": 12995,
@@ -1654,22 +1654,22 @@
         "module_count": 41
       },
       "device_verified": false,
-      "artifact_revision": "v0.2.0",
-      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740020920",
-      "recipe_commit": "fe99de161cc49434f4c729f4545e2110190a6a9b",
-      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
-      "archive": "oneplus-9r-oxygenos-LE2101_14.0.0.2401-EX01-v0.2.0.zip",
-      "archive_sha256": "43201bdb308ed20bb90b279740b36b2c3973aaa9330f4674ee9cf0644bdc93c1",
-      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9r-oxygenos-LE2101_14.0.0.2401-EX01-v0.2.0.zip"
+      "artifact_revision": "v0.3.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073434377",
+      "recipe_commit": "c3762e01add53b01b761c304d8f8fe50ecb921e1",
+      "resukisu_commit": "39faf94a2d4a40d48093398bafcde649916edbc1",
+      "archive": "oneplus-9r-oxygenos-LE2101_14.0.0.2401-EX01-v0.3.0.zip",
+      "archive_sha256": "54287cf72177181ac6cb1533d2f01b6d0cc1e8c627c3f857621a02059b6967b9",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.3.0/oneplus-9r-oxygenos-LE2101_14.0.0.2401-EX01-v0.3.0.zip"
     },
     {
       "device": "oneplus-9",
       "os": "coloros",
       "firmware": "LE2110_14.0.0.1901(CN01)",
       "layout": "a/b",
-      "boot_sha256": "0c42adb426b4c84d61251b5177974ed9218edec56baf3db251afa4e521d46f8d",
+      "boot_sha256": "50f405cc488fd6dead312b764217a9cf9a429e13004683470820e5be91bf6b68",
       "boot_size": 201326592,
-      "image_sha256": "7dc3d381dccb0446ed3821f9d5c1a0c50db9f67b09b9f94f1f26c4782fea720c",
+      "image_sha256": "63cbdcbe0bec99bffcf5aa510e335374b897f80718a566482369415b67c70886",
       "kernel_release": "5.4.254-qgki-gd2a1055adeb0-daxiaamu",
       "all_exports_match": true,
       "stock_exports": 13797,
@@ -1680,22 +1680,22 @@
         "reason": "original firmware does not force module signatures"
       },
       "device_verified": false,
-      "artifact_revision": "v0.2.0",
-      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740022742",
-      "recipe_commit": "e60ca9cd488f7d7e8d924df80c752e92ede46f1c",
-      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
-      "archive": "oneplus-9-coloros-LE2110_14.0.0.1901-CN01-v0.2.0.zip",
-      "archive_sha256": "51aeddba84ec58454342a04713c0804ec715edd8d982471121238b5095ce00c8",
-      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9-coloros-LE2110_14.0.0.1901-CN01-v0.2.0.zip"
+      "artifact_revision": "v0.3.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073437213",
+      "recipe_commit": "40438ca7a3bb3993adfae604bc98253fc1693c1a",
+      "resukisu_commit": "39faf94a2d4a40d48093398bafcde649916edbc1",
+      "archive": "oneplus-9-coloros-LE2110_14.0.0.1901-CN01-v0.3.0.zip",
+      "archive_sha256": "844ad52934e198672d89b94ff54703e3f3945e15085049e46f77949c244ce4ad",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.3.0/oneplus-9-coloros-LE2110_14.0.0.1901-CN01-v0.3.0.zip"
     },
     {
       "device": "oneplus-9",
       "os": "oxygenos",
       "firmware": "LE2111_14.0.0.1902(EX01)",
       "layout": "a/b",
-      "boot_sha256": "99ae667eaf1e2bc56ee4efa15fa005c0f12c50f4222aa98eb5d6e39c649ecc4e",
+      "boot_sha256": "e5521550a5908cbd812f07b0c6c69e8a202e46db90349b8a0df3b150d0f90906",
       "boot_size": 201326592,
-      "image_sha256": "f1f4d9e43c7c39de3c544bcacc3e1ce45c8b73579fa38f172d71b700613d667b",
+      "image_sha256": "a03d73594d27c1fec4ca362b3138908f5c7fd2a150896d3a5128244f8327a16f",
       "kernel_release": "5.4.254-qgki-gd2a1055adeb0-daxiaamu",
       "all_exports_match": true,
       "stock_exports": 13797,
@@ -1706,22 +1706,22 @@
         "reason": "original firmware does not force module signatures"
       },
       "device_verified": false,
-      "artifact_revision": "v0.2.0",
-      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740023939",
-      "recipe_commit": "e60ca9cd488f7d7e8d924df80c752e92ede46f1c",
-      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
-      "archive": "oneplus-9-oxygenos-LE2111_14.0.0.1902-EX01-v0.2.0.zip",
-      "archive_sha256": "f1a8efb3fbc81f074aa91ab59526be52edb00106fd8ac1adc0505cabef840dac",
-      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9-oxygenos-LE2111_14.0.0.1902-EX01-v0.2.0.zip"
+      "artifact_revision": "v0.3.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073439805",
+      "recipe_commit": "40438ca7a3bb3993adfae604bc98253fc1693c1a",
+      "resukisu_commit": "39faf94a2d4a40d48093398bafcde649916edbc1",
+      "archive": "oneplus-9-oxygenos-LE2111_14.0.0.1902-EX01-v0.3.0.zip",
+      "archive_sha256": "9a112f0dd3defc96138b5214cbdc1eb56c45139109de35886a082c220d7c7858",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.3.0/oneplus-9-oxygenos-LE2111_14.0.0.1902-EX01-v0.3.0.zip"
     },
     {
       "device": "oneplus-9-pro",
       "os": "coloros",
       "firmware": "LE2120_14.0.0.1901(CN01)",
       "layout": "a/b",
-      "boot_sha256": "734d17f202ab78173be7db38b3a271a98af7a1a46835b9e4f071d56234cbfce9",
+      "boot_sha256": "0cc15557770f604e905924cf097add75c0eb9518f52f945a168f86db69a1fd3f",
       "boot_size": 201326592,
-      "image_sha256": "b966a2d3a229bcfcee87b21e7171017e1a94e9e79197d432ba06448a3de49c9e",
+      "image_sha256": "b8b2be243446e41ec877902d72b5357c336a4236b5e86e5dee8a9a0cc2c35b35",
       "kernel_release": "5.4.254-qgki-gd2a1055adeb0-daxiaamu",
       "all_exports_match": true,
       "stock_exports": 13797,
@@ -1732,22 +1732,22 @@
         "reason": "original firmware does not force module signatures"
       },
       "device_verified": false,
-      "artifact_revision": "v0.2.0",
-      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740025024",
-      "recipe_commit": "85517d10073e2ffefde1c138ca08d85f8db61d89",
-      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
-      "archive": "oneplus-9-pro-coloros-LE2120_14.0.0.1901-CN01-v0.2.0.zip",
-      "archive_sha256": "5878d4b8ee73df847ffe5c848963e99ba1d13adb5442e66fc41ee70035b760a7",
-      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9-pro-coloros-LE2120_14.0.0.1901-CN01-v0.2.0.zip"
+      "artifact_revision": "v0.3.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073443275",
+      "recipe_commit": "126232c2fc4114d240c9cd8a43edad9f4de58de9",
+      "resukisu_commit": "39faf94a2d4a40d48093398bafcde649916edbc1",
+      "archive": "oneplus-9-pro-coloros-LE2120_14.0.0.1901-CN01-v0.3.0.zip",
+      "archive_sha256": "ede4407ed06bbcc396089867dc9984ec0c57c35f3eeb5b20b7fa7eaa9691a605",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.3.0/oneplus-9-pro-coloros-LE2120_14.0.0.1901-CN01-v0.3.0.zip"
     },
     {
       "device": "oneplus-9-pro",
       "os": "oxygenos",
       "firmware": "LE2121_14.0.0.1902(EX01)",
       "layout": "a/b",
-      "boot_sha256": "191f5ad9c66d156dd538a2417858a27c2920010588bb3010e9db89a3224b28c3",
+      "boot_sha256": "6976e30a39230b588fe678eb00138597d10f2f4652e1619054439aa2b47dce9d",
       "boot_size": 201326592,
-      "image_sha256": "bd2b2b7193f7ae73f332c5b0c781ceef6c9a6f26f1ae5753e07c51e4a816e003",
+      "image_sha256": "91524fff946df80f5f4f082d51b1f19bcd1988b17d7d18bfa77a1f5ebfb2bbb5",
       "kernel_release": "5.4.254-qgki-gd2a1055adeb0-daxiaamu",
       "all_exports_match": true,
       "stock_exports": 13797,
@@ -1758,22 +1758,22 @@
         "reason": "original firmware does not force module signatures"
       },
       "device_verified": false,
-      "artifact_revision": "v0.2.0",
-      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34740026222",
-      "recipe_commit": "85517d10073e2ffefde1c138ca08d85f8db61d89",
-      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
-      "archive": "oneplus-9-pro-oxygenos-LE2121_14.0.0.1902-EX01-v0.2.0.zip",
-      "archive_sha256": "62527736e8dd51728b64dbcbfe5f2e96ad31c1a865a7e7f181d6dd964c4f85cf",
-      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9-pro-oxygenos-LE2121_14.0.0.1902-EX01-v0.2.0.zip"
+      "artifact_revision": "v0.3.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073445890",
+      "recipe_commit": "126232c2fc4114d240c9cd8a43edad9f4de58de9",
+      "resukisu_commit": "39faf94a2d4a40d48093398bafcde649916edbc1",
+      "archive": "oneplus-9-pro-oxygenos-LE2121_14.0.0.1902-EX01-v0.3.0.zip",
+      "archive_sha256": "d5a5bbb7962e37efd41e87667f66a5817cf39343c292c4332941c389a981af2d",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.3.0/oneplus-9-pro-oxygenos-LE2121_14.0.0.1902-EX01-v0.3.0.zip"
     },
     {
       "device": "oneplus-9rt",
       "os": "coloros",
       "firmware": "MT2110_14.0.0.2701(CN01)",
       "layout": "a/b",
-      "boot_sha256": "b4d2812136378e86c650897673e4acd56035fa140c89079fe80278a1831b8e8d",
+      "boot_sha256": "ce7fc39d54cfe05be4ebbdaf6f3b00c052d4a7a7ae2de07aa271802843c9f6a4",
       "boot_size": 201326592,
-      "image_sha256": "fa2b0f2f39609f3f99613fa4bc24a833b7bda6d092ef86e69adb9c50d70c8009",
+      "image_sha256": "67d9bd166272b4eea9c7fdc60094c6e5d77f5a381f4062c8353d7490450b57fe",
       "kernel_release": "5.4.254-qgki-gac311b3399ae-daxiaamu",
       "all_exports_match": true,
       "stock_exports": 13842,
@@ -1784,22 +1784,22 @@
         "reason": "original firmware does not force module signatures"
       },
       "device_verified": false,
-      "artifact_revision": "v0.2.0",
-      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34743317043",
-      "recipe_commit": "4c0a9811704ce02208404141cca6483da97d0624",
-      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
-      "archive": "oneplus-9rt-coloros-MT2110_14.0.0.2701-CN01-v0.2.0.zip",
-      "archive_sha256": "129033a7e3b245ad94c0cf0d38efd68a9fc82ea54848565f4122f2a0f6da0376",
-      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9rt-coloros-MT2110_14.0.0.2701-CN01-v0.2.0.zip"
+      "artifact_revision": "v0.3.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073448900",
+      "recipe_commit": "96dca51aa382f53908c335c7b62d557eb374ab1c",
+      "resukisu_commit": "39faf94a2d4a40d48093398bafcde649916edbc1",
+      "archive": "oneplus-9rt-coloros-MT2110_14.0.0.2701-CN01-v0.3.0.zip",
+      "archive_sha256": "8e675ff414392a95e57482a006874c4a171e56899d03d30422a495efb4f6661f",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.3.0/oneplus-9rt-coloros-MT2110_14.0.0.2701-CN01-v0.3.0.zip"
     },
     {
       "device": "oneplus-9rt",
       "os": "oxygenos",
       "firmware": "MT2111_14.0.0.2702(EX01)",
       "layout": "a/b",
-      "boot_sha256": "893ed92b4665370155703fffef68d0d6ef44c48665127460037eeea4bd40e577",
+      "boot_sha256": "c6c27786011c8f1a81c0be6fd7cb9db0924dcbed2c08c1591b6dd5828d6c05a8",
       "boot_size": 201326592,
-      "image_sha256": "a04428cc1c1da5d10c9d03dfdd123022b7d7f3c7e5bac156e7065794b30bbe1b",
+      "image_sha256": "05f196f779eb6b62673c72c1d6cf41c4f87ad69d670badd03d65713eef80ff43",
       "kernel_release": "5.4.254-qgki-gac311b3399ae-daxiaamu",
       "all_exports_match": true,
       "stock_exports": 13842,
@@ -1810,13 +1810,13 @@
         "reason": "original firmware does not force module signatures"
       },
       "device_verified": false,
-      "artifact_revision": "v0.2.0",
-      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34743318521",
-      "recipe_commit": "4c0a9811704ce02208404141cca6483da97d0624",
-      "resukisu_commit": "3380d41f2043644d0ef6c0e0e91be6b229024d00",
-      "archive": "oneplus-9rt-oxygenos-MT2111_14.0.0.2702-EX01-v0.2.0.zip",
-      "archive_sha256": "f786ec9495ad02981e1436d8e586694127293c0fbbf4d0af6873c052345b5c10",
-      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.2.0/oneplus-9rt-oxygenos-MT2111_14.0.0.2702-EX01-v0.2.0.zip"
+      "artifact_revision": "v0.3.0",
+      "workflow_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073451721",
+      "recipe_commit": "96dca51aa382f53908c335c7b62d557eb374ab1c",
+      "resukisu_commit": "39faf94a2d4a40d48093398bafcde649916edbc1",
+      "archive": "oneplus-9rt-oxygenos-MT2111_14.0.0.2702-EX01-v0.3.0.zip",
+      "archive_sha256": "dc02ea8c25fdb06c213a0c69ddce601c4029d18a8faf011f0600a377b7fdcb7e",
+      "download_url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/download/v0.3.0/oneplus-9rt-oxygenos-MT2111_14.0.0.2702-EX01-v0.3.0.zip"
     }
   ]
 }
