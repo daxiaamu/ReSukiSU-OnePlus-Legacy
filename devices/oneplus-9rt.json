@@ -36,8 +36,8 @@
       "ota_type": "AB",
       "security_patch": "2025-12-01",
       "verified_from_stock_image": true,
-      "output_boot_sha256": "b4d2812136378e86c650897673e4acd56035fa140c89079fe80278a1831b8e8d",
-      "artifact_revision": "v0.2.0"
+      "output_boot_sha256": "ce7fc39d54cfe05be4ebbdaf6f3b00c052d4a7a7ae2de07aa271802843c9f6a4",
+      "artifact_revision": "v0.3.0"
     },
     "oxygenos": {
       "priority": 2,
@@ -53,8 +53,8 @@
       "ota_type": "AB",
       "security_patch": "2026-01-01",
       "verified_from_stock_image": true,
-      "output_boot_sha256": "893ed92b4665370155703fffef68d0d6ef44c48665127460037eeea4bd40e577",
-      "artifact_revision": "v0.2.0"
+      "output_boot_sha256": "c6c27786011c8f1a81c0be6fd7cb9db0924dcbed2c08c1591b6dd5828d6c05a8",
+      "artifact_revision": "v0.3.0"
     }
   },
   "status": {
@@ -65,8 +65,8 @@
     "abi_check": "all-stock-exports",
     "distribution_status": "experimental",
     "kernel_runs": {
-      "coloros": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34743317043",
-      "oxygenos": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/34743318521"
+      "coloros": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073448900",
+      "oxygenos": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/40073451721"
     }
   },
   "vendor": {
