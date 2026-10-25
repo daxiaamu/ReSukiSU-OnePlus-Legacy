@@ -22,7 +22,7 @@ ReSukiSU 上游已迁移至 [Baka-SU/BakaSU](https://github.com/Baka-SU/BakaSU)�
 
 **9R 的 ColorOS 是 A-only，OxygenOS 是 A/B。** 两者在 `oneplus-9r` 分支内分别配置、分别封装；ColorOS 从 ZIP 直接提取 boot.img，OxygenOS 从 payload 提取。其余本批次固件均为 A/B。
 
-其他版本系统如需定制，请联系：[120.oplus.icu](https://120.oplus.icu)。
+[Android 开心版软件下载](https://pan.quark.cn/s/14e8a6044f77)
 
 S3908 息屏单击手势修复已收录于 v0.2.0，范围与验证说明见 [触控手势排查](docs/touch-gestures.md)。
 
