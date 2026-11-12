@@ -74,9 +74,14 @@
   },
   "status": {
     "source_pinned": true,
-    "compile_verified": false,
+    "compile_verified": true,
     "device_verified": false,
-    "boot_packaged": false,
-    "distribution_status": "hold"
+    "boot_packaged": true,
+    "distribution_status": "experimental",
+    "kernel_runs": {
+      "coloros": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/43304151262",
+      "oxygenos": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/43304158631"
+    },
+    "validation": "Both OS images: all 11964 exports, all 32 stock modules and signing trust verified; boot repack components checked. No device test."
   }
 }
