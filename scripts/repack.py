@@ -53,6 +53,8 @@ def repack(args):
         "vendor_patch_sha256": ROOT / "patches" / ("vendor-" + vendor_name + ".patch"),
         "compat_patch_sha256": ROOT / "patches" / ("compat-" + data["platform"] + ".patch"),
     }
+    if data["platform"] == "sm8150":
+        expected_patches["stock_abi_header_sha256"] = ROOT / "configs/sm8150-stock-abi.h"
     for key, patch in expected_patches.items():
         expected = sha256(patch) if patch.exists() else None
         if manifest.get(key) != expected:
