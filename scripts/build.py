@@ -128,8 +128,12 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     options += ["OPLUS_FEATURE_SECURE_GUARD=" + ("yes" if data["platform"] in ("sm8150", "sm8250") else "no"), "OPLUS_FEATURE_SECURE_ROOTGUARD=no",
                 "OPLUS_FEATURE_SECURE_MOUNTGUARD=no", "OPLUS_FEATURE_SECURE_EXECGUARD=no",
                 "OPLUS_FEATURE_SECURE_KEYINTERFACESGUARD=no"]
+    stock_abi_header = ROOT / "configs/sm8150-stock-abi.h" if data["platform"] == "sm8150" else None
     if data["platform"] in ("sm8150", "sm8250"):
-        options += ["KCFLAGS=-gdwarf-4", "BRAND_SHOW_FLAG=oneplus"]
+        cflags = "-gdwarf-4"
+        if stock_abi_header:
+            cflags += " -include " + str(stock_abi_header)
+        options += ["KCFLAGS=" + cflags, "BRAND_SHOW_FLAG=oneplus"]
     if config:
         shutil.copyfile(config, output / ".config")
     else:
@@ -189,7 +193,10 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
         # Use the exporting translation units: a declaration in another .i file
         # may see incomplete types and produce a different genksyms graph.
         core_targets = ("kernel/module", "kernel/locking/mutex", "kernel/sched/core",
-                        "drivers/base/platform", "mm/slub")
+                        "drivers/base/platform", "mm/slub",
+                        "drivers/misc/oplus_motor/oplus_motor",
+                        "drivers/misc/oplus_motor/digital_hall_ic/oplus_m1120",
+                        "drivers/gpu/drm/msm/oplus/oplus_dsi_support")
         core_dest = ROOT / "out" / name / rom / "abi-types"
         core_dest.mkdir(parents=True, exist_ok=True)
         for core_target in core_targets:
@@ -266,7 +273,7 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
             ("commit", "GITHUB_SHA"))}
         actions["url"] = "https://github.com/" + actions["repository"] + "/actions/runs/" + actions["run_id"]
     save(dest / "build.json", {"device": name, "os": rom, "firmware": firmware["build_id"], "kernel_release": actual_release, "stock_kernel_release": stock_release, "kernel_release_suffix": SUFFIX, "kernel": data["kernel"], "resukisu": data["resukisu"], "resukisu_selection": resukisu_selection,
-        "compat_patch_sha256": sha256(compat_patch) if compat_patch.exists() else None, "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler, "compiler_lock": compiler_lock, "stock_protocol": protocol, "linker": subprocess.check_output([linker, "--version"], text=True).splitlines()[0], "native_features": native_features,
+        "compat_patch_sha256": sha256(compat_patch) if compat_patch.exists() else None, "stock_abi_header_sha256": sha256(stock_abi_header) if stock_abi_header else None, "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler, "compiler_lock": compiler_lock, "stock_protocol": protocol, "linker": subprocess.check_output([linker, "--version"], text=True).splitlines()[0], "native_features": native_features,
         "module_trust": module_trust, "config_sha256": sha256(output / ".config"), "stock_config_supplied": stock_config, "config_translations": translations,
         "linker_lock": linker_lock, "github_actions": actions, "compile_verified": True, "device_verified": False})
     verify_embedded(firmware, dest)
