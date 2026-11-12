@@ -178,7 +178,7 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     if data["platform"] == "sm8150":
         # Diagnose vendor -Werror failures before the expensive full Image build.
         run(*options, "-j" + str(os.cpu_count() or 2), "drivers/misc/oplus_motor/",
-            "drivers/power/oplus/", env=env)
+            "drivers/power/oplus/", "drivers/vservices/", env=env)
     if name == "oneplus-8t":
         run(*options, "-j" + str(os.cpu_count() or 2), "net/ipv4/route.o",
             "net/ipv6/route.o", "net/xfrm/xfrm_policy.o", env=env)
@@ -216,10 +216,17 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
         if (output / diagnostic).is_file():
             shutil.copyfile(output / diagnostic, dest / diagnostic)
     compiler = subprocess.check_output(["clang", "--version"], text=True)
+    actions = None
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        actions = {key: os.environ[variable] for key, variable in (
+            ("repository", "GITHUB_REPOSITORY"), ("run_id", "GITHUB_RUN_ID"),
+            ("run_attempt", "GITHUB_RUN_ATTEMPT"), ("ref", "GITHUB_REF"),
+            ("commit", "GITHUB_SHA"))}
+        actions["url"] = "https://github.com/" + actions["repository"] + "/actions/runs/" + actions["run_id"]
     save(dest / "build.json", {"device": name, "os": rom, "firmware": firmware["build_id"], "kernel_release": actual_release, "stock_kernel_release": stock_release, "kernel_release_suffix": SUFFIX, "kernel": data["kernel"], "resukisu": data["resukisu"], "resukisu_selection": resukisu_selection,
         "compat_patch_sha256": sha256(compat_patch) if compat_patch.exists() else None, "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler, "compiler_lock": compiler_lock, "stock_protocol": protocol, "linker": subprocess.check_output([linker, "--version"], text=True).splitlines()[0], "native_features": native_features,
         "module_trust": module_trust, "config_sha256": sha256(output / ".config"), "stock_config_supplied": stock_config, "config_translations": translations,
-        "compile_verified": True, "device_verified": False})
+        "github_actions": actions, "compile_verified": True, "device_verified": False})
     verify_embedded(firmware, dest)
     print("Compile complete; boot packaging and on-device checks remain.")
 
