@@ -1,6 +1,6 @@
 {
-  "status": "Eight experimental SM8150 boot images; statically verified, not tested on device.",
-  "artifact_location": "Local out/ directory; not part of the existing v0.3.0 Release.",
+  "status": "v0.4.0 experimental: eight SM8150 boot images; statically verified, not tested on device.",
+  "artifact_location": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.4.0",
   "kernel_builds": {
     "oneplus-7": {
       "coloros": {
