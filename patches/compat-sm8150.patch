@@ -132,3 +132,19 @@
  
  	service = vs_session_get_service(session, service_id);
  	if (!service) {
+diff --git a/fs/namespace.c b/fs/namespace.c
+--- a/fs/namespace.c
++++ b/fs/namespace.c
+@@ -31,11 +31,10 @@
+ #include "pnode.h"
+ #include "internal.h"
+ #ifdef CONFIG_OPLUS_SECURE_GUARD
+-#ifdef CONFIG_OPLUS_MOUNT_BLOCK
+ #ifdef CONFIG_OPLUS_KEVENT_UPLOAD
++/* Preserve stock type visibility even when mount blocking is disabled. */
+ #include <linux/oplus_kevent.h>
+ #endif /* CONFIG_OPLUS_KEVENT_UPLOAD */
+-#endif /* CONFIG_OPLUS_MOUNT_BLOCK */
+ #endif /* CONFIG_OPLUS_SECURE_GUARD*/
+ 
+ /* Maximum number of mounts in a mount namespace */
