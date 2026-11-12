@@ -47,7 +47,7 @@ def repack(args):
     if any(manifest.get(key) != data[key] for key in ("kernel", "vendor")):
         raise ValueError("Stale build: source profile changed")
     validate_resukisu(manifest, data["resukisu"])
-    vendor_name = {"oneplus-8-pro": "oneplus-8", "oneplus-9-pro": "oneplus-9"}.get(args.device, args.device)
+    vendor_name = {"oneplus-7-pro": "oneplus-7", "oneplus-7t": "oneplus-7", "oneplus-7t-pro": "oneplus-7", "oneplus-8-pro": "oneplus-8", "oneplus-9-pro": "oneplus-9"}.get(args.device, args.device)
     expected_patches = {
         "patch_sha256": ROOT / "patches" / (PATCHES[args.device] + ".patch"),
         "vendor_patch_sha256": ROOT / "patches" / ("vendor-" + vendor_name + ".patch"),
