@@ -21,6 +21,8 @@
 
 每次 Actions 构建解析 ReSukiSU 官方默认分支的最新提交，使用适合 Linux 4.14 的 Manual Hook，追加 `-daxiaamu` 内核后缀，未集成 SUSFS。
 
+SM8150 使用校验和固定的 AOSP GNU ld 2.27。原厂 GSI 的 `gsi_write_channel_scratch` 导出 CRC 为 0，公开源码同样未生成该符号的 CRC；新版链接器拒绝这个弱符号重定位。已用实际 GSI 对象验证旧版链接器保留原厂的 0 值；未重写 CRC，也未关闭模块版本检查。链接器来源、版本和 SHA-256 记录在 `tools.lock.json` 及构建清单中。
+
 公开源码将十个原厂 `CONFIG_OPPO_*` 配置改名为 `CONFIG_OPLUS_*`；构建时映射名称，并检查配置值保留。兼容补丁修正 Clang 交叉汇编器前缀、rootguard 汇编对象的配置条件，以及调度、触控、显示和充电函数的无参数原型。电机驱动删除未使用的模式中间值，保留原有 PWM 计算公式及硬件设置调用；vservices 删除无用的普通指针读取，保留消息处理逻辑。SM8150 源码没有其他平台的 protobuf data_module，因此不套用其协议补丁。
 
 S3908 触控驱动补齐 `STAP_DETECT (0x10)` 到 `SingleTap` 的事件转换及单击／双击坐标解码，对实际 C 解码函数的 1,024 个测试用例通过。但这八套原厂配置没有启用 S3908（`CONFIG_TOUCHPANEL_SYNAPTICS_TCM_ONCELL`），该源码补丁不代表实际设备的触控已验证；构建保留原厂 S3706、Novatek 和 Samsung 驱动选择，触屏实测仍需对应设备完成。

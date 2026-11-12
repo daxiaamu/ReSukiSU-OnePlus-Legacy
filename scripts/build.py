@@ -8,7 +8,7 @@ import shutil
 import subprocess
 from kernel_release import SUFFIX, branded_release
 from resukisu_source import resolve as resolve_resukisu
-from toolchain import configure
+from toolchain import configure, configure_legacy_linker
 from prepare_protocol import prepare
 from module_trust import install as install_module_trust, verify_embedded
 from project import ROOT, PATCHES, device, run, save, sha256
@@ -106,7 +106,12 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
         if not native_features:
             raise ValueError("Official native feature assignments are missing")
         env.update(native_features)
-    linker = "aarch64-linux-gnu-ld" if data["platform"] in ("sm8150", "sm8250") else "ld.lld"
+    linker_lock = None
+    if data["platform"] == "sm8150":
+        linker, linker_lock = configure_legacy_linker()
+        env["PATH"] = os.environ["PATH"]
+    else:
+        linker = "aarch64-linux-gnu-ld" if data["platform"] == "sm8250" else "ld.lld"
     # Versioned stock modules retain their CRC and signature checks.
     stock_release = firmware.get("kernel_release")
     release = branded_release(stock_release)
@@ -244,7 +249,7 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     save(dest / "build.json", {"device": name, "os": rom, "firmware": firmware["build_id"], "kernel_release": actual_release, "stock_kernel_release": stock_release, "kernel_release_suffix": SUFFIX, "kernel": data["kernel"], "resukisu": data["resukisu"], "resukisu_selection": resukisu_selection,
         "compat_patch_sha256": sha256(compat_patch) if compat_patch.exists() else None, "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler, "compiler_lock": compiler_lock, "stock_protocol": protocol, "linker": subprocess.check_output([linker, "--version"], text=True).splitlines()[0], "native_features": native_features,
         "module_trust": module_trust, "config_sha256": sha256(output / ".config"), "stock_config_supplied": stock_config, "config_translations": translations,
-        "github_actions": actions, "compile_verified": True, "device_verified": False})
+        "linker_lock": linker_lock, "github_actions": actions, "compile_verified": True, "device_verified": False})
     verify_embedded(firmware, dest)
     print("Compile complete; boot packaging and on-device checks remain.")
 
