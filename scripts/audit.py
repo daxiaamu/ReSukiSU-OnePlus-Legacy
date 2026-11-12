@@ -56,6 +56,8 @@ def audit(name):
                 run("git", "apply", extra_patch, cwd=directory)
                 run(sys.executable, ROOT / "scripts/check_s3908_gesture.py",
                     directory, "--baseline", baseline)
+                if data["platform"] == "sm8150":
+                    run(sys.executable, ROOT / "scripts/check_healthinfo_abi.py", directory)
 
     print(name + ": pinned source and patches verified", flush=True)
 

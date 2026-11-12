@@ -9,6 +9,9 @@
 
 #define oplus_jank_monitor_info oppo_jank_monitor_info
 #define oplus_jank_info oppo_jank_info
+#define oplus_brightness_alpha oppo_brightness_alpha
+#define dsi_panel_oplus_privite dsi_panel_oppo_privite
+#define oplus_priv oppo_priv
 
 #define oplus_display_power_status oppo_display_power_status
 #define OPLUS_DISPLAY_POWER_OFF OPPO_DISPLAY_POWER_OFF
