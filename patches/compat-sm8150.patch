@@ -68,3 +68,67 @@
  	}
  	//PWM = (L*18.06*20*32 )/2.4
  	pwm_count = (L * RATIO_B * RATIO_C *RATIO_D) / (RATIO_A * 100);
+--- a/drivers/misc/oplus_motor/oneplus_motor.c
++++ b/drivers/misc/oplus_motor/oneplus_motor.c
+@@ -803,7 +803,6 @@
+ 
+ static void oneplus_set_motor_work_mode_para(int motor_work_mode)
+ {
+-	int mode = 0;
+ 	static int mode_pre = -1;
+ 
+ 	if (g_the_chip == NULL) {
+@@ -823,20 +822,16 @@
+ 	switch (g_the_chip->motor_work_mode) {
+ 		case MOTOR_MODE_FULL:
+ 			oneplus_motor_set_working_mode(MOTOR_MODE_FULL);
+-			mode = 1;
+ 			break;
+ 
+ 		case MOTOR_MODE_1_16:
+ 			oneplus_motor_set_working_mode(MOTOR_MODE_1_16);
+-			mode = 16;
+ 			break;
+ 		case MOTOR_MODE_1_32:
+ 			oneplus_motor_set_working_mode(MOTOR_MODE_1_32);
+-			mode = 32;
+ 			break;
+ 		default:
+ 			oneplus_motor_set_working_mode(MOTOR_MODE_1_32);
+-			mode = 32;
+ 			break;
+ 	}
+ 	//default 32
+--- a/drivers/power/oplus/charger_ic/oplus_battery_msm8150Q.c
++++ b/drivers/power/oplus/charger_ic/oplus_battery_msm8150Q.c
+@@ -14866,7 +14866,7 @@
+ }
+ 
+ extern int oplus_pdo_select(int vbus_mv, int ibus_ma);
+-int oplus_chg_set_pd_config()
++int oplus_chg_set_pd_config(void)
+ {
+ 	int ret = 0;
+ 	struct oplus_chg_chip *chip = g_oplus_chip;
+@@ -14936,7 +14936,7 @@
+ 	return ret;
+ }
+ 
+-int oplus_chg_set_qc_config()
++int oplus_chg_set_qc_config(void)
+ {
+ 	int ret = 0;
+ 	struct smb_charger *chg = NULL;
+--- a/drivers/vservices/session.c
++++ b/drivers/vservices/session.c
+@@ -1905,10 +1905,7 @@
+ 		struct vs_mbuf *mbuf, vs_service_id_t service_id)
+ {
+ 	struct vs_service_device *service;
+-	struct vs_transport *transport;
+ 	unsigned long flags;
+-
+-	transport = session->transport;
+ 
+ 	service = vs_session_get_service(session, service_id);
+ 	if (!service) {
