@@ -4,6 +4,7 @@ import datetime
 import os
 import pathlib
 import re
+import shlex
 import shutil
 import subprocess
 from kernel_release import SUFFIX, branded_release
@@ -195,14 +196,30 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
         # Use the exporting translation units: a declaration in another .i file
         # may see incomplete types and produce a different genksyms graph.
         core_targets = ("kernel/module", "kernel/locking/mutex", "kernel/sched/core",
-                        "drivers/base/platform", "mm/slub",
-                        "drivers/misc/motor",
-                        "drivers/gpu/drm/msm/oplus/oplus_dsi_support")
+                        "drivers/base/platform", "mm/slub", "drivers/misc/motor",
+                        "fs/namespace",
+                        "drivers/input/touchscreen/oplus_touchscreen/touchpanel_healthinfo",
+                        "drivers/gpu/drm/msm/dsi-staging/dsi_display")
         core_dest = ROOT / "out" / name / rom / "abi-types"
         core_dest.mkdir(parents=True, exist_ok=True)
         for core_target in core_targets:
-            run(*options, "KBUILD_SYMTYPES=1", core_target + ".o", env=env)
-            run(*options, "KCPPFLAGS=-D__GENKSYMS__", core_target + ".i", env=env)
+            # DRM's nested objects belong to the parent composite Makefile.
+            if core_target.startswith("drivers/gpu/drm/msm/"):
+                run(*options, "-j" + str(os.cpu_count() or 2), "KBUILD_SYMTYPES=1",
+                    "drivers/gpu/drm/msm/", env=env)
+            else:
+                run(*options, "KBUILD_SYMTYPES=1", core_target + ".o", env=env)
+            obj = output / (core_target + ".o")
+            saved = obj.with_name("." + obj.name + ".cmd").read_text().splitlines()[0]
+            if not saved.startswith("cmd_") or ":=" not in saved:
+                raise ValueError("Unexpected Kbuild command record")
+            command = shlex.split(saved.split(":=", 1)[1].replace("$(pound)", "#").replace("$$", "$"))
+            if command[0] != "clang" or command.count("-c") != 1 or command.count("-o") != 1:
+                raise ValueError("Unexpected diagnostic compiler command")
+            command[command.index("-c")] = "-E"
+            command[command.index("-o") + 1] = str(output / (core_target + ".i"))
+            command.append("-D__GENKSYMS__")
+            run(*command, cwd=output, env=env)
             for suffix in (".i", ".symtypes"):
                 shutil.copyfile(output / (core_target + suffix),
                                 core_dest / (core_target.replace("/", "_") + suffix))
