@@ -1,0 +1,82 @@
+{
+  "id": "oneplus-7",
+  "name": "OnePlus 7",
+  "codename": "guacamoleb",
+  "branch": "oneplus-7",
+  "platform": "sm8150",
+  "android": 12,
+  "os_generation": "12.1",
+  "kernel": {
+    "repository": "OnePlusOSS/android_kernel_oneplus_sm8150",
+    "branch": "oneplus/sm8150_s_12.1_op7pro",
+    "commit": "180d787684d5965be5145bcfbf666ed427b4ea18",
+    "version": "4.14.180",
+    "defconfig": "vendor/sm8150-perf_defconfig",
+    "fragments": []
+  },
+  "vendor": {
+    "repository": "OnePlusOSS/android_kernel_modules_and_devicetree_oneplus_sm8150",
+    "branch": "oneplus/sm8150_s_12.1_op7pro",
+    "commit": "993439581252cf872cd3c184ed3eb9e0f286f4c3"
+  },
+  "resukisu": {
+    "repository": "ReSukiSU/ReSukiSU",
+    "commit": "548d1dda060ca198823d8808804d01f5209ef4a9",
+    "hook": "manual"
+  },
+  "firmware": {
+    "coloros": {
+      "priority": 1,
+      "layout": "a/b",
+      "layout_evidence": "official-ota-metadata",
+      "build_id": "GM1900_11_H.40",
+      "stock_boot_sha256": "8ccd1eba5f51695cee99778ce7d47dd2db545353c7f6c4e4011e4cedae8cbc76",
+      "stock_boot_size": 100663296,
+      "source_url": "https://gauss-compotacostauto-cn.allawnfs.com/remove-fff044e75e61d76e97bd2c5cdfa4f3e7/component-ota/23/03/28/5f79a15ec8cb4a79ab518f0763f27d21.zip",
+      "config": "configs/stock/oneplus-7/coloros.config",
+      "config_sha256": "676588ad9178c0f1e5252c854245d1d0901f78d0c7130acdc1b8a36727f9a684",
+      "kernel_release": "4.14.180-perf+",
+      "ota_type": "AB",
+      "security_patch": "2022-12-05",
+      "verified_from_stock_image": true,
+      "trusted_module_certificates": [
+        {
+          "path": "compat/module-certificates/oneplus-7/coloros-0.pem",
+          "sha256": "70f3800a2eedfd13922e016400b2481b16c067a5a0061b6d4446e2d09d5065e0",
+          "der_sha256": "08af410121b86f29752b9896a3e532456dfacb4a99d93645568d430185687426"
+        }
+      ],
+      "artifact_revision": "op7-preview"
+    },
+    "oxygenos": {
+      "priority": 2,
+      "layout": "a/b",
+      "layout_evidence": "official-ota-metadata",
+      "build_id": "GM1901_11_H.41",
+      "stock_boot_sha256": "d473c9e1f5488ad462dff94790765f1c41cd80b37048d1a266de4a7767f3b3af",
+      "stock_boot_size": 100663296,
+      "source_url": "https://gauss-otacostmanual-eu.allawnofs.com/remove-5cb9254939779b23d4be6bba4d339054/ota/23/03/31/7697b07a-0b88-463f-98af-eb5d8e4d8e5e.zip",
+      "config": "configs/stock/oneplus-7/oxygenos.config",
+      "config_sha256": "676588ad9178c0f1e5252c854245d1d0901f78d0c7130acdc1b8a36727f9a684",
+      "kernel_release": "4.14.180-perf+",
+      "ota_type": "AB",
+      "security_patch": "2022-12-05",
+      "verified_from_stock_image": true,
+      "trusted_module_certificates": [
+        {
+          "path": "compat/module-certificates/oneplus-7/oxygenos-0.pem",
+          "sha256": "faf7143aeb5691c6a8536abb356fbb097a2d32d8a6af77cf7d509021d112d5c7",
+          "der_sha256": "efd507f256817230d61a07224b435ff123b34df48b944d8727bdf17f31b5cd4e"
+        }
+      ],
+      "artifact_revision": "op7-preview"
+    }
+  },
+  "status": {
+    "source_pinned": true,
+    "compile_verified": false,
+    "device_verified": false,
+    "boot_packaged": false,
+    "distribution_status": "hold"
+  }
+}

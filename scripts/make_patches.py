@@ -29,12 +29,12 @@ def transform(path, text):
     if path == "fs/exec.c":
         return hook(text, r"^static int do_execveat_common\(",
                     "extern int ksu_handle_execveat(int *, struct filename **, void *, void *, int *);",
-                    "\treturn __do_execve_file(",
+                    "\treturn __do_execve_file(" if "\treturn __do_execve_file(" in text else "\tif (IS_ERR(filename))",
                     "ksu_handle_execveat(&fd, &filename, &argv, &envp, &flags);")
     if path == "fs/open.c":
         return hook(text, r"^SYSCALL_DEFINE3\(faccessat,",
                     "extern int ksu_handle_faccessat(int *, const char __user **, int *, int *);",
-                    "\treturn do_faccessat(",
+                    "\treturn do_faccessat(" if "\treturn do_faccessat(" in text else "\tif (mode & ~S_IRWXO)",
                     "ksu_handle_faccessat(&dfd, &filename, &mode, NULL);")
     if path == "kernel/reboot.c":
         return hook(text, r"^SYSCALL_DEFINE4\(reboot,",

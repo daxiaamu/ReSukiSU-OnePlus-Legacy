@@ -65,11 +65,15 @@ def repack(args):
     if sha256(built / "kernel.config") != manifest["config_sha256"]:
         raise ValueError("Compiled config checksum mismatch")
     protocol = manifest.get("stock_protocol") or {}
-    directory = protocol_directory(data)
-    for key, filename in (("schema_sha256", "netlink_msg.proto"),
+    if data["platform"] == "sm8150":
+        if manifest.get("stock_protocol") is not None:
+            raise ValueError("SM8150 has no stock protobuf data module")
+    else:
+        directory = protocol_directory(data)
+        for key, filename in (("schema_sha256", "netlink_msg.proto"),
                           ("reflection_sha256", "protocol-reflection.json")):
-        if protocol.get(key) != sha256(directory / filename):
-            raise ValueError("Stale build: stock protocol changed")
+            if protocol.get(key) != sha256(directory / filename):
+                raise ValueError("Stale build: stock protocol changed")
     if data["platform"] == "sm8350":
         if protocol.get("cfi_safe_initializers") is not True:
             raise ValueError("Build lacks CFI-safe protobuf initializer callbacks")

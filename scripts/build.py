@@ -57,7 +57,9 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
         run("git", "apply", "--check", vendor_patch, cwd=modules)
         run("git", "apply", vendor_patch, cwd=modules)
     module_trust = install_module_trust(firmware, source)
-    protocol = prepare(modules, data)
+    protocol = prepare(modules, data) if data["platform"] != "sm8150" else None
+    if data["platform"] == "sm8150" and (modules / "vendor/oplus/kernel/network/data_module").exists():
+        raise ValueError("SM8150 source unexpectedly contains a protobuf data module")
     (work / "vendor").symlink_to(modules / "vendor", target_is_directory=True)
     overlay = modules / "kernel" / source.name
     for item in overlay.rglob("*"):
@@ -93,7 +95,7 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     output.mkdir()
     env = dict(os.environ, ARCH="arm64", SUBARCH="arm64")
     native_features = {}
-    if data["platform"] == "sm8250":
+    if data["platform"] in ("sm8150", "sm8250"):
         # Android normally exports these variables to every recursive make.
         # Reading the include in the top-level make alone does not export them.
         feature_file = source / "oplus_native_features.mk"
@@ -104,7 +106,7 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
         if not native_features:
             raise ValueError("Official native feature assignments are missing")
         env.update(native_features)
-    linker = "aarch64-linux-gnu-ld" if data["platform"] == "sm8250" else "ld.lld"
+    linker = "aarch64-linux-gnu-ld" if data["platform"] in ("sm8150", "sm8250") else "ld.lld"
     # Versioned stock modules retain their CRC and signature checks.
     stock_release = firmware.get("kernel_release")
     release = branded_release(stock_release)
@@ -115,13 +117,13 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
 
     options = ["make", "-C", str(source), "O=" + str(output), "ARCH=arm64",
                "CC=clang", "LD=" + linker, "AR=llvm-ar", "NM=llvm-nm",
-               "OBJCOPY=" + ("aarch64-linux-gnu-objcopy" if data["platform"] == "sm8250" else "llvm-objcopy"), "OBJDUMP=llvm-objdump", "STRIP=llvm-strip",
+               "OBJCOPY=" + ("aarch64-linux-gnu-objcopy" if data["platform"] in ("sm8150", "sm8250") else "llvm-objcopy"), "OBJDUMP=llvm-objdump", "STRIP=llvm-strip",
                "CLANG_TRIPLE=aarch64-linux-gnu-", "CROSS_COMPILE=aarch64-linux-gnu-",
                "CROSS_COMPILE_ARM32=arm-linux-gnueabi-"]
-    options += ["OPLUS_FEATURE_SECURE_GUARD=" + ("yes" if data["platform"] == "sm8250" else "no"), "OPLUS_FEATURE_SECURE_ROOTGUARD=no",
+    options += ["OPLUS_FEATURE_SECURE_GUARD=" + ("yes" if data["platform"] in ("sm8150", "sm8250") else "no"), "OPLUS_FEATURE_SECURE_ROOTGUARD=no",
                 "OPLUS_FEATURE_SECURE_MOUNTGUARD=no", "OPLUS_FEATURE_SECURE_EXECGUARD=no",
                 "OPLUS_FEATURE_SECURE_KEYINTERFACESGUARD=no"]
-    if data["platform"] == "sm8250":
+    if data["platform"] in ("sm8150", "sm8250"):
         options += ["KCFLAGS=-gdwarf-4", "BRAND_SHOW_FLAG=oneplus"]
     if config:
         shutil.copyfile(config, output / ".config")
@@ -154,10 +156,13 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     for required in ("CONFIG_KSU=y", "CONFIG_KSU_MANUAL_HOOK=y", "CONFIG_KALLSYMS_ALL=y", "CONFIG_MODVERSIONS=y"):
         if required not in final_config.splitlines():
             raise RuntimeError("Kconfig dropped required option: " + required)
-    run(*options, "-j" + str(os.cpu_count() or 2), "KBUILD_SYMTYPES=1", "net/oplus_modules/data_module/", env=env)
+    if protocol is not None:
+        run(*options, "-j" + str(os.cpu_count() or 2), "KBUILD_SYMTYPES=1", "net/oplus_modules/data_module/", env=env)
     if name == "oneplus-8t":
         run(*options, "-j" + str(os.cpu_count() or 2), "net/ipv4/route.o",
             "net/ipv6/route.o", "net/xfrm/xfrm_policy.o", env=env)
+    if diagnostics_only and protocol is None:
+        raise ValueError("Protocol diagnostics are not applicable to SM8150")
     if diagnostics_only:
         if data["platform"] == "sm8250":
             run(*options, "KBUILD_SYMTYPES=1", "drivers/input/touchscreen/touch.o", env=env)

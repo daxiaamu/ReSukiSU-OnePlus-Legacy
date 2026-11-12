@@ -1,0 +1,82 @@
+{
+  "id": "oneplus-7t-pro",
+  "name": "OnePlus 7T Pro",
+  "codename": "hotdog",
+  "branch": "oneplus-7t-pro",
+  "platform": "sm8150",
+  "android": 12,
+  "os_generation": "12.1",
+  "kernel": {
+    "repository": "OnePlusOSS/android_kernel_oneplus_sm8150",
+    "branch": "oneplus/sm8150_s_12.1_op7pro",
+    "commit": "180d787684d5965be5145bcfbf666ed427b4ea18",
+    "version": "4.14.180",
+    "defconfig": "vendor/sm8150-perf_defconfig",
+    "fragments": []
+  },
+  "vendor": {
+    "repository": "OnePlusOSS/android_kernel_modules_and_devicetree_oneplus_sm8150",
+    "branch": "oneplus/sm8150_s_12.1_op7pro",
+    "commit": "993439581252cf872cd3c184ed3eb9e0f286f4c3"
+  },
+  "resukisu": {
+    "repository": "ReSukiSU/ReSukiSU",
+    "commit": "548d1dda060ca198823d8808804d01f5209ef4a9",
+    "hook": "manual"
+  },
+  "firmware": {
+    "coloros": {
+      "priority": 1,
+      "layout": "a/b",
+      "layout_evidence": "official-ota-metadata",
+      "build_id": "HD1910_11_F.22",
+      "stock_boot_sha256": "26858f190caf62ad7a65e39212911b28b43222d339e5f77f3f36fefc4e33ee72",
+      "stock_boot_size": 100663296,
+      "source_url": "https://gauss-compotacostauto-cn.allawnfs.com/remove-04d6613147c3562c0af2d53ec7f86383/component-ota/23/03/28/a55641878dcf46fca4080d450ca08b17.zip",
+      "config": "configs/stock/oneplus-7t-pro/coloros.config",
+      "config_sha256": "676588ad9178c0f1e5252c854245d1d0901f78d0c7130acdc1b8a36727f9a684",
+      "kernel_release": "4.14.180-perf+",
+      "ota_type": "AB",
+      "security_patch": "2022-12-05",
+      "verified_from_stock_image": true,
+      "trusted_module_certificates": [
+        {
+          "path": "compat/module-certificates/oneplus-7t-pro/coloros-0.pem",
+          "sha256": "301b2114d9428b31ec96bed8efeceec3ccdb8d9a71517ad7cb855f705c10fe90",
+          "der_sha256": "da0e468d5151682418c9cfbbe7a290c5523b1721a349e3f8b3d01d09338fa600"
+        }
+      ],
+      "artifact_revision": "op7-preview"
+    },
+    "oxygenos": {
+      "priority": 2,
+      "layout": "a/b",
+      "layout_evidence": "official-ota-metadata",
+      "build_id": "HD1911_11_F.22",
+      "stock_boot_sha256": "cfd2da27e06c5074ec7d50688b8a042ab22664f6ece23e97c514d897860f391a",
+      "stock_boot_size": 100663296,
+      "source_url": "https://gauss-otacostmanual-eu.allawnofs.com/remove-281cee08e77dac61799725df64b7020c/component-ota/23/03/28/44084675044348df9417b6a4a160c8bb.zip",
+      "config": "configs/stock/oneplus-7t-pro/oxygenos.config",
+      "config_sha256": "676588ad9178c0f1e5252c854245d1d0901f78d0c7130acdc1b8a36727f9a684",
+      "kernel_release": "4.14.180-perf+",
+      "ota_type": "AB",
+      "security_patch": "2022-12-05",
+      "verified_from_stock_image": true,
+      "trusted_module_certificates": [
+        {
+          "path": "compat/module-certificates/oneplus-7t-pro/oxygenos-0.pem",
+          "sha256": "8b1d3706b642e6612fe40d8739b20716489bf598f6890203686757555700094c",
+          "der_sha256": "cbf0d11cf69f8e4756d6eb00f33e722c79780840a92762333097b3164731ad3b"
+        }
+      ],
+      "artifact_revision": "op7-preview"
+    }
+  },
+  "status": {
+    "source_pinned": true,
+    "compile_verified": false,
+    "device_verified": false,
+    "boot_packaged": false,
+    "distribution_status": "hold"
+  }
+}
