@@ -2,7 +2,46 @@
 import json
 import os
 import subprocess
+import base64
+import hashlib
+import time
+import urllib.error
+import urllib.request
 from project import ROOT, run
+
+
+def download_legacy_linker(url):
+    """Retry transient AOSP failures; content verification remains mandatory."""
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(url, timeout=120) as response:
+                return response.read()
+        except (urllib.error.URLError, TimeoutError) as error:
+            if isinstance(error, urllib.error.HTTPError) and error.code not in (408, 429, 500, 502, 503, 504):
+                raise
+            if attempt == 2:
+                raise
+            print("AOSP linker download interrupted; retrying", attempt + 1, "of 2", flush=True)
+            time.sleep(2 ** (attempt + 1))
+
+
+def configure_legacy_linker():
+    """Keep the stock 4.14 zero-CRC weak export behavior with AOSP binutils 2.27."""
+    lock = json.loads((ROOT / "tools.lock.json").read_text())["legacy_aarch64_ld"]
+    directory = ROOT / ".work" / "toolchains" / lock["commit"]
+    binary = directory / lock["filename"]
+    if not binary.is_file() or hashlib.sha256(binary.read_bytes()).hexdigest() != lock["sha256"]:
+        raw = base64.b64decode(download_legacy_linker(lock["url"]))
+        if hashlib.sha256(raw).hexdigest() != lock["sha256"]:
+            raise ValueError("Legacy AOSP linker checksum mismatch")
+        directory.mkdir(parents=True, exist_ok=True)
+        binary.write_bytes(raw)
+    binary.chmod(0o755)
+    version = subprocess.check_output([str(binary), "--version"], text=True).splitlines()[0]
+    if version != lock["version_string"]:
+        raise ValueError("Legacy AOSP linker version mismatch")
+    os.environ["PATH"] = str(directory) + os.pathsep + os.environ["PATH"]
+    return binary.name, lock
 
 def configure(platform):
     if platform != "sm8350":
