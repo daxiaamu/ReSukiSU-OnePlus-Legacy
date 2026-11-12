@@ -7,7 +7,7 @@ SM8250 另有两项触屏回调：`preconfig_power_control`、`reconfig_power_co
 核验步骤：
 
 1. 从对应完整 ROM 只读提取 vendor、odm 分区到原厂 boot 所在目录的 `partitions/`。9R ColorOS 需还原 ZIP 内 Brotli 数据与 transfer list；不可按 A/B payload 处理。
-2. 使用 erofs-utils 的 `dump.erofs` 遍历两个分区的全部目录，记录每个原厂 .ko 的路径与 SHA-256。脚本不会修改分区镜像。
+2. 清单工具识别文件系统，使用 `debugfs` 只读遍历 EXT4，使用 erofs-utils 的 `dump.erofs` 遍历 EROFS，记录每个原厂 .ko 的路径与 SHA-256。EROFS 需要支持 `--cat` 的 erofs-utils 1.8.5 或更新版本，见 [上游变更记录](https://github.com/erofs/erofs-utils/blob/v1.8.10/ChangeLog)。脚本不会修改分区镜像，也不会将已缓存的旧模块直接当作新镜像内容。
 3. 解析原厂模块的 `__versions`、导出符号及 vermagic，核对内核依赖和模块之间的依赖。分区、模块、原厂 boot、目标 Image 均绑定校验和。
 4. 封装时重新核验原厂模块，保留完整导出差异报告，以及 `module_crc_check` 检查结果。不会替换或伪造 CRC。
 
@@ -23,5 +23,7 @@ python3 scripts/check_stock_modules.py \
 ```
 
 目录末两级应为机型和系统，例如 `oneplus-8/coloros`。清单脚本按公开机型配置核对原厂 boot SHA-256，不读取 NAS 路径记录。分区文件系统清单、驱动哈希和检查结果可用于复核。
+
+7 / 7 Pro 的本批次 vendor、odm 使用 EXT4，安装 e2fsprogs 后可直接运行 `python3 scripts/inventory_stock_modules.py --stock-dir .work/stock/oneplus-7/coloros`；7T / 7T Pro 使用 EROFS。两种格式都必须扫描两个分区的全部目录。可用 `--output /path/to/check.json` 另存核验清单。
 
 这些是静态兼容性检查，不代表开机、触控、指纹、相机、无线网络或休眠已在真机测试。公开源码与原厂内核可能存在未公开的功能差异；产物应标记为实验版。
