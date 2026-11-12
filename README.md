@@ -1,14 +1,16 @@
 # ReSukiSU-OnePlus-Legacy
 
-下载：[v0.3.0 实验版 Release](https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.3.0)，包含七款机型的 14 个系统包、官方管理器 APK 和 SHA-256 校验表。
+下载：[v0.4.0 · 7 系列实验版](https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.4.0)，包含一加 7、7 Pro、7T、7T Pro 的 8 个系统包、官方管理器 APK 和 SHA-256 校验表。
+
+一加 8 / 8 Pro / 8T / 9R / 9 / 9 Pro / 9RT 的 14 个系统包继续使用 [v0.3.0 实验版](https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.3.0)。
 
 为一加 7、7 Pro、7T、7T Pro、8、8 Pro、8T、9R、9、9 Pro、9RT 集成 ReSukiSU，产物为 **boot.img**。项目面向 non-GKI / 早期 GKI 1.0 平台，使用各机型官方源码和对应末版系统的原厂 boot，不能套用通用 GKI 2.0 镜像。
 
-**v0.3.0 的 14 份镜像均由本次 GitHub Actions 构建，已完成静态兼容检查和封装复查，尚未真机验证。** 本版更新至上游提交 `39faf94a2d4a40d48093398bafcde649916edbc1`，保留 `daxiaamu` 后缀、S3908 单击手势修复和原厂模块签名信任。ColorOS 为主，OxygenOS 为辅，请严格匹配下表的完整系统版本。
+**v0.3.0 的 14 份镜像均由 GitHub Actions 构建，已完成静态兼容检查和封装复查，尚未真机验证。** v0.3.0 使用上游提交 `39faf94a2d4a40d48093398bafcde649916edbc1`，保留 `daxiaamu` 后缀、S3908 单击手势修复和原厂模块签名信任。ColorOS 为主，OxygenOS 为辅，请严格匹配下表的完整系统版本。
 
-ReSukiSU 上游已迁移至 [Baka-SU/BakaSU](https://github.com/Baka-SU/BakaSU)，本版版本标识为 BakaSU v4.2.0-rc3（35237）。随包管理器来自同一提交的官方 Actions，包名仍为 `com.resukisu.resukisu`。继续使用 Manual Hook，未集成 SUSFS。
+ReSukiSU 上游已迁移至 [Baka-SU/BakaSU](https://github.com/Baka-SU/BakaSU)，v0.4.0 管理器为 v4.2.0-rc3（35259），v0.3.0 为 v4.2.0-rc3（35237）。随包管理器来自同一提交的官方 Actions，包名仍为 `com.resukisu.resukisu`。继续使用 Manual Hook，未集成 SUSFS。
 
-9R ColorOS 的临时启动实测属于旧版 [v0.1.0-r2](https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.1.0-r2)，不能作为本版已验证的依据。
+9R ColorOS 的临时启动实测属于旧版 [v0.1.0-r2](https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.1.0-r2)，不能作为后续版本已验证的依据。
 
 | 机型 | 独立分支 | ColorOS | OxygenOS |
 | --- | --- | --- | --- |
@@ -34,7 +36,7 @@ S3908 息屏单击手势修复已收录于 v0.2.0，范围与验证说明见 [�
 
 9RT 已包含在 v0.2.0，适配细节见 [9RT 说明](docs/oneplus-9rt.md)。
 
-**7 / 7 Pro / 7T / 7T Pro 的 8 份实验版 boot.img 已完成 Actions 编译、静态兼容检查和本地封装，尚未真机验证，不包含在现有 v0.3.0 中。** 使用 SM8150 / Linux 4.14.180，上游提交为 `548d1dda060ca198823d8808804d01f5209ef4a9`，对应官方 Actions 管理器为 v4.2.0-rc3（35259）。固件与适配说明见 [7 系列说明](docs/oneplus-7.md)，校验和及 Actions 来源见 [7 系列成品记录](docs/oneplus-7-artifacts.json)。
+**7 / 7 Pro / 7T / 7T Pro 的 8 份实验版 boot.img 已完成 Actions 编译、静态兼容检查和封装，并发布于 v0.4.0，尚未真机验证。** 使用 SM8150 / Linux 4.14.180，上游提交为 `548d1dda060ca198823d8808804d01f5209ef4a9`，对应官方 Actions 管理器为 v4.2.0-rc3（35259）。固件与适配说明见 [7 系列说明](docs/oneplus-7.md)，校验和及 Actions 来源见 [7 系列成品记录](docs/oneplus-7-artifacts.json)。
 
 ## 成品与验证范围
 
