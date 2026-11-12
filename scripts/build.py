@@ -132,11 +132,9 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     if data["platform"] in ("sm8150", "sm8250"):
         cflags = "-gdwarf-4"
         if stock_abi_header:
-            target_header = source / "include/linux/oneplus7_stock_abi.h"
-            if target_header.exists():
-                raise ValueError("Stock ABI header collides with upstream source")
-            shutil.copyfile(stock_abi_header, target_header)
-            cflags += " -include linux/oneplus7_stock_abi.h"
+            # Old Kbuild compiler probes run before kernel include directories
+            # are available, so this must be an absolute forced include.
+            cflags += " -include " + str(stock_abi_header)
         options += ["KCFLAGS=" + cflags, "BRAND_SHOW_FLAG=oneplus"]
     if config:
         shutil.copyfile(config, output / ".config")
