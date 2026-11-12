@@ -125,6 +125,11 @@ def repack(args):
         if abi.get("stock_kernel_sha256") != sha256(original / "kernel"):
             raise ValueError("ABI report targets a different stock kernel")
         module_check = None
+        if inventory.exists():
+            module_check = verify_stock_modules(inventory, built, original / "kernel",
+                                                stock.parent / "stock.map", stock)
+            if not module_check["passed"]:
+                raise ValueError("Original ROM module dependency checks failed")
         if not abi.get("passed"):
             # These two callbacks use a private, internally compiled touchpanel_data.
             # Accept a changed private type only after verifying the actual ROM modules.
@@ -132,10 +137,7 @@ def repack(args):
             differences = set(abi.get("mismatch", {}))
             if data["platform"] != "sm8250" or abi.get("missing") or not differences or not differences <= private_callbacks:
                 raise ValueError("Unresolved stock export ABI differences")
-            inventory = stock.parent / "module-inventory.json"
-            module_check = verify_stock_modules(inventory, built, original / "kernel",
-                                                stock.parent / "stock.map", stock)
-            if not module_check["passed"] or differences & set(module_check["required_kernel_symbols"]):
+            if not module_check or differences & set(module_check["required_kernel_symbols"]):
                 raise ValueError("Original ROM modules require the changed interfaces")
             module_check["unused_private_export_differences"] = sorted(differences)
         preserved = {p.name: sha256(p) for p in original.iterdir()
