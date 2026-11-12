@@ -186,6 +186,18 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
         if required not in final_config.splitlines():
             raise RuntimeError("Kconfig dropped required option: " + required)
     if data["platform"] == "sm8150" and diagnostics_only:
+        # Use the exporting translation units: a declaration in another .i file
+        # may see incomplete types and produce a different genksyms graph.
+        core_targets = ("kernel/module", "kernel/locking/mutex", "kernel/sched/core",
+                        "drivers/base/platform", "mm/slub")
+        core_dest = ROOT / "out" / name / rom / "abi-types"
+        core_dest.mkdir(parents=True, exist_ok=True)
+        for core_target in core_targets:
+            run(*options, "KBUILD_SYMTYPES=1", core_target + ".o", env=env)
+            run(*options, "KCPPFLAGS=-D__GENKSYMS__", core_target + ".i", env=env)
+            for suffix in (".i", ".symtypes"):
+                shutil.copyfile(output / (core_target + suffix),
+                                core_dest / (core_target.replace("/", "_") + suffix))
         target = "drivers/platform/msm/gsi/gsi"
         run(*options, "KBUILD_SYMTYPES=1", target + ".o", env=env)
         run(*options, "KCPPFLAGS=-D__GENKSYMS__", target + ".i", env=env)
