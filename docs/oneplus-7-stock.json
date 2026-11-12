@@ -1,0 +1,218 @@
+[
+  {
+    "device": "oneplus-7",
+    "os": "coloros",
+    "firmware": "GM1900_11_H.40",
+    "source_url": "https://gauss-compotacostauto-cn.allawnfs.com/remove-fff044e75e61d76e97bd2c5cdfa4f3e7/component-ota/23/03/28/5f79a15ec8cb4a79ab518f0763f27d21.zip",
+    "stock_boot_sha256": "8ccd1eba5f51695cee99778ce7d47dd2db545353c7f6c4e4011e4cedae8cbc76",
+    "stock_config_sha256": "676588ad9178c0f1e5252c854245d1d0901f78d0c7130acdc1b8a36727f9a684",
+    "stock_exports": 11964,
+    "exports_sha256": "ce82ab84e8b34e66f8d1eb661da6cbcda89d0b502417613aea289f2d63160358",
+    "module_count": 32,
+    "partitions": {
+      "vendor": {
+        "sha256": "7e5b8ca631ff10a3db105e293e342c4d31bc32e6efad7702ddb1fea4e6a90a76",
+        "size": 1073741824,
+        "directories_scanned": 128,
+        "files_scanned": 3128
+      },
+      "odm": {
+        "sha256": "d907bf8421dcdb6f607fd5eb3563ffb90d39b22b14d2756cc7248db771914475",
+        "size": 71110656,
+        "directories_scanned": 72,
+        "files_scanned": 783
+      }
+    },
+    "module_inventory_sha256": "34e650955dff7bc09bce6409b7f1a6b82be40201e75c9dc8a4614535a0750121",
+    "scope": "Stock firmware evidence only; new kernel compatibility and device testing are separate."
+  },
+  {
+    "device": "oneplus-7",
+    "os": "oxygenos",
+    "firmware": "GM1901_11_H.41",
+    "source_url": "https://gauss-otacostmanual-eu.allawnofs.com/remove-5cb9254939779b23d4be6bba4d339054/ota/23/03/31/7697b07a-0b88-463f-98af-eb5d8e4d8e5e.zip",
+    "stock_boot_sha256": "d473c9e1f5488ad462dff94790765f1c41cd80b37048d1a266de4a7767f3b3af",
+    "stock_config_sha256": "676588ad9178c0f1e5252c854245d1d0901f78d0c7130acdc1b8a36727f9a684",
+    "stock_exports": 11964,
+    "exports_sha256": "ce82ab84e8b34e66f8d1eb661da6cbcda89d0b502417613aea289f2d63160358",
+    "module_count": 32,
+    "partitions": {
+      "vendor": {
+        "sha256": "2f717b34d1627fc78c6635f83b25a2218712047bfea98511370f3ecb1c5e397d",
+        "size": 1073741824,
+        "directories_scanned": 128,
+        "files_scanned": 3128
+      },
+      "odm": {
+        "sha256": "42ebf0ace487d65712a719c73fb2be608346d2984774564e21bd4bc9cde70f45",
+        "size": 70959104,
+        "directories_scanned": 72,
+        "files_scanned": 782
+      }
+    },
+    "module_inventory_sha256": "f56bbb5e22f662a51649e196595c8e614cd84164135db56bb28edd479c4f8553",
+    "scope": "Stock firmware evidence only; new kernel compatibility and device testing are separate."
+  },
+  {
+    "device": "oneplus-7-pro",
+    "os": "coloros",
+    "firmware": "GM1910_11_H.40",
+    "source_url": "https://gauss-compotacostauto-cn.allawnfs.com/remove-9cf3a48129347259fb08d7f9a4aee2e7/component-ota/23/03/28/b01e0f8dab434b79b884b1c31b11ccca.zip",
+    "stock_boot_sha256": "991cf738f5a6dc874c6261fa073c89182e61935a9493dc27347699c4d0a68792",
+    "stock_config_sha256": "676588ad9178c0f1e5252c854245d1d0901f78d0c7130acdc1b8a36727f9a684",
+    "stock_exports": 11964,
+    "exports_sha256": "ce82ab84e8b34e66f8d1eb661da6cbcda89d0b502417613aea289f2d63160358",
+    "module_count": 32,
+    "partitions": {
+      "vendor": {
+        "sha256": "af69c889e6998fb01e349e21a4567333e0d2f5fd26c9d1e21ed80fba39350992",
+        "size": 1073741824,
+        "directories_scanned": 128,
+        "files_scanned": 3128
+      },
+      "odm": {
+        "sha256": "215c809f21d800fa9f1cb870bd05f131e3cf0fa0eb3a5dca94697a79ed376674",
+        "size": 80281600,
+        "directories_scanned": 72,
+        "files_scanned": 818
+      }
+    },
+    "module_inventory_sha256": "843eeb6474d8b37d4ac4b4a24b8cef017442be475759ab58c062c9a1d2b3b683",
+    "scope": "Stock firmware evidence only; new kernel compatibility and device testing are separate."
+  },
+  {
+    "device": "oneplus-7-pro",
+    "os": "oxygenos",
+    "firmware": "GM1911_11_H.41",
+    "source_url": "https://gauss-otacostmanual-eu.allawnofs.com/remove-3c5b8c00b8ea6fc68e1738ceb3ef2467/ota/23/03/31/0aed83c2-3b6a-4c32-bfea-569f02f73f08.zip",
+    "stock_boot_sha256": "377482c414787d214a65f8a352258bc84b4a6a40d47cb854cc6170892b03b49e",
+    "stock_config_sha256": "676588ad9178c0f1e5252c854245d1d0901f78d0c7130acdc1b8a36727f9a684",
+    "stock_exports": 11964,
+    "exports_sha256": "ce82ab84e8b34e66f8d1eb661da6cbcda89d0b502417613aea289f2d63160358",
+    "module_count": 32,
+    "partitions": {
+      "vendor": {
+        "sha256": "78a4f3ede309f7107a56d85355d84ec25862c6acecfe879b1866b7d0215248d7",
+        "size": 1073741824,
+        "directories_scanned": 128,
+        "files_scanned": 3128
+      },
+      "odm": {
+        "sha256": "77a439c14b1d07a7e0abc619d17c64d8ccce733117abf1fe98e4c7e2ba813623",
+        "size": 80068608,
+        "directories_scanned": 72,
+        "files_scanned": 818
+      }
+    },
+    "module_inventory_sha256": "85723dd0567ff4585bd8bf67f9822274617c6b8b77975aba04df9036c8bd34fb",
+    "scope": "Stock firmware evidence only; new kernel compatibility and device testing are separate."
+  },
+  {
+    "device": "oneplus-7t",
+    "os": "coloros",
+    "firmware": "HD1900_11_F.22",
+    "source_url": "https://gauss-compotacostauto-cn.allawnfs.com/remove-9f23b0a5386c5b54c418d4684377d66f/component-ota/23/03/28/cc1409fcaa244e559fac1925887a1712.zip",
+    "stock_boot_sha256": "26858f190caf62ad7a65e39212911b28b43222d339e5f77f3f36fefc4e33ee72",
+    "stock_config_sha256": "676588ad9178c0f1e5252c854245d1d0901f78d0c7130acdc1b8a36727f9a684",
+    "stock_exports": 11964,
+    "exports_sha256": "ce82ab84e8b34e66f8d1eb661da6cbcda89d0b502417613aea289f2d63160358",
+    "module_count": 32,
+    "partitions": {
+      "vendor": {
+        "sha256": "74a2aa27e58405b19046d3536aaeea230c8a6e3e2bf38b47e61022e98a661fd5",
+        "size": 488243200,
+        "directories_scanned": 125,
+        "files_scanned": 2968
+      },
+      "odm": {
+        "sha256": "f25cb868183f9f497131bd1d2ca4233fc09440d96e257503e86fdafa784f183e",
+        "size": 154398720,
+        "directories_scanned": 80,
+        "files_scanned": 1175
+      }
+    },
+    "module_inventory_sha256": "8ed0f90edd734a3457c5b04d4c7003baf37abab49f4ebe889e06f896f57b14a5",
+    "scope": "Stock firmware evidence only; new kernel compatibility and device testing are separate."
+  },
+  {
+    "device": "oneplus-7t",
+    "os": "oxygenos",
+    "firmware": "HD1901_11_F.22",
+    "source_url": "https://gauss-otacostmanual-eu.allawnofs.com/remove-df4de49d62f27243f6853151304950d6/component-ota/23/03/28/8d05d569851e4499b8c14ad9993c97b0.zip",
+    "stock_boot_sha256": "cfd2da27e06c5074ec7d50688b8a042ab22664f6ece23e97c514d897860f391a",
+    "stock_config_sha256": "676588ad9178c0f1e5252c854245d1d0901f78d0c7130acdc1b8a36727f9a684",
+    "stock_exports": 11964,
+    "exports_sha256": "ce82ab84e8b34e66f8d1eb661da6cbcda89d0b502417613aea289f2d63160358",
+    "module_count": 32,
+    "partitions": {
+      "vendor": {
+        "sha256": "9703e962506340653e05d164cb6c2af7c0e154200fa14792d2b8f93569c8d940",
+        "size": 488243200,
+        "directories_scanned": 125,
+        "files_scanned": 2968
+      },
+      "odm": {
+        "sha256": "310deea34c745046cfb78943840153ef116d76b5b590bf801731fbe375d86969",
+        "size": 154345472,
+        "directories_scanned": 80,
+        "files_scanned": 1168
+      }
+    },
+    "module_inventory_sha256": "97b17590e44c259c1409cc1fb2334eb562018ce953bac4da3c057225614a4667",
+    "scope": "Stock firmware evidence only; new kernel compatibility and device testing are separate."
+  },
+  {
+    "device": "oneplus-7t-pro",
+    "os": "coloros",
+    "firmware": "HD1910_11_F.22",
+    "source_url": "https://gauss-compotacostauto-cn.allawnfs.com/remove-04d6613147c3562c0af2d53ec7f86383/component-ota/23/03/28/a55641878dcf46fca4080d450ca08b17.zip",
+    "stock_boot_sha256": "26858f190caf62ad7a65e39212911b28b43222d339e5f77f3f36fefc4e33ee72",
+    "stock_config_sha256": "676588ad9178c0f1e5252c854245d1d0901f78d0c7130acdc1b8a36727f9a684",
+    "stock_exports": 11964,
+    "exports_sha256": "ce82ab84e8b34e66f8d1eb661da6cbcda89d0b502417613aea289f2d63160358",
+    "module_count": 32,
+    "partitions": {
+      "vendor": {
+        "sha256": "74a2aa27e58405b19046d3536aaeea230c8a6e3e2bf38b47e61022e98a661fd5",
+        "size": 488243200,
+        "directories_scanned": 125,
+        "files_scanned": 2968
+      },
+      "odm": {
+        "sha256": "b5f5d18f6300887fbe559b34f0502b90c6ea5bc0697564eb446959fb9d5465c6",
+        "size": 147521536,
+        "directories_scanned": 80,
+        "files_scanned": 1436
+      }
+    },
+    "module_inventory_sha256": "72c525ab069128d072548f3fb44ebd93c076f901a57e428932941583cd521ac0",
+    "scope": "Stock firmware evidence only; new kernel compatibility and device testing are separate."
+  },
+  {
+    "device": "oneplus-7t-pro",
+    "os": "oxygenos",
+    "firmware": "HD1911_11_F.22",
+    "source_url": "https://gauss-otacostmanual-eu.allawnofs.com/remove-281cee08e77dac61799725df64b7020c/component-ota/23/03/28/44084675044348df9417b6a4a160c8bb.zip",
+    "stock_boot_sha256": "cfd2da27e06c5074ec7d50688b8a042ab22664f6ece23e97c514d897860f391a",
+    "stock_config_sha256": "676588ad9178c0f1e5252c854245d1d0901f78d0c7130acdc1b8a36727f9a684",
+    "stock_exports": 11964,
+    "exports_sha256": "ce82ab84e8b34e66f8d1eb661da6cbcda89d0b502417613aea289f2d63160358",
+    "module_count": 32,
+    "partitions": {
+      "vendor": {
+        "sha256": "9703e962506340653e05d164cb6c2af7c0e154200fa14792d2b8f93569c8d940",
+        "size": 488243200,
+        "directories_scanned": 125,
+        "files_scanned": 2968
+      },
+      "odm": {
+        "sha256": "34ff50ba9213200a7d5a89e506eaa9fb4dcf6ca62239428ff9f3dc977f4f586c",
+        "size": 147357696,
+        "directories_scanned": 80,
+        "files_scanned": 1428
+      }
+    },
+    "module_inventory_sha256": "4bc53e467e1bbd11afc280968609dbd8b75897bf4ae027495632763bff70d8a5",
+    "scope": "Stock firmware evidence only; new kernel compatibility and device testing are separate."
+  }
+]

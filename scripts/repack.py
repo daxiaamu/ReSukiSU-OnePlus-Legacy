@@ -47,12 +47,14 @@ def repack(args):
     if any(manifest.get(key) != data[key] for key in ("kernel", "vendor")):
         raise ValueError("Stale build: source profile changed")
     validate_resukisu(manifest, data["resukisu"])
-    vendor_name = {"oneplus-8-pro": "oneplus-8", "oneplus-9-pro": "oneplus-9"}.get(args.device, args.device)
+    vendor_name = {"oneplus-7-pro": "oneplus-7", "oneplus-7t": "oneplus-7", "oneplus-7t-pro": "oneplus-7", "oneplus-8-pro": "oneplus-8", "oneplus-9-pro": "oneplus-9"}.get(args.device, args.device)
     expected_patches = {
         "patch_sha256": ROOT / "patches" / (PATCHES[args.device] + ".patch"),
         "vendor_patch_sha256": ROOT / "patches" / ("vendor-" + vendor_name + ".patch"),
         "compat_patch_sha256": ROOT / "patches" / ("compat-" + data["platform"] + ".patch"),
     }
+    if data["platform"] == "sm8150":
+        expected_patches["stock_abi_header_sha256"] = ROOT / "configs/sm8150-stock-abi.h"
     for key, patch in expected_patches.items():
         expected = sha256(patch) if patch.exists() else None
         if manifest.get(key) != expected:
@@ -65,11 +67,18 @@ def repack(args):
     if sha256(built / "kernel.config") != manifest["config_sha256"]:
         raise ValueError("Compiled config checksum mismatch")
     protocol = manifest.get("stock_protocol") or {}
-    directory = protocol_directory(data)
-    for key, filename in (("schema_sha256", "netlink_msg.proto"),
+    if data["platform"] == "sm8150":
+        if manifest.get("stock_protocol") is not None:
+            raise ValueError("SM8150 has no stock protobuf data module")
+        linker_lock = json.loads((ROOT / "tools.lock.json").read_text())["legacy_aarch64_ld"]
+        if manifest.get("linker_lock") != linker_lock or manifest.get("linker") != linker_lock["version_string"]:
+            raise ValueError("SM8150 requires the verified legacy AOSP linker")
+    else:
+        directory = protocol_directory(data)
+        for key, filename in (("schema_sha256", "netlink_msg.proto"),
                           ("reflection_sha256", "protocol-reflection.json")):
-        if protocol.get(key) != sha256(directory / filename):
-            raise ValueError("Stale build: stock protocol changed")
+            if protocol.get(key) != sha256(directory / filename):
+                raise ValueError("Stale build: stock protocol changed")
     if data["platform"] == "sm8350":
         if protocol.get("cfi_safe_initializers") is not True:
             raise ValueError("Build lacks CFI-safe protobuf initializer callbacks")
@@ -121,6 +130,11 @@ def repack(args):
         if abi.get("stock_kernel_sha256") != sha256(original / "kernel"):
             raise ValueError("ABI report targets a different stock kernel")
         module_check = None
+        if inventory.exists():
+            module_check = verify_stock_modules(inventory, built, original / "kernel",
+                                                stock.parent / "stock.map", stock)
+            if not module_check["passed"]:
+                raise ValueError("Original ROM module dependency checks failed")
         if not abi.get("passed"):
             # These two callbacks use a private, internally compiled touchpanel_data.
             # Accept a changed private type only after verifying the actual ROM modules.
@@ -128,10 +142,7 @@ def repack(args):
             differences = set(abi.get("mismatch", {}))
             if data["platform"] != "sm8250" or abi.get("missing") or not differences or not differences <= private_callbacks:
                 raise ValueError("Unresolved stock export ABI differences")
-            inventory = stock.parent / "module-inventory.json"
-            module_check = verify_stock_modules(inventory, built, original / "kernel",
-                                                stock.parent / "stock.map", stock)
-            if not module_check["passed"] or differences & set(module_check["required_kernel_symbols"]):
+            if not module_check or differences & set(module_check["required_kernel_symbols"]):
                 raise ValueError("Original ROM modules require the changed interfaces")
             module_check["unused_private_export_differences"] = sorted(differences)
         preserved = {p.name: sha256(p) for p in original.iterdir()

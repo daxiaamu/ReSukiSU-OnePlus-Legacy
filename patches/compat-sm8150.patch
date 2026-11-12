@@ -1,0 +1,150 @@
+--- a/Makefile
++++ b/Makefile
+@@ -545,7 +545,7 @@
+ $(error "Clang with Android --target detected. Did you specify CLANG_TRIPLE?")
+ endif
+ GCC_TOOLCHAIN_DIR := $(dir $(shell which $(CROSS_COMPILE)elfedit))
+-CLANG_FLAGS	+= --prefix=$(GCC_TOOLCHAIN_DIR)
++CLANG_FLAGS	+= --prefix=$(GCC_TOOLCHAIN_DIR)$(notdir $(CROSS_COMPILE))
+ GCC_TOOLCHAIN	:= $(realpath $(GCC_TOOLCHAIN_DIR)/..)
+ endif
+ ifneq ($(GCC_TOOLCHAIN),)
+--- a/arch/arm64/kernel/Makefile
++++ b/arch/arm64/kernel/Makefile
+@@ -74,5 +74,5 @@
+ 
+ #ifdef CONFIG_OPLUS_SECURE_GUARD
+ obj-$(CONFIG_OPLUS_SECURE_GUARD)		+=  rootguard/
+-obj-$(CONFIG_OPLUS_SECURE_GUARD)                +=  oplus_root.o
++obj-$(CONFIG_OPLUS_ROOT_CHECK)                  +=  oplus_root.o
+ #endif /* CONFIG_OPLUS_SECURE_GUARD */
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -3216,7 +3216,7 @@
+  * This function gets called by the timer code, with HZ frequency.
+  * We call it with interrupts disabled.
+  */
+-void adjust_sched_assist_input_ctrl(){
++void adjust_sched_assist_input_ctrl(void){
+ 	if (!sysctl_input_boost_enabled)
+ 		return;
+ 	if(sysctl_slide_boost_enabled){
+--- a/drivers/gpu/drm/msm/oplus/oplus_display_panel.c
++++ b/drivers/gpu/drm/msm/oplus/oplus_display_panel.c
+@@ -247,7 +247,7 @@
+ 	return rc;
+ }
+ 
+-void __exit oplus_display_panel_exit()
++void __exit oplus_display_panel_exit(void)
+ {
+ 	pr_err("%s\n", __func__);
+ 
+--- a/drivers/misc/oplus_motor/camera_motor_ic/oneplus_drv8834.c
++++ b/drivers/misc/oplus_motor/camera_motor_ic/oneplus_drv8834.c
+@@ -617,25 +617,10 @@
+ static int drv8834_calculate_pwm_count(int L, int mode)
+ {
+ 	int pwm_count = 0;
+-	int mdmode = 0;
+ 
+ 	if (g_the_chip == NULL) {
+ 		MOTOR_LOG("g_the_chip null \n");
+ 		return 0;
+-	}
+-	switch (mode) {
+-	case MOTOR_MODE_FULL:
+-		mdmode = 1;
+-		break;
+-	case MOTOR_MODE_1_16:
+-		mdmode = 16;
+-		break;
+-	case MOTOR_MODE_1_32:
+-		mdmode = 32;
+-		break;
+-	default:
+-		mdmode = 32;
+-		break;
+ 	}
+ 	//PWM = (L*18.06*20*32 )/2.4
+ 	pwm_count = (L * RATIO_B * RATIO_C *RATIO_D) / (RATIO_A * 100);
+--- a/drivers/misc/oplus_motor/oneplus_motor.c
++++ b/drivers/misc/oplus_motor/oneplus_motor.c
+@@ -803,7 +803,6 @@
+ 
+ static void oneplus_set_motor_work_mode_para(int motor_work_mode)
+ {
+-	int mode = 0;
+ 	static int mode_pre = -1;
+ 
+ 	if (g_the_chip == NULL) {
+@@ -823,20 +822,16 @@
+ 	switch (g_the_chip->motor_work_mode) {
+ 		case MOTOR_MODE_FULL:
+ 			oneplus_motor_set_working_mode(MOTOR_MODE_FULL);
+-			mode = 1;
+ 			break;
+ 
+ 		case MOTOR_MODE_1_16:
+ 			oneplus_motor_set_working_mode(MOTOR_MODE_1_16);
+-			mode = 16;
+ 			break;
+ 		case MOTOR_MODE_1_32:
+ 			oneplus_motor_set_working_mode(MOTOR_MODE_1_32);
+-			mode = 32;
+ 			break;
+ 		default:
+ 			oneplus_motor_set_working_mode(MOTOR_MODE_1_32);
+-			mode = 32;
+ 			break;
+ 	}
+ 	//default 32
+--- a/drivers/power/oplus/charger_ic/oplus_battery_msm8150Q.c
++++ b/drivers/power/oplus/charger_ic/oplus_battery_msm8150Q.c
+@@ -14866,7 +14866,7 @@
+ }
+ 
+ extern int oplus_pdo_select(int vbus_mv, int ibus_ma);
+-int oplus_chg_set_pd_config()
++int oplus_chg_set_pd_config(void)
+ {
+ 	int ret = 0;
+ 	struct oplus_chg_chip *chip = g_oplus_chip;
+@@ -14936,7 +14936,7 @@
+ 	return ret;
+ }
+ 
+-int oplus_chg_set_qc_config()
++int oplus_chg_set_qc_config(void)
+ {
+ 	int ret = 0;
+ 	struct smb_charger *chg = NULL;
+--- a/drivers/vservices/session.c
++++ b/drivers/vservices/session.c
+@@ -1905,10 +1905,7 @@
+ 		struct vs_mbuf *mbuf, vs_service_id_t service_id)
+ {
+ 	struct vs_service_device *service;
+-	struct vs_transport *transport;
+ 	unsigned long flags;
+-
+-	transport = session->transport;
+ 
+ 	service = vs_session_get_service(session, service_id);
+ 	if (!service) {
+diff --git a/fs/namespace.c b/fs/namespace.c
+--- a/fs/namespace.c
++++ b/fs/namespace.c
+@@ -31,11 +31,10 @@
+ #include "pnode.h"
+ #include "internal.h"
+ #ifdef CONFIG_OPLUS_SECURE_GUARD
+-#ifdef CONFIG_OPLUS_MOUNT_BLOCK
+ #ifdef CONFIG_OPLUS_KEVENT_UPLOAD
++/* Preserve stock type visibility even when mount blocking is disabled. */
+ #include <linux/oplus_kevent.h>
+ #endif /* CONFIG_OPLUS_KEVENT_UPLOAD */
+-#endif /* CONFIG_OPLUS_MOUNT_BLOCK */
+ #endif /* CONFIG_OPLUS_SECURE_GUARD*/
+ 
+ /* Maximum number of mounts in a mount namespace */
