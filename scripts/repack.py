@@ -68,6 +68,9 @@ def repack(args):
     if data["platform"] == "sm8150":
         if manifest.get("stock_protocol") is not None:
             raise ValueError("SM8150 has no stock protobuf data module")
+        linker_lock = json.loads((ROOT / "tools.lock.json").read_text())["legacy_aarch64_ld"]
+        if manifest.get("linker_lock") != linker_lock or manifest.get("linker") != linker_lock["version_string"]:
+            raise ValueError("SM8150 requires the verified legacy AOSP linker")
     else:
         directory = protocol_directory(data)
         for key, filename in (("schema_sha256", "netlink_msg.proto"),
