@@ -9,3 +9,12 @@
  GCC_TOOLCHAIN	:= $(realpath $(GCC_TOOLCHAIN_DIR)/..)
  endif
  ifneq ($(GCC_TOOLCHAIN),)
+--- a/arch/arm64/kernel/Makefile
++++ b/arch/arm64/kernel/Makefile
+@@ -74,5 +74,5 @@
+ 
+ #ifdef CONFIG_OPLUS_SECURE_GUARD
+ obj-$(CONFIG_OPLUS_SECURE_GUARD)		+=  rootguard/
+-obj-$(CONFIG_OPLUS_SECURE_GUARD)                +=  oplus_root.o
++obj-$(CONFIG_OPLUS_ROOT_CHECK)                  +=  oplus_root.o
+ #endif /* CONFIG_OPLUS_SECURE_GUARD */
