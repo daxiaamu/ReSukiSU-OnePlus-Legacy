@@ -8,7 +8,7 @@ import shutil
 import subprocess
 from kernel_release import SUFFIX, branded_release
 from resukisu_source import resolve as resolve_resukisu
-from toolchain import configure
+from toolchain import configure, configure_legacy_linker
 from prepare_protocol import prepare
 from module_trust import install as install_module_trust, verify_embedded
 from project import ROOT, PATCHES, device, run, save, sha256
@@ -106,7 +106,12 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
         if not native_features:
             raise ValueError("Official native feature assignments are missing")
         env.update(native_features)
-    linker = "aarch64-linux-gnu-ld" if data["platform"] in ("sm8150", "sm8250") else "ld.lld"
+    linker_lock = None
+    if data["platform"] == "sm8150":
+        linker, linker_lock = configure_legacy_linker()
+        env["PATH"] = os.environ["PATH"]
+    else:
+        linker = "aarch64-linux-gnu-ld" if data["platform"] == "sm8250" else "ld.lld"
     # Versioned stock modules retain their CRC and signature checks.
     stock_release = firmware.get("kernel_release")
     release = branded_release(stock_release)
@@ -146,6 +151,8 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
                 if old in stock_values:
                     translations[old] = new
                     stream.write(new + "=" + stock_values[old] + "\n")
+            # This new vendor default is absent from every target stock kernel.
+            stream.write("# CONFIG_TOUCHPANEL_NT_PEN_SUPPORT is not set\n")
         env["TARGET_BUILD_VARIANT"] = "user"
     if data["platform"] == "sm8350":
         stock_lines = (output / ".config").read_text().splitlines()
@@ -167,19 +174,46 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     run(*options, "olddefconfig", env=env)
     final_config = (output / ".config").read_text()
     if data["platform"] == "sm8150":
-        for old, new in translations.items():
-            if new + "=" + stock_values[old] not in final_config.splitlines():
-                raise RuntimeError("Kconfig dropped renamed stock option: " + new)
+        for old, value in stock_values.items():
+            if old in ("CONFIG_LOCALVERSION", "CONFIG_SYSTEM_TRUSTED_KEYS"):
+                continue
+            new = translations.get(old, old)
+            if new + "=" + value not in final_config.splitlines():
+                raise RuntimeError("Kconfig changed stock option: " + new)
+        if "CONFIG_TOUCHPANEL_NT_PEN_SUPPORT=y" in final_config.splitlines():
+            raise RuntimeError("Unexpected non-stock stylus support enabled")
     for required in ("CONFIG_KSU=y", "CONFIG_KSU_MANUAL_HOOK=y", "CONFIG_KALLSYMS_ALL=y", "CONFIG_MODVERSIONS=y"):
         if required not in final_config.splitlines():
             raise RuntimeError("Kconfig dropped required option: " + required)
+    if data["platform"] == "sm8150" and diagnostics_only:
+        target = "drivers/platform/msm/gsi/gsi"
+        run(*options, "KBUILD_SYMTYPES=1", target + ".o", env=env)
+        run(*options, "KCPPFLAGS=-D__GENKSYMS__", target + ".i", env=env)
+        dest = ROOT / "out" / name / rom / "gsi-diagnostics"
+        dest.mkdir(parents=True, exist_ok=True)
+        for suffix in (".o", ".i", ".symtypes"):
+            shutil.copyfile(output / (target + suffix), dest / ("gsi" + suffix))
+        shutil.copyfile(output / ".config", dest / "kernel.config")
+        (dest / "gsi-symbols.txt").write_text(subprocess.check_output(
+            ["llvm-nm", str(output / (target + ".o"))], text=True))
+        with (output / (target + ".i")).open("rb") as input_file, \
+                (dest / "genksyms-crcs.txt").open("wb") as stdout, \
+                (dest / "genksyms-warnings.txt").open("wb") as stderr:
+            result = subprocess.run([str(output / "scripts/genksyms/genksyms"), "-w"],
+                                    stdin=input_file, stdout=stdout, stderr=stderr)
+        save(dest / "diagnostic.json", {"genksyms_returncode": result.returncode,
+                                       "compile_verified": False})
+        print("GSI symbol-version diagnostics only; no kernel image produced.")
+        return
     if protocol is not None:
         run(*options, "-j" + str(os.cpu_count() or 2), "KBUILD_SYMTYPES=1", "net/oplus_modules/data_module/", env=env)
+    if data["platform"] == "sm8150":
+        # Diagnose vendor -Werror failures before the expensive full Image build.
+        run(*options, "-j" + str(os.cpu_count() or 2), "drivers/misc/oplus_motor/",
+            "drivers/power/oplus/", "drivers/vservices/", env=env)
     if name == "oneplus-8t":
         run(*options, "-j" + str(os.cpu_count() or 2), "net/ipv4/route.o",
             "net/ipv6/route.o", "net/xfrm/xfrm_policy.o", env=env)
-    if diagnostics_only and protocol is None:
-        raise ValueError("Protocol diagnostics are not applicable to SM8150")
     if diagnostics_only:
         if data["platform"] == "sm8250":
             run(*options, "KBUILD_SYMTYPES=1", "drivers/input/touchscreen/touch.o", env=env)
@@ -212,10 +246,17 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
         if (output / diagnostic).is_file():
             shutil.copyfile(output / diagnostic, dest / diagnostic)
     compiler = subprocess.check_output(["clang", "--version"], text=True)
+    actions = None
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        actions = {key: os.environ[variable] for key, variable in (
+            ("repository", "GITHUB_REPOSITORY"), ("run_id", "GITHUB_RUN_ID"),
+            ("run_attempt", "GITHUB_RUN_ATTEMPT"), ("ref", "GITHUB_REF"),
+            ("commit", "GITHUB_SHA"))}
+        actions["url"] = "https://github.com/" + actions["repository"] + "/actions/runs/" + actions["run_id"]
     save(dest / "build.json", {"device": name, "os": rom, "firmware": firmware["build_id"], "kernel_release": actual_release, "stock_kernel_release": stock_release, "kernel_release_suffix": SUFFIX, "kernel": data["kernel"], "resukisu": data["resukisu"], "resukisu_selection": resukisu_selection,
         "compat_patch_sha256": sha256(compat_patch) if compat_patch.exists() else None, "vendor_patch_sha256": sha256(vendor_patch) if vendor_patch.exists() else None, "vendor": data["vendor"], "patch_sha256": sha256(patch), "image_sha256": sha256(image), "compiler": compiler, "compiler_lock": compiler_lock, "stock_protocol": protocol, "linker": subprocess.check_output([linker, "--version"], text=True).splitlines()[0], "native_features": native_features,
         "module_trust": module_trust, "config_sha256": sha256(output / ".config"), "stock_config_supplied": stock_config, "config_translations": translations,
-        "compile_verified": True, "device_verified": False})
+        "linker_lock": linker_lock, "github_actions": actions, "compile_verified": True, "device_verified": False})
     verify_embedded(firmware, dest)
     print("Compile complete; boot packaging and on-device checks remain.")
 
