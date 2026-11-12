@@ -132,7 +132,11 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     if data["platform"] in ("sm8150", "sm8250"):
         cflags = "-gdwarf-4"
         if stock_abi_header:
-            cflags += " -include " + str(stock_abi_header)
+            target_header = source / "include/linux/oneplus7_stock_abi.h"
+            if target_header.exists():
+                raise ValueError("Stock ABI header collides with upstream source")
+            shutil.copyfile(stock_abi_header, target_header)
+            cflags += " -include linux/oneplus7_stock_abi.h"
         options += ["KCFLAGS=" + cflags, "BRAND_SHOW_FLAG=oneplus"]
     if config:
         shutil.copyfile(config, output / ".config")
@@ -194,8 +198,7 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
         # may see incomplete types and produce a different genksyms graph.
         core_targets = ("kernel/module", "kernel/locking/mutex", "kernel/sched/core",
                         "drivers/base/platform", "mm/slub",
-                        "drivers/misc/oplus_motor/oplus_motor",
-                        "drivers/misc/oplus_motor/digital_hall_ic/oplus_m1120",
+                        "drivers/misc/motor",
                         "drivers/gpu/drm/msm/oplus/oplus_dsi_support")
         core_dest = ROOT / "out" / name / rom / "abi-types"
         core_dest.mkdir(parents=True, exist_ok=True)
