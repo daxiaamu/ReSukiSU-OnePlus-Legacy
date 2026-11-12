@@ -151,6 +151,8 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
                 if old in stock_values:
                     translations[old] = new
                     stream.write(new + "=" + stock_values[old] + "\n")
+            # This new vendor default is absent from every target stock kernel.
+            stream.write("# CONFIG_TOUCHPANEL_NT_PEN_SUPPORT is not set\n")
         env["TARGET_BUILD_VARIANT"] = "user"
     if data["platform"] == "sm8350":
         stock_lines = (output / ".config").read_text().splitlines()
@@ -172,9 +174,14 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     run(*options, "olddefconfig", env=env)
     final_config = (output / ".config").read_text()
     if data["platform"] == "sm8150":
-        for old, new in translations.items():
-            if new + "=" + stock_values[old] not in final_config.splitlines():
-                raise RuntimeError("Kconfig dropped renamed stock option: " + new)
+        for old, value in stock_values.items():
+            if old in ("CONFIG_LOCALVERSION", "CONFIG_SYSTEM_TRUSTED_KEYS"):
+                continue
+            new = translations.get(old, old)
+            if new + "=" + value not in final_config.splitlines():
+                raise RuntimeError("Kconfig changed stock option: " + new)
+        if "CONFIG_TOUCHPANEL_NT_PEN_SUPPORT=y" in final_config.splitlines():
+            raise RuntimeError("Unexpected non-stock stylus support enabled")
     for required in ("CONFIG_KSU=y", "CONFIG_KSU_MANUAL_HOOK=y", "CONFIG_KALLSYMS_ALL=y", "CONFIG_MODVERSIONS=y"):
         if required not in final_config.splitlines():
             raise RuntimeError("Kconfig dropped required option: " + required)
