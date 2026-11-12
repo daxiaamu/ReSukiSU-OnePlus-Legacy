@@ -1,0 +1,273 @@
+{
+  "status": "Eight experimental SM8150 boot images; statically verified, not tested on device.",
+  "artifact_location": "Local out/ directory; not part of the existing v0.3.0 Release.",
+  "kernel_builds": {
+    "oneplus-7": {
+      "coloros": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/43304119134",
+        "recipe_commit": "562c8a236d4c5a00de955a4412c4ab6170fd0cc2",
+        "run_attempt": "1",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "oxygenos": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/43304126278",
+        "recipe_commit": "562c8a236d4c5a00de955a4412c4ab6170fd0cc2",
+        "run_attempt": "1",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    },
+    "oneplus-7-pro": {
+      "coloros": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/43304134999",
+        "recipe_commit": "209fd212a95a2870c518102bfd0f1b23fa3a99b2",
+        "run_attempt": "1",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "oxygenos": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/43304142149",
+        "recipe_commit": "209fd212a95a2870c518102bfd0f1b23fa3a99b2",
+        "run_attempt": "1",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    },
+    "oneplus-7t": {
+      "coloros": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/43304151262",
+        "recipe_commit": "87427a5b666b67cf3f9211944816fc202e26c2cc",
+        "run_attempt": "2",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "oxygenos": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/43304158631",
+        "recipe_commit": "87427a5b666b67cf3f9211944816fc202e26c2cc",
+        "run_attempt": "1",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    },
+    "oneplus-7t-pro": {
+      "coloros": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/43304168702",
+        "recipe_commit": "29e788060d3d41b4f33c1af49c63b319f2dff9ff",
+        "run_attempt": "1",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "oxygenos": {
+        "url": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/43304178581",
+        "recipe_commit": "29e788060d3d41b4f33c1af49c63b319f2dff9ff",
+        "run_attempt": "1",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    }
+  },
+  "resukisu_commit": "548d1dda060ca198823d8808804d01f5209ef4a9",
+  "manager": {
+    "repository": "Baka-SU/BakaSU",
+    "previous_repository": "ReSukiSU/ReSukiSU",
+    "workflow_run": "https://github.com/Baka-SU/BakaSU/actions/runs/42723315215",
+    "workflow_name": "Build Manager",
+    "commit": "548d1dda060ca198823d8808804d01f5209ef4a9",
+    "artifact_id": 13721583327,
+    "artifact_name": "Manager-release",
+    "artifact_zip_digest": "sha256:c2b38b8610089ed3f0fec97eb9b877e8dd4b0cd55c458b0823032b6ff6a39d00",
+    "original_apk_name": "BakaSU_v4.2.0-rc3_35259-arm64-v8a-release.apk",
+    "apk": "BakaSU_v4.2.0-rc3_35259-arm64-v8a-release.apk",
+    "apk_sha256": "be7366e2cb21b5fca33199fb51dc1616c8474220c1070597598ff6fcd07366de",
+    "unmodified_official_action_output": true,
+    "signature_verified": true,
+    "package_badging": "package: name='com.resukisu.resukisu' versionCode='35259' versionName='v4.2.0-rc3' platformBuildVersionName='17' platformBuildVersionCode='37' compileSdkVersion='37' compileSdkVersionCodename='17'"
+  },
+  "artifacts": [
+    {
+      "device": "oneplus-7-pro",
+      "os": "coloros",
+      "firmware": "GM1910_11_H.40",
+      "layout": "a/b",
+      "boot_sha256": "43fe810516bf7733c0ff2cf8be6c8e111823fc4c956a66a153d44ea62daeac09",
+      "boot_size": 100663296,
+      "archive": "oneplus-7-pro-coloros-GM1910_11_H.40-op7-preview.zip",
+      "archive_sha256": "668c1d27f26703223fc17d94c7b734d8c4c2767673c8f9825c1153dd80ca163d",
+      "image_sha256": "6f5453a0d94ab3db39a4eb0039f5e38bac46d2d8b626f219543787473ccf7cc3",
+      "all_exports_match": true,
+      "module_check": true,
+      "device_verified": false,
+      "artifact_revision": "op7-preview",
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "module_count": 32,
+        "trusted_certificate_sha256": [
+          "6258fc62e6630b9a4ad8c60a774788a2ad1f52d61f8f6b2a12cda483bd845eeb"
+        ]
+      }
+    },
+    {
+      "device": "oneplus-7-pro",
+      "os": "oxygenos",
+      "firmware": "GM1911_11_H.41",
+      "layout": "a/b",
+      "boot_sha256": "61bfde3b608ce14c6873d7efacf86525eb0e5e0d3e4e5976613aaf0eafc3a729",
+      "boot_size": 100663296,
+      "archive": "oneplus-7-pro-oxygenos-GM1911_11_H.41-op7-preview.zip",
+      "archive_sha256": "0b4e69fdd86e9c3f54e24e607624b6249dd40049734f6879f3a23c9dded5719b",
+      "image_sha256": "96b77f0dea6e63aaee7f3991634e1f148bfac5799a51368c961e8e4e03270c5c",
+      "all_exports_match": true,
+      "module_check": true,
+      "device_verified": false,
+      "artifact_revision": "op7-preview",
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "module_count": 32,
+        "trusted_certificate_sha256": [
+          "17533e19cc783e3ae98149f6957dcaab6550ffb8d1e2843e38eabad8d9fec6ef"
+        ]
+      }
+    },
+    {
+      "device": "oneplus-7",
+      "os": "coloros",
+      "firmware": "GM1900_11_H.40",
+      "layout": "a/b",
+      "boot_sha256": "801fbf1ec9e832e770f3d266bb4b690ce58692fad1b18097db294e1ec2f29c6e",
+      "boot_size": 100663296,
+      "archive": "oneplus-7-coloros-GM1900_11_H.40-op7-preview.zip",
+      "archive_sha256": "acc8cf55a7d9d0cbcaecf0d26130109081a1106b57f7ea901270f9b866371eae",
+      "image_sha256": "165fa9bc180cb2f74c02120b221c2f8942c6c2dfbb540b264c38a5dc044c1437",
+      "all_exports_match": true,
+      "module_check": true,
+      "device_verified": false,
+      "artifact_revision": "op7-preview",
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "module_count": 32,
+        "trusted_certificate_sha256": [
+          "08af410121b86f29752b9896a3e532456dfacb4a99d93645568d430185687426"
+        ]
+      }
+    },
+    {
+      "device": "oneplus-7",
+      "os": "oxygenos",
+      "firmware": "GM1901_11_H.41",
+      "layout": "a/b",
+      "boot_sha256": "41af0d7289cb6c2683e680e5f690178ff2771a7a6b3c2b18dcaf5441df64cdc7",
+      "boot_size": 100663296,
+      "archive": "oneplus-7-oxygenos-GM1901_11_H.41-op7-preview.zip",
+      "archive_sha256": "7a81b3724c8170abe722fa0aea4454ade3255f5fdaa47d1beb25b28669e9ff1b",
+      "image_sha256": "3518415df75ca7a05c1cd7fd6ac0025705d0a00a6662fc03ff072985e285494e",
+      "all_exports_match": true,
+      "module_check": true,
+      "device_verified": false,
+      "artifact_revision": "op7-preview",
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "module_count": 32,
+        "trusted_certificate_sha256": [
+          "efd507f256817230d61a07224b435ff123b34df48b944d8727bdf17f31b5cd4e"
+        ]
+      }
+    },
+    {
+      "device": "oneplus-7t-pro",
+      "os": "coloros",
+      "firmware": "HD1910_11_F.22",
+      "layout": "a/b",
+      "boot_sha256": "b34c3be37b0163202c6b7d564a7f27e10297c50a33bd19d76d84dd27444438c6",
+      "boot_size": 100663296,
+      "archive": "oneplus-7t-pro-coloros-HD1910_11_F.22-op7-preview.zip",
+      "archive_sha256": "9edfd394e5142f6f2e75b803dabd3cfaa26a0e7f2ac53a89588ae47f61f36adc",
+      "image_sha256": "62d63f892ee425fef76f3f4b01c9b9f8798a69054a66c5ea4d9250a1b73b276b",
+      "all_exports_match": true,
+      "module_check": true,
+      "device_verified": false,
+      "artifact_revision": "op7-preview",
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "module_count": 32,
+        "trusted_certificate_sha256": [
+          "da0e468d5151682418c9cfbbe7a290c5523b1721a349e3f8b3d01d09338fa600"
+        ]
+      }
+    },
+    {
+      "device": "oneplus-7t-pro",
+      "os": "oxygenos",
+      "firmware": "HD1911_11_F.22",
+      "layout": "a/b",
+      "boot_sha256": "ca8bdf3e6293abcabca0a5e2b8edffcda285c77cc36dabfa2802c9e1ec8e5d86",
+      "boot_size": 100663296,
+      "archive": "oneplus-7t-pro-oxygenos-HD1911_11_F.22-op7-preview.zip",
+      "archive_sha256": "9be2c620d36a1718af491b248ffc178e80ca8c676394fc63905342e7eb288b4f",
+      "image_sha256": "27acad6ca750027667a3c2d0313d061ff45428a341927bd94107c646b8ffc0e0",
+      "all_exports_match": true,
+      "module_check": true,
+      "device_verified": false,
+      "artifact_revision": "op7-preview",
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "module_count": 32,
+        "trusted_certificate_sha256": [
+          "cbf0d11cf69f8e4756d6eb00f33e722c79780840a92762333097b3164731ad3b"
+        ]
+      }
+    },
+    {
+      "device": "oneplus-7t",
+      "os": "coloros",
+      "firmware": "HD1900_11_F.22",
+      "layout": "a/b",
+      "boot_sha256": "29e3ec93d6307488a3bc6d6ea96e8c0973b4c79f46d56f6e3cdac803ce674c2c",
+      "boot_size": 100663296,
+      "archive": "oneplus-7t-coloros-HD1900_11_F.22-op7-preview.zip",
+      "archive_sha256": "d0e48615750cda2856df67be26d17cd5ff961547bbe886c29270c229c1abd5f9",
+      "image_sha256": "9250a813e804d8b78f275556aabca9dd9572a3c72d28ccb09dce34c6decd7f84",
+      "all_exports_match": true,
+      "module_check": true,
+      "device_verified": false,
+      "artifact_revision": "op7-preview",
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "module_count": 32,
+        "trusted_certificate_sha256": [
+          "da0e468d5151682418c9cfbbe7a290c5523b1721a349e3f8b3d01d09338fa600"
+        ]
+      }
+    },
+    {
+      "device": "oneplus-7t",
+      "os": "oxygenos",
+      "firmware": "HD1901_11_F.22",
+      "layout": "a/b",
+      "boot_sha256": "10d13bb73421491806106d53f84523303ff289fdd99f1467e6b8c7034ab318ef",
+      "boot_size": 100663296,
+      "archive": "oneplus-7t-oxygenos-HD1901_11_F.22-op7-preview.zip",
+      "archive_sha256": "8732a2daa6e2c54a4d2e6354661627f04ab5f02a3cf3ecf729b9ee6f037451c3",
+      "image_sha256": "0bf42debe23969d5016b3372f4e1678ff18b73e2c41a12a526500f00097b5097",
+      "all_exports_match": true,
+      "module_check": true,
+      "device_verified": false,
+      "artifact_revision": "op7-preview",
+      "module_signature_check": {
+        "passed": true,
+        "enforcement": true,
+        "module_count": 32,
+        "trusted_certificate_sha256": [
+          "cbf0d11cf69f8e4756d6eb00f33e722c79780840a92762333097b3164731ad3b"
+        ]
+      }
+    }
+  ]
+}

@@ -6,7 +6,8 @@ import re
 import subprocess
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-PATCHES = {"oneplus-8": "op8", "oneplus-8-pro": "op8", "oneplus-8t": "op8t",
+PATCHES = {"oneplus-7": "op7", "oneplus-7-pro": "op7", "oneplus-7t": "op7", "oneplus-7t-pro": "op7",
+           "oneplus-8": "op8", "oneplus-8-pro": "op8", "oneplus-8t": "op8t",
            "oneplus-9r": "op9r", "oneplus-9": "op9", "oneplus-9-pro": "op9", "oneplus-9rt": "op9"}
 
 
