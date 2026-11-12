@@ -24,12 +24,14 @@ def exports(kernel, symbol_map):
         if len(entries) < 2:
             raise ValueError("Cannot establish symbol table stride: " + suffix)
         stride = entries[1][0] - entries[0][0]
-        if stride not in (8, 12, 24) or len(entries) * stride != symbols[stop] - symbols[start]:
+        if stride not in (8, 12, 16, 24) or len(entries) * stride != symbols[stop] - symbols[start]:
             raise ValueError("Unexpected symbol table layout: " + suffix)
         crcs = symbols["__start___kcrctab" + suffix] - base
         for index, (address, name) in enumerate(entries):
             offset = address - base
-            nameoffset = (symbols["__kstrtab_" + name] - base if stride == 24 else
+            # Absolute-pointer tables may contain zeroes until RELA relocations
+            # are applied at boot; recover their string address from kallsyms.
+            nameoffset = (symbols["__kstrtab_" + name] - base if stride in (16, 24) else
                           offset + 4 + struct.unpack_from("<i", raw, offset + 4)[0])
             if nameoffset < 0 or nameoffset >= len(raw):
                 raise ValueError("Symbol name outside Image: " + name)

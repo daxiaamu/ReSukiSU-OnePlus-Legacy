@@ -52,7 +52,7 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     checkout(data["kernel"]["repository"], data["kernel"]["commit"], source)
     modules = work / "modules"
     checkout(data["vendor"]["repository"], data["vendor"]["commit"], modules)
-    vendor_patch = ROOT / "patches" / ("vendor-" + {"oneplus-8-pro": "oneplus-8", "oneplus-9-pro": "oneplus-9"}.get(name, name) + ".patch")
+    vendor_patch = ROOT / "patches" / ("vendor-" + {"oneplus-7-pro": "oneplus-7", "oneplus-7t": "oneplus-7", "oneplus-7t-pro": "oneplus-7", "oneplus-8-pro": "oneplus-8", "oneplus-9-pro": "oneplus-9"}.get(name, name) + ".patch")
     if vendor_patch.exists():
         run("git", "apply", "--check", vendor_patch, cwd=modules)
         run("git", "apply", vendor_patch, cwd=modules)
