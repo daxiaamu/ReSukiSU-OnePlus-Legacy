@@ -43,3 +43,40 @@
  {
      if (!g_tp) {
          return false;
+diff --git a/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_healthinfo.h b/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_healthinfo.h
+--- a/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_healthinfo.h
++++ b/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_healthinfo.h
+@@ -59,7 +59,6 @@
+ typedef enum {
+     HEALTH_TOUCH = 0,
+     HEALTH_GESTURE,
+-    HEALTH_GESTURE_READ,
+     HEALTH_FINGERPRINT,
+     HEALTH_FACE_DETECT,
+     HEALTH_REPORT,
+@@ -75,8 +74,11 @@
+     HEALTH_FW_UPDATE_COST,
+     HEALTH_GRIP,
+     HEALTH_GRIP_UP,
+-    HEALTH_BELOW_RATE,
+ } healthinfo_type;
++
++/* Preserve the stock public event IDs; these are in-tree telemetry extensions. */
++#define HEALTH_GESTURE_READ ((healthinfo_type)(HEALTH_GRIP_UP + 1))
++#define HEALTH_BELOW_RATE ((healthinfo_type)(HEALTH_GRIP_UP + 2))
+ 
+ void reset_healthinfo_time_counter(u64 *time_counter);
+ void reset_healthinfo_grip_time_record(void *tp_monitor_data, void *tp_grip_info);
+diff --git a/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_healthinfo.c b/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_healthinfo.c
+--- a/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_healthinfo.c
++++ b/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_healthinfo.c
+@@ -1060,7 +1060,8 @@
+         return 0;
+     }
+ 
+-    switch(type) {
++    /* Private telemetry IDs extend the original public enum. */
++    switch ((unsigned int)type) {
+     case HEALTH_TOUCH:
+         if (monitor_data->touch_points) {
+             ret = tp_touch_healthinfo_handle(monitor_data, *value_int, monitor_data->touch_points, monitor_data->touch_num, monitor_data->max_finger_support, monitor_data->direction);
