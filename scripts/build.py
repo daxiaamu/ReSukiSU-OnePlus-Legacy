@@ -178,7 +178,7 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     if data["platform"] == "sm8150":
         # Diagnose vendor -Werror failures before the expensive full Image build.
         run(*options, "-j" + str(os.cpu_count() or 2), "drivers/misc/oplus_motor/",
-            "drivers/power/oplus/", env=env)
+            "drivers/power/oplus/", "drivers/vservices/", env=env)
     if name == "oneplus-8t":
         run(*options, "-j" + str(os.cpu_count() or 2), "net/ipv4/route.o",
             "net/ipv6/route.o", "net/xfrm/xfrm_policy.o", env=env)
