@@ -29,3 +29,14 @@
  	if (!sysctl_input_boost_enabled)
  		return;
  	if(sysctl_slide_boost_enabled){
+--- a/drivers/gpu/drm/msm/oplus/oplus_display_panel.c
++++ b/drivers/gpu/drm/msm/oplus/oplus_display_panel.c
+@@ -247,7 +247,7 @@
+ 	return rc;
+ }
+ 
+-void __exit oplus_display_panel_exit()
++void __exit oplus_display_panel_exit(void)
+ {
+ 	pr_err("%s\n", __func__);
+ 
