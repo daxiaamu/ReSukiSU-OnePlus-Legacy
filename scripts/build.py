@@ -187,8 +187,10 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
         with (output / (target + ".i")).open("rb") as input_file, \
                 (dest / "genksyms-crcs.txt").open("wb") as stdout, \
                 (dest / "genksyms-warnings.txt").open("wb") as stderr:
-            subprocess.run([str(output / "scripts/genksyms/genksyms"), "-w"],
-                           stdin=input_file, stdout=stdout, stderr=stderr, check=True)
+            result = subprocess.run([str(output / "scripts/genksyms/genksyms"), "-w"],
+                                    stdin=input_file, stdout=stdout, stderr=stderr)
+        save(dest / "diagnostic.json", {"genksyms_returncode": result.returncode,
+                                       "compile_verified": False})
         print("GSI symbol-version diagnostics only; no kernel image produced.")
         return
     if protocol is not None:
