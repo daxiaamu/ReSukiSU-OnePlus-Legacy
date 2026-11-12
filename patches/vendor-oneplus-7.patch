@@ -32,3 +32,14 @@
      }
  
      TPD_INFO("lpwg:0x%x, type:%d, clockwise: %d, points: (%d, %d)(%d, %d)(%d, %d)(%d, %d)(%d, %d)(%d, %d)\n",
+--- a/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_common_driver.c
++++ b/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_common_driver.c
+@@ -1705,7 +1705,7 @@
+ }
+ EXPORT_SYMBOL(tp_gpio_current_leakage_handler);
+ 
+-bool tp_boot_mode_normal()
++bool tp_boot_mode_normal(void)
+ {
+     if (!g_tp) {
+         return false;
