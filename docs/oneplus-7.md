@@ -23,7 +23,7 @@
 
 公开源码将十个原厂 `CONFIG_OPPO_*` 配置改名为 `CONFIG_OPLUS_*`；构建时映射名称，并检查配置值保留。兼容补丁修正 Clang 交叉汇编器前缀、rootguard 汇编对象的配置条件和调度函数的无参数原型。SM8150 源码没有其他平台的 protobuf data_module，因此不套用其协议补丁。
 
-S3908 触控驱动补齐 `STAP_DETECT (0x10)` 到 `SingleTap` 的事件转换及单击／双击坐标解码。对实际 C 解码函数的 1,024 个测试用例通过；触屏实测仍需对应设备完成。
+S3908 触控驱动补齐 `STAP_DETECT (0x10)` 到 `SingleTap` 的事件转换及单击／双击坐标解码，对实际 C 解码函数的 1,024 个测试用例通过。但这八套原厂配置没有启用 S3908（`CONFIG_TOUCHPANEL_SYNAPTICS_TCM_ONCELL`），该源码补丁不代表实际设备的触控已验证；构建保留原厂 S3706、Novatek 和 Samsung 驱动选择，触屏实测仍需对应设备完成。
 
 ## 验证状态
 
