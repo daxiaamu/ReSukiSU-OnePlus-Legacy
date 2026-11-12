@@ -29,7 +29,7 @@ def audit(name):
         for path in FILES:
             if (directory / path).read_text(encoding="utf-8") != expected[path]:
                 raise ValueError("Patch differs from reviewed hooks: " + path)
-    vendor_patch = ROOT / "patches" / ("vendor-" + {"oneplus-8-pro": "oneplus-8", "oneplus-9-pro": "oneplus-9"}.get(name, name) + ".patch")
+    vendor_patch = ROOT / "patches" / ("vendor-" + {"oneplus-7-pro": "oneplus-7", "oneplus-7t": "oneplus-7", "oneplus-7t-pro": "oneplus-7", "oneplus-8-pro": "oneplus-8", "oneplus-9-pro": "oneplus-9"}.get(name, name) + ".patch")
     additional = [(vendor_patch, data["vendor"]), (ROOT / "patches" / ("compat-" + data["platform"] + ".patch"), data["kernel"])]
     for extra_patch, origin in additional:
         if not extra_patch.exists():
@@ -56,6 +56,8 @@ def audit(name):
                 run("git", "apply", extra_patch, cwd=directory)
                 run(sys.executable, ROOT / "scripts/check_s3908_gesture.py",
                     directory, "--baseline", baseline)
+                if data["platform"] == "sm8150":
+                    run(sys.executable, ROOT / "scripts/check_healthinfo_abi.py", directory)
 
     print(name + ": pinned source and patches verified", flush=True)
 

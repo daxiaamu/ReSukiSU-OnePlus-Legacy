@@ -2,7 +2,7 @@
 
 下载：[v0.3.0 实验版 Release](https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.3.0)，包含七款机型的 14 个系统包、官方管理器 APK 和 SHA-256 校验表。
 
-为一加 8、8 Pro、8T、9R、9、9 Pro、9RT 集成 ReSukiSU，产物为 **boot.img**。项目面向 non-GKI / 早期 GKI 1.0 平台，使用各机型官方源码和对应末版系统的原厂 boot，不能套用通用 GKI 2.0 镜像。
+为一加 7、7 Pro、7T、7T Pro、8、8 Pro、8T、9R、9、9 Pro、9RT 集成 ReSukiSU，产物为 **boot.img**。项目面向 non-GKI / 早期 GKI 1.0 平台，使用各机型官方源码和对应末版系统的原厂 boot，不能套用通用 GKI 2.0 镜像。
 
 **v0.3.0 的 14 份镜像均由本次 GitHub Actions 构建，已完成静态兼容检查和封装复查，尚未真机验证。** 本版更新至上游提交 `39faf94a2d4a40d48093398bafcde649916edbc1`，保留 `daxiaamu` 后缀、S3908 单击手势修复和原厂模块签名信任。ColorOS 为主，OxygenOS 为辅，请严格匹配下表的完整系统版本。
 
@@ -12,6 +12,10 @@ ReSukiSU 上游已迁移至 [Baka-SU/BakaSU](https://github.com/Baka-SU/BakaSU)�
 
 | 机型 | 独立分支 | ColorOS | OxygenOS |
 | --- | --- | --- | --- |
+| 一加 7 | [oneplus-7](../../tree/oneplus-7) | GM1900_11_H.40 | GM1901_11_H.41 |
+| 一加 7 Pro | [oneplus-7-pro](../../tree/oneplus-7-pro) | GM1910_11_H.40 | GM1911_11_H.41 |
+| 一加 7T | [oneplus-7t](../../tree/oneplus-7t) | HD1900_11_F.22 | HD1901_11_F.22 |
+| 一加 7T Pro | [oneplus-7t-pro](../../tree/oneplus-7t-pro) | HD1910_11_F.22 | HD1911_11_F.22 |
 | 一加 8 | [oneplus-8](../../tree/oneplus-8) | IN2010_13.1.0.190(CN01) | IN2013_13.1.0.593(EX01) |
 | 一加 8 Pro | [oneplus-8-pro](../../tree/oneplus-8-pro) | IN2020_13.1.0.190(CN01) | IN2023_13.1.0.591(EX01) |
 | 一加 8T | [oneplus-8t](../../tree/oneplus-8t) | KB2000_14.0.0.602(CN01) | KB2001_14.0.0.1311(EX01) |
@@ -24,14 +28,19 @@ ReSukiSU 上游已迁移至 [Baka-SU/BakaSU](https://github.com/Baka-SU/BakaSU)�
 
 [Android 开心版软件下载](https://pan.quark.cn/s/14e8a6044f77)
 
+其他版本系统如需定制，请联系：[120.oplus.icu](https://120.oplus.icu)。
+
 S3908 息屏单击手势修复已收录于 v0.2.0，范围与验证说明见 [触控手势排查](docs/touch-gestures.md)。
 
 9RT 已包含在 v0.2.0，适配细节见 [9RT 说明](docs/oneplus-9rt.md)。
 
+**7 / 7 Pro / 7T / 7T Pro 的 8 份实验版 boot.img 已完成 Actions 编译、静态兼容检查和本地封装，尚未真机验证，不包含在现有 v0.3.0 中。** 使用 SM8150 / Linux 4.14.180，上游提交为 `548d1dda060ca198823d8808804d01f5209ef4a9`，对应官方 Actions 管理器为 v4.2.0-rc3（35259）。固件与适配说明见 [7 系列说明](docs/oneplus-7.md)，校验和及 Actions 来源见 [7 系列成品记录](docs/oneplus-7-artifacts.json)。
+
 ## 成品与验证范围
 
-每个成品目录包含 `boot.img`、`build.json`、`SHA256SUMS`；另有按机型和完整版本命名的 ZIP。镜像保存在本地 `out/`，不写入 Git 历史。校验值与构建记录见 [成品记录](docs/artifacts.json)。
+每个成品目录包含 `boot.img`、`build.json`、`SHA256SUMS`；另有按机型和完整版本命名的 ZIP。镜像保存在本地 `out/`，不写入 Git 历史。校验值与构建记录见 [v0.3.0 成品记录](docs/artifacts.json) 和 [7 系列成品记录](docs/oneplus-7-artifacts.json)。
 
+- 7 / 7 Pro / 7T / 7T Pro：每套系统的 11,964 个原厂导出接口名称与 CRC 全部匹配，32 个原厂 vendor、odm 模块的依赖和 PKCS#7 签名检查通过，保留强制签名校验，未增加 ABI 差异豁免。
 - 9 / 9 Pro：13,797 个原厂内核导出接口名称与 CRC 全部匹配，保留原厂 CFI 配置，验证协议初始化回调的 CFI 签名。
 - 9RT：13,842 个原厂内核导出接口名称与 CRC 全部匹配，保留原厂 CFI 配置。
 - 8 / 8 Pro / 8T / 9R：核对各系统原厂 vendor、odm 的全部 41 个驱动模块，通过依赖 CRC、内核 release 和 PKCS#7 签名检查；保留强制签名校验。证书根因与修复见 [模块签名说明](docs/module-signing.md)，旧版校验值见 [撤回记录](docs/withdrawn-artifacts.json)。
@@ -42,7 +51,7 @@ S3908 息屏单击手势修复已收录于 v0.2.0，范围与验证说明见 [�
 
 ## 分支和构建
 
-`main` 维护共用脚本与所有机型配置。机型分支的 `device.json` 选择构建目标；GitHub Actions 拒绝分支与机型不一致的请求。8 系列 / 9R 使用 4.19.157，9 / 9 Pro / 9RT 使用 5.4.254。上游源码、ReSukiSU、补丁与工具链均记录版本或校验和。
+`main` 维护共用脚本与所有机型配置。机型分支的 `device.json` 选择构建目标；GitHub Actions 拒绝分支与机型不一致的请求。7 / 7 Pro / 7T / 7T Pro 使用 4.14.180，8 系列 / 9R 使用 4.19.157，9 / 9 Pro / 9RT 使用 5.4.254。上游源码、ReSukiSU、补丁与工具链均记录版本或校验和。
 
 在 GitHub 的 **Actions → Build latest ReSukiSU → Run workflow** 中，选择对应机型分支和 ColorOS / OxygenOS，即可手动构建。每次构建都使用 **ReSukiSU 官方默认分支的最新提交**：先解析 HEAD 的完整 SHA，再按该 SHA 检出编译。若解析失败，构建会报错。
 
@@ -56,7 +65,7 @@ S3908 息屏单击手势修复已收录于 v0.2.0，范围与验证说明见 [�
 python3 scripts/build.py --device oneplus-9r --os coloros
 ```
 
-同机型两套系统即使配置和导出 CRC 相同，也必须核对模块签名证书。SM8250 的 ColorOS、OxygenOS 证书不同，本版继续分别编译，并使用各自的原厂 boot 封装。
+同机型两套系统即使配置和导出 CRC 相同，也必须核对模块签名证书。SM8150、SM8250 均按各系统证书分别编译，并使用各自的原厂 boot 封装。
 
 原厂 ZIP 可从本地或只读共享读取，输出写入本项目：
 
@@ -66,7 +75,7 @@ python3 scripts/extract_stock.py --device oneplus-9r --os coloros \
 # payload 格式另加 --dumper /path/to/payload_dumper
 ```
 
-SM8250 在封装前还需提取对应 ROM 的 vendor、odm，按 [模块检查流程](docs/module-compatibility.md) 生成清单。完整导出表不匹配且没有原厂模块证据时，封装会拒绝继续。
+SM8150、SM8250 在封装前还需提取对应 ROM 的 vendor、odm，按 [模块检查流程](docs/module-compatibility.md) 生成清单。SM8150 要求完整导出表匹配；SM8250 仅保留前述已核实不被原厂模块使用的两个私有回调差异。
 
 ```sh
 python3 scripts/repack.py --device oneplus-9r --os coloros --layout a-only \
@@ -79,6 +88,7 @@ OxygenOS 9R 使用 `--os oxygenos --layout a/b` 及其独立固件信息。原�
 
 ## 来源与许可
 
+- [OnePlus SM8150 官方内核](https://github.com/OnePlusOSS/android_kernel_oneplus_sm8150)
 - [OnePlus SM8250 官方内核](https://github.com/OnePlusOSS/android_kernel_oneplus_sm8250)
 - [OnePlus SM8350 官方内核](https://github.com/OnePlusOSS/android_kernel_oneplus_sm8350)
 - [ReSukiSU](https://github.com/ReSukiSU/ReSukiSU)

@@ -1,0 +1,402 @@
+{
+  "diagnostic_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/43299118174",
+  "kernel_source_commit": "180d787684d5965be5145bcfbf666ed427b4ea18",
+  "method": "Replay actual exporting translation units with the matching source genksyms, restoring only stock identifiers. CRC values are computed, never substituted.",
+  "replayed_exports": 86,
+  "matching_exports_after_restore": 86,
+  "hardware_verified": false,
+  "scope": "Five core translation units only; full-image validation is required before distributing boot.img.",
+  "translation_units": {
+    "drivers_base_platform": {
+      "preprocessed_sha256": "479bd7bb5393b82c8f6e7d75a7141b98f9fc3f951bf91e2f950e2f59f6a27a90",
+      "original": {
+        "generated": 25,
+        "matching": 0,
+        "mismatches": {
+          "platform_bus": [
+            "0xd5c9cdc7",
+            "0x871b09ed"
+          ],
+          "platform_get_resource": [
+            "0x912b6149",
+            "0x86b01e3f"
+          ],
+          "platform_get_irq": [
+            "0x19be3ba8",
+            "0xd598f174"
+          ],
+          "platform_irq_count": [
+            "0x68d5b9de",
+            "0x27bca548"
+          ],
+          "platform_get_resource_byname": [
+            "0x26ae9bef",
+            "0xe3c246e8"
+          ],
+          "platform_get_irq_byname": [
+            "0x8e74667e",
+            "0xd767c651"
+          ],
+          "platform_add_devices": [
+            "0xcb6e2113",
+            "0x68fadc9d"
+          ],
+          "platform_device_put": [
+            "0x95a7c965",
+            "0x70885e75"
+          ],
+          "platform_device_alloc": [
+            "0xabfcee45",
+            "0x8345f1b4"
+          ],
+          "platform_device_add_resources": [
+            "0xf0e89dd5",
+            "0x6ec17847"
+          ],
+          "platform_device_add_data": [
+            "0x5c79aa5c",
+            "0x834164e4"
+          ],
+          "platform_device_add_properties": [
+            "0x72941c1",
+            "0x9e08c25d"
+          ],
+          "platform_device_add": [
+            "0x693455d9",
+            "0xc1419c3d"
+          ],
+          "platform_device_del": [
+            "0xa56510cb",
+            "0xbf0395a0"
+          ],
+          "platform_device_register": [
+            "0x2805dc6f",
+            "0xe7baefb6"
+          ],
+          "platform_device_unregister": [
+            "0xf97f2996",
+            "0xef1362ab"
+          ],
+          "platform_device_register_full": [
+            "0xd4075fac",
+            "0x62f60aec"
+          ],
+          "__platform_driver_register": [
+            "0x2872568f",
+            "0xb44de719"
+          ],
+          "platform_driver_unregister": [
+            "0x9348095d",
+            "0x34ee4269"
+          ],
+          "__platform_driver_probe": [
+            "0x7383db67",
+            "0x2f09076e"
+          ],
+          "__platform_create_bundle": [
+            "0xb530ec13",
+            "0xaf12c25a"
+          ],
+          "__platform_register_drivers": [
+            "0x30677682",
+            "0x9ceb94ae"
+          ],
+          "platform_unregister_drivers": [
+            "0x4f1251b6",
+            "0xc856ef10"
+          ],
+          "platform_bus_type": [
+            "0x4e7315f1",
+            "0x4aec501"
+          ],
+          "dma_get_required_mask": [
+            "0x47853f3c",
+            "0xf37c528a"
+          ]
+        }
+      },
+      "rename": {
+        "generated": 25,
+        "matching": 25,
+        "mismatches": {}
+      }
+    },
+    "kernel_locking_mutex": {
+      "preprocessed_sha256": "62dc2977a76325b1539acfd7682834469f0e701a766c5ab05d04f855bd0e94cc",
+      "original": {
+        "generated": 11,
+        "matching": 0,
+        "mismatches": {
+          "__mutex_init": [
+            "0xc02184e5",
+            "0xfa779688"
+          ],
+          "mutex_lock": [
+            "0xe7aa25e2",
+            "0x7e27c140"
+          ],
+          "mutex_unlock": [
+            "0xce2fe15b",
+            "0xd729fb9d"
+          ],
+          "ww_mutex_unlock": [
+            "0xba4a5ae",
+            "0xc893a3a2"
+          ],
+          "mutex_lock_interruptible": [
+            "0xb181cf77",
+            "0x32cee252"
+          ],
+          "mutex_lock_killable": [
+            "0xbc463842",
+            "0xb3264a9c"
+          ],
+          "mutex_lock_io": [
+            "0x6bf5eac3",
+            "0xf96387dd"
+          ],
+          "mutex_trylock": [
+            "0x9de5df27",
+            "0x95c28306"
+          ],
+          "ww_mutex_lock": [
+            "0xbd6a53aa",
+            "0xcd2c5851"
+          ],
+          "ww_mutex_lock_interruptible": [
+            "0xdfb300eb",
+            "0xd62c4482"
+          ],
+          "atomic_dec_and_mutex_lock": [
+            "0xd3c91aac",
+            "0xa6bbba95"
+          ]
+        }
+      },
+      "rename": {
+        "generated": 11,
+        "matching": 11,
+        "mismatches": {}
+      }
+    },
+    "kernel_module": {
+      "preprocessed_sha256": "7cd0261f9dfaf7714a9fe802ed9f8ab17e28dc8e11bb689279d7ae0264b72b54",
+      "original": {
+        "generated": 19,
+        "matching": 6,
+        "mismatches": {
+          "module_mutex": [
+            "0xd1223596",
+            "0xc86425b0"
+          ],
+          "__module_put_and_exit": [
+            "0x36f6ddc2",
+            "0xa11044c5"
+          ],
+          "each_symbol_section": [
+            "0x3d1b70b6",
+            "0xcaf4a2"
+          ],
+          "find_symbol": [
+            "0xf67981d0",
+            "0xa6855541"
+          ],
+          "find_module": [
+            "0xa319388e",
+            "0x53b46c95"
+          ],
+          "ref_module": [
+            "0x93a6ca60",
+            "0x873c2ca1"
+          ],
+          "module_refcount": [
+            "0xb0b38ca8",
+            "0xd869b184"
+          ],
+          "__module_get": [
+            "0x4a330f9f",
+            "0x3cdf39aa"
+          ],
+          "try_module_get": [
+            "0xe9c0fb16",
+            "0x6c4e8f5e"
+          ],
+          "module_put": [
+            "0xcb411aa1",
+            "0x10c7474e"
+          ],
+          "__module_address": [
+            "0xa99290a1",
+            "0x7d5b9fa"
+          ],
+          "__module_text_address": [
+            "0xa90d9a6b",
+            "0x7ea58e27"
+          ],
+          "module_layout": [
+            "0xcadd18c7",
+            "0xa9c6dadd"
+          ]
+        }
+      },
+      "rename": {
+        "generated": 19,
+        "matching": 19,
+        "mismatches": {}
+      }
+    },
+    "kernel_sched_core": {
+      "preprocessed_sha256": "15af774b7273fffbe430683e7a60728f337fa5435fee4d0640c0c1e2343ea1fe",
+      "original": {
+        "generated": 20,
+        "matching": 12,
+        "mismatches": {
+          "set_cpus_allowed_ptr": [
+            "0x72bee67",
+            "0x22071204"
+          ],
+          "kick_process": [
+            "0x9b032f7d",
+            "0xcaf9a981"
+          ],
+          "wake_up_process": [
+            "0x7049536a",
+            "0x96c9fb4a"
+          ],
+          "set_user_nice": [
+            "0x3f670a11",
+            "0xb255d5e6"
+          ],
+          "sched_setscheduler": [
+            "0x72c4286e",
+            "0x13a2c0b"
+          ],
+          "sched_setattr": [
+            "0x2d7726e8",
+            "0x62e2c07f"
+          ],
+          "sched_setscheduler_nocheck": [
+            "0x7d3011a8",
+            "0xc39fdb3f"
+          ],
+          "yield_to": [
+            "0x9ee717f7",
+            "0x675bb9dc"
+          ]
+        }
+      },
+      "rename": {
+        "generated": 20,
+        "matching": 20,
+        "mismatches": {}
+      }
+    },
+    "mm_slub": {
+      "preprocessed_sha256": "477e59e0acccb0624c9ddfe5c9da290f07313a5fab249591db3a07e4966900d1",
+      "original": {
+        "generated": 11,
+        "matching": 6,
+        "mismatches": {
+          "kmem_cache_alloc": [
+            "0xeb6538ad",
+            "0xc47284e8"
+          ],
+          "kmem_cache_alloc_trace": [
+            "0xc190bb34",
+            "0xb0d86db8"
+          ],
+          "kmem_cache_free": [
+            "0x4193423",
+            "0xacd41885"
+          ],
+          "kmem_cache_free_bulk": [
+            "0x2dc9b634",
+            "0xa18b1d86"
+          ],
+          "kmem_cache_alloc_bulk": [
+            "0xcb7480cb",
+            "0x5c188b54"
+          ]
+        }
+      },
+      "rename": {
+        "generated": 11,
+        "matching": 11,
+        "mismatches": {}
+      }
+    }
+  },
+  "follow_up": {
+    "diagnostic_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/43303055763",
+    "method": "Actual namespace and motor compile graphs, plus display identifier and stock telemetry enum restoration replay. No CRC substitution. Complete Image checks recorded separately with each artifact.",
+    "translation_units": {
+      "drivers_gpu_drm_msm_dsi-staging_dsi_display": {
+        "preprocessed_sha256": "b54c8f6622c555cc6b03967b92b956c9ea33eb554904b09ffb74d9db52dc1841",
+        "actual": {
+          "generated": 3,
+          "matching": 2,
+          "mismatches": {
+            "get_main_display": [
+              "0xdaf920b6",
+              "0x80e61496"
+            ]
+          }
+        },
+        "panel_identifiers": {
+          "generated": 3,
+          "matching": 3,
+          "mismatches": {}
+        },
+        "all_identifiers": {
+          "generated": 3,
+          "matching": 3,
+          "mismatches": {}
+        }
+      },
+      "drivers_input_touchscreen_oplus_touchscreen_touchpanel_healthinfo": {
+        "preprocessed_sha256": "a8724d076a707a143daa3ad482352ed095ee53a1e3921ed706b87ec514a18120",
+        "actual": {
+          "generated": 2,
+          "matching": 1,
+          "mismatches": {
+            "tp_healthinfo_report": [
+              "0xa56a839d",
+              "0x815a596c"
+            ]
+          }
+        },
+        "stock_enum": {
+          "generated": 2,
+          "matching": 2,
+          "mismatches": {}
+        }
+      },
+      "drivers_misc_motor": {
+        "preprocessed_sha256": "b7dd145e54dcb2ff630eaad9ce7ba0d731f892d6c6955344dc443d3f54f0c199",
+        "actual": {
+          "generated": 2,
+          "matching": 2,
+          "mismatches": {}
+        }
+      },
+      "fs_namespace": {
+        "preprocessed_sha256": "b7dc24546dd39670865d2caffc89e90d98c55da4bef6bda4bf72932247a66fd9",
+        "actual": {
+          "generated": 21,
+          "matching": 21,
+          "mismatches": {}
+        }
+      }
+    },
+    "stock_touch_enum_evidence": {
+      "crc": "0xa56a839d",
+      "original_dispatch_upper_bound": 16,
+      "original_dispatch_instruction": "cmp w1, #0x10",
+      "removed_from_public_enum": [
+        "HEALTH_GESTURE_READ",
+        "HEALTH_BELOW_RATE"
+      ],
+      "implementation": "Original IDs 0..16 retained; both new in-tree telemetry events have separate IDs and keep their handlers. Actual C regression checks the IDs, width and non-collision."
+    }
+  }
+}
