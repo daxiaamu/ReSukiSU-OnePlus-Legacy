@@ -28,6 +28,8 @@ ReSukiSU 上游已迁移至 [Baka-SU/BakaSU](https://github.com/Baka-SU/BakaSU)�
 
 [Android 开心版软件下载](https://pan.quark.cn/s/14e8a6044f77)
 
+其他版本系统如需定制，请联系：[120.oplus.icu](https://120.oplus.icu)。
+
 S3908 息屏单击手势修复已收录于 v0.2.0，范围与验证说明见 [触控手势排查](docs/touch-gestures.md)。
 
 9RT 已包含在 v0.2.0，适配细节见 [9RT 说明](docs/oneplus-9rt.md)。

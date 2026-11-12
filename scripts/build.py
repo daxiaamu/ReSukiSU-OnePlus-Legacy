@@ -173,6 +173,24 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     for required in ("CONFIG_KSU=y", "CONFIG_KSU_MANUAL_HOOK=y", "CONFIG_KALLSYMS_ALL=y", "CONFIG_MODVERSIONS=y"):
         if required not in final_config.splitlines():
             raise RuntimeError("Kconfig dropped required option: " + required)
+    if data["platform"] == "sm8150" and diagnostics_only:
+        target = "drivers/platform/msm/gsi/gsi"
+        run(*options, "KBUILD_SYMTYPES=1", target + ".o", env=env)
+        run(*options, "KCPPFLAGS=-D__GENKSYMS__", target + ".i", env=env)
+        dest = ROOT / "out" / name / rom / "gsi-diagnostics"
+        dest.mkdir(parents=True, exist_ok=True)
+        for suffix in (".o", ".i", ".symtypes"):
+            shutil.copyfile(output / (target + suffix), dest / ("gsi" + suffix))
+        shutil.copyfile(output / ".config", dest / "kernel.config")
+        (dest / "gsi-symbols.txt").write_text(subprocess.check_output(
+            ["llvm-nm", str(output / (target + ".o"))], text=True))
+        with (output / (target + ".i")).open("rb") as input_file, \
+                (dest / "genksyms-crcs.txt").open("wb") as stdout, \
+                (dest / "genksyms-warnings.txt").open("wb") as stderr:
+            subprocess.run([str(output / "scripts/genksyms/genksyms"), "-w"],
+                           stdin=input_file, stdout=stdout, stderr=stderr, check=True)
+        print("GSI symbol-version diagnostics only; no kernel image produced.")
+        return
     if protocol is not None:
         run(*options, "-j" + str(os.cpu_count() or 2), "KBUILD_SYMTYPES=1", "net/oplus_modules/data_module/", env=env)
     if data["platform"] == "sm8150":
@@ -182,8 +200,6 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     if name == "oneplus-8t":
         run(*options, "-j" + str(os.cpu_count() or 2), "net/ipv4/route.o",
             "net/ipv6/route.o", "net/xfrm/xfrm_policy.o", env=env)
-    if diagnostics_only and protocol is None:
-        raise ValueError("Protocol diagnostics are not applicable to SM8150")
     if diagnostics_only:
         if data["platform"] == "sm8250":
             run(*options, "KBUILD_SYMTYPES=1", "drivers/input/touchscreen/touch.o", env=env)
