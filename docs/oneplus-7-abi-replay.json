@@ -325,5 +325,78 @@
         "mismatches": {}
       }
     }
+  },
+  "follow_up": {
+    "diagnostic_run": "https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/actions/runs/43303055763",
+    "method": "Actual namespace and motor compile graphs, plus display identifier and stock telemetry enum restoration replay. No CRC substitution. Complete Image checks recorded separately with each artifact.",
+    "translation_units": {
+      "drivers_gpu_drm_msm_dsi-staging_dsi_display": {
+        "preprocessed_sha256": "b54c8f6622c555cc6b03967b92b956c9ea33eb554904b09ffb74d9db52dc1841",
+        "actual": {
+          "generated": 3,
+          "matching": 2,
+          "mismatches": {
+            "get_main_display": [
+              "0xdaf920b6",
+              "0x80e61496"
+            ]
+          }
+        },
+        "panel_identifiers": {
+          "generated": 3,
+          "matching": 3,
+          "mismatches": {}
+        },
+        "all_identifiers": {
+          "generated": 3,
+          "matching": 3,
+          "mismatches": {}
+        }
+      },
+      "drivers_input_touchscreen_oplus_touchscreen_touchpanel_healthinfo": {
+        "preprocessed_sha256": "a8724d076a707a143daa3ad482352ed095ee53a1e3921ed706b87ec514a18120",
+        "actual": {
+          "generated": 2,
+          "matching": 1,
+          "mismatches": {
+            "tp_healthinfo_report": [
+              "0xa56a839d",
+              "0x815a596c"
+            ]
+          }
+        },
+        "stock_enum": {
+          "generated": 2,
+          "matching": 2,
+          "mismatches": {}
+        }
+      },
+      "drivers_misc_motor": {
+        "preprocessed_sha256": "b7dd145e54dcb2ff630eaad9ce7ba0d731f892d6c6955344dc443d3f54f0c199",
+        "actual": {
+          "generated": 2,
+          "matching": 2,
+          "mismatches": {}
+        }
+      },
+      "fs_namespace": {
+        "preprocessed_sha256": "b7dc24546dd39670865d2caffc89e90d98c55da4bef6bda4bf72932247a66fd9",
+        "actual": {
+          "generated": 21,
+          "matching": 21,
+          "mismatches": {}
+        }
+      }
+    },
+    "stock_touch_enum_evidence": {
+      "crc": "0xa56a839d",
+      "original_dispatch_upper_bound": 16,
+      "original_dispatch_instruction": "cmp w1, #0x10",
+      "removed_from_public_enum": [
+        "HEALTH_GESTURE_READ",
+        "HEALTH_BELOW_RATE"
+      ],
+      "implementation": "Original IDs 0..16 retained; both new in-tree telemetry events have separate IDs and keep their handlers. Actual C regression checks the IDs, width and non-collision."
+    }
   }
 }

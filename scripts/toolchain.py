@@ -4,8 +4,25 @@ import os
 import subprocess
 import base64
 import hashlib
+import time
+import urllib.error
 import urllib.request
 from project import ROOT, run
+
+
+def download_legacy_linker(url):
+    """Retry transient AOSP failures; content verification remains mandatory."""
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(url, timeout=120) as response:
+                return response.read()
+        except (urllib.error.URLError, TimeoutError) as error:
+            if isinstance(error, urllib.error.HTTPError) and error.code not in (408, 429, 500, 502, 503, 504):
+                raise
+            if attempt == 2:
+                raise
+            print("AOSP linker download interrupted; retrying", attempt + 1, "of 2", flush=True)
+            time.sleep(2 ** (attempt + 1))
 
 
 def configure_legacy_linker():
@@ -14,8 +31,7 @@ def configure_legacy_linker():
     directory = ROOT / ".work" / "toolchains" / lock["commit"]
     binary = directory / lock["filename"]
     if not binary.is_file() or hashlib.sha256(binary.read_bytes()).hexdigest() != lock["sha256"]:
-        with urllib.request.urlopen(lock["url"], timeout=120) as response:
-            raw = base64.b64decode(response.read())
+        raw = base64.b64decode(download_legacy_linker(lock["url"]))
         if hashlib.sha256(raw).hexdigest() != lock["sha256"]:
             raise ValueError("Legacy AOSP linker checksum mismatch")
         directory.mkdir(parents=True, exist_ok=True)
