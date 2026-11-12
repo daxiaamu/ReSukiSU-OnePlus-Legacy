@@ -12,6 +12,10 @@ ReSukiSU 上游已迁移至 [Baka-SU/BakaSU](https://github.com/Baka-SU/BakaSU)�
 
 | 机型 | 独立分支 | ColorOS | OxygenOS |
 | --- | --- | --- | --- |
+| 一加 7（适配验证中） | [oneplus-7](../../tree/oneplus-7) | GM1900_11_H.40 | GM1901_11_H.41 |
+| 一加 7 Pro（适配验证中） | [oneplus-7-pro](../../tree/oneplus-7-pro) | GM1910_11_H.40 | GM1911_11_H.41 |
+| 一加 7T（适配验证中） | [oneplus-7t](../../tree/oneplus-7t) | HD1900_11_F.22 | HD1901_11_F.22 |
+| 一加 7T Pro（适配验证中） | [oneplus-7t-pro](../../tree/oneplus-7t-pro) | HD1910_11_F.22 | HD1911_11_F.22 |
 | 一加 8 | [oneplus-8](../../tree/oneplus-8) | IN2010_13.1.0.190(CN01) | IN2013_13.1.0.593(EX01) |
 | 一加 8 Pro | [oneplus-8-pro](../../tree/oneplus-8-pro) | IN2020_13.1.0.190(CN01) | IN2023_13.1.0.591(EX01) |
 | 一加 8T | [oneplus-8t](../../tree/oneplus-8t) | KB2000_14.0.0.602(CN01) | KB2001_14.0.0.1311(EX01) |
@@ -27,6 +31,8 @@ ReSukiSU 上游已迁移至 [Baka-SU/BakaSU](https://github.com/Baka-SU/BakaSU)�
 S3908 息屏单击手势修复已收录于 v0.2.0，范围与验证说明见 [触控手势排查](docs/touch-gestures.md)。
 
 9RT 已包含在 v0.2.0，适配细节见 [9RT 说明](docs/oneplus-9rt.md)。
+
+7 / 7 Pro / 7T / 7T Pro 新增适配使用 SM8150 / Linux 4.14.180，尚在编译和兼容性验证阶段，不包含在现有 v0.3.0 中。固件、源码与验证范围见 [7 系列说明](docs/oneplus-7.md)。
 
 ## 成品与验证范围
 
@@ -79,6 +85,7 @@ OxygenOS 9R 使用 `--os oxygenos --layout a/b` 及其独立固件信息。原�
 
 ## 来源与许可
 
+- [OnePlus SM8150 官方内核](https://github.com/OnePlusOSS/android_kernel_oneplus_sm8150)
 - [OnePlus SM8250 官方内核](https://github.com/OnePlusOSS/android_kernel_oneplus_sm8250)
 - [OnePlus SM8350 官方内核](https://github.com/OnePlusOSS/android_kernel_oneplus_sm8350)
 - [ReSukiSU](https://github.com/ReSukiSU/ReSukiSU)
