@@ -1,0 +1,82 @@
+--- a/vendor/oplus/kernel/touchpanel/oplus_touchscreen/Synaptics/Syna_tcm_oncell/synaptics_tcm_oncell.h
++++ b/vendor/oplus/kernel/touchpanel/oplus_touchscreen/Synaptics/Syna_tcm_oncell/synaptics_tcm_oncell.h
+@@ -118,6 +118,7 @@
+ #define VEE_DETECT      0x05
+ #define HEART_DETECT    0x07
+ #define UNICODE_DETECT  0x08
++#define STAP_DETECT     0x10
+ #define M_UNICODE       0x6d
+ #define W_UNICODE       0x77
+ 
+--- a/vendor/oplus/kernel/touchpanel/oplus_touchscreen/Synaptics/Syna_tcm_oncell/synaptics_tcm_oncell.c
++++ b/vendor/oplus/kernel/touchpanel/oplus_touchscreen/Synaptics/Syna_tcm_oncell/synaptics_tcm_oncell.c
+@@ -3349,6 +3349,9 @@
+         }
+         break;
+ 
++    case STAP_DETECT:
++        gesture->gesture_type = SingleTap;
++        break;
+     case TRIANGLE_DETECT:
+     default:
+         TPD_DEBUG("not support\n");
+@@ -3367,6 +3370,11 @@
+         gesture->Point_3rd.y    = (touch_data->data_point[18] | (touch_data->data_point[19] << 8));
+         gesture->Point_4th.x    = (touch_data->data_point[20] | (touch_data->data_point[21] << 8));
+         gesture->Point_4th.y    = (touch_data->data_point[22] | (touch_data->data_point[23] << 8));
++    }
++
++    if (gesture->gesture_type == SingleTap || gesture->gesture_type == DouTap) {
++        gesture->Point_start.x = (touch_data->extra_gesture_info[0] | (touch_data->extra_gesture_info[1] << 8));
++        gesture->Point_start.y = (touch_data->extra_gesture_info[2] | (touch_data->extra_gesture_info[3] << 8));
+     }
+ 
+     TPD_INFO("lpwg:0x%x, type:%d, clockwise: %d, points: (%d, %d)(%d, %d)(%d, %d)(%d, %d)(%d, %d)(%d, %d)\n",
+--- a/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_common_driver.c
++++ b/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_common_driver.c
+@@ -1705,7 +1705,7 @@
+ }
+ EXPORT_SYMBOL(tp_gpio_current_leakage_handler);
+ 
+-bool tp_boot_mode_normal()
++bool tp_boot_mode_normal(void)
+ {
+     if (!g_tp) {
+         return false;
+diff --git a/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_healthinfo.h b/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_healthinfo.h
+--- a/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_healthinfo.h
++++ b/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_healthinfo.h
+@@ -59,7 +59,6 @@
+ typedef enum {
+     HEALTH_TOUCH = 0,
+     HEALTH_GESTURE,
+-    HEALTH_GESTURE_READ,
+     HEALTH_FINGERPRINT,
+     HEALTH_FACE_DETECT,
+     HEALTH_REPORT,
+@@ -75,8 +74,11 @@
+     HEALTH_FW_UPDATE_COST,
+     HEALTH_GRIP,
+     HEALTH_GRIP_UP,
+-    HEALTH_BELOW_RATE,
+ } healthinfo_type;
++
++/* Preserve the stock public event IDs; these are in-tree telemetry extensions. */
++#define HEALTH_GESTURE_READ ((healthinfo_type)(HEALTH_GRIP_UP + 1))
++#define HEALTH_BELOW_RATE ((healthinfo_type)(HEALTH_GRIP_UP + 2))
+ 
+ void reset_healthinfo_time_counter(u64 *time_counter);
+ void reset_healthinfo_grip_time_record(void *tp_monitor_data, void *tp_grip_info);
+diff --git a/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_healthinfo.c b/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_healthinfo.c
+--- a/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_healthinfo.c
++++ b/vendor/oplus/kernel/touchpanel/oplus_touchscreen/touchpanel_healthinfo.c
+@@ -1060,7 +1060,8 @@
+         return 0;
+     }
+ 
+-    switch(type) {
++    /* Private telemetry IDs extend the original public enum. */
++    switch ((unsigned int)type) {
+     case HEALTH_TOUCH:
+         if (monitor_data->touch_points) {
+             ret = tp_touch_healthinfo_handle(monitor_data, *value_int, monitor_data->touch_points, monitor_data->touch_num, monitor_data->max_finger_support, monitor_data->direction);
