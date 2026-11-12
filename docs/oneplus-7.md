@@ -43,6 +43,6 @@ S3908 触控驱动补齐 `STAP_DETECT (0x10)` 到 `SingleTap` 的事件转换及
 
 八份新内核均由各机型分支的 Actions 编译，使用上游提交 `548d1dda060ca198823d8808804d01f5209ef4a9`。每份 11,964 个原厂导出的名称和 CRC 全部匹配，32 个原厂模块的依赖、版本与签名检查通过；封装后重新解包，核对内核哈希、原厂 ramdisk、DTB、其他非内核组件和启动头，检查镜像大小。
 
-八份 `boot.img`、对应 ZIP、校验表及官方 Actions 管理器 APK 已保存在本地 `out/`。管理器为 v4.2.0-rc3（35259）、ARM64，与内核使用同一上游提交；APK 未修改、未重新签名。构建链接和校验值见 [成品记录](oneplus-7-artifacts.json)。
+八份 `boot.img`、对应 ZIP、校验表及官方 Actions 管理器 APK 已发布于 [v0.4.0 实验版](https://github.com/daxiaamu/ReSukiSU-OnePlus-Legacy/releases/tag/v0.4.0)，本地 `out/` 同时保留。管理器为 v4.2.0-rc3（35259）、ARM64，与内核使用同一上游提交；APK 未修改、未重新签名。构建链接和校验值见 [成品记录](oneplus-7-artifacts.json)。
 
-配置状态为 `experimental`，尚未完成真机验证；开机、解密、触控、升降摄像头、指纹、无线网络、休眠及 Root 授权仍需对应设备实测。这批新增镜像不包含在现有 v0.3.0 Release 中。
+配置状态为 `experimental`，尚未完成真机验证；开机、解密、触控、升降摄像头、指纹、无线网络、休眠及 Root 授权仍需对应设备实测。这批镜像在 v0.4.0 单独发布，原有七款机型的 v0.3.0 Release 保持不变。
