@@ -52,7 +52,7 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
     checkout(data["kernel"]["repository"], data["kernel"]["commit"], source)
     modules = work / "modules"
     checkout(data["vendor"]["repository"], data["vendor"]["commit"], modules)
-    vendor_patch = ROOT / "patches" / ("vendor-" + {"oneplus-8-pro": "oneplus-8", "oneplus-9-pro": "oneplus-9"}.get(name, name) + ".patch")
+    vendor_patch = ROOT / "patches" / ("vendor-" + {"oneplus-7-pro": "oneplus-7", "oneplus-7t": "oneplus-7", "oneplus-7t-pro": "oneplus-7", "oneplus-8-pro": "oneplus-8", "oneplus-9-pro": "oneplus-9"}.get(name, name) + ".patch")
     if vendor_patch.exists():
         run("git", "apply", "--check", vendor_patch, cwd=modules)
         run("git", "apply", vendor_patch, cwd=modules)
@@ -134,6 +134,19 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
             run("bash", "scripts/gki/generate_defconfig.sh", target, cwd=source, env=env)
         run(*options, target, env=env)
     translations = {}
+    if data["platform"] == "sm8150":
+        # The released 4.14 sources renamed these stock OPPO Kconfig symbols.
+        renamed = ("FG_IO_OPT", "MEM_MONITOR", "NFC", "MOTOR", "HANS", "ARCH_FILE",
+                   "COMMON_SOFT", "DEVICE_IFNO", "HEALTHINFO", "JANK_INFO")
+        stock_values = dict(line.split("=", 1) for line in (output / ".config").read_text().splitlines()
+                            if line.startswith("CONFIG_") and "=" in line)
+        with (output / ".config").open("a") as stream:
+            for suffix in renamed:
+                old, new = "CONFIG_OPPO_" + suffix, "CONFIG_OPLUS_" + suffix
+                if old in stock_values:
+                    translations[old] = new
+                    stream.write(new + "=" + stock_values[old] + "\n")
+        env["TARGET_BUILD_VARIANT"] = "user"
     if data["platform"] == "sm8350":
         stock_lines = (output / ".config").read_text().splitlines()
         for line in stock_lines:
@@ -153,6 +166,10 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
 
     run(*options, "olddefconfig", env=env)
     final_config = (output / ".config").read_text()
+    if data["platform"] == "sm8150":
+        for old, new in translations.items():
+            if new + "=" + stock_values[old] not in final_config.splitlines():
+                raise RuntimeError("Kconfig dropped renamed stock option: " + new)
     for required in ("CONFIG_KSU=y", "CONFIG_KSU_MANUAL_HOOK=y", "CONFIG_KALLSYMS_ALL=y", "CONFIG_MODVERSIONS=y"):
         if required not in final_config.splitlines():
             raise RuntimeError("Kconfig dropped required option: " + required)

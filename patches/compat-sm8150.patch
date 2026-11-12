@@ -1,0 +1,31 @@
+--- a/Makefile
++++ b/Makefile
+@@ -545,7 +545,7 @@
+ $(error "Clang with Android --target detected. Did you specify CLANG_TRIPLE?")
+ endif
+ GCC_TOOLCHAIN_DIR := $(dir $(shell which $(CROSS_COMPILE)elfedit))
+-CLANG_FLAGS	+= --prefix=$(GCC_TOOLCHAIN_DIR)
++CLANG_FLAGS	+= --prefix=$(GCC_TOOLCHAIN_DIR)$(notdir $(CROSS_COMPILE))
+ GCC_TOOLCHAIN	:= $(realpath $(GCC_TOOLCHAIN_DIR)/..)
+ endif
+ ifneq ($(GCC_TOOLCHAIN),)
+--- a/arch/arm64/kernel/Makefile
++++ b/arch/arm64/kernel/Makefile
+@@ -74,5 +74,5 @@
+ 
+ #ifdef CONFIG_OPLUS_SECURE_GUARD
+ obj-$(CONFIG_OPLUS_SECURE_GUARD)		+=  rootguard/
+-obj-$(CONFIG_OPLUS_SECURE_GUARD)                +=  oplus_root.o
++obj-$(CONFIG_OPLUS_ROOT_CHECK)                  +=  oplus_root.o
+ #endif /* CONFIG_OPLUS_SECURE_GUARD */
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -3216,7 +3216,7 @@
+  * This function gets called by the timer code, with HZ frequency.
+  * We call it with interrupts disabled.
+  */
+-void adjust_sched_assist_input_ctrl(){
++void adjust_sched_assist_input_ctrl(void){
+ 	if (!sysctl_input_boost_enabled)
+ 		return;
+ 	if(sysctl_slide_boost_enabled){
