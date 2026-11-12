@@ -175,6 +175,9 @@ def build(name, config=None, rom='coloros', diagnostics_only=False):
             raise RuntimeError("Kconfig dropped required option: " + required)
     if protocol is not None:
         run(*options, "-j" + str(os.cpu_count() or 2), "KBUILD_SYMTYPES=1", "net/oplus_modules/data_module/", env=env)
+    if data["platform"] == "sm8150":
+        # Diagnose vendor -Werror failures before the expensive full Image build.
+        run(*options, "-j" + str(os.cpu_count() or 2), "drivers/misc/oplus_motor/", env=env)
     if name == "oneplus-8t":
         run(*options, "-j" + str(os.cpu_count() or 2), "net/ipv4/route.o",
             "net/ipv6/route.o", "net/xfrm/xfrm_policy.o", env=env)
