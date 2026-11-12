@@ -18,3 +18,14 @@
 -obj-$(CONFIG_OPLUS_SECURE_GUARD)                +=  oplus_root.o
 +obj-$(CONFIG_OPLUS_ROOT_CHECK)                  +=  oplus_root.o
  #endif /* CONFIG_OPLUS_SECURE_GUARD */
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -3216,7 +3216,7 @@
+  * This function gets called by the timer code, with HZ frequency.
+  * We call it with interrupts disabled.
+  */
+-void adjust_sched_assist_input_ctrl(){
++void adjust_sched_assist_input_ctrl(void){
+ 	if (!sysctl_input_boost_enabled)
+ 		return;
+ 	if(sysctl_slide_boost_enabled){
